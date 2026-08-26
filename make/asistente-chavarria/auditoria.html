@@ -1,0 +1,602 @@
+<title>Auditoría del Asistente Daniela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#f5f7f9;
+  --surface:#ffffff;
+  --surface-2:#eef1f5;
+  --ink:#151d28;
+  --ink-soft:#4c5867;
+  --ink-faint:#79838f;
+  --rule:#dde2e9;
+  --rule-strong:#c3cbd5;
+  --gold:#9d6c10;
+  --gold-bg:#f7edd7;
+  --crit:#963320;
+  --crit-bg:#f8e2dc;
+  --ok:#2a6152;
+  --ok-bg:#dfeee9;
+  --shadow:0 1px 2px rgba(21,29,40,.05),0 8px 24px -16px rgba(21,29,40,.25);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#11151b;
+    --surface:#181e26;
+    --surface-2:#1f262f;
+    --ink:#e7ecf1;
+    --ink-soft:#a4aeba;
+    --ink-faint:#7a8593;
+    --rule:#29313b;
+    --rule-strong:#3a444f;
+    --gold:#dda94b;
+    --gold-bg:#33290f;
+    --crit:#e28a70;
+    --crit-bg:#3a231b;
+    --ok:#6bb39e;
+    --ok-bg:#1c332d;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11151b;
+  --surface:#181e26;
+  --surface-2:#1f262f;
+  --ink:#e7ecf1;
+  --ink-soft:#a4aeba;
+  --ink-faint:#7a8593;
+  --rule:#29313b;
+  --rule-strong:#3a444f;
+  --gold:#dda94b;
+  --gold-bg:#33290f;
+  --crit:#e28a70;
+  --crit-bg:#3a231b;
+  --ok:#6bb39e;
+  --ok-bg:#1c332d;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px 96px}
+
+/* ---------- header ---------- */
+header{
+  border-bottom:1px solid var(--rule);
+  margin-bottom:48px;
+  padding:56px 0 32px;
+}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 18px;
+}
+h1{
+  font-family:Newsreader,Georgia,serif;
+  font-weight:600;
+  font-size:clamp(34px,5.5vw,52px);
+  line-height:1.08;
+  letter-spacing:-.015em;
+  margin:0 0 20px;
+  text-wrap:balance;
+}
+.standfirst{
+  font-family:Newsreader,Georgia,serif;
+  font-size:19px;
+  line-height:1.5;
+  color:var(--ink-soft);
+  margin:0 0 28px;
+  max-width:62ch;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 20px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;
+  color:var(--ink-faint);
+}
+.meta span{white-space:nowrap}
+
+/* ---------- verdict ---------- */
+.verdict{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--crit);
+  border-radius:2px;
+  padding:24px 26px;
+  margin:0 0 56px;
+  box-shadow:var(--shadow);
+}
+.verdict h2{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--crit);
+  margin:0 0 12px;
+  font-weight:500;
+}
+.verdict p{margin:0 0 12px;max-width:64ch}
+.verdict p:last-child{margin-bottom:0}
+
+/* ---------- sections ---------- */
+section{margin:0 0 64px}
+h2.sec{
+  font-family:Newsreader,Georgia,serif;
+  font-weight:600;
+  font-size:28px;
+  letter-spacing:-.01em;
+  margin:0 0 8px;
+  text-wrap:balance;
+}
+.sec-note{
+  color:var(--ink-soft);
+  margin:0 0 28px;
+  max-width:64ch;
+}
+h3.sub{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:40px 0 16px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--rule);
+  font-weight:500;
+}
+
+/* ---------- gap items ---------- */
+.gaps{display:flex;flex-direction:column;gap:2px}
+.gap{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:2px;
+  padding:20px 22px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.gap-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.chip{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:3px 8px;
+  border-radius:2px;
+  white-space:nowrap;
+  font-weight:500;
+}
+.chip.crit{background:var(--crit-bg);color:var(--crit)}
+.chip.imp{background:var(--gold-bg);color:var(--gold)}
+.chip.nice{background:var(--surface-2);color:var(--ink-faint)}
+.chip.tech{background:var(--ok-bg);color:var(--ok)}
+.gap-title{
+  font-weight:600;
+  font-size:17px;
+  margin:0;
+  letter-spacing:-.005em;
+}
+.ask{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-style:italic;
+  font-size:13.5px;
+  line-height:1.55;
+  color:var(--ink-soft);
+  background:var(--surface-2);
+  border-radius:2px;
+  padding:10px 14px;
+  margin:0;
+}
+.ask b{
+  font-style:normal;
+  font-weight:500;
+  color:var(--ink-faint);
+  display:block;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.gap p.why{margin:0;color:var(--ink-soft);max-width:66ch}
+.gap p.why strong{color:var(--ink);font-weight:600}
+
+/* ---------- prose ---------- */
+p{margin:0 0 16px}
+ul.plain{margin:0 0 16px;padding-left:20px;color:var(--ink-soft)}
+ul.plain li{margin-bottom:8px;max-width:64ch}
+ul.plain li strong{color:var(--ink);font-weight:600}
+code{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.88em;
+  background:var(--surface-2);
+  padding:1px 5px;
+  border-radius:2px;
+}
+
+/* ---------- checklist ---------- */
+.checklist{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:2px;
+  padding:8px 4px;
+  box-shadow:var(--shadow);
+}
+.check{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:12px 18px;
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;
+}
+.check:last-child{border-bottom:none}
+.check input{
+  appearance:none;
+  flex:0 0 auto;
+  width:17px;height:17px;
+  margin:4px 0 0;
+  border:1.5px solid var(--rule-strong);
+  border-radius:2px;
+  background:var(--surface);
+  cursor:pointer;
+  position:relative;
+}
+.check input:checked{background:var(--gold);border-color:var(--gold)}
+.check input:checked::after{
+  content:"";
+  position:absolute;
+  left:5px;top:1px;
+  width:4px;height:9px;
+  border:solid var(--surface);
+  border-width:0 2px 2px 0;
+  transform:rotate(42deg);
+}
+.check input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.check span{line-height:1.5}
+.check input:checked + span{color:var(--ink-faint);text-decoration:line-through}
+.check-note{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;
+  color:var(--ink-faint);
+  margin:14px 0 0;
+}
+
+footer{
+  border-top:1px solid var(--rule);
+  padding-top:24px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;
+  color:var(--ink-faint);
+  line-height:1.7;
+}
+
+@media (min-width:720px){
+  .gap{grid-template-columns:1fr 1fr;align-items:start}
+  .gap-head{grid-column:1/-1}
+  .ask{grid-column:1}
+  .gap p.why{grid-column:2}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Auditoría de prompt · CUT Tláhuac</p>
+  <h1>Qué le falta saber a Daniela</h1>
+  <p class="standfirst">Revisión del prompt del asistente de WhatsApp: los datos que no tiene y que un prospecto le va a preguntar esta semana, más los ajustes de guion de venta que no dependen de información nueva.</p>
+  <div class="meta">
+    <span>Escenario 5982362</span>
+    <span>Módulo 3 · AI Agent</span>
+    <span>Prompt v4</span>
+    <span>26 ago 2026</span>
+  </div>
+</header>
+
+<div class="verdict">
+  <h2>Veredicto</h2>
+  <p>No, la información no está completa. El prompt cubre bien <strong>qué se ofrece</strong> (programas, duraciones, precios de lista, documentos) pero casi no cubre <strong>cómo se compra</strong>: formas de pago, descuentos con monto, becas, cupo y qué pasa cuando al aspirante le falta un papel. Ahí es exactamente donde se cae una venta.</p>
+  <p>Con la regla nueva de no inventar, cada uno de esos huecos ya no produce un dato falso — produce un <em>"déjame confirmarlo con el equipo"</em>. Eso es mejor que mentir, pero enfría la conversación y manda a la dirección justo el trabajo que querías quitarle.</p>
+</div>
+
+<section>
+  <h2 class="sec">Huecos que cuestan ventas ahora</h2>
+  <p class="sec-note">Preguntas que llegan en los primeros mensajes y que hoy Daniela no puede contestar.</p>
+
+  <div class="gaps">
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip crit">Crítico</span><p class="gap-title">Formas de pago</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Puedo pagar con tarjeta?" · "¿Aceptan transferencia?" · "¿Hay meses sin intereses?" · "¿Puedo pagar la inscripción en dos partes?"</p>
+      <p class="why">El prompt no tiene <strong>una sola línea</strong> sobre esto. Es la pregunta que separa al interesado del inscrito, y hoy obliga a escalar. Hace falta: métodos aceptados, si hay pago diferido de la inscripción, y si se puede pagar en línea o solo en caja.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip crit">Crítico</span><p class="gap-title">El monto del descuento por inscribirse el mismo día</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿De cuánto es el descuento si me inscribo hoy?"</p>
+      <p class="why">El prompt dice que el descuento existe y que se aplica antes de las 6:00 pm, pero le prohíbe decir cuánto. <strong>Es tu mejor herramienta de cierre y está inutilizada</strong>: Daniela puede anunciar la promoción y luego no puede cuantificarla, que es la peor combinación posible.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip crit">Crítico</span><p class="gap-title">El descuento de licenciatura, maestría y doctorado es un rango</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Y a mí cuánto me toca de descuento?"</p>
+      <p class="why">Hoy dice "10% al 20%". El prospecto siempre va a oír 20% y la escuela le va a dar 10% — reclamo garantizado en ventanilla. Necesitas <strong>un número fijo, o las condiciones que mueven el porcentaje</strong> (pronto pago, exalumno, grupo, convenio).</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip crit">Crítico</span><p class="gap-title">Qué significa "Trilingüe"</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Por qué se llama Trilingüe?" · "¿Qué idiomas enseñan?"</p>
+      <p class="why">El nombre de la institución promete tres idiomas y el plan de estudios del prompt solo tiene <strong>Inglés y Lengua de Señas</strong>. Es una pregunta obvia, con respuesta a medias, sobre el nombre mismo de la escuela. Si hay un tercer idioma, tiene que estar escrito.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip crit">Crítico</span><p class="gap-title">Becas</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Tienen becas?" · "¿Hay descuento por hermanos?" · "Tengo promedio de 9, ¿aplica algo?"</p>
+      <p class="why">Cero información. En escuela privada esta pregunta llega en casi toda conversación de papás. Hace falta saber si hay beca por promedio, deportiva, por hermanos, y qué se les ofrece a los <strong>sindicatos y empresas</strong> que el propio prompt lista como público objetivo.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip crit">Crítico</span><p class="gap-title">Cupo disponible</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Todavía hay lugares?" · "¿Ya se llenó el grupo?"</p>
+      <p class="why">Las clases empiezan el 7 de septiembre y los salones son de máximo 25 alumnos: <strong>la urgencia más honesta que tienes</strong> y no está en el prompt. Aunque sea un dato que cambie cada semana, vale la pena mantenerlo.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">Daniela no sabe qué día es hoy</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Cuánto falta para que empiecen las clases?" · "Puedo ir el próximo martes"</p>
+      <p class="why">El prompt es estático y el modelo no recibe la fecha actual, así que no puede calcular urgencia ni interpretar "el martes". Se arregla inyectando <code>{{now}}</code> desde Make en el mensaje que recibe el agente. <strong>Sin esto, la marca <code>[CIERRE: cita=]</code> nunca va a poder convertir bien una fecha hablada.</strong></p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Huecos importantes</h2>
+  <p class="sec-note">Salen seguido en cuanto la conversación avanza más allá del precio.</p>
+
+  <div class="gaps">
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Cuando falta el certificado de secundaria</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"Todavía no me dan el certificado, ¿me puedo inscribir?"</p>
+      <p class="why">Situación clásica de agosto y septiembre. El prompt dice que la inscripción es inmediata "una vez entregados documentos y pago", lo que hoy suena a un no. <strong>¿Se acepta constancia o carta de la secundaria mientras llega el certificado?</strong> Si la respuesta es sí, estás perdiendo inscripciones por no tenerlo escrito.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Fecha límite de pago mensual y recargos</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Hasta qué día puedo pagar la colegiatura?" · "¿Cobran recargo si me atraso?"</p>
+      <p class="why">Pregunta directa de papás que están calculando si les alcanza. No está.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Cuántos pagos al año en licenciatura, maestría y doctorado</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿La mensualidad se paga los 12 meses o solo los meses de clase?"</p>
+      <p class="why">En bachillerato el prompt sí lo aclara (12 meses). En los otros tres niveles no dice nada, y la diferencia entre 12 y 9 pagos cambia el costo total en miles de pesos.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Uniforme: costo y dónde se compra</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Cuánto sale el uniforme?" · "¿Dónde lo consigo?"</p>
+      <p class="why">El prompt dice que es obligatorio en bachillerato, o sea que <strong>Daniela introduce un gasto que luego no puede cuantificar</strong>. Mismo problema que el descuento: anunciar sin poder responder.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Cómo funciona la modalidad en línea</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Las clases en línea son en vivo o grabadas?" · "¿Los exámenes son presenciales?" · "¿Qué plataforma usan?"</p>
+      <p class="why">Se ofrece "en línea" para licenciatura, maestría y doctorado sin explicar nada de cómo opera. Quien trabaja entre semana necesita justo eso para decidir.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Reprobación, recursamiento y extraordinarios</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Qué pasa si reprueba una materia?" · "¿Cuánto cuesta un extraordinario?"</p>
+      <p class="why">Pregunta típica de papás cuyo hijo viene con historial complicado — que además es tu público, porque el prompt presume atención a alumnos con rezago académico.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Edad mínima y máxima</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"Tengo 24 años y quiero terminar la prepa, ¿me aceptan?"</p>
+      <p class="why">No hay criterio de edad en ningún nivel. Si hay tope, o si a los mayores se les canaliza a otra opción, tiene que estar.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">La secundaria del mismo plantel</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿También tienen secundaria?" · "¿Cuánto cuesta la secundaria?"</p>
+      <p class="why">El prompt menciona el Colegio María Chavarría Vital al explicar el horario mixto, pero <strong>no define qué hacer si preguntan por ella</strong>. Van a preguntar: es el mismo domicilio y el mismo Facebook. Hoy Daniela tendría que escalar algo tan básico como "sí, y cuesta X".</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Rutas y horarios del transporte</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"Vivo en Tláhuac centro, ¿pasa el camión por mi casa?"</p>
+      <p class="why">Hay precio y radio de cobertura, pero no rutas ni horarios de paso. Sin eso, la respuesta siempre queda en "creo que sí te queda", que es justo lo que la regla de no inventar le prohíbe decir.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Prueba social con números</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿De verdad entran a la UNAM?" · "¿Cuántos años tienen?"</p>
+      <p class="why">El prompt afirma que los egresados logran lugar en universidades públicas, pero sin un solo dato que lo respalde. <strong>"El año pasado 14 de 22 egresados entraron a UNAM o IPN" vende diez veces más</strong> que la afirmación genérica. Si existe el número, es el diferenciador más fuerte que tienes.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Devoluciones</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"Si pago y luego me arrepiento, ¿me devuelven la inscripción?"</p>
+      <p class="why">Freno clásico antes de soltar los $2,500. Una política clara y escrita destraba esa objeción; sin ella, la duda se queda.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip imp">Importante</span><p class="gap-title">Teléfono del plantel</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Tienen un número al que pueda llamar?"</p>
+      <p class="why">El único canal de contacto en el prompt es el WhatsApp de dirección. Mucha gente mayor prefiere llamar y hoy no hay qué darle.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Deseables</h2>
+  <p class="sec-note">Salen menos, pero cuando salen es porque el prospecto ya está serio.</p>
+
+  <div class="gaps">
+    <div class="gap">
+      <div class="gap-head"><span class="chip nice">Deseable</span><p class="gap-title">Qué cubre el seguro escolar de $1,000</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Ese seguro para qué sirve?"</p>
+      <p class="why">Es un cobro anual que Daniela menciona sin poder justificar. Explicarlo lo convierte de costo en beneficio.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip nice">Deseable</span><p class="gap-title">Útiles, materiales y equipo</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Necesita laptop?" · "¿Hay lista de útiles?"</p>
+      <p class="why">Parte del costo real del primer mes para una familia que está haciendo cuentas.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip nice">Deseable</span><p class="gap-title">Qué deportes y actividades hay en concreto</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Tienen fútbol?" · "¿Hay talleres?"</p>
+      <p class="why">El prompt dice "áreas deportivas" en abstracto. Los nombres concretos son lo que le importa al aspirante joven, que es medio público objetivo.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip nice">Deseable</span><p class="gap-title">Alumnos con discapacidad o necesidades especiales</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"Mi hijo tiene TDAH, ¿lo pueden apoyar?"</p>
+      <p class="why">El prompt presume acompañamiento socioemocional, Lengua de Señas y atención al rezago: <strong>eso atrae exactamente esta pregunta</strong>. Conviene tener escrito hasta dónde llega el apoyo real, para no prometer de más.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip nice">Deseable</span><p class="gap-title">Prácticas profesionales y bolsa de trabajo</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Ayudan a conseguir prácticas?"</p>
+      <p class="why">Relevante en licenciaturas e ingenierías, donde el comprador es un adulto que evalúa retorno.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip nice">Deseable</span><p class="gap-title">Reglamento básico</p></div>
+      <p class="ask"><b>Lo que preguntan</b>"¿Pueden llevar celular?" · "¿Cómo manejan la disciplina?"</p>
+      <p class="why">Pregunta de papás que eligen escuela privada precisamente por el orden. Encaja con el diferenciador de "puerta cerrada".</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Mejoras de guion que no necesitan datos nuevos</h2>
+  <p class="sec-note">Esto lo puedo aplicar hoy mismo al prompt; no depende de que la dirección conteste nada.</p>
+
+  <h3 class="sub">Lo que más le falta como vendedora</h3>
+  <ul class="plain">
+    <li><strong>No sabe manejar objeciones.</strong> Es el hueco más grande del guion. No hay una sola línea para "está caro", "lo voy a pensar", "tengo que consultarlo con mi esposo", "en la otra escuela es más barato" o "me queda lejos". Hoy improvisa, y cuando un modelo improvisa frente a una objeción de precio, normalmente se disculpa y suelta la venta. Un bloque de objeciones con respuesta corta para cada una es lo que más va a mover tu tasa de cierre.</li>
+    <li><strong>Nunca pide el nombre.</strong> La ficha de cierre lo exige, pero ninguna instrucción le dice que lo pregunte en los primeros dos mensajes. Sin nombre no hay trato personal, y el registro en Airtable se queda con el alias de WhatsApp.</li>
+    <li><strong>No califica al prospecto.</strong> No pregunta para quién es, para cuándo quiere entrar, ni qué lo tiene dudando. Son tres preguntas que dirigen toda la conversación y que además llenan la ficha sola.</li>
+    <li><strong>No usa la urgencia que ya tiene.</strong> Tiene los ingredientes — inicio el 7 de septiembre, límite tres días antes, descuento el mismo día, grupos de 25 — pero ninguna instrucción de emplearlos. Ahora mismo son datos muertos en el prompt.</li>
+    <li><strong>No sabe qué hacer con quien no es prospecto.</strong> En campañas de Meta llegan personas buscando empleo, proveedores, números equivocados y groserías. No hay regla, así que les va a vender bachillerato a todos.</li>
+    <li><strong>No hay freno después del cierre.</strong> Una vez que manda el enlace de la dirección debería quedarse callada; si la persona sigue escribiendo, hoy vuelve a arrancar el ciclo de venta encima del humano.</li>
+  </ul>
+
+  <h3 class="sub">Detalles menores</h3>
+  <ul class="plain">
+    <li>La ficha de cierre pide <strong>teléfono de contacto</strong>, que ya tienes por el propio WhatsApp. Pedirlo suena burocrático y gasta un turno de conversación.</li>
+    <li>La sección de escalación dice que fuera de horario "el equipo responde el siguiente día hábil", pero <strong>Daniela no sabe la hora</strong>, así que no puede aplicarlo. Se resuelve con el mismo arreglo de inyectar la fecha.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="sec">Ajustes técnicos del escenario</h2>
+  <p class="sec-note">Cosas del flujo en Make, no del texto del prompt.</p>
+
+  <div class="gaps">
+    <div class="gap">
+      <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">El bot solo recuerda 10 turnos</p></div>
+      <p class="ask"><b>Dónde</b>Módulo 3 · <code>iterationsFromHistoryCount: 10</code></p>
+      <p class="why">Si ahora Daniela debe llevar toda la venta, las conversaciones se van a alargar a 15 o 20 mensajes y <strong>va a olvidar el nombre y el programa a medio camino</strong>. Subirlo a 20–25 lo arregla; cuesta más tokens por mensaje.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">No hay forma de que un humano tome la conversación</p></div>
+      <p class="ask"><b>Dónde</b>Todo el flujo</p>
+      <p class="why">Si la directora entra a responder por WhatsApp, <strong>el bot le sigue contestando encima al prospecto</strong>. Se resuelve con un campo de pausa en Airtable y un filtro antes del módulo del agente. Es el riesgo operativo más serio del escenario tal como está.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">Los audios no se procesan</p></div>
+      <p class="ask"><b>Dónde</b>Ruta 2 del router · "No es mensaje de texto"</p>
+      <p class="why">Hoy contesta pidiendo que escriban. En campañas de Meta mucha gente manda nota de voz y ahí se pierde el prospecto. Ya usas transcripción con Whisper en otro escenario tuyo; se puede reutilizar.</p>
+    </div>
+
+    <div class="gap">
+      <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">El parámetro <code>tokenLimit</code> está en 50</p></div>
+      <p class="ask"><b>Dónde</b>Módulo 3 · <code>tokenLimit: "50"</code></p>
+      <p class="why">No está limitando las respuestas, así que evidentemente no es un tope de salida — pero conviene revisar qué controla en esa versión del módulo antes de dejarlo así. No lo he movido.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec">Para llevar a la dirección</h2>
+  <p class="sec-note">La lista concreta de preguntas. Con estas respuestas actualizo el prompt de una sola vez.</p>
+
+  <div class="checklist" id="cl">
+    <label class="check"><input type="checkbox" data-k="pago"><span>Formas de pago aceptadas: efectivo, transferencia, tarjeta, meses sin intereses, pago en línea</span></label>
+    <label class="check"><input type="checkbox" data-k="insc-partes"><span>¿La inscripción se puede pagar en partes?</span></label>
+    <label class="check"><input type="checkbox" data-k="desc-dia"><span>Monto exacto del descuento por inscribirse el mismo día (bachillerato)</span></label>
+    <label class="check"><input type="checkbox" data-k="desc-otros"><span>Descuento real en licenciatura, maestría y doctorado: porcentaje fijo o condiciones que lo mueven</span></label>
+    <label class="check"><input type="checkbox" data-k="becas"><span>Becas: por promedio, deportiva, por hermanos, para sindicatos y empresas</span></label>
+    <label class="check"><input type="checkbox" data-k="tri"><span>Qué idiomas sustentan el nombre "Trilingüe"</span></label>
+    <label class="check"><input type="checkbox" data-k="cupo"><span>¿Hay cupo disponible para el ciclo que arranca el 7 de septiembre?</span></label>
+    <label class="check"><input type="checkbox" data-k="certif"><span>¿Se puede inscribir sin el certificado de secundaria todavía? ¿Con qué documento provisional?</span></label>
+    <label class="check"><input type="checkbox" data-k="limite-pago"><span>Día límite de pago mensual y recargo por atraso</span></label>
+    <label class="check"><input type="checkbox" data-k="pagos-anio"><span>Número de pagos al año en licenciatura, maestría y doctorado</span></label>
+    <label class="check"><input type="checkbox" data-k="uniforme"><span>Costo del uniforme y dónde se adquiere</span></label>
+    <label class="check"><input type="checkbox" data-k="linea"><span>Cómo opera la modalidad en línea: en vivo o grabada, plataforma, exámenes</span></label>
+    <label class="check"><input type="checkbox" data-k="reprueba"><span>Qué pasa si reprueba: recursamiento, extraordinario y su costo</span></label>
+    <label class="check"><input type="checkbox" data-k="edad"><span>Edad mínima y máxima por nivel</span></label>
+    <label class="check"><input type="checkbox" data-k="secu"><span>Secundaria: ¿se promociona por este canal? Costos y qué debe contestar Daniela</span></label>
+    <label class="check"><input type="checkbox" data-k="rutas"><span>Rutas y horarios del transporte escolar</span></label>
+    <label class="check"><input type="checkbox" data-k="social"><span>Números de egresados que entraron a universidad pública, y años de la institución</span></label>
+    <label class="check"><input type="checkbox" data-k="devol"><span>Política de devolución de la inscripción</span></label>
+    <label class="check"><input type="checkbox" data-k="tel"><span>Teléfono fijo del plantel</span></label>
+    <label class="check"><input type="checkbox" data-k="seguro"><span>Qué cubre el seguro escolar anual</span></label>
+    <label class="check"><input type="checkbox" data-k="utiles"><span>Útiles, materiales o equipo que se pide</span></label>
+    <label class="check"><input type="checkbox" data-k="deportes"><span>Deportes y talleres concretos que se ofrecen</span></label>
+    <label class="check"><input type="checkbox" data-k="nee"><span>Hasta dónde llega el apoyo a alumnos con necesidades especiales</span></label>
+    <label class="check"><input type="checkbox" data-k="practicas"><span>Prácticas profesionales y bolsa de trabajo</span></label>
+    <label class="check"><input type="checkbox" data-k="regla"><span>Reglamento básico: celulares, disciplina, asistencia</span></label>
+    <label class="check"><input type="checkbox" data-k="objec"><span>Las tres objeciones que más escucha la directora, y cómo las contesta ella</span></label>
+  </div>
+  <p class="check-note">Las palomitas se guardan en este navegador.</p>
+</section>
+
+<footer>
+  Auditoría del prompt del módulo AI Agent · escenario "Asistente Chavarria" (5982362) en Make.<br>
+  El texto vigente del prompt vive en <code>make/asistente-chavarria/system-prompt.md</code>, rama <code>claude/chavarria-assistant-prompt-yedb71</code>.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var box = document.getElementById('cl');
+  if(!box) return;
+  var KEY = 'cut-auditoria-daniela';
+  var state = {};
+  try{ state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; }catch(e){ state = {}; }
+  var inputs = box.querySelectorAll('input[type=checkbox]');
+  Array.prototype.forEach.call(inputs, function(i){
+    if(state[i.dataset.k]) i.checked = true;
+    i.addEventListener('change', function(){
+      state[i.dataset.k] = i.checked;
+      try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+    });
+  });
+})();
+</script>
