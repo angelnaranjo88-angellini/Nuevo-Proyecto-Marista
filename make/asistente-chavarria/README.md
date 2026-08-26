@@ -39,3 +39,26 @@ Airtable/Calendar/Gmail siguen funcionando igual.
   las 14:00?"), lo que puede terminar creando un evento falso en el Google Calendar del
   plantel. Ahora debe preguntar qué día y hora le acomodan, y solo escribe fecha en
   `[CIERRE: ...]` si la persona la dijo o la aceptó.
+
+## Versión 3 — el bot vende, la directora solo cierra
+
+El prompt decía "Empuja el siguiente paso: agendar cita o apartar lugar" en el paso 5
+del proceso de venta, así que el asistente usaba la cita como respuesta a cualquier
+duda ("¿quieres que agende una cita para explicártelo en el plantel?"). Resultado: el
+trabajo de venta terminaba cayendo en la directora en vez de resolverse en el chat.
+
+La sección 8 se reescribió como **"TÚ LLEVAS TODA LA VENTA"**:
+
+- Prohibido usar la cita, el plantel o la directora como respuesta a una duda, con las
+  frases típicas listadas explícitamente.
+- Solo se menciona cita o pasar con una persona en tres casos: lo pide el prospecto,
+  es convalidación/queja/caso especial, o ya cerró.
+- Semáforo de cuatro etapas (apenas empieza / explorando / casi decidido / cerró) que
+  define qué toca en cada momento.
+- Lista de preguntas de cierre de mensaje que sí sirven, para que no caiga siempre en
+  la cita.
+- La sección 13 ahora aclara que "me interesa" o preguntar precios **no** es cierre.
+
+También en la sección 4: al pedir el plan de materias, resume en el chat y pregunta qué
+parte le interesa, en vez de remitir al plantel; y solo puede nombrar materias que estén
+en las listas del prompt (había inventado "Mercadotecnia digital" y "Proyecto integrador").
