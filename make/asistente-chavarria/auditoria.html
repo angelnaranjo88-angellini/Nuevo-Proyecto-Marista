@@ -186,6 +186,7 @@ h3.sub{
 .chip.imp{background:var(--gold-bg);color:var(--gold)}
 .chip.nice{background:var(--surface-2);color:var(--ink-faint)}
 .chip.tech{background:var(--ok-bg);color:var(--ok)}
+.chip.done{background:var(--ok-bg);color:var(--ok)}
 .gap-title{
   font-weight:600;
   font-size:17px;
@@ -303,8 +304,8 @@ footer{
   <div class="meta">
     <span>Escenario 5982362</span>
     <span>Módulo 3 · AI Agent</span>
-    <span>Prompt v4</span>
-    <span>26 ago 2026</span>
+    <span>Prompt v5</span>
+    <span>Actualizado 26 ago 2026</span>
   </div>
 </header>
 
@@ -312,6 +313,7 @@ footer{
   <h2>Veredicto</h2>
   <p>No, la información no está completa. El prompt cubre bien <strong>qué se ofrece</strong> (programas, duraciones, precios de lista, documentos) pero casi no cubre <strong>cómo se compra</strong>: formas de pago, descuentos con monto, becas, cupo y qué pasa cuando al aspirante le falta un papel. Ahí es exactamente donde se cae una venta.</p>
   <p>Con la regla nueva de no inventar, cada uno de esos huecos ya no produce un dato falso — produce un <em>"déjame confirmarlo con el equipo"</em>. Eso es mejor que mentir, pero enfría la conversación y manda a la dirección justo el trabajo que querías quitarle.</p>
+  <p><strong>Todo lo que no dependía de información nueva ya está aplicado</strong> (prompt v5, en vivo): fecha y hora reales, manejo de objeciones, captura de nombre, urgencia, filtro de no-prospectos y freno después del cierre. Lo que queda en esta página son los datos que solo la escuela puede dar.</p>
 </div>
 
 <section>
@@ -357,9 +359,9 @@ footer{
     </div>
 
     <div class="gap">
-      <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">Daniela no sabe qué día es hoy</p></div>
+      <div class="gap-head"><span class="chip done">Resuelto</span><p class="gap-title">Daniela no sabía qué día era hoy</p></div>
       <p class="ask"><b>Lo que preguntan</b>"¿Cuánto falta para que empiecen las clases?" · "Puedo ir el próximo martes"</p>
-      <p class="why">El prompt es estático y el modelo no recibe la fecha actual, así que no puede calcular urgencia ni interpretar "el martes". Se arregla inyectando <code>{{now}}</code> desde Make en el mensaje que recibe el agente. <strong>Sin esto, la marca <code>[CIERRE: cita=]</code> nunca va a poder convertir bien una fecha hablada.</strong></p>
+      <p class="why"><strong>Ya resuelto.</strong> Cada mensaje que recibe el agente ahora viene precedido por <code>[SISTEMA] Fecha y hora ahora en CDMX: …</code>, generado con <code>formatDate(now; …; "America/Mexico_City")</code>. Con eso calcula días restantes, interpreta "el martes", sabe si está dentro del horario de atención y escribe el año correcto en <code>[CIERRE: cita=]</code>.</p>
     </div>
 
   </div>
@@ -490,23 +492,25 @@ footer{
 </section>
 
 <section>
-  <h2 class="sec">Mejoras de guion que no necesitan datos nuevos</h2>
-  <p class="sec-note">Esto lo puedo aplicar hoy mismo al prompt; no depende de que la dirección conteste nada.</p>
+  <h2 class="sec">Lo que ya quedó aplicado</h2>
+  <p class="sec-note">Todo esto ya está en vivo en el prompt v5. No dependía de información de la escuela.</p>
 
-  <h3 class="sub">Lo que más le falta como vendedora</h3>
+  <h3 class="sub">Como vendedora</h3>
   <ul class="plain">
-    <li><strong>No sabe manejar objeciones.</strong> Es el hueco más grande del guion. No hay una sola línea para "está caro", "lo voy a pensar", "tengo que consultarlo con mi esposo", "en la otra escuela es más barato" o "me queda lejos". Hoy improvisa, y cuando un modelo improvisa frente a una objeción de precio, normalmente se disculpa y suelta la venta. Un bloque de objeciones con respuesta corta para cada una es lo que más va a mover tu tasa de cierre.</li>
-    <li><strong>Nunca pide el nombre.</strong> La ficha de cierre lo exige, pero ninguna instrucción le dice que lo pregunte en los primeros dos mensajes. Sin nombre no hay trato personal, y el registro en Airtable se queda con el alias de WhatsApp.</li>
-    <li><strong>No califica al prospecto.</strong> No pregunta para quién es, para cuándo quiere entrar, ni qué lo tiene dudando. Son tres preguntas que dirigen toda la conversación y que además llenan la ficha sola.</li>
-    <li><strong>No usa la urgencia que ya tiene.</strong> Tiene los ingredientes — inicio el 7 de septiembre, límite tres días antes, descuento el mismo día, grupos de 25 — pero ninguna instrucción de emplearlos. Ahora mismo son datos muertos en el prompt.</li>
-    <li><strong>No sabe qué hacer con quien no es prospecto.</strong> En campañas de Meta llegan personas buscando empleo, proveedores, números equivocados y groserías. No hay regla, así que les va a vender bachillerato a todos.</li>
-    <li><strong>No hay freno después del cierre.</strong> Una vez que manda el enlace de la dirección debería quedarse callada; si la persona sigue escribiendo, hoy vuelve a arrancar el ciclo de venta encima del humano.</li>
+    <li><strong>Manejo de objeciones</strong> (sección 9 nueva). Nueve objeciones reales con guion propio: "está caro", "lo voy a pensar", "tengo que consultarlo con mi esposo", "en otra escuela es más barato", "está lejos", "¿es reconocida?", "mi hijo va mal en la escuela", "¿es de gobierno o particular?". Todas con la misma fórmula: reconoce, responde con un hecho del prompt, devuelve una pregunta. Nunca contesta una objeción con la cita.</li>
+    <li><strong>Pide el nombre en los primeros dos mensajes</strong>, junto con para quién es la información. Después lo usa cada dos o tres mensajes, no en todos.</li>
+    <li><strong>Califica al prospecto</strong>: para cuándo quiere entrar y qué es lo que más le importa al elegir escuela, una pregunta por conversación y sin interrogar.</li>
+    <li><strong>Usa la urgencia real</strong>: inicio el 7 de septiembre, cierre tres días antes, grupos de 25. Menciona una sola, solo cuando ya hay interés, y calcula los días con la fecha del sistema. Tiene prohibido inventar "últimos lugares".</li>
+    <li><strong>Filtro de no-prospectos</strong> (sección 10 nueva): quien busca empleo, proveedores, números equivocados, groserías, preguntas por la secundaria y alumnos ya inscritos con un problema. En todos: respuesta breve, sin vender, y <code>[AVISAR_HUMANO]</code>.</li>
+    <li><strong>Freno después del cierre</strong>: una vez que manda el enlace ya no vuelve a vender; acompaña y recuerda el enlace una sola vez más.</li>
+    <li><strong>Ya no pide el teléfono</strong> en la ficha: lo registra el sistema solo.</li>
+    <li><strong>Reglas de seguridad nuevas</strong>: no pide datos bancarios ni de tarjeta por chat, no promete entrada segura a una universidad, y no entra en política ni religión.</li>
   </ul>
 
-  <h3 class="sub">Detalles menores</h3>
+  <h3 class="sub">En el escenario</h3>
   <ul class="plain">
-    <li>La ficha de cierre pide <strong>teléfono de contacto</strong>, que ya tienes por el propio WhatsApp. Pedirlo suena burocrático y gasta un turno de conversación.</li>
-    <li>La sección de escalación dice que fuera de horario "el equipo responde el siguiente día hábil", pero <strong>Daniela no sabe la hora</strong>, así que no puede aplicarlo. Se resuelve con el mismo arreglo de inyectar la fecha.</li>
+    <li><strong>Fecha y hora reales</strong> inyectadas en cada mensaje con <code>formatDate(now; "dddd YYYY-MM-DD HH:mm"; "America/Mexico_City")</code>.</li>
+    <li><strong>Memoria de conversación de 10 a 25 turnos</strong>, para que no olvide el nombre ni el programa a media venta.</li>
   </ul>
 </section>
 
@@ -515,12 +519,6 @@ footer{
   <p class="sec-note">Cosas del flujo en Make, no del texto del prompt.</p>
 
   <div class="gaps">
-    <div class="gap">
-      <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">El bot solo recuerda 10 turnos</p></div>
-      <p class="ask"><b>Dónde</b>Módulo 3 · <code>iterationsFromHistoryCount: 10</code></p>
-      <p class="why">Si ahora Daniela debe llevar toda la venta, las conversaciones se van a alargar a 15 o 20 mensajes y <strong>va a olvidar el nombre y el programa a medio camino</strong>. Subirlo a 20–25 lo arregla; cuesta más tokens por mensaje.</p>
-    </div>
-
     <div class="gap">
       <div class="gap-head"><span class="chip tech">Técnico</span><p class="gap-title">No hay forma de que un humano tome la conversación</p></div>
       <p class="ask"><b>Dónde</b>Todo el flujo</p>
