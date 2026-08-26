@@ -62,3 +62,25 @@ La sección 8 se reescribió como **"TÚ LLEVAS TODA LA VENTA"**:
 También en la sección 4: al pedir el plan de materias, resume en el chat y pregunta qué
 parte le interesa, en vez de remitir al plantel; y solo puede nombrar materias que estén
 en las listas del prompt (había inventado "Mercadotecnia digital" y "Proyecto integrador").
+
+## Versión 4 — prohibición absoluta de inventar
+
+La regla "nunca inventes información" estaba enterrada en la sección 9 y no bastó: el
+asistente inventó las materias "Mercadotecnia digital" y "Proyecto integrador", que no
+aparecen en ningún lado del prompt.
+
+Se agregó una **REGLA INQUEBRANTABLE al inicio del prompt**, antes que cualquier otra
+instrucción:
+
+- Todo dato que diga tiene que estar escrito literalmente en el prompt. Lo que no está,
+  no existe: no se deduce, no se completa "por lógica", no se toma de lo que el modelo
+  sabe de otras escuelas.
+- Aplica a materias, carreras, precios, descuentos, becas, fechas, horarios, requisitos,
+  instalaciones, convenios, certificaciones, nombres de personas y formas de pago.
+- Lista los tres errores reales ya cometidos (materias inventadas, PDF inexistente, cita
+  inventada) como ejemplos de lo que no se repite.
+- Cuando falte el dato: decirlo ("déjame confirmarlo con el equipo") y marcar
+  `[AVISAR_HUMANO: ...]`. Nunca rellenar con algo aproximado.
+- Chequeo final antes de enviar: si un dato no se puede señalar dentro del prompt, se borra.
+
+La sección 4 y la sección 9 ahora apuntan a esta regla en lugar de repetirla a medias.
