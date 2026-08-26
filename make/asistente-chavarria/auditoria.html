@@ -316,6 +316,13 @@ footer{
   <p><strong>Todo lo que no dependía de información nueva ya está aplicado</strong> (prompt v5, en vivo): fecha y hora reales, manejo de objeciones, captura de nombre, urgencia, filtro de no-prospectos y freno después del cierre. Lo que queda en esta página son los datos que solo la escuela puede dar.</p>
 </div>
 
+<div class="verdict" style="border-left-color:var(--crit)">
+  <h2>Bloqueador encontrado en los registros de Make</h2>
+  <p><strong>El Google Calendar del plantel rechaza los eventos.</strong> En las ejecuciones de hoy aparece <code>[403] You need to have writer access to this calendar</code> en el módulo <code>createAnEvent</code>. La conexión de Google en Make está autenticada como <code>angelnaranjo88@aragon.unam.mx</code>, pero el escenario escribe en el calendario <code>centrotrilingue.t@gmail.com</code>, y esa cuenta no tiene permiso de escritura ahí.</p>
+  <p>El daño no era solo el calendario: como el módulo iba sin manejador de error, <strong>la ejecución entera se caía en ese punto</strong> y las rutas siguientes —el correo de aviso a la dirección y el registro en Airtable— nunca llegaban a correr. Es decir, el prospecto más valioso, el que sí acordó ir al plantel, era justo el que se perdía. Y con errores repetidos Make puede llegar a apagar el escenario solo.</p>
+  <p><strong>Mitigado:</strong> los módulos de Calendar y de Gmail ahora llevan un manejador <em>Skip</em>, así que un fallo ahí ya no tumba el resto del flujo. <strong>Falta el arreglo de raíz, y solo tú puedes hacerlo:</strong> desde <code>centrotrilingue.t@gmail.com</code>, comparte el calendario con <code>angelnaranjo88@aragon.unam.mx</code> dándole permiso de <em>"Hacer cambios en los eventos"</em>. La otra opción es crear en Make una conexión de Google autenticada con la cuenta del plantel y apuntar el módulo a ella.</p>
+</div>
+
 <section>
   <h2 class="sec">Huecos que cuestan ventas ahora</h2>
   <p class="sec-note">Preguntas que llegan en los primeros mensajes y que hoy Daniela no puede contestar.</p>
