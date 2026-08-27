@@ -308,8 +308,36 @@ Productividad**.
 ### Lo que sigue faltando
 
 - Mapa curricular de **Ing. en Calidad y Productividad**.
-- Últimos periodos de Administración de Empresas, Contaduría Pública y Criminalística
-  (7º a 9º) y de Derecho (el último cuatrimestre).
-- **Cuántos años tiene la institución** (se preguntó, no llegó el dato).
 - Confirmar si las maestrías en Pedagogía y en Administración y Negocios son de 4 o de 5
   cuatrimestres.
+
+## Versión 16 — planes completos de las cuatro licenciaturas que estaban a medias
+
+Llegaron los PDF completos y se cerraron los últimos periodos que faltaban:
+
+| Programa | Lo que se agregó |
+|---|---|
+| Administración de Empresas | 7º, 8º y 9º |
+| Contaduría Pública | 7º, 8º y 9º |
+| Criminalística y Criminología | 7º, 8º y 9º |
+| Derecho | 7º (el último) |
+
+Con eso desaparecieron las cuatro advertencias de "solo tienes los primeros 6
+cuatrimestres". Los únicos planes parciales que quedan son las dos maestrías de 4
+cuatrimestres, y la sección 4 ahora lo dice nombrándolas.
+
+**Corrección de duración en Derecho.** El mapa oficial tiene 7 cuatrimestres, que es lo que
+da los 2 años 4 meses. Antes el prompt solo decía "2 años 4 meses" sin el número de
+periodos, y el encabezado de LICENCIATURAS tampoco lo aclaraba. Ahora ambos lo dicen.
+
+**Ing. en Calidad y Productividad** se queda como está: el asistente la vende con duración,
+modalidades, horarios y costos, y dice que el plan completo se lo entregan en el plantel.
+Es el único de los 24 programas sin mapa curricular.
+
+### Pendientes
+
+- Confirmar si las maestrías en Pedagogía y en Administración y Negocios son de 4 o de 5
+  cuatrimestres (la sección general dice 5, sus mapas traen 4).
+- Confirmar cuál es el mapa vigente del Doctorado en Ciencias de la Educación (hay uno
+  semestral y uno cuatrimestral; está cargado el cuatrimestral).
+- Confirmar que ya no existe la reinscripción de $1,000 en Licenciatura escolarizado.
