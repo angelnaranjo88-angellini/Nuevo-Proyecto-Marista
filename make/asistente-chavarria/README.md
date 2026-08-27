@@ -334,10 +334,32 @@ periodos, y el encabezado de LICENCIATURAS tampoco lo aclaraba. Ahora ambos lo d
 modalidades, horarios y costos, y dice que el plan completo se lo entregan en el plantel.
 Es el único de los 24 programas sin mapa curricular.
 
+## Versión 17 — mandan los mapas oficiales, no la regla general
+
+Decisión del cliente: **cuando el mapa curricular oficial contradiga la regla general de la
+sección, gana el mapa.**
+
+Eso resuelve el caso de las dos maestrías cuyos mapas traen 4 cuatrimestres mientras la
+sección general decía 5. Ahora la sección MAESTRÍAS separa las dos duraciones en lugar de
+afirmar una sola:
+
+- **5 cuatrimestres (1 año 8 meses):** Docencia · Educación Inclusiva · Juicios Orales ·
+  Juicios Orales en Derecho Laboral · Administración de Servicios de Salud
+- **4 cuatrimestres (1 año 4 meses):** Pedagogía · Administración y Negocios
+
+Con la instrucción explícita de no decir "1 año 8 meses" de forma general y de tratar la
+duración más corta como argumento de venta, no como carencia. En los dos bloques
+correspondientes se quitó la advertencia de "puede faltar un quinto cuatrimestre" y el
+encabezado ahora dice el número real de periodos.
+
+Consecuencia en la sección 4: **ya no hay planes parciales**. Los 23 planes cargados están
+completos de principio a fin, y el prompt lo dice así en lugar de nombrar excepciones.
+
 ### Pendientes
 
-- Confirmar si las maestrías en Pedagogía y en Administración y Negocios son de 4 o de 5
-  cuatrimestres (la sección general dice 5, sus mapas traen 4).
-- Confirmar cuál es el mapa vigente del Doctorado en Ciencias de la Educación (hay uno
-  semestral y uno cuatrimestral; está cargado el cuatrimestral).
+- Confirmar cuál es el mapa vigente del Doctorado en Ciencias de la Educación. Aquí el
+  criterio "manda el mapa" no desempata, porque los dos candidatos **son** mapas oficiales:
+  uno semestral (6 semestres) y otro cuatrimestral (6 cuatrimestres), con materias
+  completamente distintas. Está cargado el cuatrimestral, por venir en el mismo lote que los
+  otros dos doctorados cuatrimestrales.
 - Confirmar que ya no existe la reinscripción de $1,000 en Licenciatura escolarizado.
