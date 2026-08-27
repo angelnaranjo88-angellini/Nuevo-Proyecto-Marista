@@ -211,18 +211,51 @@ Pública, para que el modelo no cruce los dos planes.
 
 Total: **15 planes cargados de 24 programas**.
 
-### Mapas curriculares que todavía faltan (9 de 24 programas)
+## Versión 12 — Ciencias del Deporte, dos maestrías y el primer doctorado
+
+Cuatro planes más, de los PDF oficiales (el quinto archivo era otra copia del de Ing. en
+Seguridad Industrial e Higiene, que ya estaba cargado):
+
+| Programa | Lo que quedó cargado |
+|---|---|
+| Lic. en Ciencias del Deporte | los 9 cuatrimestres completos |
+| Mtría. en Pedagogía | los 4 cuatrimestres del mapa oficial |
+| Mtría. en Administración y Negocios | los 4 cuatrimestres del mapa oficial |
+| Dr. en Ciencias de la Educación | los 6 semestres completos |
+
+Total: **19 planes cargados de 24 programas.**
+
+La Maestría en Pedagogía lleva además el aviso de no confundirla con la *Licenciatura* en
+Pedagogía, que es semestral y tiene otro plan completamente distinto.
+
+### Discrepancia: maestrías de 4 vs. 5 cuatrimestres
+
+La sección general de MAESTRÍAS dice "1 año 8 meses (5 cuatrimestres)", pero los mapas
+oficiales de **Pedagogía** y de **Administración y Negocios** solo traen 4 cuatrimestres.
+No se tocó la regla general; cada uno de esos dos bloques dice que el mapa que tiene son 4
+cuatrimestres, que la duración es la de la sección general, y que **no invente materias de
+un quinto cuatrimestre**. Hay que confirmar con la dirección cuál de los dos datos manda.
+
+### Correcciones de tipografía sobre los PDF
+
+Los originales traen erratas evidentes que se normalizaron para que el asistente no se las
+mande a un prospecto. No son cambios de contenido, pero conviene verificarlas:
+
+- Ciencias del Deporte: "Prespectiva" → Perspectiva · "Admistración" → Administración ·
+  "Mercadotectenia" → Mercadotecnia · "Lógistica" → Logística · "Acuaticos" → Acuáticos
+- Mtría. en Pedagogía: "Investigacón" → Investigación · **"Gramificación" → Gamificación**
+  (esta es la única que no es una errata obvia de acento; va junto a "Realidad Aumentada y
+  Educación 4.0", así que casi seguro es Gamificación, pero vale confirmarla)
+
+### Mapas curriculares que todavía faltan (5 de 24 programas)
 
 El asistente ya vende estos programas con duración, modalidades, horarios y costos, pero
 **sin materias** — dice que el plan completo se lo entregan en el plantel.
 
-Licenciaturas e ingenierías (2): Ciencias del Deporte · Ing. en Calidad y Productividad
+Licenciaturas e ingenierías (1): Ing. en Calidad y Productividad
 
-Maestrías (2): Pedagogía · Administración y Negocios
-
-Doctorados (5): Administración · Alta Dirección y Liderazgo Empresarial · Dirección y
-Supervisión de Instituciones Educativas · Ciencias de la Educación · Derecho
-Constitucional y Derechos Humanos
+Doctorados (4): Administración · Alta Dirección y Liderazgo Empresarial · Dirección y
+Supervisión de Instituciones Educativas · Derecho Constitucional y Derechos Humanos
 
 Faltan además los **últimos periodos** de Administración de Empresas, Contaduría Pública,
 Criminalística y Criminología (7º a 9º) y de Derecho (el último cuatrimestre).
