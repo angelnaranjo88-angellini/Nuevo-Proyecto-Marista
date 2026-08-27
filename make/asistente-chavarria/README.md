@@ -173,13 +173,33 @@ Ajuste de consistencia: el mapa oficial de **Ing. en Seguridad Industrial e Higi
 semestral, de 8 semestres**, no cuatrimestral de 3 años como decía la lista general de
 licenciaturas. Se corrigió en los dos lugares donde aparecía.
 
+### Deporte y Lengua de Señas (resuelto)
+
+El cliente confirmó que los alumnos **sí llevan actividades deportivas**, y que **Lengua
+de Señas es extracurricular**. Ninguna de las dos aparece en el mapa curricular oficial,
+así que se agregaron a la sección BACHILLERATO como *actividades extracurriculares*, con
+la instrucción explícita de mencionarlas siempre como actividades y nunca como
+asignaturas del plan de estudios.
+
 ### Pendiente de confirmar con la dirección
 
-- **Deporte y Lengua de Señas en el bachillerato.** El mapa curricular oficial no las
-  incluye en ninguno de los seis semestres; lo que sí trae es *Actividades Cocurriculares
-  I y II* (1º y 2º). Además *Desarrollo Motivacional* aparece solo en 4º, no en todos los
-  semestres. Falta saber si son lo mismo con otro nombre.
 - **Modalidad de la Maestría en Administración de Servicios de Salud.** Su PDF oficial
   dice "MODALIDAD NO ESCOLARIZADA / OPCIÓN EDUCATIVA EN LÍNEA O VIRTUAL", mientras que la
   regla general de maestrías del prompt dice "sabatino o en línea". El prompt ya marca
   esta maestría como solo en línea; si también se ofrece sabatina, hay que corregirlo.
+
+### Mapas curriculares que todavía faltan (14 de 24 programas)
+
+El asistente ya vende estos programas con duración, modalidades, horarios y costos, pero
+**sin materias** — dice que el plan completo se lo entregan en el plantel. Cuando lleguen
+los PDF se cargan igual que los otros diez.
+
+Licenciaturas e ingenierías (7): Administración de Empresas · Contaduría Pública ·
+Derecho · Pedagogía · Criminalística y Criminología · Ciencias del Deporte ·
+Ing. en Calidad y Productividad
+
+Maestrías (2): Pedagogía · Administración y Negocios
+
+Doctorados (5): Administración · Alta Dirección y Liderazgo Empresarial · Dirección y
+Supervisión de Instituciones Educativas · Ciencias de la Educación · Derecho
+Constitucional y Derechos Humanos

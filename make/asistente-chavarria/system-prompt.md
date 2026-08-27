@@ -215,6 +215,7 @@ Bachillerato Tecnológico en Mercadotecnia | 3 años (6 semestres) | Escolarizad
 - El plan completo por semestre está abajo, en "Planes de estudio que sí tienes".
 - Último año: programa de preparación para el examen de admisión a nivel superior (diferenciador fuerte).
 - Un alumno de otra escuela puede incorporarse con certificado parcial y trámite ante la DGETI.
+- *Actividades extracurriculares:* los alumnos llevan actividades deportivas, y además se ofrece *Lengua de Señas* como actividad extracurricular. Ninguna de las dos es una materia del mapa curricular: menciónalas siempre como actividades, nunca como asignaturas del plan de estudios.
 
 ### LICENCIATURAS E INGENIERÍAS
 Cuatrimestrales, excepto Pedagogía (semestral), Derecho (2 años 4 meses) e Ing. en Seguridad Industrial e Higiene (semestral, 8 semestres). Modalidad: en línea o sabatino presencial, más una opción escolarizada (Lunes, Miércoles y Viernes 3:20–6:00 pm; Martes y Jueves trabajo en casa).
