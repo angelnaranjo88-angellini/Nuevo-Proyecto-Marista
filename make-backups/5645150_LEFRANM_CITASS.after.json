@@ -1,0 +1,1704 @@
+{
+ "flow": [
+  {
+   "id": 2,
+   "mapper": {},
+   "module": "whatsapp-business-cloud:watchEvents2",
+   "version": 1,
+   "metadata": {
+    "restore": {
+     "parameters": {
+      "__IMTHOOK__": {
+       "data": {
+        "editable": "false"
+       },
+       "label": "LEFRANM CITAS OFICIAL"
+      }
+     }
+    },
+    "designer": {
+     "x": -414,
+     "y": -1064
+    },
+    "interface": [
+     {
+      "name": "id",
+      "type": "text",
+      "label": "WhatsApp Business Account ID"
+     },
+     {
+      "name": "time",
+      "type": "date",
+      "label": "Time"
+     },
+     {
+      "name": "field",
+      "type": "text",
+      "label": "Field"
+     },
+     {
+      "name": "messaging_product",
+      "type": "text",
+      "label": "Messaging Product"
+     },
+     {
+      "name": "metadata",
+      "spec": [
+       {
+        "name": "display_phone_number",
+        "type": "text",
+        "label": "Display Phone Number"
+       },
+       {
+        "name": "phone_number_id",
+        "type": "text",
+        "label": "Phone Number ID"
+       }
+      ],
+      "type": "collection",
+      "label": "Metadata"
+     },
+     {
+      "name": "contacts",
+      "spec": {
+       "spec": [
+        {
+         "name": "profile",
+         "spec": [
+          {
+           "name": "name",
+           "type": "text",
+           "label": "Name"
+          }
+         ],
+         "type": "collection",
+         "label": "Profile"
+        },
+        {
+         "name": "wa_id",
+         "type": "text",
+         "label": "WhatsApp ID"
+        }
+       ],
+       "type": "collection"
+      },
+      "type": "array",
+      "label": "Contacts"
+     },
+     {
+      "name": "messages",
+      "spec": {
+       "spec": [
+        {
+         "name": "from",
+         "type": "text",
+         "label": "Sender"
+        },
+        {
+         "name": "id",
+         "type": "text",
+         "label": "Message ID"
+        },
+        {
+         "name": "timestamp",
+         "type": "date",
+         "label": "Timestamp"
+        },
+        {
+         "name": "text",
+         "spec": [
+          {
+           "name": "body",
+           "type": "text",
+           "label": "Body"
+          }
+         ],
+         "type": "collection",
+         "label": "Text"
+        },
+        {
+         "name": "type",
+         "type": "text",
+         "label": "Type"
+        },
+        {
+         "name": "image",
+         "spec": [
+          {
+           "name": "caption",
+           "type": "text",
+           "label": "Caption"
+          },
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Image"
+        },
+        {
+         "name": "audio",
+         "spec": [
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          },
+          {
+           "name": "voice",
+           "type": "boolean",
+           "label": "Voice"
+          }
+         ],
+         "type": "collection",
+         "label": "Audio"
+        },
+        {
+         "name": "video",
+         "spec": [
+          {
+           "name": "caption",
+           "type": "text",
+           "label": "Caption"
+          },
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Video"
+        },
+        {
+         "name": "document",
+         "spec": [
+          {
+           "name": "caption",
+           "type": "text",
+           "label": "Caption"
+          },
+          {
+           "name": "filename",
+           "type": "text",
+           "label": "File Name"
+          },
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Document"
+        },
+        {
+         "name": "contacts",
+         "spec": {
+          "spec": [
+           {
+            "name": "name",
+            "spec": [
+             {
+              "name": "formatted_name",
+              "type": "text",
+              "label": "Formatted Name"
+             },
+             {
+              "name": "first_name",
+              "type": "text",
+              "label": "First Name"
+             },
+             {
+              "name": "last_name",
+              "type": "text",
+              "label": "Last Name"
+             },
+             {
+              "name": "middle_name",
+              "type": "text",
+              "label": "Middle Name"
+             },
+             {
+              "name": "suffix",
+              "type": "text",
+              "label": "Name Suffix"
+             },
+             {
+              "name": "prefix",
+              "type": "text",
+              "label": "Name Prefix"
+             }
+            ],
+            "type": "collection",
+            "label": "Name"
+           },
+           {
+            "name": "phones",
+            "spec": [
+             {
+              "name": "phone",
+              "type": "text",
+              "label": "Phone"
+             },
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             }
+            ],
+            "type": "array",
+            "label": "Phones"
+           },
+           {
+            "name": "emails",
+            "spec": [
+             {
+              "name": "email",
+              "type": "email",
+              "label": "Email"
+             },
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             }
+            ],
+            "type": "array",
+            "label": "Emails"
+           },
+           {
+            "name": "org",
+            "spec": [
+             {
+              "name": "company",
+              "type": "text",
+              "label": "Company"
+             },
+             {
+              "name": "department",
+              "type": "text",
+              "label": "Department"
+             },
+             {
+              "name": "title",
+              "type": "text",
+              "label": "Title"
+             }
+            ],
+            "type": "collection",
+            "label": "Organization"
+           },
+           {
+            "name": "urls",
+            "spec": [
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             },
+             {
+              "name": "url",
+              "type": "url",
+              "label": "URL"
+             }
+            ],
+            "type": "array",
+            "label": "URLs"
+           },
+           {
+            "name": "addresses",
+            "spec": [
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             },
+             {
+              "name": "street",
+              "type": "text",
+              "label": "Street"
+             },
+             {
+              "name": "city",
+              "type": "text",
+              "label": "City"
+             },
+             {
+              "name": "zip",
+              "type": "text",
+              "label": "ZIP"
+             },
+             {
+              "name": "country",
+              "type": "text",
+              "label": "Country"
+             },
+             {
+              "name": "country_code",
+              "type": "text",
+              "label": "Country Code"
+             }
+            ],
+            "type": "array",
+            "label": "Addresses"
+           },
+           {
+            "name": "birthday",
+            "type": "text",
+            "label": "Birthday"
+           }
+          ],
+          "type": "collection"
+         },
+         "type": "array",
+         "label": "Contacts"
+        },
+        {
+         "name": "sticker",
+         "spec": [
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Sticker"
+        },
+        {
+         "name": "location",
+         "spec": [
+          {
+           "name": "latitude",
+           "type": "number",
+           "label": "Latitude"
+          },
+          {
+           "name": "longitude",
+           "type": "number",
+           "label": "Longitude"
+          },
+          {
+           "name": "name",
+           "type": "text",
+           "label": "Name"
+          },
+          {
+           "name": "address",
+           "type": "text",
+           "label": "Address"
+          }
+         ],
+         "type": "collection",
+         "label": "Location"
+        },
+        {
+         "name": "context",
+         "spec": [
+          {
+           "name": "from",
+           "type": "text",
+           "label": "From"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Context ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Context"
+        },
+        {
+         "name": "button",
+         "spec": [
+          {
+           "name": "payload",
+           "type": "text",
+           "label": "Payload"
+          },
+          {
+           "name": "text",
+           "type": "text",
+           "label": "Text"
+          }
+         ],
+         "type": "collection",
+         "label": "Button"
+        },
+        {
+         "name": "interactive",
+         "spec": [
+          {
+           "name": "type",
+           "type": "text",
+           "label": "Type"
+          },
+          {
+           "name": "list_reply",
+           "spec": [
+            {
+             "name": "id",
+             "type": "number",
+             "label": "ID"
+            },
+            {
+             "name": "title",
+             "type": "text",
+             "label": "Title"
+            },
+            {
+             "name": "description",
+             "type": "text",
+             "label": "Description"
+            }
+           ],
+           "type": "collection",
+           "label": "List Reply"
+          },
+          {
+           "name": "button_reply",
+           "spec": [
+            {
+             "name": "id",
+             "type": "number",
+             "label": "ID"
+            },
+            {
+             "name": "title",
+             "type": "text",
+             "label": "Title"
+            }
+           ],
+           "type": "collection",
+           "label": "Button Reply"
+          }
+         ],
+         "type": "collection",
+         "label": "Interactive"
+        }
+       ],
+       "type": "collection"
+      },
+      "type": "array",
+      "label": "Messages"
+     }
+    ],
+    "parameters": [
+     {
+      "name": "__IMTHOOK__",
+      "type": "hook:whatsapp-business-cloud",
+      "label": "Webhook",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "__IMTHOOK__": 2574977
+   }
+  },
+  {
+   "id": 50,
+   "mapper": {
+    "key": "{{2.contacts[].wa_id}}",
+    "returnWrapped": false
+   },
+   "module": "datastore:GetRecord",
+   "onerror": [
+    {
+     "id": 52,
+     "mapper": {
+      "pausado_hasta": "2000-01-01T00:00:00.000Z"
+     },
+     "module": "builtin:Resume",
+     "version": 1,
+     "metadata": {
+      "designer": {
+       "x": -180,
+       "y": -820
+      }
+     }
+    }
+   ],
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": -180,
+     "y": -1064
+    }
+   },
+   "parameters": {
+    "datastore": 133253
+   }
+  },
+  {
+   "id": 3,
+   "tools": [
+    {
+     "flow": [
+      {
+       "id": 5,
+       "mapper": {
+        "item": [
+         {
+          "id": "{{3.calendar}}"
+         }
+        ],
+        "timeMax": "{{3.timeMax}}",
+        "timeMin": "{{3.timeMin}}"
+       },
+       "module": "google-calendar:getFreeBusyInformation",
+       "version": 5,
+       "metadata": {
+        "expect": [
+         {
+          "name": "timeMin",
+          "time": true,
+          "type": "date",
+          "label": "Time Range From",
+          "required": true
+         },
+         {
+          "name": "timeMax",
+          "time": true,
+          "type": "date",
+          "label": "Time Range To",
+          "required": true
+         },
+         {
+          "name": "item",
+          "spec": [
+           {
+            "mode": "edit",
+            "name": "id",
+            "type": "select",
+            "label": "Calendar ID",
+            "dynamic": true,
+            "options": [],
+            "required": true
+           }
+          ],
+          "type": "array",
+          "label": "Calendars",
+          "required": true
+         }
+        ],
+        "designer": {
+         "x": 178,
+         "y": 214
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9848850
+       }
+      }
+     ],
+     "name": "Revisar disponibilidad",
+     "description": "Consulta los horarios ocupados en el calendario del servicio correspondiente."
+    },
+    {
+     "flow": [
+      {
+       "id": 6,
+       "mapper": {
+        "end": "{{3.end}}",
+        "start": "{{3.start}}",
+        "select": "detail",
+        "summary": "{{3.summary}}",
+        "calendar": "{{3.calendar}}",
+        "allDayEvent": false,
+        "description": "{{3.description}}",
+        "conferenceDate": false,
+        "guestPermissions": {
+         "guestsCanModify": false,
+         "guestsCanInviteOthers": true,
+         "guestsCanSeeOtherGuests": true
+        }
+       },
+       "module": "google-calendar:createAnEvent",
+       "version": 5,
+       "metadata": {
+        "expect": [
+         {
+          "name": "select",
+          "type": "select",
+          "label": "Create an Event",
+          "required": true,
+          "validate": {
+           "enum": [
+            "quick",
+            "detail"
+           ]
+          }
+         },
+         {
+          "mode": "edit",
+          "name": "calendar",
+          "type": "select",
+          "label": "Calendar ID",
+          "required": true
+         },
+         {
+          "name": "summary",
+          "type": "text",
+          "label": "Event Name",
+          "required": true
+         },
+         {
+          "name": "conferenceDate",
+          "type": "boolean",
+          "label": "Add Google Meet Video Conferencing",
+          "required": true
+         },
+         {
+          "name": "allDayEvent",
+          "type": "boolean",
+          "label": "All Day Event",
+          "required": true
+         },
+         {
+          "name": "start",
+          "time": true,
+          "type": "date",
+          "label": "Start Date",
+          "required": true
+         },
+         {
+          "name": "end",
+          "time": true,
+          "type": "date",
+          "label": "End Date"
+         },
+         {
+          "name": "description",
+          "type": "text",
+          "label": "Description"
+         },
+         {
+          "name": "guestPermissions",
+          "spec": [
+           {
+            "name": "guestsCanModify",
+            "type": "boolean",
+            "label": "Modify event",
+            "required": true
+           },
+           {
+            "name": "guestsCanInviteOthers",
+            "type": "boolean",
+            "label": "Invite others",
+            "required": true
+           },
+           {
+            "name": "guestsCanSeeOtherGuests",
+            "type": "boolean",
+            "label": "See guest list",
+            "required": true
+           }
+          ],
+          "type": "collection",
+          "label": "Guest Permissions"
+         }
+        ],
+        "designer": {
+         "x": 438,
+         "y": 157
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9848850
+       }
+      }
+     ],
+     "name": "Agendar Cita",
+     "description": "Crea una cita nueva en el calendario del servicio correspondiente."
+    },
+    {
+     "flow": [
+      {
+       "id": 7,
+       "mapper": {
+        "q": "{{3.q}}",
+        "limit": 10,
+        "timeMax": "{{3.timeMax}}",
+        "timeMin": "{{3.timeMin}}",
+        "calendar": "{{3.calendar}}",
+        "singleEvents": true
+       },
+       "module": "google-calendar:searchEvents",
+       "version": 5,
+       "metadata": {
+        "expect": [
+         {
+          "mode": "edit",
+          "name": "calendar",
+          "type": "select",
+          "label": "Calendar ID",
+          "required": true
+         },
+         {
+          "name": "timeMin",
+          "time": true,
+          "type": "date",
+          "label": "Start Date"
+         },
+         {
+          "name": "timeMax",
+          "time": true,
+          "type": "date",
+          "label": "End Date"
+         },
+         {
+          "name": "singleEvents",
+          "type": "boolean",
+          "label": "Single Events",
+          "required": true
+         },
+         {
+          "name": "q",
+          "type": "text",
+          "label": "Query"
+         },
+         {
+          "name": "limit",
+          "type": "uinteger",
+          "label": "Limit"
+         }
+        ],
+        "designer": {
+         "x": 506,
+         "y": -33
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9848850
+       }
+      }
+     ],
+     "name": "Buscar Cita",
+     "description": "Busca citas existentes por nombre o telefono del cliente."
+    },
+    {
+     "flow": [
+      {
+       "id": 8,
+       "mapper": {
+        "event": "{{3.event}}",
+        "calendar": "{{3.calendar}}"
+       },
+       "module": "google-calendar:deleteAnEvent",
+       "version": 5,
+       "metadata": {
+        "expect": [
+         {
+          "mode": "edit",
+          "name": "calendar",
+          "type": "select",
+          "label": "Calendar ID",
+          "required": true
+         },
+         {
+          "name": "event",
+          "type": "any",
+          "label": "Event ID",
+          "required": true
+         }
+        ],
+        "designer": {
+         "x": 534,
+         "y": -212
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9848850
+       }
+      }
+     ],
+     "name": "Cancelar Cita",
+     "description": "Elimina una cita del calendario."
+    },
+    {
+     "flow": [
+      {
+       "id": 9,
+       "mapper": {
+        "end": "{{3.end}}",
+        "event": "{{3.event}}",
+        "start": "{{3.start}}",
+        "append": false,
+        "calendar": "{{3.calendar}}",
+        "allDayEvent": false
+       },
+       "module": "google-calendar:updateAnEvent",
+       "version": 5,
+       "metadata": {
+        "expect": [
+         {
+          "mode": "edit",
+          "name": "calendar",
+          "type": "select",
+          "label": "Calendar ID",
+          "required": true
+         },
+         {
+          "name": "event",
+          "type": "any",
+          "label": "Event ID",
+          "required": true
+         },
+         {
+          "name": "start",
+          "time": true,
+          "type": "date",
+          "label": "Start Date"
+         },
+         {
+          "name": "end",
+          "time": true,
+          "type": "date",
+          "label": "End Date"
+         },
+         {
+          "name": "allDayEvent",
+          "type": "boolean",
+          "label": "All Day Event",
+          "required": true
+         },
+         {
+          "name": "append",
+          "type": "boolean",
+          "label": "Append the Attendees",
+          "required": true
+         }
+        ],
+        "designer": {
+         "x": 494,
+         "y": -419
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9848850
+       }
+      }
+     ],
+     "name": "Reprogramar cita",
+     "description": "Cambia el horario de una cita existente."
+    }
+   ],
+   "filter": {
+    "name": "Texto y no pausado (o pausa vencida)",
+    "conditions": [
+     [
+      {
+       "a": "{{2.messages[].text.body}}",
+       "o": "exist"
+      },
+      {
+       "a": "{{50.pausado_hasta}}",
+       "o": "notexist"
+      }
+     ],
+     [
+      {
+       "a": "{{2.messages[].text.body}}",
+       "o": "exist"
+      },
+      {
+       "a": "{{50.pausado_hasta}}",
+       "b": "{{now}}",
+       "o": "date:less"
+      }
+     ]
+    ]
+   },
+   "mapper": {
+    "files": [],
+    "message": "{{2.messages[].text.body}}",
+    "timeout": "",
+    "threadId": "{{2.contacts[].wa_id}}",
+    "outputType": "text",
+    "tokenLimit": "50",
+    "modelConfig": {
+     "recursionLimit": "300",
+     "iterationsFromHistoryCount": "10"
+    },
+    "defaultModel": "large",
+    "systemPrompt": "Eres el asistente virtual de WhatsApp de Lefranm SPA, un spa, centro de acupuntura y venta de productos cosméticos ubicado en Lomas Estrella, Iztapalapa, CDMX. Hablas con clientas y clientes reales por WhatsApp: tu trabajo es resolver sus dudas, dar precios aproximados de los servicios, explicar en qué consisten, y sobre todo, agendar citas revisando disponibilidad real en Google Calendar usando las herramientas que tienes conectadas.\nTen en cuenta que el dia de hoy es {{now}}\n\n═══════════════════════════════\nIDENTIDAD Y TONO\n═══════════════════════════════\n- Te llamas Denisse, eres la asistente virtual de Lefranm SPA.\n- Eres cálida, amable y cercana, pero profesional.\n- Usa \"Usted\" nunca \"tu\".\n- Mensajes cortos, como WhatsApp; sin encabezados con #, sin negritas excesivas.\n- Emojis con moderación (1-2 máx.), nunca en temas médicos o delicados.\n- Nunca inventes información; si algo no está aquí, dilo con honestidad y ofrece escalar con el spa.\n\n═══════════════════════════════\nSALUDO INICIAL (solo al comenzar la conversación)\n═══════════════════════════════\nCuando un cliente escribe por primera vez (o retoma la conversación después de mucho tiempo/sin contexto previo), saluda cálidamente, di buenos días/tardes según la hora, y preséntate como Denisse antes de resolver su duda. No repitas este saludo/presentación en mensajes posteriores dentro de la misma conversación.\n\nEjemplo de tono (ajusta según la hora y lo que pregunte el cliente):\n\"¡Buenos días! 😊 Soy Denisse, del equipo de Lefranm SPA. Con gusto le ayudo, ¿en qué puedo apoyarle hoy?\"\n\nSi el cliente ya escribió su duda o solicitud en el primer mensaje, incluye el saludo y presentación breve y luego atiende su solicitud en el mismo mensaje, sin alargarte innecesariamente.\n\nIMPORTANTE: el nombre \"Denisse\" solo se menciona en ese primer saludo de presentación. NUNCA firmes los mensajes posteriores con \"— Denisse\" ni repitas el nombre al final de cada respuesta; el resto de la conversación fluye normal, como un mensaje de WhatsApp cualquiera, sin firma.\n\nIMPORTANTE: Nunca respondas con la fecha/hora en formato técnico (como \"2026-08-15T16:12:15-06:00\"). Si necesitas mencionar el día u hora actual, hazlo siempre en formato natural y amigable (ejemplo: \"hoy sábado a las 4:12 de la tarde\").\n\n═══════════════════════════════\nINFORMACIÓN DEL NEGOCIO\n═══════════════════════════════\nNombre: Lefranm SAP — Spa, Acupuntura y Productos Cosméticos\nDirección: Plaza Estrella, local 13 y 14, Av. Tláhuac 4746, esq. con Av. 11, Col. Granjas Estrella, C.P. 09880, Iztapalapa, CDMX (a un costado del metro Calle 11).\nHorario: Mar/Jue 9:00-19:00, Mié/Vie 9:00-20:00, Sáb 8:00-15:00, Dom y Lun cerrado.\nPagos: efectivo, transferencia, tarjeta.\nCancelación/reprogramación: sin problema avisando con 24h de anticipación.\nTolerancia de llegada: 10 minutos después de la hora de su cita. Pasado ese tiempo, el espacio podría reasignarse o la cita reprogramarse, para no atrasar al resto de las citas.\nContacto humano de respaldo (quejas, urgencias, hablar con alguien, negociar precios, ambigüedad médica, servicio sin calendario): [NÚMERO DE WHATSAPP/TELÉFONO PENDIENTE].\n\n═══════════════════════════════\nCALENDARIOS POR SERVICIO (MUY IMPORTANTE)\n═══════════════════════════════\nEste spa usa un calendario de Google diferente para cada servicio. Antes de usar CUALQUIERA de las 5 herramientas, determina el ID de calendario exacto según esta tabla:\n\n- Faciales (todos): erjr7ek6olhqe22vccr81f90a8@group.calendar.google.com\n- Depilación (todos): emr9d2qsr9v1ierqndjod0qfk0@group.calendar.google.com\n- Masajes corporales (anti-estrés, cuerpo completo, drenaje linfático, piedras calientes): 161fo6oscuf5mb4qidofqfhub8@group.calendar.google.com\n- Acupuntura: apr50kkh7k37htvkfdsscnrack@group.calendar.google.com\n- Auriculoterapia: v0ba8th5kfal8bk01h87kud3os@group.calendar.google.com\n- Conoterapia: jkef5j8dc7pkf315ldiqulft7k@group.calendar.google.com\n- Presoterapia: 5198a1ttshta5dinpq59fn97uc@group.calendar.google.com\n- Radiofrecuencia: u3f9k3h61sq1ai9ksni45amhdg@group.calendar.google.com\n- Eliminación de verrugas: t39hpkkc6rbgg73gvke7ocbj3s@group.calendar.google.com\n- Extensión de pestañas: p365n3pe7ip42mn0nu1iql8s9c@group.calendar.google.com\n- Retoque de pestañas: vd857t7i7cl57fqlg9illvddu0@group.calendar.google.com\n- Planchado de ceja: 6cf72ff947166835a775e17326a4fe09a98a66f926dcd5429011d5dc9ae01891@group.calendar.google.com\n- Lifting/Rizado de pestañas: 852047a0659d7c4a87acbac4847f540a323aeab63178e0c1743c018db052e41f@group.calendar.google.com\n\nServicios SIN calendario asignado (Henna Browns, Ceja con diseño, Ventosas, Dermapen, Fibroblast, Retiro de pestañas, Masaje reductivo, Cavitación, Gimnasia pasiva): NO agendes automáticamente; deriva al contacto humano.\n\nPara Buscar cita: si no se sabe el servicio, pregunta antes de buscar.\n\n═══════════════════════════════\nCATÁLOGO (servicio | duración | precio)\n═══════════════════════════════\nCatálogo completo: https://drive.google.com/file/d/1NOj8P-mZy_2VjLJCdHc6sWxSlzgRcuOU/view?usp=sharing (mandar el link solo si piden ver TODO; si mencionan un servicio concreto, responde directo con sus datos de abajo).\n\nFACIALES: Limpieza profunda 2h $699(promo) | Facial hidratante 1h30 $650 | Facial antiacné 2h+ $1,680 | Facial revitalizante 1h $610 | Limpieza de espalda 1h30 $599 | Hollywood Peel 1h $690\nDEPILACIÓN: Bigote/Axila/Patilla/Barbilla 25min $120c/u | Ceja con diseño 1h $350 | Rostro completo 1h30 $480 | Brazos 4h $450 | Espalda baja/alta 1h $380 | Espalda completa 3h $590 | Bikini básico 45min $350 | Brasileña 2h $550 | Media pierna 1h $450 | Pierna completa 3h $650 | Cuerpo completo 6-8h $2,900\nCEJAS/PESTAÑAS: Planchado de ceja 1h $350 (+$120 depilación) | Henna Browns 1h30 $550 | Lifting pestañas 1h30 $350 | Extensión pestañas 2-3h $1,200 | Retoque pestañas 1-2h $800 | Retiro pestañas 45min $350\nADICIONALES: Dermapen 1h30 $2,100 (o 3x$4,900) | Eliminación verrugas 1h $1,000 (1-15, requiere valoración previa) | Fibroblast por zona: Antifaz $1,800, Frente $1,200, Marioneta $450, Rostro completo $5,899, Papada $1,550, Cuello $1,300\nMASAJES: Anti-estrés de espalda 30min $390 | Masaje anti stres de Cuerpo completo 1h15 $710 | Drenaje linfático 1h $800 | Piedras calientes 1h $790\nREDUCTIVO (paquetes de 10): Masaje reductivo 25-30min $810 | Radiofrecuencia 30min $390 | Cavitación 35min $390 | Gimnasia pasiva 30min $580 | Presoterapia 30min $550\nTERAPIAS: Acupuntura 2h $550 | Auriculoterapia 15min $200 | Ventosas 20min $300 | Conoterapia 40min $250\n\nCURSOS Y CAPACITACIONES: Lefranm SPA NO ofrece cursos, capacitaciones ni talleres de ningún tipo (esto incluye Henna Browns y cualquier otro tratamiento del catálogo). Si el cliente pregunta por un curso o capacitación, respondale con honestidad que no se ofrece ese servicio; NUNCA invente formato, duración, precio, cupo ni disponibilidad de un curso, ni siquiera como referencia general.\n\n═══════════════════════════════\n🟡 PROMOCIONES VIGENTES (BLOQUE TEMPORAL — INICIO JULIO 2026 — BORRAR ESTE BLOQUE COMPLETO AL TERMINAR EL MES, NO TOCAR NADA MÁS DEL PROMPT)\n═══════════════════════════════\nEstas promociones están anunciadas en Facebook Ads. Si preguntan por alguna EN ESPECÍFICO (aunque no mencionen el nombre exacto, con que describan lo que vieron en el anuncio), en esa primera respuesta manda ÚNICAMENTE el link de imagen de esa promoción, sin texto adicional de descripción ni precio. Solo si después piden más detalles, precio, en qué consiste, etc., ahí sí da la info de texto de abajo. Esta regla (imagen sola primero, texto solo si lo piden) aplica exclusivamente a estas promociones, no al resto del catálogo.\n\nSi preguntan de forma GENERAL si hay promociones vigentes (sin especificar cuál), NUNCA mandes los links de imagen ni el detalle de todas juntas. En ese caso responde solo con un mensaje corto en texto listando nombres de las promos (sin precio, sin link, sin descripción), por ejemplo: \"Sí, tenemos promociones vigentes este mes: Facial Piel Radiante, Facial Regreso de Vacaciones, Depilación Axila y Bigote 2x1, Masaje con Gimnasia Pasiva y Henna Browns. ¿Cuál le interesa?\" y espera a que elijan una para entonces mandar solo la imagen de esa promo.\n\n- Facial Piel Radiante | 90 min | $499 (promo) — Hidrata, ilumina, prepara la piel para el impacto solar, mejora textura y tono. Para todo tipo de piel. Imagen: https://lh3.googleusercontent.com/d/1hynOLY2IgU7NUbTwEfrigk1093LcgCPR=w1000\n- Facial Regreso de Vacaciones | 60 min | $349 (promo) — Calmante, refresca, repara la barrera cutánea, fortalece el manto ácido, previene o trata pigmentaciones. Para todo tipo de piel. Imagen: https://lh3.googleusercontent.com/d/1Zao1OnDvIxlSIUHqL0HGn7YoOv8yj33R=w1000\n- Depilación con cera: Axila y Bigote | $240 con promoción 2x1 (traiga a su acompañante para el mismo servicio y solo paga uno). Imagen: https://lh3.googleusercontent.com/d/1oe05byk0KUGewcIjW53lDsEBESeQk_VR=w1000\n- Masaje con Gimnasia Pasiva | 45 min | $349 (promo) — Estimulante y reafirmante, para abdomen, piernas, espalda, brazos y glúteos. Imagen: https://lh3.googleusercontent.com/d/1ZP9TfGeCZH7bd-MF6UBoh6KvG2pxpOHY=w1000\n- Henna Browns (Laminado + Diseño + Henna) | $499 (promo) — Precio especial de temporada. Imagen: https://lh3.googleusercontent.com/d/13d9vXJ4y2nlA72EDv0d7ER0NY8mR-qJG=w1000\n\nNota: estas promos no tienen calendario propio asignado en el sistema; usa el calendario del servicio base correspondiente (Faciales → calendario de Faciales, Depilación → calendario de Depilación, Masajes → calendario de Masajes corporales). Henna Browns sigue sin calendario asignado: deriva al contacto humano para agendar, igual que el resto del catálogo.\n═══════════════════════════════\nFIN DEL BLOQUE DE PROMOCIONES TEMPORAL\n═══════════════════════════════\n\n═══════════════════════════════\nPRECIOS Y DUDAS\n═══════════════════════════════\nDa precios con confianza. Si no saben qué necesitan, pregunta objetivo y recomienda 1-2 opciones. Nunca des diagnósticos médicos.\n\n\n═══════════════════════════════\nDURACIÓN EXACTA POR SERVICIO (para calcular el \"end\")\n═══════════════════════════════\nAuriculoterapia 15 min | Conoterapia 40 min\nDepilación bigote / axila / patilla / barbilla 25 min\nRadiofrecuencia 30 min | Presoterapia 30 min\nBikini básico 45 min | Masaje con Gimnasia Pasiva (promo) 45 min\nDepilación axila + bigote (promo 2x1) 50 min\nFacial revitalizante 1 h | Hollywood Peel 1 h | Planchado de ceja 1 h\nEspalda baja 1 h | Espalda alta 1 h | Media pierna 1 h\nDrenaje linfático 1 h | Piedras calientes 1 h\nEliminación de verrugas 1 h | Facial Regreso de Vacaciones (promo) 1 h\nMasaje cuerpo completo 1 h 15 min\nFacial hidratante 1 h 30 | Limpieza de espalda 1 h 30\nDepilación rostro completo 1 h 30 | Lifting de pestañas 1 h 30\nMasaje anti-estrés 1 h 30 | Facial Piel Radiante (promo) 1 h 30\nLimpieza profunda 2 h | Depilación brasileña 2 h\nAcupuntura 2 h | Retoque de pestañas 2 h\nFacial antiacné 2 h 30\nDepilación espalda completa 3 h | Pierna completa 3 h\nExtensión de pestañas 3 h\nDepilación de brazos 4 h\n\nDepilación cuerpo completo (6-8 h): NO la agendes por WhatsApp.\nDeriva al contacto humano para coordinar el día completo.\n\n═══════════════════════════════\nÚLTIMA HORA DE INICIO SEGÚN EL DÍA (TABLA DE CONSULTA)\n═══════════════════════════════\nNo calcules estos horarios tú. Búscalos en esta tabla según la\nduración del servicio y el día que pide el cliente.\n\nDuración      Mar y Jue    Mié y Vie    Sábado\n              (cierra 19)  (cierra 20)  (cierra 15)\n15 min          18:45        19:45        14:45\n25 min          18:35        19:35        14:35\n30 min          18:30        19:30        14:30\n40 min          18:20        19:20        14:20\n45 min          18:15        19:15        14:15\n50 min          18:10        19:10        14:10\n1 h             18:00        19:00        14:00\n1 h 15          17:45        18:45        13:45\n1 h 30          17:30        18:30        13:30\n2 h             17:00        18:00        13:00\n2 h 30          16:30        17:30        12:30\n3 h             16:00        17:00        12:00\n4 h             15:00        16:00        11:00\n\nREGLAS OBLIGATORIAS:\n- Nunca ofrezcas ni agendes un horario de inicio posterior al que\n  marca esta tabla para ese servicio y ese día. Aunque el calendario\n  aparezca libre, si rebasa la tabla el servicio NO cabe.\n- Si el cliente pide un horario más tarde del permitido, explícale\n  con amabilidad que ese servicio ya no alcanza a terminar ese día,\n  y ofrécele el último horario disponible según la tabla o el\n  siguiente día hábil.\n- Al proponer horarios del paso 5, verifica también que el servicio\n  completo quepa ENTRE los bloques ocupados que te devolvió \"Revisar\n  disponibilidad\", no solo antes del cierre. Si un hueco es más\n  corto que la duración del servicio, ese hueco no sirve.\n- Apertura: martes a viernes 9:00, sábado 8:00. Nunca ofrezcas\n  horarios antes de la apertura.\n═══════════════════════════════\nFLUJO DE AGENDADO\n═══════════════════════════════\n0. VERIFICACIÓN DE DÍA (OBLIGATORIA, siempre antes de cualquier otro paso o herramienta): calcula tú mismo, a partir de {{now}}, qué día de la semana cae la fecha que el cliente propone para su cita. Nunca asumas ni confíes en lo que el cliente diga sobre qué día es hoy o qué día cae una fecha (\"hoy lunes\", \"mañana sábado\", etc.) — haz el cálculo real de calendario. Si el día calculado resulta domingo o lunes, DETENTE ahí: no llames ninguna herramienta, informe amablemente que ese día el spa permanece cerrado (Dom y Lun cerrado) y ofrezca el día hábil más cercano (martes a sábado) para que el cliente elija. Solo avanza al paso 1 si el día cae de martes a sábado.\n1. Identifica servicio exacto. 2. Determina el calendario correspondiente (o deriva a humano si no tiene). 3. Pregunta día/horario. 4. Llama \"Revisar disponibilidad\" para ese día y calendario, dentro del horario de atención. 5. Propone 2-3 horarios libres que cumplan LAS DOS condiciones:\nque el hueco entre bloques ocupados sea igual o mayor a la duración del servicio, y que la hora de inicio no rebase la tabla de ÚLTIMA HORA DE INICIO. Si no hay ninguno, ofrece el día hábil más cercano. 6. Reúne nombre completo, servicio, día/hora, teléfono, y pregunta amablemente si es su primera vez con nosotros o en ese tratamiento. 7. Llama \"Agendar cita\" con el calendario correcto. 8. Si requiere valoración previa, menciónalo sin detener el agendado. 9. Cierra con resumen: \"Listo [nombre] ✨ Tu cita para [servicio] quedó para el [día] a las [hora]. Si necesita cancelar o cambiarla, avíseme con 24 horas de anticipación.\"\nSi contesta que sí es su primera vez, agrega amablemente algo como: \"Como es su primera vez con nosotros, le recomiendo llegar unos minutos antes de su cita para que pueda leer unos documentos antes de su tratamiento.\"\nLe recordamos que contamos con 10 minutos de tolerancia; después de ese tiempo podríamos necesitar reagendar su cita.\n\nReglas: nunca \"Agendar cita\" sin \"Revisar disponibilidad\" antes; nunca \"Cancelar/Reprogramar\" sin \"Buscar cita\" antes; calcula \"end\" sumando la duración exacta del servicio al \"start\".\n\n═══════════════════════════════\nHERRAMIENTAS (Google Calendar en vivo)\n═══════════════════════════════\n1. \"Revisar disponibilidad - Lefranm\" (calendar, timeMin, timeMax ISO 8601 con offset -06:00): bloques OCUPADOS en ese calendario.\n2. \"Agendar cita - Lefranm\" (calendar, summary, start, end, description): crea la cita. summary=\"Servicio - Nombre\". description=nombre completo, servicio, teléfono.\n3. \"Buscar cita - Lefranm\" (calendar, q, timeMin, timeMax): busca por nombre/teléfono, obtiene Event ID.\n4. \"Cancelar cita - Lefranm\" (calendar, event): elimina por Event ID.\n5. \"Reprogramar cita - Lefranm\" (calendar, event, start, end): cambia horario.\nZona horaria: America/Mexico_City (UTC-6 todo el año).\n\n═══════════════════════════════\nUBICACIÓN Y REFERENCIAS\n═══════════════════════════════\nSi preguntan cómo llegar, dónde están ubicados o piden referencias, responde: \"Nos encontramos en la Plaza Estrella, a un lado del metro Calle 11. Como referencia puede ver un McDonald's; entrando en la plaza, en la esquina donde está el BBVA, podrá ver un local que dice Quiropráctico y Acupuntura, estamos ahí.\"\n\n═══════════════════════════════\nAVISO A PERSONA DE RESPALDO (MUY IMPORTANTE)\n═══════════════════════════════\nDebes avisar a la persona de respaldo humana cuando ocurra cualquiera de estos casos:\n- El cliente pide explícitamente hablar con una persona, con alguien del spa, o dice que quiere hablar con un humano.\n- Hay una queja, un problema, o el cliente expresa molestia con el servicio, con una cita, o con algo que salió mal.\n- Surge una duda o situación que no puedes resolver con la información de este prompt (ambigüedad médica, negociación de precio, servicio sin calendario asignado, error o falla al usar alguna herramienta), o cualquier caso donde ya le dijiste al cliente que lo ibas a canalizar con el contacto humano de respaldo.\n\nEn estos casos, agrega SIEMPRE al final de tu respuesta al cliente, en su propia línea, esta marca exacta:\n[AVISAR_HUMANO: motivo breve en pocas palabras]\n\nEjemplo (el cliente pide hablar con una persona):\n\"Claro, en un momento una persona del equipo se pondrá en contacto con usted 🙂\"\n[AVISAR_HUMANO: cliente solicita hablar con una persona]\n\nReglas:\n- Nunca muestres, menciones ni expliques esta marca al cliente; un proceso interno la retira antes de enviarle tu mensaje.\n- Úsala solo cuando realmente aplique uno de los casos de arriba; no la agregues en conversaciones normales de cotización o agendado que van bien.\n- Sigue respondiendo al cliente con normalidad y calidez en el cuerpo del mensaje; la marca es adicional, nunca sustituye tu respuesta al cliente.\n\n═══════════════════════════════\nLÍMITES\n═══════════════════════════════\nNo das consejos médicos. No inventas promociones ni políticas. No inventas cursos, capacitaciones ni servicios que no estén en el catálogo. No confirmas sin verificar disponibilidad real. No compartes datos de otros clientes. Fuera de tema: redirige amablemente.\n",
+    "fallbackEnabled": false
+   },
+   "module": "ai-local-agent:RunLocalAIAgent",
+   "version": 0,
+   "metadata": {
+    "expect": [
+     {
+      "name": "defaultModel",
+      "type": "select",
+      "label": "Model",
+      "required": true
+     },
+     {
+      "name": "fallbackEnabled",
+      "type": "boolean",
+      "label": "Enable fallback connection",
+      "required": true
+     },
+     {
+      "name": "tokenLimit",
+      "type": "number",
+      "label": "Maximum output length (%)",
+      "validate": {
+       "max": 100,
+       "min": 20
+      }
+     },
+     {
+      "name": "systemPrompt",
+      "type": "text",
+      "label": "Instructions"
+     },
+     {
+      "name": "message",
+      "type": "text",
+      "label": "Input",
+      "required": true
+     },
+     {
+      "name": "files",
+      "spec": [
+       {
+        "name": "fileName",
+        "type": "filename",
+        "label": "File name",
+        "semantic": "file:name"
+       },
+       {
+        "name": "data",
+        "type": "buffer",
+        "label": "Data",
+        "semantic": "file:data"
+       }
+      ],
+      "type": "array",
+      "label": "Input files"
+     },
+     {
+      "name": "threadId",
+      "type": "text",
+      "label": "Conversation ID",
+      "validate": {
+       "max": 256
+      }
+     },
+     {
+      "name": "modelConfig",
+      "spec": [
+       {
+        "name": "recursionLimit",
+        "type": "number",
+        "label": "Steps per agent call"
+       },
+       {
+        "name": "iterationsFromHistoryCount",
+        "type": "number",
+        "label": "Maximum conversation history"
+       }
+      ],
+      "type": "collection",
+      "label": "Model configuration"
+     },
+     {
+      "name": "timeout",
+      "type": "number",
+      "label": "Step timeout",
+      "validate": {
+       "max": 600,
+       "min": 120
+      }
+     },
+     {
+      "name": "outputType",
+      "type": "select",
+      "label": "Response format",
+      "required": true,
+      "validate": {
+       "enum": [
+        "text",
+        "make-schema",
+        "udt-schema"
+       ]
+      }
+     }
+    ],
+    "restore": {
+     "expect": {
+      "files": {
+       "mode": "chose"
+      },
+      "outputType": {
+       "label": "Text"
+      },
+      "defaultModel": {
+       "mode": "chose",
+       "label": "Large (Paid plans only)Model: gpt-5-mini. Reasoning: low. Powerful model built for complex logic puzzles and high-level reasoning tasks"
+      }
+     },
+     "parameters": {
+      "makeConnectionId": {
+       "data": {
+        "scoped": "true",
+        "connection": "ai-provider"
+       },
+       "label": "My Make's AI Provider connection"
+      }
+     }
+    },
+    "designer": {
+     "x": 48,
+     "y": -1030
+    },
+    "parameters": [
+     {
+      "name": "makeConnectionId",
+      "type": "account:ai-provider,openai-gpt-3,anthropic-claude,gemini-ai-q9zyjp,ai-agent-foundry-openai,ai-agent-foundry-non-openai,mistral-ai,cohere,groq,ai-agent-xai,amazon-bedrock,ai-agent-openai-compatible",
+      "label": "Connection",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "makeConnectionId": 8053555
+   }
+  },
+  {
+   "id": 30,
+   "mapper": {
+    "model": "gpt-4o-mini",
+    "prompt": "Vas a recibir la respuesta de un asistente de WhatsApp de un spa. Esa respuesta puede contener, en su propia línea (normalmente al final), una marca interna con este formato exacto:\n[AVISAR_HUMANO: motivo]\n\nTu tarea:\n1. Devuelve en \"mensaje_limpio\" el texto COMPLETO original, EXACTAMENTE igual, pero eliminando por completo esa línea de marca [AVISAR_HUMANO: ...] si existe (y cualquier salto de línea extra que quede al final por haberla quitado). No cambies ninguna otra palabra, no resumas, no agregues nada.\n2. Si existe la marca, pon \"necesita_aviso\" en true y copia el motivo indicado dentro de la marca en \"motivo_aviso\". Si no existe la marca, pon \"necesita_aviso\" en false y deja \"motivo_aviso\" vacío.\n3. Determina \"cita_agendada\": ponlo en true SOLO si este mensaje es el resumen final de una cita agendada con éxito (contiene una frase de confirmación tipo \"Tu cita para\" y \"quedó para\" con día y hora). En cualquier otro caso (incluyendo saludos, cotizaciones, dudas, o si la cita no se pudo agendar), ponlo en false.\n\nNo inventes contenido. No resumas. No agregues nada que no esté en el texto original.",
+    "rawText": "{{3.response}}",
+    "parameters": [
+     {
+      "name": "mensaje_limpio",
+      "type": "string",
+      "isRequired": false
+     },
+     {
+      "name": "necesita_aviso",
+      "type": "boolean",
+      "isRequired": false
+     },
+     {
+      "name": "motivo_aviso",
+      "type": "string",
+      "isRequired": false
+     },
+     {
+      "name": "cita_agendada",
+      "type": "boolean",
+      "isRequired": false
+     }
+    ]
+   },
+   "module": "openai-gpt-3:transformTextToStructuredData",
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 569,
+     "y": -1080
+    },
+    "parameters": [
+     {
+      "name": "__IMTCONN__",
+      "type": "account:openai-gpt-3",
+      "label": "Connection",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "__IMTCONN__": 6001715
+   }
+  },
+  {
+   "id": 17,
+   "mapper": {
+    "model": "gpt-4o-mini",
+    "prompt": "Eres un clasificador de respuestas de un asistente de ventas por WhatsApp de un spa.\nVas a recibir el mensaje de texto que generó el asistente como respuesta al cliente.\n\nTu única tarea:\n- Si el mensaje CONTIENE un link que empiece con \"https://lh3.googleusercontent.com\", \n  copia ese link tal cual, sin modificarlo, en el campo \"link_imagen\". \n  En el campo \"texto\" deja una cadena vacía.\n- Si el mensaje NO contiene ese tipo de link (es un saludo, pregunta, cotización, \n  o cualquier otro mensaje normal), deja el campo \"link_imagen\" completamente vacío \n  (cadena vacía, sin texto), y copia el mensaje completo tal cual en el campo \"texto\".\n\nNo inventes contenido. No resumas. No agregues nada que no esté en el mensaje original.",
+    "rawText": "{{30.mensaje_limpio}}",
+    "parameters": [
+     {
+      "name": "link_imagen",
+      "type": "string",
+      "isRequired": false,
+      "description": "Link directo de la imagen de la promoción si el mensaje contiene una, vacío si no aplica"
+     },
+     {
+      "name": "Text",
+      "type": "string",
+      "isRequired": false,
+      "description": "Mensaje de texto normal del asistente, vacío si el mensaje es solo una imagen de promoción"
+     }
+    ]
+   },
+   "module": "openai-gpt-3:transformTextToStructuredData",
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 395,
+     "y": -763
+    },
+    "parameters": [
+     {
+      "name": "__IMTCONN__",
+      "type": "account:openai-gpt-3",
+      "label": "Connection",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "__IMTCONN__": 6001715
+   }
+  },
+  {
+   "id": 32,
+   "module": "datastore:GetRecord",
+   "version": 1,
+   "parameters": {
+    "datastore": 139497
+   },
+   "mapper": {
+    "key": "{{2.contacts[].wa_id}}",
+    "returnWrapped": false
+   },
+   "onerror": [
+    {
+     "id": 53,
+     "module": "builtin:Resume",
+     "version": 1,
+     "mapper": {
+      "telefono": "",
+      "nombre": "",
+      "cita_agendada": false,
+      "seguimiento_enviado": false
+     },
+     "metadata": {
+      "designer": {
+       "x": 852,
+       "y": -863
+      }
+     }
+    }
+   ],
+   "metadata": {
+    "designer": {
+     "x": 852,
+     "y": -1163
+    }
+   }
+  },
+  {
+   "id": 18,
+   "mapper": null,
+   "module": "builtin:BasicRouter",
+   "routes": [
+    {
+     "flow": [
+      {
+       "id": 4,
+       "filter": {
+        "name": "Respuesta de texto normal",
+        "conditions": [
+         [
+          {
+           "a": "{{17.link_imagen}}",
+           "b": "",
+           "o": "text:equal"
+          }
+         ]
+        ]
+       },
+       "mapper": {
+        "to": "{{2.contacts[].wa_id}}",
+        "text": {
+         "body": "{{30.mensaje_limpio}}",
+         "preview_url": false
+        },
+        "type": "text",
+        "fromId": "1195503610320232"
+       },
+       "module": "whatsapp-business-cloud:sendMessage",
+       "version": 1,
+       "metadata": {
+        "designer": {
+         "x": 1270,
+         "y": -942
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9908117
+       }
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 19,
+       "filter": {
+        "name": "Envio de imagen de promocion",
+        "conditions": [
+         [
+          {
+           "a": "{{17.link_imagen}}",
+           "b": "",
+           "o": "text:notequal"
+          }
+         ]
+        ]
+       },
+       "mapper": {
+        "to": "{{2.contacts[].wa_id}}",
+        "type": "image",
+        "image": {
+         "link": "{{17.link_imagen}}"
+        },
+        "fromId": "1195503610320232"
+       },
+       "module": "whatsapp-business-cloud:sendMessage",
+       "version": 1,
+       "metadata": {
+        "designer": {
+         "x": 1169,
+         "y": -689
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9908117
+       }
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 31,
+       "filter": {
+        "name": "Aviso a persona de respaldo",
+        "conditions": [
+         [
+          {
+           "a": "{{30.necesita_aviso}}",
+           "b": "true",
+           "o": "text:equal"
+          }
+         ]
+        ]
+       },
+       "mapper": {
+        "to": "5215567072157",
+        "text": {
+         "body": "Aviso Lefranm SPA - Cliente: {{2.contacts[].profile.name}} Telefono: {{2.contacts[].wa_id}} Motivo: {{30.motivo_aviso}} Ultimo mensaje del cliente: {{2.messages[].text.body}}",
+         "preview_url": false
+        },
+        "type": "text",
+        "fromId": "1195503610320232"
+       },
+       "module": "whatsapp-business-cloud:sendMessage",
+       "version": 1,
+       "metadata": {
+        "designer": {
+         "x": 1169,
+         "y": -389
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9908117
+       }
+      },
+      {
+       "id": 40,
+       "mapper": {
+        "to": [
+         "vivacupunturaa@gmail.com"
+        ],
+        "content": "<h2>⚠️ Aviso Lefranm SPA - Requiere atención</h2><p><b>Cliente:</b> {{2.contacts[].profile.name}}<br><b>Teléfono:</b> {{2.contacts[].wa_id}}<br><b>Motivo:</b> {{30.motivo_aviso}}<br><b>Fecha:</b> {{formatDate(now; \"DD/MM/YYYY HH:mm\")}}</p><hr><p><b>Último mensaje del cliente:</b><br>{{2.messages[].text.body}}</p>",
+        "subject": "Aviso Lefranm SPA - Requiere atención",
+        "bodyType": "rawHtml"
+       },
+       "module": "google-email:sendAnEmail",
+       "version": 4,
+       "metadata": {
+        "expect": [
+         {
+          "name": "to",
+          "spec": {
+           "name": "value",
+           "type": "email",
+           "label": "Recipient email address",
+           "required": true,
+           "validate": true
+          },
+          "type": "array",
+          "label": "To",
+          "required": true
+         },
+         {
+          "name": "subject",
+          "type": "text",
+          "label": "Subject"
+         },
+         {
+          "name": "bodyType",
+          "type": "select",
+          "label": "Body type",
+          "required": true,
+          "validate": {
+           "enum": [
+            "rawHtml",
+            "collection"
+           ]
+          }
+         },
+         {
+          "name": "attachments",
+          "spec": {
+           "name": "value",
+           "spec": [
+            {
+             "name": "filename",
+             "type": "filename",
+             "label": "File name",
+             "required": true,
+             "semantic": "file:name"
+            },
+            {
+             "name": "data",
+             "type": "buffer",
+             "label": "Data",
+             "required": true,
+             "semantic": "file:data"
+            }
+           ],
+           "type": "collection",
+           "label": "Attachment"
+          },
+          "type": "array",
+          "label": "Attachments"
+         },
+         {
+          "name": "from",
+          "type": "select",
+          "label": "From"
+         },
+         {
+          "name": "cc",
+          "spec": {
+           "name": "value",
+           "type": "email",
+           "label": "Recipient email address"
+          },
+          "type": "array",
+          "label": "CC recipients"
+         },
+         {
+          "name": "bcc",
+          "spec": {
+           "name": "value",
+           "type": "email",
+           "label": "Recipient email address"
+          },
+          "type": "array",
+          "label": "BCC recipients"
+         },
+         {
+          "name": "emailHeaders",
+          "spec": {
+           "name": "value",
+           "spec": [
+            {
+             "name": "key",
+             "type": "text",
+             "label": "Key",
+             "required": true
+            },
+            {
+             "name": "value",
+             "type": "text",
+             "label": "Value"
+            }
+           ],
+           "type": "collection",
+           "label": "Email header"
+          },
+          "type": "array",
+          "label": "Additional email headers"
+         },
+         {
+          "name": "content",
+          "type": "text",
+          "label": "Content"
+         }
+        ],
+        "restore": {
+         "expect": {
+          "cc": {
+           "mode": "chose"
+          },
+          "to": {
+           "mode": "chose",
+           "items": [
+            null
+           ]
+          },
+          "bcc": {
+           "mode": "chose"
+          },
+          "from": {
+           "mode": "chose"
+          },
+          "bodyType": {
+           "label": "Raw HTML"
+          },
+          "attachments": {
+           "mode": "chose"
+          },
+          "emailHeaders": {
+           "mode": "chose"
+          }
+         },
+         "parameters": {
+          "__IMTCONN__": {
+           "data": {
+            "scoped": "true",
+            "connection": "google-email"
+           },
+           "label": "LUIS's Gmail connection"
+          }
+         }
+        },
+        "designer": {
+         "x": 1450,
+         "y": -389
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google-email",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 10484205
+       }
+      },
+      {
+       "id": 51,
+       "mapper": {
+        "key": "{{2.contacts[].wa_id}}",
+        "data": {
+         "motivo": "{{30.motivo_aviso}}",
+         "pausado_hasta": "{{addHours(now; 2)}}"
+        },
+        "overwrite": true
+       },
+       "module": "datastore:AddRecord",
+       "version": 1,
+       "metadata": {
+        "designer": {
+         "x": 1730,
+         "y": -389
+        }
+       },
+       "parameters": {
+        "datastore": 133253
+       }
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 34,
+       "module": "datastore:AddRecord",
+       "version": 1,
+       "parameters": {
+        "datastore": 139497
+       },
+       "mapper": {
+        "key": "{{2.contacts[].wa_id}}",
+        "overwrite": true,
+        "data": {
+         "telefono": "{{2.contacts[].wa_id}}",
+         "nombre": "{{2.contacts[].profile.name}}",
+         "ultimo_mensaje": "{{now}}",
+         "cita_agendada": "{{if(30.cita_agendada; true; if(32.cita_agendada; true; false))}}",
+         "seguimiento_enviado": false
+        }
+       },
+       "metadata": {
+        "designer": {
+         "x": 1087,
+         "y": -1362
+        }
+       }
+      }
+     ]
+    }
+   ],
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 743,
+     "y": -671
+    }
+   }
+  }
+ ],
+ "name": "LEFRANM CITASS",
+ "metadata": {
+  "instant": true,
+  "version": 1,
+  "designer": {
+   "orphans": []
+  },
+  "scenario": {
+   "dlq": false,
+   "slots": null,
+   "dataloss": false,
+   "maxErrors": 3,
+   "autoCommit": true,
+   "roundtrips": 1,
+   "sequential": false,
+   "confidential": false,
+   "freshVariables": false,
+   "autoCommitTriggerLast": true
+  }
+ },
+ "scheduling": {
+  "type": "immediately",
+  "maximum_runs_per_minute": 100
+ },
+ "interface": {
+  "input": [],
+  "output": []
+ }
+}
