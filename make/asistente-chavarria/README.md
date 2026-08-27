@@ -247,15 +247,69 @@ mande a un prospecto. No son cambios de contenido, pero conviene verificarlas:
   (esta es la única que no es una errata obvia de acento; va junto a "Realidad Aumentada y
   Educación 4.0", así que casi seguro es Gamificación, pero vale confirmarla)
 
-### Mapas curriculares que todavía faltan (5 de 24 programas)
+## Versión 15 — los cinco doctorados y todos los datos de negocio
 
-El asistente ya vende estos programas con duración, modalidades, horarios y costos, pero
-**sin materias** — dice que el plan completo se lo entregan en el plantel.
+### Planes de estudio: 23 de 24
 
-Licenciaturas e ingenierías (1): Ing. en Calidad y Productividad
+Se cargaron los cinco doctorados. Con eso el asistente tiene el mapa curricular de
+**23 de los 24 programas**. El único que sigue sin materias es **Ing. en Calidad y
+Productividad**.
 
-Doctorados (4): Administración · Alta Dirección y Liderazgo Empresarial · Dirección y
-Supervisión de Instituciones Educativas · Derecho Constitucional y Derechos Humanos
+| Doctorado | Estructura |
+|---|---|
+| Administración | 6 semestres |
+| Derecho Constitucional y Derechos Humanos | 6 semestres |
+| Alta Dirección y Liderazgo Empresarial | 6 cuatrimestres |
+| Dirección y Supervisión de Instituciones Educativas | 6 cuatrimestres |
+| Ciencias de la Educación | 6 cuatrimestres |
 
-Faltan además los **últimos periodos** de Administración de Empresas, Contaduría Pública,
-Criminalística y Criminología (7º a 9º) y de Derecho (el último cuatrimestre).
+### Datos de negocio que entraron
+
+- **Formas de pago:** efectivo (en plantel) y transferencia. Sin tarjeta, sin MSI.
+  Inscripción pagable en dos partes. Colegiaturas del 1 al 10; recargo del 10% después.
+  12 mensualidades al año en todos los niveles.
+- **Descuento bachillerato:** 30% el mismo día antes de las 6 pm — $1,750 en vez de $2,500.
+  Ahora es el primer punto de la sección de urgencia.
+- **Lic./Mtría./Doc.:** no hay descuento ni becas, pero sí *inscripción única* y
+  *colegiatura congelada*. Convertido en el argumento central de esas objeciones.
+- **Uniforme:** pants $1,450 · polo $500 · sudadera $850, en el plantel.
+- **Reprobar:** extraordinario $800, recursamiento $2,500.
+- **Devolución:** 100% de la inscripción.
+- **Seguro escolar:** $1,000/año con Mapfre, cubre accidentes dentro del plantel.
+- **Sin certificado de secundaria:** sí se puede, con constancia de trámite cuya fecha de
+  egreso caiga en el ciclo (julio de 2026 para este año). Antes el bot no sabía qué decir.
+- **Edades:** bachillerato 15–20, licenciatura 18+, maestría 21+, doctorado 24+.
+- **Modalidad en línea:** clases en vivo por videollamada (Zoom, Meet, Classroom),
+  exámenes en línea por Google Forms.
+- **Centro de Idiomas Trilingüe:** qué es, requisito de titulación B1, y el contacto
+  (56-19-88-42-35 / centrodeidiomas@centrotrilingue.edu.mx), que solo se comparte si
+  preguntan por idiomas.
+- **Resultados reales:** de cada 20 egresados, 9 se quedan en UNAM/IPN/UPN/UAM, 4 en otras
+  universidades del gobierno, 5 siguen en el CUT, 2 al campo laboral. Sembrado en tres
+  objeciones distintas con la instrucción de no inflarlo ni redondearlo.
+- **Deportes y talleres:** basquetbol, futbol, acondicionamiento físico y terapias
+  psicológicas — por nombre, sin agregar otros.
+
+### Tres decisiones que hay que validar con la dirección
+
+1. **Se quitó la "Reinscripción $1,000 por periodo" de Licenciatura escolarizado.** El
+   dato nuevo del cliente ("la inscripción es única, no pagas reinscripciones") contradice
+   directamente esa línea del costeo anterior. Se conservó el dato nuevo. Si la
+   reinscripción de $1,000 sigue existiendo, hay que regresarla.
+2. **Hay dos mapas distintos del Doctorado en Ciencias de la Educación.** Uno semestral
+   (6 semestres) y otro cuatrimestral (6 cuatrimestres), con materias completamente
+   diferentes. Se dejó cargado el cuatrimestral, porque viene en el mismo lote que los
+   otros dos doctorados cuatrimestrales. Falta confirmar cuál es el vigente.
+3. **La duración de los doctorados cuatrimestrales.** La regla general decía "3 años",
+   pero 6 cuatrimestres no son 3 años. La sección DOCTORADOS ahora separa semestrales de
+   cuatrimestrales y le prohíbe al asistente afirmar los años en los cuatrimestrales:
+   dice "6 cuatrimestres" y remite al plantel.
+
+### Lo que sigue faltando
+
+- Mapa curricular de **Ing. en Calidad y Productividad**.
+- Últimos periodos de Administración de Empresas, Contaduría Pública y Criminalística
+  (7º a 9º) y de Derecho (el último cuatrimestre).
+- **Cuántos años tiene la institución** (se preguntó, no llegó el dato).
+- Confirmar si las maestrías en Pedagogía y en Administración y Negocios son de 4 o de 5
+  cuatrimestres.
