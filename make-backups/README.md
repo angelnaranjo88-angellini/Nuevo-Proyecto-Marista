@@ -12,11 +12,44 @@ empezaron a fallar con `RateLimitError [429]` en el módulo
   sobre otras bases, con la misma conexión de Airtable (`6485517`), siguieron
   funcionando → el límite es **por base**, no por token.
 
-Volumen estimado sobre esa base: ~5,400 llamadas/mes contra un tope de 1,000
-del plan gratuito de Airtable.
+### Confirmado en Airtable (27/08/2026)
 
-Borrar registros viejos NO libera esto: el tope de 1,000 registros por base y
-el tope de 1,000 llamadas de API al mes son límites distintos.
+Panel del workspace **My First Workspace** (plan Free), donde vive la base
+`appOrTYs2MmWclqwM`:
+
+| Métrica | Valor |
+|---|---|
+| **Llamadas a la API pública (mensuales)** | **5,785 / 1,000** ← en rojo |
+| Registros por base | 380 / 1,000 |
+| Archivos adjuntos | 4.6 MB / 1 GB |
+
+Consumo real: **5.8x el tope**. La estimación previa a partir de las
+ejecuciones de Make (~5,400) resultó correcta.
+
+Las demás bases (`Air Table Chavarria`, `Log_Eventos`, `Lista de clientes`)
+viven en el workspace **ASISTENTE**, con su propia cuota. Por eso los
+escenarios de cosmeticos siguieron funcionando con la misma conexión de
+Airtable mientras los de citas estaban muertos: la cuota es **por workspace**.
+
+Borrar registros viejos NO libera esto: son límites distintos, y de hecho el
+de registros está a un tercio de su capacidad.
+
+Ajustar frecuencias tampoco alcanza: apagar por completo el escenario de
+seguimiento ahorra ~1,400 llamadas y aun así quedarían ~4,400 contra un tope
+de 1,000. Con esos volúmenes solo hay dos salidas: pagar el plan, o sacar la
+tabla de Airtable.
+
+### Prueba directa
+
+Escenario temporal de un módulo (una lectura de un registro, sin concurrencia)
+corrido a las 11:19 CDMX, casi 5 horas después del primer 429:
+
+```
+[429] RateLimitError - airtable: ActionSearchRecords
+```
+
+Una petición aislada devolviendo 429 descarta el límite de 5 req/s, que se
+libera en ~30 segundos. El escenario temporal fue borrado.
 
 ## Estado
 
