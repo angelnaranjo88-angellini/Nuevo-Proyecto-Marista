@@ -188,18 +188,41 @@ asignaturas del plan de estudios.
   regla general de maestrías del prompt dice "sabatino o en línea". El prompt ya marca
   esta maestría como solo en línea; si también se ofrece sabatina, hay que corregirlo.
 
-### Mapas curriculares que todavía faltan (14 de 24 programas)
+## Versión 11 — cinco licenciaturas más (cuatro de ellas parciales)
+
+Se agregaron, desde las imágenes de los mapas curriculares oficiales:
+
+| Programa | Lo que quedó cargado |
+|---|---|
+| Administración de Empresas | 1º–6º de 9 cuatrimestres |
+| Contaduría Pública | 1º–6º de 9 cuatrimestres |
+| Criminalística y Criminología | 1º–6º de 9 cuatrimestres |
+| Derecho | 1º–6º (el plan es de 2 años 4 meses) |
+| Pedagogía | los 6 semestres completos |
+
+Las imágenes llegaban cortadas en el 6º periodo, así que **cada uno de esos cuatro
+bloques lleva su propia advertencia** de que solo tiene los primeros 6 periodos y de que
+del resto no puede decir ni una materia. La sección 4 lo repite de forma general.
+
+También se corrigió un riesgo que ya existía: el ejemplo BIEN de la sección 0 usaba
+materias de **Seguridad Pública** bajo un encabezado genérico, justo debajo de otro
+ejemplo sobre Criminalística. Ahora el encabezado nombra explícitamente Seguridad
+Pública, para que el modelo no cruce los dos planes.
+
+Total: **15 planes cargados de 24 programas**.
+
+### Mapas curriculares que todavía faltan (9 de 24 programas)
 
 El asistente ya vende estos programas con duración, modalidades, horarios y costos, pero
-**sin materias** — dice que el plan completo se lo entregan en el plantel. Cuando lleguen
-los PDF se cargan igual que los otros diez.
+**sin materias** — dice que el plan completo se lo entregan en el plantel.
 
-Licenciaturas e ingenierías (7): Administración de Empresas · Contaduría Pública ·
-Derecho · Pedagogía · Criminalística y Criminología · Ciencias del Deporte ·
-Ing. en Calidad y Productividad
+Licenciaturas e ingenierías (2): Ciencias del Deporte · Ing. en Calidad y Productividad
 
 Maestrías (2): Pedagogía · Administración y Negocios
 
 Doctorados (5): Administración · Alta Dirección y Liderazgo Empresarial · Dirección y
 Supervisión de Instituciones Educativas · Ciencias de la Educación · Derecho
 Constitucional y Derechos Humanos
+
+Faltan además los **últimos periodos** de Administración de Empresas, Contaduría Pública,
+Criminalística y Criminología (7º a 9º) y de Derecho (el último cuatrimestre).
