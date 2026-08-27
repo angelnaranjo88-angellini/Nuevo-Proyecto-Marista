@@ -56,7 +56,7 @@ libera en ~30 segundos. El escenario temporal fue borrado.
 | Escenario | ID | Estado |
 |---|---|---|
 | LEFRANM SEGUIMIENTO CITAS | 5747451 | ✅ Migrado a Data Store |
-| LEFRANM CITASS | 5645150 | ⏳ Blueprint preparado, sin aplicar |
+| LEFRANM CITASS | 5645150 | ✅ Migrado a Data Store |
 | LEFRANM COSMETICOS CORECTA (copy) | 5587862 | ⛔ Bloqueado (ver abajo) |
 | LEFRANM COSMETICOS SEGUIMIENTO | 5866647 | ⛔ Bloqueado (ver abajo) |
 
@@ -67,9 +67,19 @@ libera en ~30 segundos. El escenario temporal fue borrado.
   `cita_agendada` boolean, `seguimiento_enviado` boolean)
 - Data store `LEFRANM_Seguimiento_Citas` — id **139497** (5 MB)
 
-## Pendiente: LEFRANM CITASS (5645150)
+## Aplicado: LEFRANM CITASS (5645150)
 
-Blueprint listo en `5645150_LEFRANM_CITASS.after.json`. Dos cambios:
+Se aplicó importando `5645150_LEFRANM_CITASS.after.json` desde el editor de
+Make (⋯ → Import Blueprint), no por API: el blueprint pesa 40 KB e incluye
+18 KB de system prompt del agente con 13 IDs de calendario y el catálogo de
+precios. Transmitirlo por API obligaba a regenerarlo carácter por carácter,
+con riesgo de corromper en silencio precios o IDs de calendario. La
+importación lo transfiere byte por byte.
+
+Verificado con diff contra el archivo: módulos, mappers y parámetros
+idénticos; `systemPrompt` byte por byte igual (18,059 caracteres).
+
+Los dos cambios:
 
 1. **Módulo 32** `airtable:ActionSearchRecords` → `datastore:GetRecord`
    - Data store: `LEFRANM_Seguimiento_Citas`
@@ -90,9 +100,21 @@ Blueprint listo en `5645150_LEFRANM_CITASS.after.json`. Dos cambios:
 
 Las cuatro configuraciones de módulo están validadas contra la API de Make.
 
-Hasta que esto se aplique, `LEFRANM SEGUIMIENTO CITAS` lee un Data Store vacío
-y no manda recordatorios. Tampoco los mandaba antes: Airtable llevaba horas
-devolviendo 429.
+### Dos trampas encontradas al aplicarlo
+
+1. **Import crea un escenario nuevo.** La primera importación se hizo desde
+   la lista de escenarios y Make creó `LEFRANM CITASS V2` en vez de reemplazar
+   el original. Como el webhook `2574977` ("LEFRANM CITAS OFICIAL") seguía
+   ocupado por el original, Make le asignó a V2 otro webhook (`2568114`), y los
+   mensajes del número real no le llegaban. Hay que importar **dentro** del
+   escenario original, que es el dueño del webhook.
+
+2. **Make ignora el `scheduling` del blueprint.** Tras importar, el escenario
+   quedó en `indefinitely / 900` (revisar cada 15 min) en vez de `immediately`.
+   El bot respondía, pero con hasta 15 minutos de retraso. Se corrigió por API
+   con `scenarios_update` pasando solo `scheduling`, sin tocar el blueprint.
+
+`LEFRANM CITASS V2` (6071321) quedó desactivado; se puede borrar.
 
 ## Bloqueado: LEFRANM COSMETICOS
 
