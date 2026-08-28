@@ -355,6 +355,38 @@ encabezado ahora dice el número real de periodos.
 Consecuencia en la sección 4: **ya no hay planes parciales**. Los 23 planes cargados están
 completos de principio a fin, y el prompt lo dice así en lugar de nombrar excepciones.
 
+## Versión 18 — la reinscripción de licenciatura escolarizada vuelve, acotada por modalidad
+
+El cliente confirmó que **los $1,000 de reinscripción por periodo en licenciatura
+escolarizada sí siguen vigentes**. La línea se restauró en la sección 5.
+
+Contexto de por qué se había quitado: al responder la pregunta de descuentos, el cliente
+escribió *"la inscripción es única, es decir no pagas reinscripciones cuatrimestrales o
+semestrales"*, lo que contradecía esa línea. El dato de los $1,000 no venía de esta ronda de
+información — estaba en el prompt desde el primer commit del repo (`42041f0`), o sea desde la
+copia original que ya vivía en Make.
+
+La forma de conciliar los dos datos sin que el asistente prometa algo falso: **la inscripción
+única se acota por modalidad**, que es justo lo que refleja la lista de costos.
+
+| | Reinscripción |
+|---|---|
+| Licenciatura sabatino | no paga |
+| Licenciatura en línea | no paga |
+| Maestría | no paga |
+| Doctorado | no paga |
+| **Licenciatura escolarizado** | **$1,000 por periodo** |
+| Bachillerato | $2,500 semestral (no cambió) |
+
+La **colegiatura congelada** sí aplica a los tres niveles sin excepción, así que ese quedó
+como el argumento principal y la inscripción única como el secundario.
+
+Se ajustaron los cinco lugares donde aparecía la promesa genérica: diferenciadores,
+descuentos, becas, la objeción de "está caro" y la de "en otra escuela es más barato". Y se
+agregó una advertencia explícita: *fíjate en la modalidad antes de decir "inscripción única";
+prometerle a alguien de escolarizado que no paga reinscripción es un problema el día que le
+cobren.*
+
 ### Pendientes
 
 - Confirmar cuál es el mapa vigente del Doctorado en Ciencias de la Educación. Aquí el
@@ -362,4 +394,3 @@ completos de principio a fin, y el prompt lo dice así en lugar de nombrar excep
   uno semestral (6 semestres) y otro cuatrimestral (6 cuatrimestres), con materias
   completamente distintas. Está cargado el cuatrimestral, por venir en el mismo lote que los
   otros dos doctorados cuatrimestrales.
-- Confirmar que ya no existe la reinscripción de $1,000 en Licenciatura escolarizado.
