@@ -387,6 +387,62 @@ agregó una advertencia explícita: *fíjate en la modalidad antes de decir "ins
 prometerle a alguien de escolarizado que no paga reinscripción es un problema el día que le
 cobren.*
 
+## Versión 19 — se acabaron los correos duplicados a la dirección
+
+El cliente reportó que la dirección estaba recibiendo muchos correos y que **ninguno era un
+cierre de venta**. El diagnóstico se hizo con la aritmética de operaciones de `executions_list`,
+porque `executions_get-detail` no devuelve el detalle por módulo en este escenario.
+
+Línea base de una ejecución normal: **6 operaciones** (trigger → AI Agent → transform →
+búsqueda en Airtable → envío por WhatsApp → alta o actualización en Airtable). A partir de ahí:
+
+| Operaciones | Qué pasó |
+|---|---|
+| 6 | conversación normal, sin correo |
+| 7 | se disparó el correo de escalación (`necesita_aviso`, sin cierre) |
+| 8 | correo + módulo 45 (cierre sobre un prospecto existente) |
+| 9 | lo anterior + evento de calendario |
+
+El 27 de agosto hubo **8 ejecuciones de 7 operaciones** y **ninguna de 8 ni de 9**. Es decir:
+los 8 correos salieron, y ni uno solo correspondía a un cierre real. Coincide exactamente con
+lo que reportó el cliente.
+
+Un mismo prospecto generó 4 correos, todos de 7 operaciones. Como su registro en Airtable ya
+existía desde el primero, el módulo 45 habría disparado (8 operaciones) si `es_cierre` fuera
+verdadero — no disparó nunca. O sea: `es_cierre` era **falso** y aun así el asunto del correo
+decía "Prospecto listo para inscripcion".
+
+### Causa 1 — el asunto del correo mentía (arreglo en el blueprint)
+
+El asunto del módulo 42 usaba `{{if(30.es_cierre; ...)}}`. En Make, `if()` evalúa la cadena
+`"false"` como verdadera, porque es una cadena no vacía. Resultado: todo correo salía con el
+asunto de cierre, aunque el filtro (que sí compara bien, con `text:equal`) lo hubiera dejado
+pasar por `necesita_aviso`. Se cambió a una comparación de texto real:
+
+```
+{{if(contains(lower(30.es_cierre); "true"); "CUT - Prospecto listo para inscripcion: "; "CUT - Prospecto necesita atencion: ")}}
+```
+
+El filtro del módulo 42 no se tocó: estaba bien.
+
+### Causa 2 — las marcas se repetían en cada mensaje (arreglo en el prompt)
+
+El asistente volvía a escribir `[AVISAR_HUMANO]` en cada respuesta mientras el motivo siguiera
+vigente. Alguien que pregunta por vacantes y manda cinco mensajes generaba cinco correos
+idénticos. Se agregaron tres reglas:
+
+- Sección 15, `[AVISAR_HUMANO]`: **una sola vez por conversación**. Antes de escribirla hay que
+  revisar el historial; solo procede una segunda marca si el motivo es *distinto*. Y después de
+  mandarla, se sigue atendiendo normal, sin anunciarle al prospecto que "ya avisó".
+- Sección 15, `[CIERRE]`: no se repite. Solo se vuelve a mandar si cambió algo real — el día,
+  la hora, el nombre, el programa o la modalidad. Repetirla creaba además un evento duplicado
+  en el calendario.
+- Sección 10 (quién no es prospecto): la misma regla de una sola vez, en el primer mensaje en
+  que se detecta el caso.
+
+Desde las 01:57 del 28 de agosto no ha salido ningún correo: las 16 ejecuciones posteriores
+son todas de 6 operaciones.
+
 ### Pendientes
 
 - Confirmar cuál es el mapa vigente del Doctorado en Ciencias de la Educación. Aquí el
