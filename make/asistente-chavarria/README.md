@@ -443,6 +443,60 @@ idénticos. Se agregaron tres reglas:
 Desde las 01:57 del 28 de agosto no ha salido ningún correo: las 16 ejecuciones posteriores
 son todas de 6 operaciones.
 
+## Versión 20 — el correo solo sale en el cierre y en la cita
+
+La v19 redujo la repetición, pero no cambió *en qué casos* se manda el correo. El cliente lo
+aclaró: la dirección solo debe enterarse cuando el prospecto **está por cerrar la inscripción**
+(y en ese mismo momento se le pasa el WhatsApp de admisiones) o cuando **agenda una cita
+presencial**. Nada más. El asistente existe para quitarle carga a la dirección.
+
+Antes el correo salía en diez situaciones distintas, porque el filtro del módulo 42 era
+`es_cierre = true` **O** `necesita_aviso = true`, y `necesita_aviso` lo prendía la marca
+[AVISAR_HUMANO], que el prompt pedía en: busca empleo, proveedor, pregunta por secundaria,
+groserías, alumno inscrito con un problema, queja, convalidación, pide hablar con una persona,
+y el cierre. De ahí venía la inundación.
+
+### Qué cambió
+
+**Blueprint (módulo 42, correo):**
+
+- El filtro quedó en una sola condición: `es_cierre = true`. La rama de `necesita_aviso`
+  desapareció. Como `cita` es un campo de la propia marca [CIERRE], el correo por cita
+  presencial sigue saliendo — es el mismo evento.
+- El asunto ahora distingue los dos casos:
+  `{{if(30.fecha_cita; "CUT - Cita presencial agendada: "; "CUT - Prospecto listo para inscripcion: ")}}`.
+  Aquí `if()` sí es seguro: `fecha_cita` es una cadena vacía cuando no hay cita, así que la
+  trampa de la v19 (la cadena `"false"` evaluada como verdadera) no aplica.
+- Se quitó la línea "Motivo del aviso" del cuerpo del correo: ya no existen avisos que motivar.
+- El módulo 41 (calendario) no se tocó: sigue creando el evento cuando hay `fecha_cita`.
+
+**Prompt:** se eliminó por completo la marca [AVISAR_HUMANO]. Ahora hay **una sola marca**,
+[CIERRE], y el prompt dice explícitamente que es lo único que le avisa a la dirección.
+
+Los casos que antes escalaban ahora se resuelven pasando el WhatsApp de admisiones
+(`https://wa.me/525529944073`), que es el mismo canal humano de siempre pero sin correo de por
+medio:
+
+| Caso | Antes | Ahora |
+|---|---|---|
+| Quiere inscribirse | correo | **correo + enlace** |
+| Agenda cita presencial | correo + calendario | **correo + calendario + enlace** |
+| Pide hablar con una persona | correo | enlace de WhatsApp |
+| Queja / alumno inscrito con problema | correo | enlace de WhatsApp |
+| Convalidación o pago especial | correo | enlace de WhatsApp |
+| Pregunta por la secundaria | correo | enlace de WhatsApp |
+| Busca empleo | correo | se contesta y ahí termina |
+| Proveedor | correo | se contesta y ahí termina |
+| Groserías | correo | una línea neutral y ahí termina |
+
+Secciones tocadas: 8 (convalidación), 10 (quién no es prospecto), 13 (escalación), 14 (cierre y
+enlace) y 15, que pasó de "MARCAS INTERNAS" a "LA MARCA INTERNA".
+
+El módulo 30 sigue extrayendo `necesita_aviso` y `motivo_aviso`, y sigue quitando cualquier
+línea `[AVISAR_HUMANO: ...]` del mensaje. Se dejó a propósito, como red de seguridad por si el
+modelo llegara a inventarse la marca: si eso pasa, el texto se limpia igual y el correo no sale,
+porque el filtro ya no la mira.
+
 ### Pendientes
 
 - Confirmar cuál es el mapa vigente del Doctorado en Ciencias de la Educación. Aquí el
