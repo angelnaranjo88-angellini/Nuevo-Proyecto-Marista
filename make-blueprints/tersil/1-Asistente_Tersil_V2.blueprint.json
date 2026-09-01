@@ -893,7 +893,9 @@
             "id": 23,
             "module": "datastore:AddRecord",
             "version": 1,
-            "parameters": {},
+            "parameters": {
+                "datastore": 182352
+            },
             "mapper": {
                 "key": "{{1.contacts[].wa_id}}",
                 "overwrite": true,
@@ -915,6 +917,11 @@
                     "expect": {
                         "overwrite": {
                             "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "datastore": {
+                            "label": "TERSIL_Seguimiento"
                         }
                     }
                 },
@@ -1236,7 +1243,9 @@
             "id": 24,
             "module": "datastore:DeleteRecord",
             "version": 1,
-            "parameters": {},
+            "parameters": {
+                "datastore": 182352
+            },
             "mapper": {
                 "key": "{{1.contacts[].wa_id}}"
             },
@@ -1261,7 +1270,14 @@
                         "label": "Key",
                         "required": true
                     }
-                ]
+                ],
+                "restore": {
+                    "parameters": {
+                        "datastore": {
+                            "label": "TERSIL_Seguimiento"
+                        }
+                    }
+                }
             }
         }
     ],
