@@ -1,251 +1,309 @@
-# Santa Nails — Generador de artes para las tarjetas de lealtad
+# Santa Nails — App de tarjetas de lealtad
 
-## Contexto
+## Qué es
 
-Santa Nails es un estudio de uñas en México. Necesito una página web que
-renderice **a tamaño real** las piezas impresas de mi programa de lealtad y las
-deje listas para exportar a PDF y mandar a imprenta.
+Una app web para **Santa Nails**, un estudio de uñas en México. Sustituye la
+tarjeta de lealtad de papel: las tarjetas viven aquí. Cuando una clienta termina
+su cita, yo abro la app en el mostrador y le registro el sello.
 
-**Esto NO es una app con base de datos ni un sistema de sellos digitales.** Es un
-generador de artes para impresión: las piezas se ven en pantalla exactamente
-como se van a imprimir, y se exportan en su medida real.
+**Qué NO es:** no imprime nada, no cobra, no agenda citas, no tiene app móvil
+nativa. Es una web app que uso desde mi teléfono.
 
-## Entregable
+## Quién la usa
 
-Una sola ruta `/` con:
+Yo y quien atienda en el estudio. **Una sola cuenta.** Las clientas no se
+registran ni tienen contraseña — yo las doy de alta.
 
-1. Una barra superior con: selector de pieza, toggle "Sangrado 3 mm", selector de
-   color de acento (verde / rosa) y botón **Imprimir / Exportar PDF**.
-2. El lienzo central mostrando la pieza seleccionada a tamaño real sobre un fondo
-   gris neutro (`#EDEBE8`), con una sombra suave para que se lea como papel.
-3. Las 4 piezas listadas abajo, cada una con sus medidas exactas.
+Hay una excepción, en la Fase 3: cada tarjeta tiene un enlace público de solo
+lectura para que la clienta vea cómo va su tarjeta desde su celular.
 
-Stack: React + Tailwind. Sin backend, sin auth, sin base de datos.
+## Stack
 
-## Marca
+React + Vite + Tailwind + shadcn/ui + Supabase. Todo lo que se guarda va en
+Supabase, nada en `localStorage`.
 
-- **Nombre:** Santa Nails
-- **Logo:** voy a subir el archivo del logo (letras color crema sobre negro, con
-  un ala de mariposa saliendo de la última "a"). Úsalo como asset y colócalo tal
-  cual — **no lo redibujes ni lo reconstruyas con tipografía web.**
-- **Motivo de marca:** hadas y mariposas. Voy a subir también un PNG de un hada
-  (silueta oscura con alas de mariposa y destellos). Ese hada es el sello.
+**Mobile-first.** La voy a usar de pie, con una clienta enfrente esperando, con
+una mano. Los botones principales de mínimo 48px de alto. Que se vea bien en
+un iPhone; el escritorio es secundario.
 
-## Sistema de color
+---
 
-Define estos tokens en `index.css` bajo `:root` y usa **solo** estos colores en
-toda la página y en las piezas. Son los mismos que voy a usar en mi app, así que
-quiero el bloque limpio y reutilizable:
+## Las reglas del programa
+
+Esta es la parte que más importa. **La app tiene que hacer cumplir estas reglas,
+no solo mostrarlas.** Si una regla no se cumple, el botón se bloquea y dice
+exactamente por qué.
+
+Ponlas todas como constantes en un solo archivo `src/config/programa.ts`, para
+que yo pueda cambiarlas después sin tocar el resto del código:
+
+```ts
+export const PROGRAMA = {
+  SELLOS_PARA_PREMIO: 5,
+  MONTO_MINIMO_SELLO: 400,        // MXN para ganar un sello
+  MONTO_MINIMO_CANJE: 500,        // MXN de la cuenta al canjear
+  PORCENTAJE_DESCUENTO: 0.20,
+  TOPE_DESCUENTO: 150,            // MXN
+  VIGENCIA_TARJETA_MESES: 8,      // desde el primer sello
+  DIAS_PARA_USAR_PREMIO: 60,      // desde el 5º sello
+  VISITAS_PAGADAS_MINIMAS: 4,     // aunque tenga sellos de referido
+  MAX_SELLOS_REFERIDO: 2,         // por tarjeta
+  DESCUENTO_BIENVENIDA: 50,       // MXN para la clienta referida
+  MONTO_MINIMO_BIENVENIDA: 400,
+  DIAS_VIGENCIA_BIENVENIDA: 60,
+  // Fechas donde NO se puede canjear (alta demanda)
+  FECHAS_BLOQUEADAS: {
+    meses: [12],                  // diciembre completo
+    dias: ['05-10', '02-14']      // 10 de mayo, 14 de febrero
+  }
+};
+```
+
+### Para AGREGAR UN SELLO, todo esto debe cumplirse
+
+1. La tarjeta está activa y no vencida (menos de 8 meses desde el primer sello).
+2. La tarjeta tiene menos de 5 sellos.
+3. **No hay ya un sello registrado hoy para esa clienta.** Un sello por cita y
+   por persona.
+4. Si es sello de visita: el monto capturado es de **$400 o más**.
+5. Si es sello de referido: esa tarjeta tiene menos de 2 sellos de referido.
+
+Si algo falla, el botón se deshabilita y aparece el motivo exacto. Nada de
+"error"; quiero leer *"Ya registraste un sello hoy para Ana"* o
+*"$380 no alcanza — el mínimo es $400"*.
+
+### Para CANJEAR EL PREMIO, todo esto debe cumplirse
+
+1. Tiene exactamente 5 sellos.
+2. Tiene **mínimo 4 visitas pagadas** (los sellos de referido no cuentan aquí).
+3. No pasaron más de 60 días desde el quinto sello.
+4. La tarjeta no está vencida.
+5. El monto de la cuenta es de **$500 o más**.
+6. **Hoy no es fecha bloqueada** (diciembre, 10 de mayo, 14 de febrero).
+
+El descuento es `min(monto * 0.20, 150)`. La app me lo calcula y me muestra:
+
+> Cuenta: $650 · Descuento: $130 · **A cobrar: $520**
+
+Al confirmar el canje: la tarjeta pasa a `completada` y **se abre una tarjeta
+nueva vacía automáticamente**. La visita del canje **no genera sello**.
+
+### Referidos
+
+Cuando doy de alta una clienta nueva puedo marcar **quién la refirió**.
+
+- La clienta nueva queda con un **descuento de bienvenida de $50**, disponible
+  solo en su primera visita, en servicios desde $400, vigente 60 días.
+- Cuando le registro su **primer servicio de $400 o más**, la app hace dos cosas
+  sola, sin que yo tenga que acordarme:
+  1. Marca su descuento de bienvenida como usado.
+  2. **Le da el sello extra de referido a quien la refirió** — siempre que esa
+     tarjeta no tenga ya 2 sellos de referido.
+- Si la referidora ya llegó al tope, no se lo da y me avisa por qué.
+
+---
+
+## Modelo de datos (Supabase)
+
+```
+clientas
+  id                            uuid pk
+  nombre                        text not null
+  telefono                      text not null          -- índice para buscar
+  referida_por                  uuid null → clientas.id
+  bienvenida_estado             text  -- 'no_aplica' | 'disponible' | 'usada' | 'expirada'
+  bienvenida_vence_en           date null
+  notas                         text null
+  creada_en                     timestamptz default now()
+
+tarjetas
+  id                            uuid pk
+  clienta_id                    uuid → clientas.id
+  estado                        text  -- 'activa' | 'completada' | 'vencida'
+  abierta_en                    date null   -- fecha del PRIMER sello, null si vacía
+  creada_en                     timestamptz default now()
+  -- una clienta tiene como máximo UNA tarjeta 'activa' a la vez
+
+sellos
+  id                            uuid pk
+  tarjeta_id                    uuid → tarjetas.id
+  tipo                          text  -- 'visita' | 'referido'
+  monto                         numeric null   -- null en los de referido
+  referida_id                   uuid null → clientas.id   -- quién fue la invitada
+  fecha                         date not null
+  creado_en                     timestamptz default now()
+
+canjes
+  id                            uuid pk
+  tarjeta_id                    uuid → tarjetas.id
+  monto_cuenta                  numeric not null
+  descuento                     numeric not null
+  fecha                         date not null
+```
+
+**Nada de campos calculados guardados.** El número de sellos, las visitas
+pagadas y las fechas de vencimiento se derivan de `sellos` en el momento. Si
+guardas un contador, se va a desincronizar.
+
+Pon la lógica de "¿puede sellar?" y "¿puede canjear?" en **un solo módulo**
+`src/lib/reglas.ts` que reciba la tarjeta con sus sellos y devuelva
+`{ puede: boolean, motivo: string | null }`. Las pantallas solo consultan eso —
+no repartas la lógica entre componentes.
+
+---
+
+## Pantallas
+
+### 1. Entrar
+
+Login de Supabase con correo y contraseña. Una sola cuenta. Sin registro
+público, sin "crear cuenta".
+
+### 2. Hoy (pantalla principal)
+
+Lo primero que veo al entrar:
+
+- **Buscador grande hasta arriba**, con foco automático. Busca por nombre o
+  teléfono conforme escribo. Es lo que más uso: llega la clienta, la busco,
+  le sello.
+- Botón **+ Nueva clienta**.
+- **Listas cortas que me dicen dónde actuar**, cada una con su chip de color:
+  - `Listas para canjear` — tienen 5 sellos y pueden canjear hoy.
+  - `Su premio vence pronto` — menos de 15 días para que se les venza.
+  - `Tarjeta por vencer` — menos de 30 días de los 8 meses.
+  - `Sin venir hace 6+ semanas` — con botón para copiar su teléfono. Ésta es la
+    lista que me hace ganar dinero: son clientas que se están yendo.
+
+Si una lista está vacía, no la muestres.
+
+### 3. Ficha de la clienta
+
+Lo más importante de la app. De arriba a abajo:
+
+1. **Nombre y teléfono.** El teléfono con botón para copiar y para abrir WhatsApp.
+2. **El carnet.** Cinco círculos en fila, igual que la tarjeta física:
+   los sellos ganados se llenan con **el hada** (voy a subir el PNG); los que
+   faltan quedan como círculo vacío con borde punteado. Debajo de cada uno, la
+   fecha en que se puso. Si un sello fue por referido, marca ese círculo con un
+   detalle distinto y el nombre de la invitada.
+3. **Estado en una línea**, en lenguaje humano:
+   *"3 de 5 sellos · Tarjeta vence el 14 de marzo"*
+   o *"¡Puede canjear! · El premio vence en 12 días"*.
+4. **Botones de acción**, grandes:
+   - **Agregar sello** → pide el monto en un teclado numérico. Si es menor a
+     $400, el botón de confirmar queda bloqueado con el motivo visible.
+   - **Canjear premio** → solo aparece si tiene 5 sellos. Pide el monto de la
+     cuenta, calcula el descuento y me muestra el total a cobrar antes de
+     confirmar.
+   - **Registrar referido** → busco a la invitada entre las clientas y le doy
+     el sello extra.
+5. **Historial**: cada sello y cada canje, con fecha y monto. También las
+   tarjetas anteriores ya completadas, colapsadas.
+
+Toda acción que modifique algo pide una confirmación de un paso, y se puede
+**deshacer durante 30 segundos** con un toast. Me voy a equivocar de clienta
+alguna vez y necesito arreglarlo sin entrar a la base de datos.
+
+### 4. Nueva clienta
+
+Nombre, teléfono y, opcional, **quién la refirió** (buscador entre las clientas
+existentes). Al guardar, se le crea su tarjeta vacía. Si viene referida, se le
+activa el descuento de bienvenida de $50 y se muestra en su ficha.
+
+Valida que el teléfono no esté repetido. Si ya existe, me lleva a esa ficha en
+lugar de crear una duplicada.
+
+---
+
+## Diseño
+
+### Colores
+
+Éstos son los de mi marca. Úsalos tal cual, en `index.css` bajo `:root`:
 
 ```css
 :root {
-  /* Base de marca */
-  --sn-black:        #0B0B0B;   /* fondo del logo, tinta principal */
-  --sn-cream:        #F5E9DA;   /* crema del logo */
-  --sn-cream-soft:   #FBF4EA;   /* crema más claro, para superficies */
-
-  /* Acentos */
-  --sn-green:        #A8CEA2;   /* verde salvia */
-  --sn-green-deep:   #6E9A6A;   /* verde para texto sobre crema */
-  --sn-pink:         #F9A8B5;   /* rosa */
-  --sn-pink-deep:    #C9707F;   /* rosa para texto sobre crema */
-
-  /* Neutros de apoyo */
-  --sn-ink-soft:     #4A4640;   /* texto secundario sobre crema */
-  --sn-muted:        #8A857F;   /* etiquetas, letra chica */
-  --sn-rule:         #DDD6CF;   /* líneas divisorias y renglones */
+  --sn-black:      #0B0B0B;   /* fondo del logo, tinta principal */
+  --sn-cream:      #F5E9DA;   /* crema del logo */
+  --sn-cream-soft: #FBF4EA;   /* fondo de la app */
+  --sn-green:      #A8CEA2;   /* verde salvia */
+  --sn-green-deep: #6E9A6A;   /* verde legible sobre crema */
+  --sn-pink:       #F9A8B5;   /* rosa */
+  --sn-pink-deep:  #C9707F;   /* rosa legible sobre crema */
+  --sn-ink-soft:   #4A4640;
+  --sn-muted:      #8A857F;
+  --sn-rule:       #DDD6CF;
 }
 ```
 
 Reglas de uso:
 
-- **Negro + crema es la base.** Verde y rosa son acentos, nunca fondos grandes de
-  texto largo.
-- Sobre crema, el texto de color usa `--sn-green-deep` / `--sn-pink-deep`, nunca
-  los tonos claros: `#A8CEA2` sobre crema no alcanza contraste legible.
-- Nada de degradados. Nada de sombras de colores. Bloques de color plano.
+- **Negro y crema son la base.** Verde y rosa son acentos.
+- Para **texto** de color sobre crema usa siempre los tonos `-deep`. El verde y
+  el rosa claros no alcanzan contraste legible para texto.
+- Verde = confirmación y progreso. Rosa = alerta suave y referidos. Para
+  bloqueos y errores usa un rojo neutro, **no el rosa de marca** — si el rosa
+  significa error y también significa referido, deja de significar nada.
+- Nada de degradados ni sombras de colores.
 
-## Tipografía
+### Tipografía
 
-Dos fuentes de Google Fonts, nada más:
+- **Títulos y el número de sellos:** `Prata` (Google Fonts). Es lo más cercano
+  a mi logo.
+- **Todo lo demás:** `Jost` (Google Fonts).
 
-- **Display / títulos:** `Prata` — serif de alto contraste, es lo más cercano al
-  logo. Fallback: `Georgia, serif`.
-- **Texto, etiquetas y letra chica:** `Jost` — geométrica, elegante. Fallback:
-  `"Helvetica Neue", Arial, sans-serif`.
+### El carnet
 
-Las etiquetas chicas van en MAYÚSCULAS con `letter-spacing: 0.18em`.
+Es el corazón de la app: es lo que le enseño a la clienta en la pantalla. Los
+cinco círculos con el hada tienen que verse **bonitos y grandes**, no como una
+barra de progreso genérica. Cuando se agrega un sello, que el hada aparezca con
+una animación corta (300ms, escala + opacidad). Un solo momento, sin confeti ni
+exageraciones.
 
-## Las 4 piezas
-
-| # | Pieza | Medida | Fondo |
-|---|---|---|---|
-| 1 | Tarjeta — frente | 85 × 55 mm | negro `--sn-black` |
-| 2 | Tarjeta — reverso | 85 × 55 mm | crema `--sn-cream-soft` |
-| 3 | Invitación de referido | 85 × 55 mm | rosa `--sn-pink` |
-| 4 | Hoja de mostrador | A5, 148 × 210 mm | crema `--sn-cream-soft` |
-
-**Trabaja todo en milímetros reales** (`width: 85mm; height: 55mm`), no en px.
-Los tamaños de letra en `pt`. Así lo que se ve en pantalla es lo que sale impreso.
+Voy a subir el logo de Santa Nails y el PNG del hada. Úsalos como assets;
+**no redibujes el logo con tipografía web.**
 
 ---
 
-### Pieza 1 — Tarjeta, FRENTE (85 × 55 mm, fondo negro)
+## Seguridad
 
-Márgenes internos de 5 mm. Marco decorativo: línea de 0.3 mm en
-`--sn-green` al 40% de opacidad, a 2.5 mm del borde, esquinas de 1 mm.
+Esto guarda nombres y teléfonos de mis clientas, así que no lo dejes abierto:
 
-De arriba a abajo:
-
-1. **El logo de Santa Nails** (el asset que subo), alineado a la izquierda,
-   ancho aproximado 32 mm.
-2. Etiqueta: `ESTUDIO DE UÑAS · TARJETA DE LEALTAD` — Jost, 5 pt, mayúsculas,
-   tracking 0.18em, color `--sn-green`.
-3. **Los 5 sellos.** Fila de 5 círculos iguales, `gap` parejo, cada uno de
-   13 mm de diámetro:
-   - Relleno `--sn-cream`, sin borde.
-   - Dentro de cada círculo, **el hada al 14% de opacidad**, centrada, ocupando
-     ~70% del círculo. Es una marca de agua: el sello físico se estampa encima.
-   - Un número chiquito (1 a 5) en Prata 7 pt, color `--sn-pink-deep`, pegado
-     abajo del círculo, centrado.
-4. **Banda del premio.** Rectángulo de ancho completo, 7 mm de alto, fondo
-   `--sn-green`, esquinas 1 mm. Adentro, en una fila con `justify-content: space-between`:
-   - Izquierda: un destello de 4 puntas (SVG) + `6ª VISITA · 20% DE DESCUENTO`
-     en Jost 6 pt, mayúsculas, tracking 0.13em, color `--sn-black`.
-   - Derecha: `TOPE $150` en Jost 5 pt, color `--sn-black` al 70%.
-5. **Renglones para escribir**, hasta abajo, en Jost 5 pt mayúsculas color
-   `--sn-cream` al 55%, con línea de 0.25 mm en `--sn-cream` al 30%:
-   `NOMBRE ______   TEL ______   1ER SELLO ______`
+- **Activa RLS en las cuatro tablas.** Sin excepción.
+- Todas las lecturas y escrituras requieren usuario autenticado.
+- No expongas ninguna tabla a `anon` en la Fase 1.
+- Las claves de Supabase van en variables de entorno, nunca en el código.
 
 ---
 
-### Pieza 2 — Tarjeta, REVERSO (85 × 55 mm, fondo crema)
+## Fases
 
-Márgenes internos de 5 mm. Todo el texto en `--sn-ink-soft` salvo lo indicado.
+Constrúyelo en este orden y no empieces la siguiente hasta que la anterior
+funcione:
 
-**CÓMO FUNCIONA** (Jost 5 pt, mayúsculas, tracking 0.18em, `--sn-pink-deep`),
-y debajo tres puntos numerados. El número va en un círculo de 3 mm relleno
-`--sn-black` con la cifra en crema, 4.5 pt:
+**Fase 1 — El núcleo.** Login, alta de clientas, buscador, ficha con el carnet,
+agregar sello con sus validaciones, canjear premio con el cálculo del descuento.
+Con esto ya puedo dejar el papel.
 
-1. Un sello por cita, con consumo mínimo de **$400**.
-2. Sello extra si traes una clienta nueva y ella toma su primer servicio completo (máximo 2 por tarjeta).
-3. Con 5 sellos, tu 6ª cita lleva **20% de descuento**.
+**Fase 2 — Referidos y recuperación.** Descuento de bienvenida, sello automático
+a quien refiere, y las listas de la pantalla "Hoy" (por vencer, sin venir).
 
-**CONDICIONES** (mismo estilo de encabezado), y debajo este párrafo corrido en
-Jost 4.5 pt, `line-height: 1.5`, color `--sn-muted`. Cópialo **textual**:
-
-> Vigencia de 8 meses desde el primer sello · El beneficio se usa dentro de los 60 días posteriores al 5º sello · Consumo mínimo para canjear $500 · Descuento máximo $150 · Un sello por cita y por persona · Se requieren mínimo 4 visitas pagadas · No acumula en retiros, reparaciones, servicios gratuitos, anticipos, cancelaciones ni citas no asistidas · La visita de canje no acumula sello · No aplica en diciembre, 10 de mayo ni 14 de febrero · No se combina con otras promociones ni es canjeable por efectivo · Personal e intransferible · Los sellos son válidos únicamente con el sello oficial del estudio.
-
-Hasta abajo, separado por una línea de 0.25 mm en `--sn-rule`: a la izquierda
-`@SANTANAILS · [TELÉFONO]` y a la derecha `TARJETA Nº ______`, ambos en Jost
-5 pt mayúsculas color `--sn-muted`.
+**Fase 3 — Vista para la clienta.** Ruta pública `/t/:codigo` de **solo lectura**
+donde la clienta ve su carnet desde su celular. El código es un token aleatorio
+largo por tarjeta, no un id secuencial. Requiere una política de RLS que permita
+leer **solo esa tarjeta por su código**, y que no exponga el teléfono ni el
+historial de montos.
 
 ---
-
-### Pieza 3 — Invitación de referido (85 × 55 mm, fondo rosa)
-
-Esta es la tarjeta que mi clienta le da a una amiga. Texto en `--sn-black`.
-
-1. El logo de Santa Nails arriba a la izquierda, ~26 mm de ancho. Si el logo que
-   subo viene en crema, úsalo en negro aquí (o aplica `filter` para invertirlo);
-   sobre rosa el crema no contrasta.
-2. Etiqueta `ESTUDIO DE UÑAS · INVITACIÓN` en Jost 5 pt mayúsculas tracking 0.18em.
-3. El hada, en negro al 100%, del lado derecho, de unos 22 mm de alto, saliéndose
-   ligeramente del borde derecho (recortada por `overflow: hidden`).
-4. **`$50`** en Prata 26 pt, y a un lado, en dos renglones, Prata 8 pt:
-   `de descuento` / `en tu primera cita`.
-5. `EN SERVICIOS DESDE $400` en Jost 5.5 pt mayúsculas tracking 0.13em.
-6. Renglón `TE INVITA ______________` en Jost 5 pt mayúsculas, línea de 0.25 mm.
-7. Letra chica en Jost 4.5 pt, `line-height: 1.5`, negro al 60%, textual:
-
-> Válida 60 días desde su entrega · Únicamente en la primera visita · No se combina con otras promociones ni es canjeable por efectivo · Presenta esta tarjeta al agendar.
-
----
-
-### Pieza 4 — Hoja de mostrador (A5, 148 × 210 mm, fondo crema)
-
-Es la hoja que vive junto a la caja, para que quien atienda sepa cuándo sellar.
-Márgenes de 12 mm. Cuerpo de texto en 9 pt (aquí sí se puede leer cómodo).
-
-Encabezado: `SANTA NAILS · PROGRAMA DE LEALTAD` en Jost 7 pt mayúsculas
-`--sn-pink-deep`, y debajo **Reglas de mostrador** en Prata 20 pt `--sn-black`.
-A la derecha, el hada en negro, 18 mm de alto. Línea divisoria abajo.
-
-Luego, en dos columnas:
-
-**SÍ DAS UN SELLO** (viñeta: palomita en `--sn-green-deep`)
-- Servicio de $400 o más, pagado y terminado.
-- Una cita, una persona, un sello. Anota la fecha dentro del círculo.
-- Referido: cuando su invitada ya pagó su primer servicio completo.
-
-**NO DAS UN SELLO** (viñeta: tache en `--sn-pink-deep`)
-- Retiros, reparaciones y servicios de cortesía.
-- Anticipos, depósitos y servicios menores a $400.
-- Cancelaciones y citas no asistidas.
-- La visita en la que se canjea el descuento.
-
-Otra fila de dos columnas:
-
-**REFERIDOS**
-- Dale la tarjeta rosa de $50 a la clienta que invita.
-- La invitada la presenta al agendar; aplica desde $400.
-- Máximo 2 sellos por referido en cada tarjeta.
-
-**CANJE DE LA 6ª VISITA**
-- 5 sellos y mínimo 4 visitas pagadas.
-- Consumo mínimo $500. Descuento 20%, tope $150.
-- Dentro de los 60 días del 5º sello.
-
-Recuadro destacado, fondo `--sn-green` al 25%, esquinas 1.5 mm:
-
-**REGISTRO PARALELO · OBLIGATORIO**
-Anota en la libreta el nombre, el teléfono, la fecha del primer sello y el número
-de sellos de cada clienta. Sin ese registro no se repone una tarjeta perdida — y
-ese teléfono es lo que te deja recuperar a una clienta que dejó de venir.
-
-Al final, **TÉRMINOS COMPLETOS** en dos columnas, Jost 7 pt, color `--sn-muted`:
-
-> Vigencia de 8 meses desde el primer sello. El beneficio debe utilizarse dentro de los 60 días posteriores al quinto sello. Consumo mínimo para canjear: $500 MXN. Descuento del 20% con tope máximo de $150 MXN. Un sello por cita y por persona, en servicios desde $400 MXN. Se requieren mínimo 4 visitas pagadas. No aplica en retiros, reparaciones, servicios gratuitos, anticipos, cancelaciones ni citas no asistidas. La visita de canje no acumula sello. No aplica en diciembre, 10 de mayo ni 14 de febrero. La recompensa no se combina con otras promociones ni es canjeable por efectivo. La tarjeta es personal e intransferible. Los sellos son válidos únicamente con el sello o firma oficial del estudio. La clienta referida recibe $50 de descuento en su primera visita, en servicios desde $400 MXN, válido 60 días desde la entrega de la invitación.
-
----
-
-## Impresión
-
-Esta parte es la que más importa: si sale mal, la imprenta me rebota el archivo.
-
-- Cada pieza debe imprimirse **en su tamaño real**, sin que el navegador la
-  escale. Antes de llamar `window.print()`, inyecta dinámicamente una regla
-  `@page { size: <ancho>mm <alto>mm; margin: 0; }` con las medidas de la pieza
-  seleccionada, y quítala al terminar.
-- En `@media print`: oculta la barra de herramientas y el fondo gris; deja
-  visible **solo** la pieza seleccionada, sin sombra y sin bordes redondeados
-  del contenedor.
-- Fuerza `-webkit-print-color-adjust: exact; print-color-adjust: exact;` en las
-  piezas, o los fondos negro y rosa salen en blanco.
-- **Toggle de sangrado:** cuando esté activo, cada pieza se renderiza 3 mm más
-  grande por cada lado (la tarjeta pasa a 91 × 61 mm), con el color de fondo
-  extendido hasta el borde nuevo y **marcas de corte** — líneas de 0.25 mm en
-  negro, de 3 mm de largo, en las cuatro esquinas, separadas 1 mm del área de
-  corte. El contenido no se mueve: sigue centrado en los 85 × 55 mm de adentro.
 
 ## Qué NO quiero
 
-- No inventes texto. Todo el copy está arriba; úsalo textual, incluidos los
-  puntos medios `·` y los montos.
-- No agregues secciones, íconos decorativos, ilustraciones ni "detalles bonitos"
-  que no pedí.
-- Nada de degradados, glassmorphism, sombras de colores ni bordes redondeados
-  grandes. Los radios máximos son de 1.5 mm.
-- No uses emoji en ninguna pieza.
-- No cambies los colores ni los "mejores". Los hex de arriba son los definitivos.
-- No metas base de datos, login, ni estado de sellos. Las piezas son estáticas.
-- No redibujes el logo con tipografía web: usa el archivo que subo.
-
-## Primer mensaje sugerido para Lovable
-
-Pega todo lo de arriba, y súbele en el mismo mensaje:
-1. El logo de Santa Nails (PNG o SVG con fondo transparente).
-2. El PNG del hada (silueta, fondo transparente).
-
-Si el hada no viene con fondo transparente, pídele a Lovable que la recorte o
-que la aplique con `mix-blend-mode: multiply` dentro de los círculos crema.
+- Nada de cobros, pasarelas de pago ni agenda de citas.
+- Nada de registro público de clientas ni login para ellas.
+- Nada de notificaciones push, correos automáticos ni SMS.
+- Nada de dashboards con gráficas de ingresos, "insights" ni métricas que no
+  pedí. Las únicas listas son las cuatro de la pantalla "Hoy".
+- No guardes contadores de sellos en la base de datos: calcúlalos.
+- No inventes reglas del programa. Están todas en `programa.ts`.
+- No uses emoji en la interfaz.
+- Nada de modo oscuro.
