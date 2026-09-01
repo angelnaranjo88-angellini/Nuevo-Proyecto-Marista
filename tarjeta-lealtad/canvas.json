@@ -1,0 +1,25 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 321, "h": 208, "title": "Frente · 85 × 55 mm", "print": "fixed" },
+    { "file": "Reverso.dc.html", "x": 421, "y": 0, "w": 321, "h": 208, "title": "Reverso · 85 × 55 mm", "print": "fixed" },
+    { "file": "Referido.dc.html", "x": 842, "y": 0, "w": 321, "h": 208, "title": "Invitación de referido · 85 × 55 mm", "print": "fixed" },
+    { "file": "Reglas.dc.html", "x": 0, "y": 340, "w": 559, "h": 794, "title": "Hoja de mostrador · A5", "print": "flow" }
+  ],
+  "annotations": [
+    {
+      "id": "marcadores",
+      "x": 1263,
+      "y": 0,
+      "w": 300,
+      "text": "Dos cosas son marcadores, no el arte final:\n\n· El logo está escrito en Prata, no es tu archivo. En Lovable sube el PNG/SVG real.\n\n· El hada es una silueta que dibujé para tener la referencia. Usa la tuya.\n\nLos hex los leí a ojo de tus swatches: verde #A8CEA2, rosa #F9A8B5, crema #F5E9DA. Si tienes los exactos, cámbialos."
+    },
+    {
+      "id": "cambios",
+      "x": 1263,
+      "y": 300,
+      "w": 300,
+      "text": "Cambios respecto a tu propuesta original:\n\n· 30 → 60 días para usar el beneficio. En uñas el ciclo es de ~28 días, así que 30 no daba holgura.\n\n· Tope de 2 sellos por referido, y mínimo 4 visitas pagadas siempre.\n\n· No acumula en cancelaciones, citas no asistidas ni anticipos.\n\n· La visita de canje no acumula sello.\n\n· Fechas bloqueadas: diciembre, 10 de mayo y 14 de febrero."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}
