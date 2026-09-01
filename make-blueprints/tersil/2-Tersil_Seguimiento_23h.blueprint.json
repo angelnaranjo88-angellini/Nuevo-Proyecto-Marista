@@ -1,0 +1,582 @@
+{
+    "name": "Tersil - Seguimiento 23 h",
+    "flow": [
+        {
+            "id": 1,
+            "module": "datastore:SearchRecord",
+            "version": 1,
+            "parameters": {
+                "limit": 100
+            },
+            "mapper": {
+                "filter": [
+                    [
+                        {
+                            "a": "telefono",
+                            "o": "exist"
+                        },
+                        {
+                            "a": "ultimo_mensaje",
+                            "b": "{{addHours(now; -23)}}",
+                            "o": "date:less"
+                        },
+                        {
+                            "a": "ultimo_seguimiento",
+                            "b": "{{addHours(now; -23)}}",
+                            "o": "date:less"
+                        },
+                        {
+                            "a": "seguimientos",
+                            "b": "3",
+                            "o": "number:less"
+                        }
+                    ]
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0,
+                    "name": "Clientes con 23 h sin responder"
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Maximum number of returned records"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "datastore:ExistRecord",
+            "version": 1,
+            "parameters": {
+                "datastore": 174953
+            },
+            "mapper": {
+                "key": "{{1.key}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "¿Bot pausado?"
+                },
+                "restore": {
+                    "parameters": {
+                        "datastore": {
+                            "label": "TERSIL_Pausa_Bot"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "key",
+                        "type": "text",
+                        "label": "Key",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 4,
+                            "module": "datastore:UpdateRecord",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "key": "{{1.key}}",
+                                "data": {
+                                    "ultimo_seguimiento": "{{now}}",
+                                    "seguimientos": 1
+                                },
+                                "upsert": false,
+                                "overwriteArrays": false
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 0,
+                                    "name": "Marcar seguimiento 1"
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "datastore",
+                                        "type": "datastore",
+                                        "label": "Data store",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "key",
+                                        "type": "text",
+                                        "label": "Key",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "data",
+                                        "spec": [
+                                            {
+                                                "name": "nombre",
+                                                "type": "text",
+                                                "label": "nombre"
+                                            },
+                                            {
+                                                "name": "telefono",
+                                                "type": "text",
+                                                "label": "telefono"
+                                            },
+                                            {
+                                                "name": "ultimo_mensaje",
+                                                "type": "date",
+                                                "label": "ultimo_mensaje"
+                                            },
+                                            {
+                                                "name": "ultimo_seguimiento",
+                                                "type": "date",
+                                                "label": "ultimo_seguimiento"
+                                            },
+                                            {
+                                                "name": "seguimientos",
+                                                "type": "number",
+                                                "label": "seguimientos"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
+                                    }
+                                ]
+                            },
+                            "filter": {
+                                "name": "Seguimiento 1 (23 h)",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{2.exist}}",
+                                            "b": "true",
+                                            "o": "text:notequal"
+                                        },
+                                        {
+                                            "a": "{{1.seguimientos}}",
+                                            "b": "0",
+                                            "o": "number:equal"
+                                        }
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "id": 5,
+                            "module": "whatsapp-business-cloud:sendMessage",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 14519309
+                            },
+                            "mapper": {
+                                "to": "{{1.telefono}}",
+                                "text": {
+                                    "body": "¡Hola {{1.nombre}}! 👋\n\n¿Pudiste ver los modelitos de Tersil? 🍼\n\nSi tienes dudas con los colores, la talla o el envío, con gusto te ayudo 😊\n\n👉 https://tersil-baby-catalog-gl2r.bolt.host/",
+                                    "preview_url": false
+                                },
+                                "type": "text",
+                                "fromId": "604043842799894"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": 0
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "text": {
+                                            "nested": {
+                                                "preview_url": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "label": "Text"
+                                        },
+                                        "fromId": {
+                                            "mode": "chose",
+                                            "label": "Tersil (+52 1 55 3135 7396)"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "whatsapp-business-cloud"
+                                            },
+                                            "label": "TERSIL (Tersil (1714462945829425))"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ]
+                            },
+                            "onerror": [
+                                {
+                                    "id": 105,
+                                    "module": "builtin:Ignore",
+                                    "version": 1,
+                                    "metadata": {
+                                        "designer": {
+                                            "x": 1500,
+                                            "y": 150
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 6,
+                            "module": "datastore:UpdateRecord",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "key": "{{1.key}}",
+                                "data": {
+                                    "ultimo_seguimiento": "{{now}}",
+                                    "seguimientos": 2
+                                },
+                                "upsert": false,
+                                "overwriteArrays": false
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 300,
+                                    "name": "Marcar seguimiento 2"
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "datastore",
+                                        "type": "datastore",
+                                        "label": "Data store",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "key",
+                                        "type": "text",
+                                        "label": "Key",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "data",
+                                        "spec": [
+                                            {
+                                                "name": "nombre",
+                                                "type": "text",
+                                                "label": "nombre"
+                                            },
+                                            {
+                                                "name": "telefono",
+                                                "type": "text",
+                                                "label": "telefono"
+                                            },
+                                            {
+                                                "name": "ultimo_mensaje",
+                                                "type": "date",
+                                                "label": "ultimo_mensaje"
+                                            },
+                                            {
+                                                "name": "ultimo_seguimiento",
+                                                "type": "date",
+                                                "label": "ultimo_seguimiento"
+                                            },
+                                            {
+                                                "name": "seguimientos",
+                                                "type": "number",
+                                                "label": "seguimientos"
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
+                                    }
+                                ]
+                            },
+                            "filter": {
+                                "name": "Seguimiento 2 (46 h)",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{2.exist}}",
+                                            "b": "true",
+                                            "o": "text:notequal"
+                                        },
+                                        {
+                                            "a": "{{1.seguimientos}}",
+                                            "b": "1",
+                                            "o": "number:equal"
+                                        }
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "id": 7,
+                            "module": "whatsapp-business-cloud:sendMessage",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 14519309
+                            },
+                            "mapper": {
+                                "to": "{{1.telefono}}",
+                                "text": {
+                                    "body": "¡Hola de nuevo {{1.nombre}}! 😊\n\nTe recuerdo que seguimos con nuestras promociones 🎁\n\n🏷️ 3 a 4 piezas: 10% de descuento\n🏷️ 5 a 7 piezas: 15% de descuento\n🏷️ 8 piezas o más: 20% de descuento\n\n🚚 Y tu envío es gratis a toda la República Mexicana\n\nSi quieres, te ayudo a armar tu pedido 🍼",
+                                    "preview_url": false
+                                },
+                                "type": "text",
+                                "fromId": "604043842799894"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": 300
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "text": {
+                                            "nested": {
+                                                "preview_url": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "label": "Text"
+                                        },
+                                        "fromId": {
+                                            "mode": "chose",
+                                            "label": "Tersil (+52 1 55 3135 7396)"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "whatsapp-business-cloud"
+                                            },
+                                            "label": "TERSIL (Tersil (1714462945829425))"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ]
+                            },
+                            "onerror": [
+                                {
+                                    "id": 107,
+                                    "module": "builtin:Ignore",
+                                    "version": 1,
+                                    "metadata": {
+                                        "designer": {
+                                            "x": 1500,
+                                            "y": 450
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 8,
+                            "module": "datastore:DeleteRecord",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "key": "{{1.key}}"
+                            },
+                            "filter": {
+                                "name": "Seguimiento 3 (69 h) y cierre",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{2.exist}}",
+                                            "b": "true",
+                                            "o": "text:notequal"
+                                        },
+                                        {
+                                            "a": "{{1.seguimientos}}",
+                                            "b": "2",
+                                            "o": "number:greaterorequal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 600,
+                                    "name": "Cerrar seguimiento"
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "datastore",
+                                        "type": "datastore",
+                                        "label": "Data store",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "key",
+                                        "type": "text",
+                                        "label": "Key",
+                                        "required": true
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "module": "whatsapp-business-cloud:sendMessage",
+                            "version": 1,
+                            "parameters": {
+                                "__IMTCONN__": 14519309
+                            },
+                            "mapper": {
+                                "to": "{{1.telefono}}",
+                                "text": {
+                                    "body": "¡Hola {{1.nombre}}! 🍼\n\nNo quiero molestarte más 🙈 Solo te dejo por aquí el catálogo por si más adelante te animas:\n\n👉 https://tersil-baby-catalog-gl2r.bolt.host/\n\nCuando gustes, aquí seguimos para ayudarte con tu pedido 💕",
+                                    "preview_url": false
+                                },
+                                "type": "text",
+                                "fromId": "604043842799894"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": 600
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "text": {
+                                            "nested": {
+                                                "preview_url": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "type": {
+                                            "label": "Text"
+                                        },
+                                        "fromId": {
+                                            "mode": "chose",
+                                            "label": "Tersil (+52 1 55 3135 7396)"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "whatsapp-business-cloud"
+                                            },
+                                            "label": "TERSIL (Tersil (1714462945829425))"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ]
+                            },
+                            "onerror": [
+                                {
+                                    "id": 109,
+                                    "module": "builtin:Ignore",
+                                    "version": 1,
+                                    "metadata": {
+                                        "designer": {
+                                            "x": 1500,
+                                            "y": 750
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}

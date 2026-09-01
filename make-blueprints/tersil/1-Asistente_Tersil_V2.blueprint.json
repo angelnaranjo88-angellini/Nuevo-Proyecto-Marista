@@ -1,0 +1,1289 @@
+{
+    "name": "Asistente Tersil V2",
+    "flow": [
+        {
+            "id": 1,
+            "module": "whatsapp-business-cloud:watchEvents2",
+            "version": 1,
+            "parameters": {
+                "__IMTHOOK__": 4318709
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTHOOK__": {
+                            "data": {
+                                "editable": "false"
+                            },
+                            "label": "Asistente Tersil"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTHOOK__",
+                        "type": "hook:whatsapp-business-cloud",
+                        "label": "Webhook",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "WhatsApp Business Account ID"
+                    },
+                    {
+                        "name": "time",
+                        "type": "date",
+                        "label": "Time"
+                    },
+                    {
+                        "name": "field",
+                        "type": "text",
+                        "label": "Field"
+                    },
+                    {
+                        "name": "messaging_product",
+                        "type": "text",
+                        "label": "Messaging Product"
+                    },
+                    {
+                        "name": "metadata",
+                        "spec": [
+                            {
+                                "name": "display_phone_number",
+                                "type": "text",
+                                "label": "Display Phone Number"
+                            },
+                            {
+                                "name": "phone_number_id",
+                                "type": "text",
+                                "label": "Phone Number ID"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Metadata"
+                    },
+                    {
+                        "name": "contacts",
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "profile",
+                                    "spec": [
+                                        {
+                                            "name": "name",
+                                            "type": "text",
+                                            "label": "Name"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Profile"
+                                },
+                                {
+                                    "name": "wa_id",
+                                    "type": "text",
+                                    "label": "WhatsApp ID"
+                                }
+                            ],
+                            "type": "collection"
+                        },
+                        "type": "array",
+                        "label": "Contacts"
+                    },
+                    {
+                        "name": "messages",
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "from",
+                                    "type": "text",
+                                    "label": "Sender"
+                                },
+                                {
+                                    "name": "id",
+                                    "type": "text",
+                                    "label": "Message ID"
+                                },
+                                {
+                                    "name": "timestamp",
+                                    "type": "date",
+                                    "label": "Timestamp"
+                                },
+                                {
+                                    "name": "text",
+                                    "spec": [
+                                        {
+                                            "name": "body",
+                                            "type": "text",
+                                            "label": "Body"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Text"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "text",
+                                    "label": "Type"
+                                },
+                                {
+                                    "name": "image",
+                                    "spec": [
+                                        {
+                                            "name": "caption",
+                                            "type": "text",
+                                            "label": "Caption"
+                                        },
+                                        {
+                                            "name": "mime_type",
+                                            "type": "text",
+                                            "label": "MIME Type"
+                                        },
+                                        {
+                                            "name": "sha256",
+                                            "type": "text",
+                                            "label": "SHA256"
+                                        },
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "Media ID"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Image"
+                                },
+                                {
+                                    "name": "audio",
+                                    "spec": [
+                                        {
+                                            "name": "mime_type",
+                                            "type": "text",
+                                            "label": "MIME Type"
+                                        },
+                                        {
+                                            "name": "sha256",
+                                            "type": "text",
+                                            "label": "SHA256"
+                                        },
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "Media ID"
+                                        },
+                                        {
+                                            "name": "voice",
+                                            "type": "boolean",
+                                            "label": "Voice"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Audio"
+                                },
+                                {
+                                    "name": "video",
+                                    "spec": [
+                                        {
+                                            "name": "caption",
+                                            "type": "text",
+                                            "label": "Caption"
+                                        },
+                                        {
+                                            "name": "mime_type",
+                                            "type": "text",
+                                            "label": "MIME Type"
+                                        },
+                                        {
+                                            "name": "sha256",
+                                            "type": "text",
+                                            "label": "SHA256"
+                                        },
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "Media ID"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Video"
+                                },
+                                {
+                                    "name": "document",
+                                    "spec": [
+                                        {
+                                            "name": "caption",
+                                            "type": "text",
+                                            "label": "Caption"
+                                        },
+                                        {
+                                            "name": "filename",
+                                            "type": "text",
+                                            "label": "File Name"
+                                        },
+                                        {
+                                            "name": "mime_type",
+                                            "type": "text",
+                                            "label": "MIME Type"
+                                        },
+                                        {
+                                            "name": "sha256",
+                                            "type": "text",
+                                            "label": "SHA256"
+                                        },
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "Media ID"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Document"
+                                },
+                                {
+                                    "name": "contacts",
+                                    "spec": {
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "spec": [
+                                                    {
+                                                        "name": "formatted_name",
+                                                        "type": "text",
+                                                        "label": "Formatted Name"
+                                                    },
+                                                    {
+                                                        "name": "first_name",
+                                                        "type": "text",
+                                                        "label": "First Name"
+                                                    },
+                                                    {
+                                                        "name": "last_name",
+                                                        "type": "text",
+                                                        "label": "Last Name"
+                                                    },
+                                                    {
+                                                        "name": "middle_name",
+                                                        "type": "text",
+                                                        "label": "Middle Name"
+                                                    },
+                                                    {
+                                                        "name": "suffix",
+                                                        "type": "text",
+                                                        "label": "Name Suffix"
+                                                    },
+                                                    {
+                                                        "name": "prefix",
+                                                        "type": "text",
+                                                        "label": "Name Prefix"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Name"
+                                            },
+                                            {
+                                                "name": "phones",
+                                                "spec": [
+                                                    {
+                                                        "name": "phone",
+                                                        "type": "text",
+                                                        "label": "Phone"
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "type": "text",
+                                                        "label": "Type"
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Phones"
+                                            },
+                                            {
+                                                "name": "emails",
+                                                "spec": [
+                                                    {
+                                                        "name": "email",
+                                                        "type": "email",
+                                                        "label": "Email"
+                                                    },
+                                                    {
+                                                        "name": "type",
+                                                        "type": "text",
+                                                        "label": "Type"
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Emails"
+                                            },
+                                            {
+                                                "name": "org",
+                                                "spec": [
+                                                    {
+                                                        "name": "company",
+                                                        "type": "text",
+                                                        "label": "Company"
+                                                    },
+                                                    {
+                                                        "name": "department",
+                                                        "type": "text",
+                                                        "label": "Department"
+                                                    },
+                                                    {
+                                                        "name": "title",
+                                                        "type": "text",
+                                                        "label": "Title"
+                                                    }
+                                                ],
+                                                "type": "collection",
+                                                "label": "Organization"
+                                            },
+                                            {
+                                                "name": "urls",
+                                                "spec": [
+                                                    {
+                                                        "name": "type",
+                                                        "type": "text",
+                                                        "label": "Type"
+                                                    },
+                                                    {
+                                                        "name": "url",
+                                                        "type": "url",
+                                                        "label": "URL"
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "URLs"
+                                            },
+                                            {
+                                                "name": "addresses",
+                                                "spec": [
+                                                    {
+                                                        "name": "type",
+                                                        "type": "text",
+                                                        "label": "Type"
+                                                    },
+                                                    {
+                                                        "name": "street",
+                                                        "type": "text",
+                                                        "label": "Street"
+                                                    },
+                                                    {
+                                                        "name": "city",
+                                                        "type": "text",
+                                                        "label": "City"
+                                                    },
+                                                    {
+                                                        "name": "zip",
+                                                        "type": "text",
+                                                        "label": "ZIP"
+                                                    },
+                                                    {
+                                                        "name": "country",
+                                                        "type": "text",
+                                                        "label": "Country"
+                                                    },
+                                                    {
+                                                        "name": "country_code",
+                                                        "type": "text",
+                                                        "label": "Country Code"
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Addresses"
+                                            },
+                                            {
+                                                "name": "birthday",
+                                                "type": "text",
+                                                "label": "Birthday"
+                                            }
+                                        ],
+                                        "type": "collection"
+                                    },
+                                    "type": "array",
+                                    "label": "Contacts"
+                                },
+                                {
+                                    "name": "sticker",
+                                    "spec": [
+                                        {
+                                            "name": "mime_type",
+                                            "type": "text",
+                                            "label": "MIME Type"
+                                        },
+                                        {
+                                            "name": "sha256",
+                                            "type": "text",
+                                            "label": "SHA256"
+                                        },
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "Media ID"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Sticker"
+                                },
+                                {
+                                    "name": "location",
+                                    "spec": [
+                                        {
+                                            "name": "latitude",
+                                            "type": "number",
+                                            "label": "Latitude"
+                                        },
+                                        {
+                                            "name": "longitude",
+                                            "type": "number",
+                                            "label": "Longitude"
+                                        },
+                                        {
+                                            "name": "name",
+                                            "type": "text",
+                                            "label": "Name"
+                                        },
+                                        {
+                                            "name": "address",
+                                            "type": "text",
+                                            "label": "Address"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Location"
+                                },
+                                {
+                                    "name": "context",
+                                    "spec": [
+                                        {
+                                            "name": "from",
+                                            "type": "text",
+                                            "label": "From"
+                                        },
+                                        {
+                                            "name": "id",
+                                            "type": "text",
+                                            "label": "Context ID"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Context"
+                                },
+                                {
+                                    "name": "button",
+                                    "spec": [
+                                        {
+                                            "name": "payload",
+                                            "type": "text",
+                                            "label": "Payload"
+                                        },
+                                        {
+                                            "name": "text",
+                                            "type": "text",
+                                            "label": "Text"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Button"
+                                },
+                                {
+                                    "name": "interactive",
+                                    "spec": [
+                                        {
+                                            "name": "type",
+                                            "type": "text",
+                                            "label": "Type"
+                                        },
+                                        {
+                                            "name": "list_reply",
+                                            "spec": [
+                                                {
+                                                    "name": "id",
+                                                    "type": "number",
+                                                    "label": "ID"
+                                                },
+                                                {
+                                                    "name": "title",
+                                                    "type": "text",
+                                                    "label": "Title"
+                                                },
+                                                {
+                                                    "name": "description",
+                                                    "type": "text",
+                                                    "label": "Description"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "List Reply"
+                                        },
+                                        {
+                                            "name": "button_reply",
+                                            "spec": [
+                                                {
+                                                    "name": "id",
+                                                    "type": "number",
+                                                    "label": "ID"
+                                                },
+                                                {
+                                                    "name": "title",
+                                                    "type": "text",
+                                                    "label": "Title"
+                                                }
+                                            ],
+                                            "type": "collection",
+                                            "label": "Button Reply"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Interactive"
+                                }
+                            ],
+                            "type": "collection"
+                        },
+                        "type": "array",
+                        "label": "Messages"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "datastore:ExistRecord",
+            "version": 1,
+            "parameters": {
+                "datastore": 174953
+            },
+            "filter": {
+                "name": "Solo mensajes de texto",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{1.messages[].text.body}}",
+                            "o": "exist"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "key": "{{1.contacts[].wa_id}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "¿Bot pausado?"
+                },
+                "restore": {
+                    "parameters": {
+                        "datastore": {
+                            "label": "TERSIL_Pausa_Bot"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "key",
+                        "type": "text",
+                        "label": "Key",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "ai-local-agent:RunLocalAIAgent",
+            "version": 0,
+            "parameters": {
+                "makeConnectionId": 14348220
+            },
+            "filter": {
+                "name": "Bot activo (no pausado)",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{3.exist}}",
+                            "b": "true",
+                            "o": "text:notequal"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "files": [],
+                "message": "{{1.messages[].text.body}}",
+                "timeout": "",
+                "threadId": "{{1.contacts[].wa_id}}",
+                "outputType": "text",
+                "tokenLimit": "50",
+                "modelConfig": {
+                    "recursionLimit": "300",
+                    "iterationsFromHistoryCount": "30"
+                },
+                "defaultModel": "large",
+                "systemPrompt": "ROL Y IDENTIDAD\nEres la asistente de ventas de Tersil, una tienda de ropa de bebé de alta calidad. Atiendes por WhatsApp de forma cálida, humana y cercana. Tu objetivo es mostrar el catálogo, resolver dudas y guiar al cliente hasta generar su ficha de pedido y confirmar su pago.\nNunca digas que eres un bot o asistente automático. Si preguntan, di que eres parte del equipo Tersil.\n\nINFORMACIÓN GENERAL\nTalla única disponible: 0 a 3 meses (recién nacido)\nEnvío GRATIS incluido en todos los pedidos a toda la República Mexicana\nTiempo de entrega: 2 a 5 días hábiles después de confirmado el pago\nUbicación: Estamos en CDMX, pero por ahora solo atendemos pedidos en línea y hacemos envíos a toda la República\n\nForma de pago: TODOS los pedidos, sin importar la cantidad de piezas, se pagan de forma ANTICIPADA por transferencia SPEI o depósito en OXXO antes de realizar el envío. En cuanto se confirma el pago, se procesa y se envía el pedido.\n\n📦 PRECIOS Y DESCUENTOS:\n1 pieza:        $299 MXN (envío incluido)\n2 piezas:       $598 MXN (envío incluido)\n3 a 4 piezas:   10% de descuento sobre $299 c/u (mínimo 3 pzs)\n5 a 7 piezas:   15% de descuento sobre $299 c/u (mínimo 5 pzs)\n8 piezas o más: 20% de descuento sobre $299 c/u (mínimo 8 pzs)\n\nEjemplos para que calcules correctamente:\n3 piezas: $299 x 3 = $897 − 10% = $807 MXN\n4 piezas: $299 x 4 = $1,196 − 10% = $1,076 MXN\n5 piezas: $299 x 5 = $1,495 − 15% = $1,271 MXN\n6 piezas: $299 x 6 = $1,794 − 15% = $1,525 MXN\n7 piezas: $299 x 7 = $2,093 − 15% = $1,779 MXN\n8 piezas: $299 x 8 = $2,392 − 20% = $1,914 MXN\n\n💳 FORMA DE PAGO (REGLA CLAVE)\nTodos los pedidos, sin importar la cantidad, se pagan por adelantado (SPEI u OXXO) antes de que se realice el envío. No manejamos pago contra entrega ni pago al recibir.\n\nSi el cliente pregunta si manejan pago contra entrega o pago al recibir, responde:\n\"Por el momento no manejamos pago contra entrega 🙏 Todos nuestros pedidos son con pago anticipado por transferencia o depósito, y en cuanto se confirma tu pago procesamos tu envío. Para que compres con toda confianza, puedes checar nuestro Instagram donde tenemos fotos y referencias reales de otras mamis 📸 https://www.instagram.com/tersil.mx/\"\n\nSi el cliente pregunta por nuestra ubicación o tienda física, responde:\n\"Estamos ubicados en CDMX 📍 Aunque por ahora solo atendemos pedidos en línea y realizamos envíos a toda la República Mexicana 📦\"\n\nCATÁLOGO DIGITAL\n🔗 Catálogo completo (con fotos, colores y precios de todos los modelos):\nhttps://tersil-baby-catalog-gl2r.bolt.host/\n\nEste es el ÚNICO lugar donde el cliente debe ver imágenes de los productos. Tú ya NO envías fotos ni links de imágenes individuales por WhatsApp, bajo ninguna circunstancia.\n\nREFERENCIA INTERNA DE MODELOS (para resolver dudas, NO para enviar imágenes)\n\n🌸 COLECCIÓN PRIMAVERA / VERANO\nPRM-016 — Conjunto de osita bailarina con shorcito tutu — Niña — Colores: Rosa (Rs), Piñón (Pi), Lila (Li), Fresa (Fr) — $299 MXN\nPRM-062 — Conjunto de cebrita — Unisex — Colores: Marino (MA), Azul Cielo (AZ), Azul Plumbago (AP), Amarillo (AM) — $299 MXN\nPRM-056 — Conjunto de osita y rayas — Niña — Colores: Rosa (Rs), Piñón (Pi), Lila (Li), Fresa (Fr) — $299 MXN\nPRM-067 — Conjunto de chaleco cuadros — Unisex — Colores: Rojo (Rj), Café (Cf), Azul (Az) — $299 MXN\n\n❄️ COLECCIÓN INVIERNO / FRÍO\nINV-102 — Conjunto de abriguito para niña — Niña — Colores: (Sr), (Sf), Fresa (Fr), (FL) — $299 MXN\nINV-106 — Conjunto de osito asomándose — Unisex — Colores: Rosa (Rs), Azul Cielo (AZ), Amarillo (AM), Marino (MA) — $299 MXN\nINV-075 — Conjunto de chaleco de animalitos — Unisex — Colores: Rosa (Rs), (Cr), Azul Cielo (AZ), Amarillo (AM) — $299 MXN\nINV-084 — Conjunto de animalitos y manitas — Unisex — Colores: Rosa Pastel (RP), Gris (Gr), Azul Cielo (AZ) — $299 MXN\n\nTalla: 0 a 3 meses en todos los modelos, sin excepción.\n\nFLUJO DE CONVERSACIÓN\n\nPASO 1 — BIENVENIDA\nAl recibir el primer mensaje responde siempre con este mensaje, RESPETANDO EXACTAMENTE los saltos de línea y los renglones en blanco entre bloques (es importante que se vea aireado y ordenado, nunca amontonado):\n\n\"¡Hola! 👋 Bienvenid@ a Tersil 🍼\nTenemos ropita preciosa para bebés recién nacidos de 0 a 3 meses.\n🎀 Cada conjunto $299 MXN\n\n🚚 Tu compra incluye envío gratis a toda la República Mexicana\n\nAprovecha nuestras promociones 🎁\n🏷️ 3 a 4 piezas: 10% de descuento\n🏷️ 5 a 7 piezas: 15% de descuento\n🏷️ 8 piezas o más: 20% de descuento\n\n¿Buscas algo en especial o quieres ver todo el catálogo? 😊\"\n\nREGLA DE FORMATO PARA TODOS TUS MENSAJES\nSepara siempre las ideas en bloques cortos con un renglón en blanco entre ellos.\nNunca mandes párrafos largos ni listas pegadas al texto: primero el saludo o la idea principal, renglón en blanco, luego los datos o la lista, renglón en blanco, y al final la pregunta.\n\nPASO 2 — MOSTRAR CATÁLOGO\nCuando el cliente pida ver el catálogo, algún modelo, o pida fotos/imágenes de cualquier producto, responde SIEMPRE enviando el link del catálogo digital, así:\n\"Aquí puedes ver todo nuestro catálogo con fotos, colores y precios 📲✨\n👉 https://tersil-baby-catalog-gl2r.bolt.host/\nÉchale un ojo con calma, ahí están todos los modelitos de primavera/verano e invierno. Cuando veas algo que te guste me dices el nombre o número de modelo y te ayudo con todo 😊\"\n\nSi el cliente ya menciona una preferencia (niño/niña/unisex, temporada), puedes ayudarle a orientarse mencionando 1-2 nombres de modelos que le convendrían revisar en el catálogo, pero el link siempre se envía.\n\nNunca envíes fotos, ni URLs de imágenes individuales, ni archivos adjuntos de producto. Toda imagen vive únicamente en el catálogo digital.\n\nDespués de enviar el link, si el cliente pregunta detalles de un modelo específico (colores disponibles, para quién es, precio), respóndelos con texto usando la referencia interna de modelos, pero sin imágenes.\n\nCuando el cliente ya tenga un modelo en mente, pregunta:\n\"¿Alguno te gustó? 😍 Puedo darte más detalles de cualquier modelo.\"\n\nPASO 3 — RESOLVER DUDAS\nTalla: Solo manejamos talla 0 a 3 meses (recién nacido)\nEnvío: GRATIS a toda la República, ya incluido en el precio\nTiempo de entrega: 2 a 5 días hábiles después de confirmado el pago\nPrecio especial: $299 por pieza directo de nosotros, sin comisiones de plataformas\nUbicación / tienda física: \"Estamos ubicados en CDMX 📍 Aunque por ahora solo atendemos pedidos en línea y realizamos envíos a toda la República Mexicana 📦\"\nForma de pago: Pago anticipado por transferencia SPEI o depósito en OXXO. En cuanto se confirma tu pago, procesamos y enviamos tu pedido.\nDesconfianza / \"¿y si no me llega?\": \"Te entiendo perfecto 🙏 Somos una tienda establecida y en cuanto confirmamos tu pago procesamos tu envío enseguida. Para que veas que es real, puedes checar nuestras fotos y referencias en Instagram 📸 https://www.instagram.com/tersil.mx/\"\n\nPASO 4 — IMPULSAR LA VENTA\nCuando el cliente muestre interés, menciona los descuentos naturalmente:\n\"Por cierto, si llevas 3 piezas o más te hacemos un 10% de descuento,\ncon 5 o más el descuento sube al 15%,\ny con 8 o más piezas el descuento sube al 20% 🎁\n¿Te llama la atención algún otro modelito para aprovechar? Puedes revisar el catálogo de nuevo aquí: https://tersil-baby-catalog-gl2r.bolt.host/\"\n\nAntes de pedir los datos del pedido, refuerza la confianza mencionando el Instagram (solo una vez por conversación):\n\"Por cierto, si quieres ver más fotos reales y referencias de otras mamis que ya nos compraron, date una vuelta por nuestro Instagram 📸 https://www.instagram.com/tersil.mx/\"\n\nPASO 5 — AVISO DE PRIVACIDAD (OBLIGATORIO ANTES DE INICIAR EL PEDIDO)\nEn cuanto el cliente confirme que quiere comprar (por ejemplo: \"sí quiero pedir\", \"cómo compro\", \"me lo llevo\", etc.), ANTES de pedir cualquier dato personal, envía este mensaje completo:\n\n\"Antes de continuar, te comparto nuestro aviso de privacidad 🔒\n\n📄 *AVISO DE PRIVACIDAD — TERSIL*\nJavier Silva Sánchez, representante legal de Tersil, es responsable del uso y protección de tus datos personales.\n\n📌 Datos que recabamos: dirección de envío, correo electrónico y número de contacto.\n📌 ¿Para qué los usamos? Para atender tu pedido, confirmar tu pago, coordinar la entrega y darte seguimiento a tu compra. No los usamos para enviarte promociones.\n📌 Resguardo: tu información se conserva únicamente en los registros de WhatsApp de Tersil, con medidas razonables de confidencialidad.\n📌 Tus derechos: puedes solicitar acceso, rectificación, cancelación u oposición al tratamiento de tus datos, o cualquier consulta de privacidad, en:\n✉️ tersil_mx@outlook.com\n📲 WhatsApp: 55 3135 7396\n📷 Instagram: @tersil_mx\n\n¿Estás de acuerdo en continuar con tu pedido bajo estos términos? Responde *SÍ* para seguir 😊\"\n\nReglas para este paso:\n- No avances al PASO 6 hasta que el cliente responda afirmativamente (ej. \"sí\", \"de acuerdo\", \"acepto\", \"ok\", \"👍\", \"✅\").\n- Si el cliente NO acepta o no responde con una confirmación clara, no recabes ningún dato personal. Puedes decir:\n  \"Sin problema 🙏 Si más adelante quieres continuar con tu pedido, aquí estoy. Mientras tanto, ¿te gustaría seguir viendo el catálogo?\"\n- Si el cliente tiene dudas sobre el aviso, resuélvelas con la información de arriba, sin inventar nada adicional, y vuelve a preguntar si desea continuar.\n- Este aviso se envía UNA SOLA VEZ por conversación, la primera vez que el cliente confirme intención de compra. Si ya lo aceptó antes en la misma conversación, no lo repitas.\n\nPASO 6 — RECOPILAR DATOS DEL PEDIDO\nSolo después de que el cliente haya aceptado el aviso de privacidad (PASO 5), di:\n\"¡Qué emocionante! 🎉 Vamos a registrar tu pedido, solo necesito unos datos:\"\n\nRecaba en este orden, de a uno por mensaje:\n\"¿Me das tu nombre completo? 😊\"\n\"¿Cuál es tu dirección de entrega completa? (calle, número, colonia, ciudad, estado y código postal)\"\n\"¿Qué modelo(s) llevas y en qué color(es)?\"\n\"¿Cuántas piezas en total?\"\n\nPASO 7 — FICHA DE PEDIDO\nCon todos los datos, calcula el total aplicando el descuento que corresponda y genera esta ficha:\n\n\"✅ FICHA DE COMPRA — TERSIL \n━━━━━━━━━━━━━━━━━\n👤 Nombre: [NOMBRE]\n📍 Dirección: [DIRECCIÓN COMPLETA]\n━━━━━━━━━━━━━━━━━\n🛍️ Pedido:\n[MODELO] — [COLOR] x[CANTIDAD] — $[SUBTOTAL]\n[MODELO] — [COLOR] x[CANTIDAD] — $[SUBTOTAL]\n━━━━━━━━━━━━━━━━━\n🏷️ Descuento aplicado: [10% / 15% / 20% / Ninguno]\n💰 Total a pagar: $[TOTAL] MXN\n🚚 Envío: GRATIS ✅ (incluido, se realiza en cuanto se confirme el pago)\n💳 Forma de pago: Transferencia o depósito en OXXO\n━━━━━━━━━━━━━━━━━\"\n\nDespués envía este mensaje por separado:\n\"¿Todo está correcto? Confírmame con un ✅ o con un sí, y en un momento te mando los datos de pago 🙌\"\n\nPASO 8 — CIERRE Y DATOS DE PAGO\nCuando el cliente confirme su ficha (con un ✅, un \"sí\", \"correcto\", \"está bien\" o similar), NO le preguntes qué método de pago prefiere.\nEnvía directamente LOS DOS MÉTODOS juntos, en un solo mensaje y respetando los renglones en blanco:\n\n\"Te comparto los datos de tu pago 💳\n\nA) Transferencia bancaria (SPEI)\n🏦 BANAMEX\n👤 Titular: Alexis Javier Silva Rangel\n🔢 CLABE: 002180701937017189\n\nB) Depósito en OXXO\n🏪 Titular: Alexis Javier Silva Rangel\n💳 Número de tarjeta: 5206 9496 6075 2790\n\n💰 Monto exacto: $[TOTAL] MXN\n\nPuedes pagar por el medio que se te haga más fácil 😊\"\n\nLuego envía por separado este mensaje:\n\n\"Una vez que realices tu pago, por favor envíanos aquí mismo tu comprobante para procesar y enviar tu pedido 🍼✨\"\n\nReglas de este paso:\n- NUNCA preguntes \"¿cómo prefieres pagar?\" ni des a elegir entre 1️⃣ y 2️⃣. Siempre se mandan los dos datos juntos.\n- NUNCA mandes al cliente a otros números de WhatsApp ni compartas links de wa.me. El comprobante se envía en esta misma conversación.\n- Siempre incluye el monto exacto a pagar.\n- Estos datos solo se dan DESPUÉS de que el cliente confirmó su ficha de pedido.\n\nREGLAS GENERALES\nNunca inventes colores, modelos o precios que no estén en este catálogo\nSi preguntan algo que no sabes responde: \"Déjame verificar con el equipo y te digo en un momento 🙏\"\nTutea siempre, tono cálido y humano en todo momento\nDivide la información en mensajes cortos, nunca bloques largos de texto\nUsa los emojis indicados, no agregues otros\nNo presiones, guía con calidez\nLa talla es SIEMPRE 0 a 3 meses en todos los modelos, sin excepciones\nSi preguntan por otras tallas responde: \"Por el momento solo manejamos talla 0 a 3 meses (recién nacido) 🍼\"\nSi el cliente deja de responder, NO le insistas por tu cuenta ni le mandes recordatorios: el sistema envía automáticamente los mensajes de seguimiento cada 23 horas\nNunca menciones Amazon ni otras plataformas de venta\nPara calcular totales SIEMPRE usa $299 como precio base por pieza\nAplica descuentos así: 3 a 4 piezas = ×0.90 / 5 a 7 piezas = ×0.85 / 8 piezas o más = ×0.80\nEl envío siempre es GRATIS, nunca lo cobres ni lo menciones como costo extra\nTODOS los pedidos, sin importar la cantidad de piezas, son con pago anticipado (SPEI u OXXO). No manejamos pago contra entrega ni pago al recibir bajo ninguna circunstancia\nNunca des los datos bancarios antes de que el cliente confirme su ficha de pedido\nCuando el cliente confirme su ficha, entrega SIEMPRE los dos métodos de pago juntos (SPEI y OXXO) sin preguntarle cuál prefiere\nEl comprobante de pago SIEMPRE se pide en esta misma conversación; nunca envíes al cliente a otros números de WhatsApp\nSiempre menciona el monto exacto a pagar\nSi el cliente cambia la cantidad de piezas durante la conversación, recalcula el descuento\nNUNCA envíes imágenes, fotos ni links de imágenes individuales de productos. Cualquier solicitud de \"ver foto\", \"mándame imagen\", \"quiero ver el [modelo]\" se responde SIEMPRE con el link del catálogo digital: https://tersil-baby-catalog-gl2r.bolt.host/\nNUNCA recabes nombre, dirección u otros datos personales del cliente sin que antes haya aceptado el aviso de privacidad del PASO 5\nEl Instagram (https://www.instagram.com/tersil.mx/) se menciona como refuerzo de confianza cuando el cliente muestre duda o desconfianza, o justo antes de pedir los datos del pedido — no lo repitas de más, una o dos veces por conversación es suficiente\n\n\nMARCADOR INTERNO — [FICHA_GENERADA]\nCuando TERMINES el PASO 8 (es decir, cuando ya hayas entregado la información final\nde pago con los datos de SPEI y OXXO, y ya pediste el comprobante), agrega al final de tu\nmensaje, en una línea nueva:\n\n[FICHA_GENERADA]\n\nY justo debajo del marcador, vuelve a escribir la FICHA DE COMPRA completa del PASO 7,\ntal cual, con todos sus datos: nombre, dirección, modelos, colores, cantidades,\ndescuento aplicado, total, envío y forma de pago.\n\nReglas del marcador:\n- TODO lo que escribas desde [FICHA_GENERADA] en adelante es interno del sistema.\n  El cliente NUNCA lo ve. No lo expliques ni lo comentes.\n- Va SOLO al terminar el PASO 8, nunca antes.\n- Si el PASO 8 requiere varios mensajes, el marcador y la ficha van únicamente en el ÚLTIMO.\n- Se usa UNA SOLA VEZ por conversación.\n- No lo pongas si el cliente aún no confirmó su ficha.\n- Copia la ficha con los datos reales de esta conversación. Si algún dato te falta,\n  déjalo vacío, nunca lo inventes.",
+                "fallbackEnabled": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "files": {
+                            "mode": "chose"
+                        },
+                        "outputType": {
+                            "label": "Text"
+                        },
+                        "defaultModel": {
+                            "mode": "chose",
+                            "label": "Large (Paid plans only)Model: gpt-5-mini. Reasoning: low. Powerful model built for complex logic puzzles and high-level reasoning tasks"
+                        }
+                    },
+                    "parameters": {
+                        "makeConnectionId": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "ai-provider"
+                            },
+                            "label": "tersil"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "makeConnectionId",
+                        "type": "account:ai-provider,openai-gpt-3,anthropic-claude,gemini-ai-q9zyjp,ai-agent-foundry-openai,ai-agent-foundry-non-openai,mistral-ai,cohere,groq,ai-agent-xai,amazon-bedrock,ai-agent-openai-compatible",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "defaultModel",
+                        "type": "select",
+                        "label": "Model",
+                        "required": true
+                    },
+                    {
+                        "name": "fallbackEnabled",
+                        "type": "boolean",
+                        "label": "Enable fallback connection",
+                        "required": true
+                    },
+                    {
+                        "name": "tokenLimit",
+                        "type": "number",
+                        "label": "Maximum output length (%)",
+                        "validate": {
+                            "max": 100,
+                            "min": 20
+                        }
+                    },
+                    {
+                        "name": "systemPrompt",
+                        "type": "text",
+                        "label": "Instructions"
+                    },
+                    {
+                        "name": "message",
+                        "type": "text",
+                        "label": "Input",
+                        "required": true
+                    },
+                    {
+                        "name": "files",
+                        "spec": [
+                            {
+                                "name": "fileName",
+                                "type": "filename",
+                                "label": "File name",
+                                "semantic": "file:name"
+                            },
+                            {
+                                "name": "data",
+                                "type": "buffer",
+                                "label": "Data",
+                                "semantic": "file:data"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Input files"
+                    },
+                    {
+                        "name": "threadId",
+                        "type": "text",
+                        "label": "Conversation ID",
+                        "validate": {
+                            "max": 256
+                        }
+                    },
+                    {
+                        "name": "modelConfig",
+                        "spec": [
+                            {
+                                "name": "recursionLimit",
+                                "type": "number",
+                                "label": "Steps per agent call"
+                            },
+                            {
+                                "name": "iterationsFromHistoryCount",
+                                "type": "number",
+                                "label": "Maximum conversation history"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Model configuration"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "number",
+                        "label": "Step timeout",
+                        "validate": {
+                            "max": 600,
+                            "min": 120
+                        }
+                    },
+                    {
+                        "name": "outputType",
+                        "type": "select",
+                        "label": "Response format",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "text",
+                                "make-schema",
+                                "udt-schema"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "tools": []
+        },
+        {
+            "id": 13,
+            "module": "whatsapp-business-cloud:sendMessage",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 14519309
+            },
+            "mapper": {
+                "to": "{{1.contacts[].wa_id}}",
+                "text": {
+                    "body": "{{trim(first(split(2.response; \"[FICHA_GENERADA]\")))}}",
+                    "preview_url": false
+                },
+                "type": "text",
+                "fromId": "604043842799894"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "text": {
+                            "nested": {
+                                "preview_url": {
+                                    "mode": "chose"
+                                }
+                            }
+                        },
+                        "type": {
+                            "label": "Text"
+                        },
+                        "fromId": {
+                            "mode": "chose",
+                            "label": "Tersil (+52 1 55 3135 7396)"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "whatsapp-business-cloud"
+                            },
+                            "label": "TERSIL (Tersil (1714462945829425))"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "fromId",
+                        "type": "select",
+                        "label": "Sender ID",
+                        "required": true
+                    },
+                    {
+                        "name": "to",
+                        "type": "text",
+                        "label": "Receiver",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Message Type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "text",
+                                "image",
+                                "audio",
+                                "video",
+                                "document",
+                                "sticker",
+                                "location",
+                                "contacts",
+                                "interactive"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "spec": [
+                            {
+                                "name": "body",
+                                "type": "text",
+                                "label": "Body",
+                                "required": true,
+                                "validate": {
+                                    "max": 4096
+                                }
+                            },
+                            {
+                                "name": "preview_url",
+                                "type": "boolean",
+                                "label": "Preview URL",
+                                "required": true
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 23,
+            "module": "datastore:AddRecord",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "key": "{{1.contacts[].wa_id}}",
+                "overwrite": true,
+                "data": {
+                    "nombre": "{{1.contacts[].profile.name}}",
+                    "telefono": "{{1.contacts[].wa_id}}",
+                    "ultimo_mensaje": "{{now}}",
+                    "ultimo_seguimiento": "{{now}}",
+                    "seguimientos": 0
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0,
+                    "name": "Registrar para seguimiento"
+                },
+                "restore": {
+                    "expect": {
+                        "overwrite": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "key",
+                        "type": "text",
+                        "label": "Key"
+                    },
+                    {
+                        "name": "overwrite",
+                        "type": "boolean",
+                        "label": "Overwrite an existing record",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "spec": [
+                            {
+                                "name": "nombre",
+                                "type": "text",
+                                "label": "nombre"
+                            },
+                            {
+                                "name": "telefono",
+                                "type": "text",
+                                "label": "telefono"
+                            },
+                            {
+                                "name": "ultimo_mensaje",
+                                "type": "date",
+                                "label": "ultimo_mensaje"
+                            },
+                            {
+                                "name": "ultimo_seguimiento",
+                                "type": "date",
+                                "label": "ultimo_seguimiento"
+                            },
+                            {
+                                "name": "seguimientos",
+                                "type": "number",
+                                "label": "seguimientos"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 21,
+            "module": "datastore:AddRecord",
+            "version": 1,
+            "parameters": {
+                "datastore": 174953
+            },
+            "filter": {
+                "name": "Fin del PASO 8",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{2.response}}",
+                            "b": "[FICHA_GENERADA]",
+                            "o": "text:contain"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "key": "{{1.contacts[].wa_id}}",
+                "data": {
+                    "nombre": "{{1.contacts[].profile.name}} — pausado {{formatDate(now; \"DD/MM/YYYY HH:mm\")}}"
+                },
+                "overwrite": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 0,
+                    "name": "Pausar bot"
+                },
+                "restore": {
+                    "expect": {
+                        "overwrite": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "datastore": {
+                            "label": "TERSIL_Pausa_Bot"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "key",
+                        "type": "text",
+                        "label": "Key"
+                    },
+                    {
+                        "name": "overwrite",
+                        "type": "boolean",
+                        "label": "Overwrite an existing record",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "spec": [
+                            {
+                                "name": "nombre",
+                                "type": "text",
+                                "label": null
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 22,
+            "module": "google-email:sendAnEmail",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 14470420
+            },
+            "mapper": {
+                "to": [
+                    "alex_jsr2602@hotmail.com"
+                ],
+                "content": "<h2>Nuevo pedido confirmado - Tersil</h2><p><b>Cliente:</b> {{1.contacts[].profile.name}}<br><b>WhatsApp:</b> <a href=\"https://wa.me/{{1.contacts[].wa_id}}\">{{1.contacts[].wa_id}}</a><br><b>Fecha:</b> {{formatDate(now; \"DD/MM/YYYY HH:mm\")}}</p><hr><h3>FICHA DE COMPRA</h3><pre style=\"font-family:monospace;font-size:14px;white-space:pre-wrap;\">{{trim(last(split(2.response; \"[FICHA_GENERADA]\")))}}</pre><hr><h3>Ultimo mensaje enviado al cliente</h3><pre style=\"font-family:monospace;font-size:13px;white-space:pre-wrap;\">{{trim(first(split(2.response; \"[FICHA_GENERADA]\")))}}</pre><hr><p style=\"font-size:12px;color:#666\">El bot quedo PAUSADO para este numero y ya no respondera. Continua tu la conversacion por WhatsApp.<br>Para reactivarlo, borra el registro <b>{{1.contacts[].wa_id}}</b> en el data store TERSIL_Pausa_Bot.</p>",
+                "subject": "Nuevo pedido Tersil - {{1.contacts[].profile.name}}",
+                "bodyType": "rawHtml"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1800,
+                    "y": 0,
+                    "name": "Correo pedido + pausa"
+                },
+                "restore": {
+                    "expect": {
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "from": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "bodyType": {
+                            "label": "Raw HTML"
+                        },
+                        "attachments": {
+                            "mode": "chose"
+                        },
+                        "emailHeaders": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-email"
+                            },
+                            "label": "0363's Gmail connection (angelnaranjo88@aragon.unam.mx)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google-email",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "to",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address",
+                            "required": true,
+                            "validate": true
+                        },
+                        "type": "array",
+                        "label": "To",
+                        "required": true
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "rawHtml",
+                                "collection"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attachments",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "filename",
+                                    "type": "filename",
+                                    "label": "File name",
+                                    "required": true,
+                                    "semantic": "file:name"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "buffer",
+                                    "label": "Data",
+                                    "required": true,
+                                    "semantic": "file:data"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Attachment"
+                        },
+                        "type": "array",
+                        "label": "Attachments"
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "From"
+                    },
+                    {
+                        "name": "cc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "CC recipients"
+                    },
+                    {
+                        "name": "bcc",
+                        "spec": {
+                            "name": "value",
+                            "type": "email",
+                            "label": "Recipient email address"
+                        },
+                        "type": "array",
+                        "label": "BCC recipients"
+                    },
+                    {
+                        "name": "emailHeaders",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "key",
+                                    "type": "text",
+                                    "label": "Key",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Email header"
+                        },
+                        "type": "array",
+                        "label": "Additional email headers"
+                    },
+                    {
+                        "name": "content",
+                        "type": "text",
+                        "label": "Content"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 24,
+            "module": "datastore:DeleteRecord",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "key": "{{1.contacts[].wa_id}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2100,
+                    "y": 0,
+                    "name": "Sacar de seguimiento"
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "key",
+                        "type": "text",
+                        "label": "Key",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
