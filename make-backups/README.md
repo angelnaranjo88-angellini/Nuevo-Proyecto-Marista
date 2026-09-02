@@ -142,3 +142,61 @@ Orden correcto cuando se haga:
 
 `CUT - Seguimiento Prospectos` (6055110) usa otra base (`appdjQSTUD9s41Fbt`) de
 otro cliente y no presentó fallos. No se tocó.
+
+---
+
+# LEFRANM COSMETICOS (5587862) — mensaje vacío rechazado por WhatsApp
+
+## Síntoma
+
+`RuntimeError [400] [100] ... JSON field 'text' ... missing: 'body'` en
+`whatsapp-business-cloud:sendMessage` (módulo 38). Intermitente: 1 sept 19:15
+CDMX y 2 sept 10:21 CDMX. Cada fallo deja a una clienta sin ninguna respuesta.
+
+## Causa raíz
+
+El módulo 60 (`openai-gpt-3:transformTextToStructuredData`, gpt-5.2) limpia las
+marcas internas `[ENVIAR_ARCHIVO: ...]` y `[AVISAR_HUMANO: ...]` de la respuesta
+del agente y devuelve `mensaje_limpio`. Sus tres campos de salida estaban
+declarados `isRequired: false`.
+
+Al ser todos opcionales, el modelo puede devolver un bundle **completamente
+vacío** — y eso fue lo que ocurrió (confirmado en el historial: `Output →
+Bundle 1: Empty`, con el módulo marcado como completado, sin error).
+
+El módulo 38 mapeaba `{{60.mensaje_limpio}}` directo en `text.body`. Sin ese
+campo, el cuerpo iba vacío y Meta rechazaba el envío con 400.
+
+La respuesta del agente sí existía (`{{12.response}}`, entra al 60 como
+`rawText`). Se perdía en el paso que solo debía quitarle dos líneas.
+
+## Por qué NO se usó un filtro
+
+La primera propuesta fue filtrar la entrada al módulo 38 cuando
+`mensaje_limpio` viniera vacío. Es incorrecta: en Make un filtro que bloquea
+detiene **toda la rama posterior**, así que se habrían perdido igual el router,
+el envío de PDF, el correo de ficha de compra, la actualización de tier en
+Airtable, el escalamiento a humano y la escritura de la pausa. Cambiaba un
+fallo ruidoso por uno silencioso.
+
+## Cambios aplicados (3, verificados con diff)
+
+1. **Módulo 60** — `mensaje_limpio` pasa a `isRequired: true`. Ataca la causa:
+   el modelo queda obligado a devolver el campo.
+2. **Módulo 38** — el cuerpo deja de poder quedar vacío:
+   `{{ifempty(60.mensaje_limpio; ifempty(12.response; "<mensaje de respaldo>"))}}`
+   Si falta el texto limpio usa la respuesta cruda del agente; si tampoco,
+   un mensaje neutro. La clienta siempre recibe algo.
+3. **Módulo 38** — manejador de error `builtin:Resume`, para que un fallo de
+   envío no tumbe el resto del flujo.
+
+Diff verificado: solo esos tres bloques cambian. `systemPrompt` del agente
+intacto (36,433 caracteres), conexiones y webhook intactos. La configuración
+del módulo 38 validada contra la API de Make.
+
+## Al importar
+
+Importar **dentro** del escenario existente (⋯ → Import Blueprint), nunca desde
+la lista de escenarios: eso crea un escenario nuevo y Make le asigna otro
+webhook. Y revisar después la programación, que Make no toma del blueprint
+(debe quedar `immediately`).

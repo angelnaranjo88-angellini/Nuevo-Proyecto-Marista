@@ -337,7 +337,7 @@
      {
       "name": "mensaje_limpio",
       "type": "string",
-      "isRequired": false
+      "isRequired": true
      },
      {
       "name": "pdf_url",
@@ -399,7 +399,7 @@
    "mapper": {
     "to": "{{1.contacts[].wa_id}}",
     "text": {
-     "body": "{{60.mensaje_limpio}}",
+     "body": "{{ifempty(60.mensaje_limpio; ifempty(12.response; \"Disculpe, tuve un detalle tecnico al enviar mi respuesta. ¿Me puede repetir su mensaje, por favor?\"))}}",
      "preview_url": false
     },
     "type": "text",
@@ -415,7 +415,21 @@
    },
    "parameters": {
     "__IMTCONN__": 9795318
-   }
+   },
+   "onerror": [
+    {
+     "id": 300,
+     "module": "builtin:Resume",
+     "version": 1,
+     "mapper": {},
+     "metadata": {
+      "designer": {
+       "x": 2100,
+       "y": 900
+      }
+     }
+    }
+   ]
   },
   {
    "id": 90,
