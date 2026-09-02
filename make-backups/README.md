@@ -194,9 +194,24 @@ Diff verificado: solo esos tres bloques cambian. `systemPrompt` del agente
 intacto (36,433 caracteres), conexiones y webhook intactos. La configuración
 del módulo 38 validada contra la API de Make.
 
-## Al importar
+## Aplicado y verificado — 2 sept 2026, 11:53 CDMX
 
-Importar **dentro** del escenario existente (⋯ → Import Blueprint), nunca desde
-la lista de escenarios: eso crea un escenario nuevo y Make le asigna otro
-webhook. Y revisar después la programación, que Make no toma del blueprint
-(debe quedar `immediately`).
+Importado dentro del escenario existente. Verificación contra el archivo
+preparado:
+
+| Comprobación | Resultado |
+|---|---|
+| Diff blueprint (servidor vs archivo) | Sin diferencias fuera de `scheduling` |
+| `systemPrompt` del agente | Idéntico al original — 36,433 caracteres |
+| Webhook | `2575353`, el original |
+| Conexiones (WhatsApp, Airtable, agente, OpenAI) | Intactas |
+| Módulo 60 · `mensaje_limpio` | `isRequired: true` |
+| Módulo 38 · body | `ifempty` con doble respaldo |
+| Módulo 38 · onerror | `builtin:Resume` (id 300) |
+
+Make volvió a ignorar el `scheduling` del blueprint y dejó el escenario en
+`indefinitely / 900` (sondeo cada 15 min). Corregido por API a `immediately`;
+`nextExec` quedó en null, que es lo correcto para un escenario por webhook.
+
+Es la segunda vez que la importación hace esto — conviene revisarlo siempre
+después de importar.
