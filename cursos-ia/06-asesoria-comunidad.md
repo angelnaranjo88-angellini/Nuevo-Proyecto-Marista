@@ -10,14 +10,14 @@
 
 1. **Grupo de WhatsApp de tu generación.** Preguntas cuando quieras. Respuesta en
    menos de 24 horas hábiles.
-2. **Consultorio IA en vivo, todos los martes de 8:00 a 9:00 pm.** Una hora por
+2. **Consultorio Chaos Ctrl en vivo, todos los sábados de 12:15 a 13:15.** Una hora por
    Zoom para resolver dudas en pantalla compartida. Asisten todas las
    generaciones activas.
 3. **Una sesión individual de 30 minutos conmigo**, para tu caso específico. La
    agendas cuando la necesites dentro del mes.
 4. **Biblioteca de recursos actualizada**, con todo lo nuevo que vaya saliendo.
 
-**Después de los 30 días** puedes quedarte en la Comunidad IA por $290 al mes,
+**Después de los 30 días** puedes quedarte en la Comunidad Chaos Ctrl por $290 al mes,
 o salirte sin trámite. Nunca hay cargo automático sin que tú lo autorices.
 
 ## 2. Por qué está diseñado así
@@ -32,7 +32,7 @@ o salirte sin trámite. Nunca hay cargo automático sin que tú lo autorices.
 **La clave está en el Consultorio grupal.** Es una sola hora a la semana, y sirve
 para 10 o para 60 alumnos igual. Todo lo que puedas empujar hacia esa hora,
 empújalo. Cuando alguien pregunta algo largo en WhatsApp, la respuesta correcta
-es: *"Excelente pregunta. La resuelvo en pantalla el martes en el Consultorio,
+es: *"Excelente pregunta. La resuelvo en pantalla el sábado en el Consultorio,
 apúntala."* Eso protege tu tiempo **y** llena el Consultorio, que es donde se
 crea comunidad.
 
@@ -45,7 +45,7 @@ Estas van en el documento de bienvenida y evitan el 90% de los problemas:
 2. **Se responde en horario hábil.** Lunes a viernes de 9 am a 8 pm. Un mensaje
    de las 11 de la noche se contesta al día siguiente. Dilo desde el inicio y
    nadie se ofende.
-3. **Las dudas largas van al Consultorio del martes.** Sin excepción.
+3. **Las dudas largas van al Consultorio del sábado.** Sin excepción.
 4. **La sesión 1 a 1 es una, de 30 minutos, dentro del mes.** Si no la usas, no
    se acumula ni se transfiere.
 5. **"Hazme mi trabajo" no es una duda.** Si alguien quiere que le construyas su
@@ -53,12 +53,12 @@ Estas van en el documento de bienvenida y evitan el 90% de los problemas:
 6. **El mes empieza el día siguiente a la última sesión** y termina 30 días
    naturales después. La fecha exacta se le dice a cada alumno por escrito.
 
-## 4. Presupuesto de tiempo (con 4 grupos activos, ~40 alumnos)
+## 4. Presupuesto de tiempo (con 3 grupos activos, ~30 alumnos)
 
 | Actividad | Tiempo semanal |
 |---|---|
 | WhatsApp de todos los grupos | 2 h (dos bloques de 30 min, mañana y tarde) |
-| Consultorio IA de los martes | 1 h + 15 min de preparación |
+| Consultorio Chaos Ctrl de los sábados | 1 h + 15 min de preparación |
 | Sesiones 1 a 1 (≈10 por semana × 30 min) | 5 h |
 | Actualizar biblioteca | 30 min |
 | **Total** | **≈ 9 h/semana** |
@@ -68,7 +68,7 @@ consistente con tu disponibilidad. Si crece más, la primera palanca es **agrupa
 las sesiones 1 a 1 en dos días fijos** (por ejemplo miércoles y viernes de 5 a
 8 pm) en vez de dispersarlas.
 
-## 5. Cómo se ve un Consultorio IA bien llevado
+## 5. Cómo se ve un Consultorio Chaos Ctrl bien llevado
 
 Formato fijo de 60 minutos:
 - **0–5 min:** bienvenida, quién es nuevo, qué se logró esta semana (una victoria
@@ -82,12 +82,12 @@ Formato fijo de 60 minutos:
 **Grábalo siempre.** La grabación va a la biblioteca, se vuelve contenido y
 justifica la membresía de quien no pudo asistir.
 
-## 6. La Comunidad IA · $290/mes
+## 6. La Comunidad Chaos Ctrl · $290/mes
 
 Cuando termina el mes incluido, esta es la oferta:
 
 **Qué incluye:**
-- Consultorio IA todos los martes (el mismo, ya lo estás dando)
+- Consultorio Chaos Ctrl todos los sábados (el mismo, ya lo estás dando)
 - Grupo de comunidad permanente, con todos los egresados
 - Biblioteca completa y actualizada de todos los cursos
 - Grabaciones de todos los Consultorios
@@ -104,7 +104,7 @@ haciendo de todos modos.
 mensaje individual (no en el grupo):
 
 > "Hola [nombre], tu mes de asesoría termina el [fecha]. Si quieres seguir en el
-> Consultorio de los martes y en la comunidad, son $290 al mes y te puedes salir
+> Consultorio de los sábados y en la comunidad, son $290 al mes y te puedes salir
 > cuando quieras. Y si prefieres seguir por tu cuenta, también está perfecto —
 > te quedas con todo el material y las grabaciones. ¿Cómo lo ves?"
 
@@ -117,6 +117,6 @@ quema la reputación.
 |---|---|---|
 | Alumnos que usan su sesión 1 a 1 | > 70% | Si es baja, no la estás recordando bien |
 | Asistencia al Consultorio | > 40% de los activos | Es el termómetro de la comunidad |
-| Conversión a Comunidad IA | > 25% | Tu ingreso recurrente depende de esto |
+| Conversión a Comunidad Chaos Ctrl | > 25% | Tu ingreso recurrente depende de esto |
 | Testimonios obtenidos por cohorte | ≥ 3 | Combustible del siguiente lanzamiento |
 | Egresados que compran otro curso | > 20% | Mide si el catálogo está bien encadenado |

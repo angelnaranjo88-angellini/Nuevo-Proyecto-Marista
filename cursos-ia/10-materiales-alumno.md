@@ -15,15 +15,18 @@ Si no, no lo hagas.
 - **Documento de bienvenida** de una página: fechas, links, reglas, cómo
   funciona la asesoría y hasta qué día exacto dura
 
-### Principiantes
+### Ctrl + Inicio
 | Material | Formato | Notas |
 |---|---|---|
-| Guía de bolsillo | PDF, 12 págs | La comparativa de herramientas + el marco R-C-T-F-R + las frases de corrección |
-| 50 instrucciones listas | PDF o documento copiable | Organizadas **por situación**, no por tema |
-| Plantilla de prompt maestro | Documento editable | Para llenar con sus datos y pegar en instrucciones personalizadas |
-| Checklist de privacidad | 1 hoja imprimible | Qué nunca subir, cómo apagar el entrenamiento |
+| Mapa de herramientas por tarea | PDF imprimible | La tabla de la sesión 1. El material que más se comparte |
+| Guía de la aplicación por dentro | PDF con capturas | Modelos, archivos, proyectos, conectores, memoria, GPTs |
+| Manual R·C·T·F·R | PDF | El marco de instrucción + las frases de corrección |
+| 60 instrucciones listas | Documento copiable | Organizadas **por situación**, no por tema |
+| Plantilla de prompt maestro | Documento editable | Para llenar y pegar en instrucciones personalizadas |
+| Checklist de privacidad y antifraude | 1 hoja imprimible | Qué nunca subir, cómo apagar el entrenamiento, la palabra clave familiar |
+| Guía de imágenes | PDF | Cómo describir para obtener lo que quieres |
 
-### Emprendedores
+### Ctrl + Negocio
 | Material | Formato | Notas |
 |---|---|---|
 | Inventario de tareas | Hoja de cálculo | Con la fórmula de priorización ya puesta |
@@ -33,7 +36,7 @@ Si no, no lo hagas.
 | Calculadora de retorno | Hoja de cálculo | Horas ahorradas × costo por hora |
 | Plan de 90 días | Plantilla | Se llena en la sesión 4 y se revisa en la asesoría |
 
-### Docentes
+### Ctrl + Aula
 | Material | Formato | Notas |
 |---|---|---|
 | 80 instrucciones docentes | PDF por nivel | Planeación, evaluación, comunicación, recursos |
@@ -42,12 +45,6 @@ Si no, no lo hagas.
 | Método de retroalimentación a escala | Guía paso a paso | El de mayor ahorro de horas |
 | Clase de alfabetización en IA para alumnos | Guion + presentación | Lista para dar la semana siguiente |
 | Modelo de política de aula | Documento editable | Una página, para pegar y compartir con padres |
-
-### Vida Diaria
-| Material | Formato | Notas |
-|---|---|---|
-| Guía de bolsillo para la vida diaria | PDF | 30 usos con instrucción lista para copiar |
-| Checklist antifraude | 1 hoja imprimible | Para el refrigerador. Se comparte mucho |
 
 ## 3. Cómo producirlos rápido
 

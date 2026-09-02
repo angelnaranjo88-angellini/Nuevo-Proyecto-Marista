@@ -1,9 +1,9 @@
 # 09 · Finanzas
 
-> Todas las cifras en pesos mexicanos. Son estimaciones de trabajo, para
-> decidir; ajústalas con tus números reales en cuanto los tengas.
+> Todas las cifras en pesos mexicanos. Son estimaciones de trabajo, para decidir;
+> ajústalas con tus números reales en cuanto los tengas.
 
-## 1. Costos mensuales de operación
+## 1. Costos mensuales
 
 | Concepto | Costo |
 |---|---|
@@ -11,93 +11,103 @@
 | Suscripciones de IA (ChatGPT, Claude, Gemini) | $1,200 |
 | Make / automatización | $200 |
 | Dominio y hosting | $150 |
-| Diseño de materiales (Canva) | $150 |
-| Sede del Laboratorio presencial (1 vez/mes) | $1,500 |
-| Comisiones de pago (~3.5%) | variable |
-| **Fijos** | **≈ $3,500** |
-| Publicidad (variable, tú decides) | $5,000 – $11,000 |
-| **Total con publicidad moderada** | **≈ $9,000** |
+| Canva Pro | $150 |
+| Sede del Laboratorio presencial (1 vez al mes) | $1,500 |
+| **Fijos** | **$3,500** |
+| Publicidad en Meta ($400/día) | $12,000 |
+| **Total operando con anuncios encendidos** | **$15,500** |
+
+La publicidad es la partida grande y es la única que puedes subir o bajar el
+mismo día. Empieza en $400/día durante la semana de lanzamiento y ajústala con
+los datos de la primera semana.
 
 ## 2. Punto de equilibrio
 
-Con $9,000 de costos mensuales:
-
 | Escenario | Alumnos necesarios |
 |---|---|
-| Solo Principiantes a $1,190 | **8 alumnos** |
-| Solo Vida Diaria a $790 | **12 alumnos** |
-| Mezcla realista | **9–10 alumnos** |
+| Sin publicidad ($3,500 de fijos) | **3 alumnos** |
+| Con publicidad al tope ($15,500) | **12 alumnos** |
+| Publicidad moderada, $200/día ($9,500) | **8 alumnos** |
 
-**Un solo grupo lleno de Principiantes cubre el mes entero.** Todo lo demás es
-utilidad. Esto es lo que hace viable tu precio accesible: tus costos son mínimos
-porque el producto eres tú y una sala de Zoom.
+**Un solo grupo lleno de Ctrl + Inicio cubre el mes completo con anuncios
+encendidos al tope.** Eso es lo que hace viable el precio accesible: no tienes
+plataforma, ni sede fija, ni equipo. El producto eres tú y una sala de Zoom.
 
-## 3. Mes 1 — Lanzamiento (escenario conservador)
+## 3. Mes 1 — Lanzamiento, escenario conservador
 
-| Programa | Inscritos | Precio preventa | Ingreso |
+Con la semana de lanzamiento y sin testimonios todavía:
+
+| Programa | Inscritos | Precio | Ingreso |
 |---|---|---|---|
-| Vida Diaria | 12 | $590 | $7,080 |
-| Principiantes | 10 | $890 | $8,900 |
-| Docentes | 10 | $1,190 | $11,900 |
-| Emprendedores | 8 | $1,200 | $9,600 |
-| Taller Express de paga | 15 | $390 | $5,850 |
-| **Ingreso bruto** | **55** | | **$43,330** |
-| Costos | | | −$9,000 |
-| Comisiones (3.5%) | | | −$1,516 |
-| **Utilidad mes 1** | | | **≈ $32,800** |
+| Ctrl + Inicio | 10 | $1,290 | $12,900 |
+| Ctrl + Aula | 10 | $1,490 | $14,900 |
+| Ctrl + Negocio | 8 | $1,500 | $12,000 |
+| **Ingreso bruto** | **28** | | **$39,800** |
+| Costos y publicidad | | | −$15,500 |
+| Comisiones de pago (3.5%) | | | −$1,393 |
+| **Utilidad mes 1** | | | **≈ $22,900** |
 
-**Escenario pesimista** (llenas la mitad): ingreso ≈ $21,000, utilidad ≈ $11,000.
-Sigue siendo positivo. Ese es el punto de tener costos bajos.
+**Escenario pesimista** — llenas solo el mínimo de 4 por grupo (12 alumnos,
+$17,120): utilidad ≈ **$200**. Sales tablas. No pierdes dinero ni en el peor
+caso realista, y te quedas con 12 egresados que se convierten en testimonios,
+membresía y recompras.
+
+**Escenario optimista** — grupos llenos al tope (10 + 12 + 8 = 30 alumnos,
+$44,780): utilidad ≈ **$27,700**.
 
 ## 4. Mes 3 — Operación estable
 
-Dos cohortes de cada programa, ya a precio de lista, más la membresía:
+Dos generaciones de Inicio y Aula, una de Negocio, más la membresía corriendo:
 
-| Concepto | Cantidad | Precio | Ingreso |
+| Concepto | Cant. | Precio | Ingreso |
 |---|---|---|---|
-| Vida Diaria (2 grupos) | 20 | $790 | $15,800 |
-| Principiantes (2 grupos) | 18 | $1,190 | $21,420 |
-| Docentes (2 grupos) | 18 | $1,490 | $26,820 |
-| Emprendedores (1 grupo) | 8 | $1,500 | $12,000 |
-| Taller Express | 20 | $390 | $7,800 |
-| **Comunidad IA** | 35 | $290 | $10,150 |
+| Ctrl + Inicio — 2 generaciones | 18 | $1,290 | $23,220 |
+| Ctrl + Aula — 2 generaciones | 18 | $1,490 | $26,820 |
+| Ctrl + Negocio — 1 generación | 8 | $1,500 | $12,000 |
+| **Comunidad Chaos Ctrl** — recurrente | 30 | $290 | $8,700 |
 | Mentoría 1 a 1 | 1 | $5,900 | $5,900 |
-| **Ingreso bruto** | | | **$99,890** |
-| Costos (incl. publicidad $11,000) | | | −$15,000 |
-| Comisiones | | | −$3,496 |
-| **Utilidad mes 3** | | | **≈ $81,400** |
+| **Ingreso bruto** | | | **$76,640** |
+| Costos y publicidad | | | −$15,500 |
+| Comisiones | | | −$2,682 |
+| **Utilidad mes 3** | | | **≈ $58,500** |
 
-**Advertencia honesta:** el mes 3 exige impartir ~9 grupos. Son unas 30 horas de
-clase en el mes más la asesoría. Es el techo de lo que puedes dar tú solo. Para
-crecer más allá hay tres caminos, en orden de dificultad:
+**Advertencia honesta:** el mes 3 son 5 generaciones — unas 44 horas de clase
+más la asesoría. Está dentro de tus 20+ horas semanales, pero apretado. Es
+prácticamente el techo de lo que puedes dar tú solo.
 
-1. **Subir precios** — a partir del mes 4, con testimonios en la mano, mover
-   Principiantes a $1,490 y Emprendedores a $1,900. No rompe tu promesa de
-   accesibilidad: sigue por debajo de casi todo el mercado con este formato.
-2. **Vender in-company** — un contrato de $18,000–25,000 con una escuela o una
-   empresa equivale a un grupo completo, en 8 horas y con un solo cliente que
-   atender. **Esta es la palanca de mayor retorno por hora de tu tiempo.**
-3. **Formar un instructor** — para Vida Diaria y Principiantes, que son los más
-   estandarizables. Tú te quedas con Emprendedores, Docentes y la asesoría.
+## 5. Las tres palancas para crecer más allá
 
-## 5. Proyección de 12 meses (escenario base)
+En orden de retorno por hora de tu tiempo:
+
+1. **In-company.** Un contrato de $18,000 a $25,000 con una escuela o una empresa
+   equivale a una generación entera, en 8 horas y con un solo cliente que
+   atender. **Es la palanca de mayor retorno y la más ignorada.** Empieza a
+   tocar puertas en la semana 10.
+2. **Subir precios.** A partir del mes 4, con testimonios en mano, Ctrl + Inicio
+   soporta $1,490 y Ctrl + Negocio $1,900. Sigues muy por debajo del mercado con
+   este formato y este acompañamiento.
+3. **Formar un instructor** para Ctrl + Inicio, que es el más estandarizable. Tú
+   te quedas con Aula, Negocio y toda la asesoría — que es donde está el
+   diferenciador que no se delega.
+
+## 6. Proyección de 12 meses (escenario base)
 
 | Mes | Enfoque | Ingreso estimado |
 |---|---|---|
-| 1 | Lanzamiento, preventa, primeros testimonios | $43,000 |
-| 2 | Segundo ciclo, precio de lista, primeras membresías | $58,000 |
-| 3 | Operación estable, dos cohortes por programa | $99,000 |
-| 4 | Subida de precios + primer contrato in-company | $115,000 |
-| 5–6 | Consolidación, membresía creciendo | $110,000–125,000 |
-| 7–9 | Segundo instructor o más in-company | $130,000–150,000 |
-| 10–12 | Catálogo maduro, recurrencia fuerte | $150,000–180,000 |
+| 1 | Lanzamiento en una semana, sin prueba social | $39,800 |
+| 2 | Segunda generación, ya con testimonios | $55,000 |
+| 3 | Operación estable, membresía iniciada | $76,600 |
+| 4 | Subida de precios + primer contrato in-company | $95,000 |
+| 5–6 | Consolidación, membresía creciendo | $95,000–110,000 |
+| 7–9 | Segundo instructor o más in-company | $120,000–140,000 |
+| 10–12 | Catálogo maduro, recurrencia fuerte | $140,000–170,000 |
 
-**Ingreso acumulado del año 1: ≈ $1.3 millones MXN**, con costos por debajo del
-20%. La proyección asume que llenas los grupos, que la membresía retiene al 30%
-y que cierras al menos dos contratos in-company. Si solo se cumple la mitad,
-sigues muy por arriba de lo que da un curso grabado y barato.
+**Acumulado del año 1: ≈ $1.15 millones MXN**, con costos por debajo del 20%. La
+proyección asume que llenas los grupos, que la membresía retiene al 30% y que
+cierras al menos dos contratos in-company. Si solo se cumple la mitad, sigues muy
+por arriba de lo que deja un curso grabado y barato.
 
-## 6. Las tres cifras que debes vigilar cada semana
+## 7. Las tres cifras que se revisan cada semana
 
 | Cifra | Cómo se calcula | Meta |
 |---|---|---|
@@ -105,18 +115,18 @@ sigues muy por arriba de lo que da un curso grabado y barato.
 | **Valor por alumno** | Ingreso total ÷ alumnos únicos | > $1,800 |
 | **Tasa de recompra** | Alumnos que compran un 2° producto ÷ total | > 20% |
 
-Si el valor por alumno supera $1,800 con un precio base de $1,190, significa que
-la escalera está funcionando: la gente compra un segundo curso o se queda en la
-membresía. **Esa es la señal de que el negocio es sano**, mucho más que el número
-de inscritos de un mes.
+Si el valor por alumno supera $1,800 con un precio base de $1,290, la escalera
+está funcionando: la gente compra un segundo curso o se queda en la membresía.
+**Esa es la señal de que el negocio es sano — mucho más que el número de
+inscritos de un mes.**
 
-## 7. Reglas financieras
+## 8. Reglas financieras
 
-1. **Separa la cuenta desde el primer peso.** Aunque ya tengas empresas.
-2. **Aparta el 30% de cada ingreso** para impuestos, aunque hoy no factures todo.
-3. **La publicidad se paga con lo que ya vendiste**, no con lo que esperas
-   vender. Empieza con $150/día y sube solo lo que demuestre retorno.
-4. **No compres herramientas por adelantado.** Ninguna plataforma de cursos,
-   ningún software caro, hasta que un problema real lo exija.
+1. **Separa la cuenta desde el primer peso**, aunque ya tengas empresas.
+2. **Aparta el 30% de cada ingreso** para impuestos.
+3. **La publicidad de la semana 1 es la única que se paga por adelantado.** De ahí
+   en adelante se financia con lo que ya vendiste.
+4. **No compres herramientas por adelantado.** Ninguna plataforma de cursos hasta
+   que un problema real lo exija.
 5. **Reinvierte el primer trimestre completo** en publicidad y en producir mejor
    material. Es el momento de mayor retorno por peso invertido.

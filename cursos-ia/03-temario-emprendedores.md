@@ -1,12 +1,12 @@
-# 03 · Curso Emprendedores
+# 03 · Ctrl + Negocio
 ## "IA que trabaja mientras tú duermes: automatiza tu negocio"
 
 | Dato | Valor |
 |---|---|
 | **Duración** | 4 sesiones × 2 h = **8 horas en vivo** |
-| **Horario** | Sábados de 10:00 a 12:00 (4 sábados) o lunes/miércoles 7:00–9:00 pm |
+| **Horario** | Sábados 10:00–12:00, cuatro sábados seguidos |
 | **Cupo** | 5 a 8 personas (más chico: cada quien trabaja su negocio real) |
-| **Precio** | $1,200 preventa · $1,500 lista |
+| **Precio** | **$1,500** |
 | **Incluye** | 1 mes de asesoría, Laboratorio presencial, grabaciones, plantillas, constancia |
 | **Requisito** | Tener un negocio funcionando (aunque sea de una persona) |
 

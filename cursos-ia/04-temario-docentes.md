@@ -1,12 +1,12 @@
-# 04 · Curso Docentes
+# 04 · Ctrl + Aula
 ## "IA para docentes: menos burocracia, mejor clase"
 
 | Dato | Valor |
 |---|---|
 | **Duración** | 4 sesiones × 2 h = **8 horas en vivo** |
-| **Horario** | Sábados 10:00–12:00 (4 sábados) o martes/jueves 7:00–9:00 pm |
+| **Horario** | Sábados 13:30–15:30, cuatro sábados seguidos |
 | **Cupo** | 8 a 12 personas |
-| **Precio** | $1,190 preventa · $1,490 lista · **3x2 para colegas de la misma escuela** |
+| **Precio** | **$1,490** · **3x2 para colegas de la misma escuela** |
 | **Incluye** | 1 mes de asesoría, banco de recursos, Laboratorio presencial, constancia con horas |
 | **Requisito** | Ser docente en activo, de cualquier nivel |
 

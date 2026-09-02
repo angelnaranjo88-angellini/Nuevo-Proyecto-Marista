@@ -1,142 +1,112 @@
-<title>Escuela de IA Aplicada</title>
+<title>Chaos Ctrl</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 
 <style>
 :root{
-  --ground:#ECEEEC; --surface:#FBFCFB; --surface-2:#E3E7E5; --surface-3:#D8DEDB;
-  --ink:#12201F; --ink-2:#4A5A58; --ink-3:#72827F;
-  --line:#CBD3D0; --line-2:#B6C0BD;
-  --accent:#0C5C5E; --accent-2:#0A4A4C; --accent-soft:#D6E4E3;
-  --signal:#96500A; --signal-soft:#F0E2C9;
+  --ground:#EDEFEE; --surface:#FBFCFB; --surface-2:#E2E7E5; --surface-3:#D6DDDA;
+  --ink:#0E1214; --ink-2:#465452; --ink-3:#6B7A78;
+  --line:#C9D2CF; --line-2:#B2BDBA;
+  --accent:#0A6E66; --accent-2:#085A54; --accent-soft:#D3E7E4;
+  --signal:#B04309; --signal-soft:#F7DECE;
   --good:#1F6B45; --good-soft:#D7E8DE;
-  --shadow:0 1px 2px rgba(18,32,31,.06), 0 8px 24px -12px rgba(18,32,31,.18);
+  --shadow:0 1px 2px rgba(14,18,20,.06), 0 8px 24px -12px rgba(14,18,20,.2);
   --r:10px;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#0D1413; --surface:#151E1D; --surface-2:#1D2827; --surface-3:#243130;
-    --ink:#E5EAE8; --ink-2:#A2B0AD; --ink-3:#7C8B88;
-    --line:#2A3634; --line-2:#374644;
-    --accent:#54C2B8; --accent-2:#7BD5CC; --accent-soft:#16302F;
-    --signal:#E2A63E; --signal-soft:#32250F;
+    --ground:#0E1214; --surface:#161D1F; --surface-2:#1E2729; --surface-3:#263133;
+    --ink:#F2F3F0; --ink-2:#A3B1AF; --ink-3:#7C8B89;
+    --line:#283335; --line-2:#374446;
+    --accent:#14D6C4; --accent-2:#4FE3D5; --accent-soft:#0D3330;
+    --signal:#FF7F45; --signal-soft:#38200F;
     --good:#5DBF8C; --good-soft:#14291F;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.65);
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0D1413; --surface:#151E1D; --surface-2:#1D2827; --surface-3:#243130;
-  --ink:#E5EAE8; --ink-2:#A2B0AD; --ink-3:#7C8B88;
-  --line:#2A3634; --line-2:#374644;
-  --accent:#54C2B8; --accent-2:#7BD5CC; --accent-soft:#16302F;
-  --signal:#E2A63E; --signal-soft:#32250F;
+  --ground:#0E1214; --surface:#161D1F; --surface-2:#1E2729; --surface-3:#263133;
+  --ink:#F2F3F0; --ink-2:#A3B1AF; --ink-3:#7C8B89;
+  --line:#283335; --line-2:#374446;
+  --accent:#14D6C4; --accent-2:#4FE3D5; --accent-soft:#0D3330;
+  --signal:#FF7F45; --signal-soft:#38200F;
   --good:#5DBF8C; --good-soft:#14291F;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.65);
 }
 
 *{box-sizing:border-box}
 body{
   background:var(--ground); color:var(--ink);
   font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  font-size:15.5px; line-height:1.62; margin:0;
-  -webkit-font-smoothing:antialiased;
+  font-size:15.5px; line-height:1.62; margin:0; -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3,h4{font-family:Fraunces,Georgia,"Times New Roman",serif; text-wrap:balance; margin:0; line-height:1.15; font-weight:600}
+h1,h2,h3,h4{margin:0; line-height:1.14; text-wrap:balance}
+h1,h2{font-family:"Archivo Black","Archivo",Impact,sans-serif; letter-spacing:-.025em; text-transform:uppercase}
+h3,h4{font-family:"Archivo","IBM Plex Sans",sans-serif; font-weight:700; letter-spacing:-.01em}
 p{margin:0}
 a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:2px}
 :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important; scroll-behavior:auto!important}}
 html{scroll-behavior:smooth}
-
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
-.num{font-variant-numeric:tabular-nums}
 
-/* ---------- shell ---------- */
-.shell{display:grid; grid-template-columns:224px minmax(0,1fr); gap:0; max-width:1240px; margin:0 auto}
-.rail{
-  position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto;
-  padding:38px 20px 40px 26px; border-right:1px solid var(--line);
-}
-.rail-mark{font-family:Fraunces,serif; font-size:16px; font-weight:700; line-height:1.2; margin-bottom:4px}
-.rail-sub{font-size:11.5px; color:var(--ink-3); letter-spacing:.03em; margin-bottom:26px}
+.shell{display:grid; grid-template-columns:228px minmax(0,1fr); max-width:1250px; margin:0 auto}
+.rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:36px 20px 40px 26px; border-right:1px solid var(--line)}
+.rail-mark{font-family:"Archivo Black",sans-serif; font-size:19px; text-transform:uppercase; letter-spacing:-.03em; line-height:1; margin-bottom:6px}
+.rail-mark span{color:var(--accent)}
+.rail-sub{font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--ink-3); letter-spacing:.13em; text-transform:uppercase; margin-bottom:26px}
 .rail nav{display:flex; flex-direction:column; gap:1px}
-.rail a{
-  display:flex; gap:9px; align-items:baseline; text-decoration:none; color:var(--ink-2);
-  font-size:13.2px; padding:5px 8px; border-radius:6px; transition:background .12s,color .12s;
-}
+.rail a{display:flex; gap:9px; align-items:baseline; text-decoration:none; color:var(--ink-2); font-size:13.2px; padding:5px 8px; border-radius:6px; transition:background .12s,color .12s}
 .rail a .n{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3); min-width:16px; font-variant-numeric:tabular-nums}
 .rail a:hover{background:var(--surface-2); color:var(--ink)}
 .rail a.on{background:var(--accent-soft); color:var(--accent); font-weight:600}
 .rail a.on .n{color:var(--accent)}
-
 main{padding:0 44px 100px; min-width:0}
 
-/* ---------- hero ---------- */
-.hero{padding:56px 0 34px; border-bottom:1px solid var(--line)}
-.kicker{
-  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--signal); margin-bottom:16px;
-}
-.hero h1{font-size:clamp(34px,4.4vw,50px); letter-spacing:-.02em; max-width:16ch; margin-bottom:20px}
-.thesis{font-size:18px; line-height:1.55; color:var(--ink-2); max-width:60ch; border-left:2px solid var(--accent); padding-left:18px}
+.hero{padding:54px 0 34px; border-bottom:1px solid var(--line)}
+.kicker{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--signal); margin-bottom:18px}
+.hero h1{font-size:clamp(38px,5.6vw,66px); max-width:14ch; margin-bottom:20px}
+.hero h1 em{font-style:normal; color:var(--accent)}
+.thesis{font-size:18px; line-height:1.55; color:var(--ink-2); max-width:60ch; border-left:2px solid var(--signal); padding-left:18px}
 .thesis b{color:var(--ink); font-weight:600}
-
-.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden; margin-top:34px}
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(138px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden; margin-top:34px}
 .fact{background:var(--surface); padding:15px 16px}
 .fact dt{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:5px}
 .fact dd{margin:0; font-size:15px; font-weight:600; line-height:1.3}
 
-/* ---------- sections ---------- */
 section{padding:52px 0; border-bottom:1px solid var(--line); scroll-margin-top:16px}
 section:last-of-type{border-bottom:0}
-.eyebrow{display:flex; align-items:center; gap:11px; margin-bottom:9px}
+.eyebrow{display:flex; align-items:center; gap:11px; margin-bottom:10px}
 .eyebrow .n{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--signal); font-weight:600; letter-spacing:.06em}
 .eyebrow .rule{flex:1; height:1px; background:var(--line)}
-section > h2{font-size:29px; letter-spacing:-.015em; margin-bottom:10px}
-.lede{color:var(--ink-2); max-width:66ch; font-size:16px; margin-bottom:28px}
+section > h2{font-size:clamp(24px,3vw,31px); margin-bottom:12px}
+.lede{color:var(--ink-2); max-width:66ch; font-size:16px; margin-bottom:26px}
 h3{font-size:17.5px; margin:32px 0 12px}
-h4{font-size:14.5px; font-family:"IBM Plex Sans",sans-serif; font-weight:600; margin:22px 0 8px}
+h4{font-size:14.5px; font-weight:700; margin:22px 0 8px}
 .prose{max-width:68ch}
 .prose p + p{margin-top:12px}
-ul{margin:10px 0; padding-left:19px}
+ul,ol{margin:10px 0; padding-left:19px}
 li{margin:5px 0}
 li::marker{color:var(--ink-3)}
 
-/* ---------- course cards ---------- */
-.courses{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:14px; margin:26px 0}
+.courses{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin:26px 0}
 .course{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:19px 18px 17px; display:flex; flex-direction:column; box-shadow:var(--shadow)}
 .course .tag{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:9px}
-.course h3{font-size:18px; margin:0 0 7px}
+.course h3{font-family:"Archivo Black",sans-serif; font-size:19px; margin:0 0 7px; text-transform:uppercase; letter-spacing:-.02em}
+.course h3 span{color:var(--accent)}
 .course .who{font-size:13.4px; color:var(--ink-2); line-height:1.5; margin-bottom:15px; flex:1}
 .course .meta{display:flex; gap:14px; font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3); padding-top:13px; border-top:1px solid var(--line); font-variant-numeric:tabular-nums}
-.course .price{display:flex; align-items:baseline; gap:8px; margin-top:11px}
-.course .price .now{font-family:"IBM Plex Mono",monospace; font-size:22px; font-weight:600; color:var(--signal); font-variant-numeric:tabular-nums}
-.course .price .was{font-size:12px; color:var(--ink-3)}
+.course .price{font-family:"IBM Plex Mono",monospace; font-size:24px; font-weight:600; color:var(--signal); font-variant-numeric:tabular-nums; margin-top:11px}
 
-/* ---------- ladder ---------- */
-.ladder{display:flex; align-items:flex-end; gap:6px; margin:26px 0 10px; padding:22px 18px 0; background:var(--surface); border:1px solid var(--line); border-radius:var(--r); overflow-x:auto}
-.rung{flex:1; min-width:88px; display:flex; flex-direction:column; justify-content:flex-end; text-align:center}
-.rung .bar{background:var(--accent-soft); border:1px solid var(--accent); border-bottom:0; border-radius:5px 5px 0 0; width:100%}
-.rung.hi .bar{background:var(--signal-soft); border-color:var(--signal)}
-.rung .amt{font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; margin-bottom:6px; font-variant-numeric:tabular-nums}
-.rung.hi .amt{color:var(--signal)}
-.rung .lbl{font-size:11px; color:var(--ink-2); padding:9px 3px 14px; border-top:1px solid var(--line-2); line-height:1.35}
-
-/* ---------- diff grid ---------- */
 .diffs{display:grid; grid-template-columns:repeat(auto-fit,minmax(228px,1fr)); gap:14px; margin-top:24px}
 .diff{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:18px}
 .diff .rank{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--signal); letter-spacing:.08em; margin-bottom:8px}
-.diff h4{margin:0 0 7px; font-size:15px; font-family:Fraunces,serif; font-weight:600}
+.diff h4{margin:0 0 7px; font-size:15px}
 .diff p{font-size:13.4px; color:var(--ink-2); line-height:1.52}
 
-/* ---------- tabs ---------- */
-.tabs{display:flex; gap:5px; margin:22px 0 0; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:0}
-.tab{
-  font-family:"IBM Plex Sans",sans-serif; font-size:13.4px; font-weight:500;
-  background:transparent; border:1px solid transparent; border-bottom:0; color:var(--ink-2);
-  padding:9px 15px; border-radius:7px 7px 0 0; cursor:pointer; margin-bottom:-1px; transition:.12s;
-}
+.tabs{display:flex; gap:5px; margin:22px 0 0; flex-wrap:wrap; border-bottom:1px solid var(--line)}
+.tab{font-family:"IBM Plex Sans",sans-serif; font-size:13.4px; font-weight:500; background:transparent; border:1px solid transparent; border-bottom:0; color:var(--ink-2); padding:9px 15px; border-radius:7px 7px 0 0; cursor:pointer; margin-bottom:-1px; transition:.12s}
 .tab:hover{color:var(--ink); background:var(--surface-2)}
 .tab[aria-selected="true"]{background:var(--surface); border-color:var(--line); color:var(--accent); font-weight:600}
 .panel{background:var(--surface); border:1px solid var(--line); border-top:0; border-radius:0 0 var(--r) var(--r); padding:26px 24px}
@@ -144,103 +114,93 @@ li::marker{color:var(--ink-3)}
 .panel-head h3{margin:0; font-size:20px; flex:1; min-width:200px}
 .chip{font-family:"IBM Plex Mono",monospace; font-size:11px; background:var(--surface-2); border:1px solid var(--line); padding:3px 9px; border-radius:20px; color:var(--ink-2); white-space:nowrap}
 .chip.money{background:var(--signal-soft); border-color:var(--signal); color:var(--signal); font-weight:600}
-.promise{background:var(--accent-soft); border-radius:8px; padding:14px 16px; font-size:14.4px; line-height:1.55; margin-bottom:22px; color:var(--ink)}
+.promise{background:var(--accent-soft); border-radius:8px; padding:14px 16px; font-size:14.4px; line-height:1.55; margin-bottom:22px}
 .promise b{color:var(--accent); font-weight:600}
 
-/* ---------- sessions ---------- */
 .sess{border-left:2px solid var(--line); padding-left:20px; margin-left:5px; display:flex; flex-direction:column; gap:22px}
 .s{position:relative}
 .s::before{content:""; position:absolute; left:-26px; top:6px; width:9px; height:9px; border-radius:50%; background:var(--accent); border:2px solid var(--surface)}
 .s .sh{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:4px}
-.s h4{font-family:Fraunces,serif; font-size:17px; font-weight:600; margin:0 0 9px}
-.blocks{display:flex; flex-direction:column; gap:0; border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.s h4{font-size:17px; margin:0 0 9px}
+.blocks{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:8px; overflow:hidden}
 .blk{display:grid; grid-template-columns:88px 1fr; gap:14px; padding:9px 13px; font-size:13.5px; border-bottom:1px solid var(--line); align-items:baseline}
 .blk:last-child{border-bottom:0}
 .blk:nth-child(odd){background:var(--surface-2)}
 .blk .t{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3); font-variant-numeric:tabular-nums}
-.blk .d b{font-weight:600}
-.note{font-size:13.4px; color:var(--ink-2); margin-top:11px; padding-left:2px; line-height:1.55}
+.note{font-size:13.4px; color:var(--ink-2); margin-top:11px; line-height:1.55}
 .note b{color:var(--ink)}
 .deliver{margin-top:26px; padding-top:20px; border-top:1px solid var(--line)}
 .deliver h4{margin-top:0}
 .deliver ul{columns:2; column-gap:30px; font-size:13.5px}
 @media (max-width:640px){.deliver ul{columns:1}}
 
-/* ---------- tables ---------- */
 .scroll{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:var(--r); background:var(--surface)}
 table{border-collapse:collapse; width:100%; font-size:13.6px; min-width:480px}
 th,td{text-align:left; padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
-thead th{
-  font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--ink-3); font-weight:500; background:var(--surface-2); white-space:nowrap;
-}
+thead th{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); font-weight:500; background:var(--surface-2); white-space:nowrap}
 tbody tr:last-child td{border-bottom:0}
 td.n,th.n{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
 tr.total td{font-weight:700; background:var(--surface-2); border-top:2px solid var(--line-2)}
 tr.total td.n{color:var(--signal)}
 
-/* ---------- calendar ---------- */
 .cal{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:var(--r); background:var(--surface)}
-.cal table{min-width:660px; font-size:12.6px}
+.cal table{min-width:680px; font-size:12.6px}
 .cal th{text-align:center}
 .cal td{text-align:center; padding:0; height:46px; border-right:1px solid var(--line)}
 .cal td:last-child,.cal th:last-child{border-right:0}
-.cal td.h{
-  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3);
-  text-align:right; padding-right:11px; background:var(--surface-2); white-space:nowrap; border-right:1px solid var(--line);
-}
-.ev{display:block; margin:4px; padding:6px 5px; border-radius:5px; font-size:11.8px; font-weight:600; line-height:1.25}
+.cal td.h{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3); text-align:right; padding-right:11px; background:var(--surface-2); white-space:nowrap}
+.ev{display:block; margin:4px; padding:6px 5px; border-radius:5px; font-size:11.6px; font-weight:600; line-height:1.25}
 .ev.teal{background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent)}
 .ev.amber{background:var(--signal-soft); color:var(--signal); border:1px solid var(--signal)}
 .ev.quiet{background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line-2)}
-.ev small{display:block; font-weight:400; font-size:10px; opacity:.8; font-family:"IBM Plex Mono",monospace}
+.ev small{display:block; font-weight:400; font-size:10px; opacity:.85; font-family:"IBM Plex Mono",monospace}
 
-/* ---------- flow ---------- */
-.flow{display:flex; flex-direction:column; gap:0; margin:20px 0; max-width:520px}
-.step{display:grid; grid-template-columns:26px 1fr; gap:14px; align-items:start}
-.step .dot{display:flex; flex-direction:column; align-items:center; height:100%}
-.step .dot i{width:9px; height:9px; border-radius:50%; background:var(--accent); margin-top:7px; flex:none}
-.step .dot span{width:1px; flex:1; background:var(--line); min-height:14px}
-.step:last-child .dot span{display:none}
-.step .txt{padding-bottom:15px; font-size:13.8px}
-.step .txt b{display:block; font-weight:600; margin-bottom:1px}
-.step .txt em{font-style:normal; color:var(--ink-2); font-size:13px}
+.days{display:flex; flex-direction:column; gap:10px; margin-top:24px}
+.day{display:grid; grid-template-columns:74px 1fr; gap:18px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px 18px}
+.day.fire{border-color:var(--signal); border-left-width:4px}
+.day .d{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); padding-top:2px}
+.day .d b{display:block; font-family:"Archivo Black",sans-serif; font-size:23px; color:var(--ink); letter-spacing:-.02em; line-height:1}
+.day.fire .d b{color:var(--signal)}
+.day h4{margin:0 0 7px; font-size:15.5px}
+.day ul{margin:0; padding-left:17px; font-size:13.4px; color:var(--ink-2)}
+.day .out{margin-top:10px; padding-top:9px; border-top:1px solid var(--line); font-size:12.6px; color:var(--accent); font-weight:500}
 
-/* ---------- weeks ---------- */
-.weeks{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:22px}
-.wk{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px; border-top:3px solid var(--accent)}
-.wk.now{border-top-color:var(--signal)}
-.wk .w{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); margin-bottom:6px}
-.wk h4{font-family:Fraunces,serif; font-size:15.5px; margin:0 0 9px; font-weight:600}
-.wk ul{margin:0; padding-left:16px; font-size:13px; color:var(--ink-2)}
-.wk li{margin:4px 0}
-.wk .out{margin-top:11px; padding-top:10px; border-top:1px solid var(--line); font-size:12.3px; color:var(--accent); font-weight:500}
+.swatches{display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); gap:10px; margin:22px 0}
+.sw{border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--surface)}
+.sw .chipc{height:56px}
+.sw .meta{padding:9px 11px}
+.sw .meta b{display:block; font-size:12.8px}
+.sw .meta code{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3)}
+.sw .meta em{display:block; font-style:normal; font-size:11.5px; color:var(--ink-2); margin-top:3px; line-height:1.35}
 
-/* ---------- callouts ---------- */
+pre{background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:14px 16px; overflow-x:auto; font-family:"IBM Plex Mono",monospace; font-size:12.3px; line-height:1.62; margin:12px 0; color:var(--ink)}
+pre .v{color:var(--signal); font-weight:600}
+
+.flyer{display:grid; grid-template-columns:minmax(0,220px) minmax(0,1fr); gap:24px; align-items:start; margin:22px 0}
+@media (max-width:700px){.flyer{grid-template-columns:1fr}}
+.mock{background:var(--ink); border-radius:10px; padding:20px 18px; color:#F2F3F0; aspect-ratio:4/5; display:flex; flex-direction:column; border:1px solid var(--line-2)}
+.mock .lg{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.16em; opacity:.65; text-transform:uppercase}
+.mock .hd{font-family:"Archivo Black",sans-serif; font-size:23px; line-height:.98; letter-spacing:-.03em; margin-top:16px; text-transform:uppercase}
+.mock .sb{font-size:10.5px; opacity:.6; margin-top:9px; line-height:1.4}
+.mock .sp{flex:1}
+.mock .li{font-family:"IBM Plex Mono",monospace; font-size:9.5px; opacity:.8; border-top:1px solid rgba(242,243,240,.18); padding-top:7px; margin-top:7px}
+.mock .pr{font-family:"IBM Plex Mono",monospace; font-size:27px; font-weight:600; color:#FF7F45; margin-top:12px; line-height:1}
+.mock .cu{font-family:"IBM Plex Mono",monospace; font-size:9.5px; color:#FF7F45; margin-top:3px}
+.mock .bt{background:#FF7F45; color:#0E1214; font-weight:700; font-size:10.5px; text-align:center; padding:8px; border-radius:5px; margin-top:12px; letter-spacing:.02em}
+
 .call{border-left:3px solid var(--signal); background:var(--signal-soft); padding:15px 18px; border-radius:0 8px 8px 0; margin:22px 0; font-size:14px; line-height:1.58}
-.call b{font-weight:600}
 .call.good{border-left-color:var(--good); background:var(--good-soft)}
 .call .h{display:block; font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; color:var(--signal)}
 .call.good .h{color:var(--good)}
 
-.pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:20px}
-.pil{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:15px}
-.pil .p{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--signal); margin-bottom:6px}
-.pil b{display:block; font-size:14px; margin-bottom:5px}
-.pil span{font-size:12.8px; color:var(--ink-2); line-height:1.5}
-
-.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:22px 0}
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr)); gap:12px; margin:22px 0}
 .kpi{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px}
 .kpi .v{font-family:"IBM Plex Mono",monospace; font-size:25px; font-weight:600; color:var(--signal); font-variant-numeric:tabular-nums; line-height:1.1}
 .kpi .k{font-size:12.6px; color:var(--ink-2); margin-top:6px; line-height:1.4}
 
-.closing{padding:44px 0 0}
 .closing ol{counter-reset:c; list-style:none; padding:0; margin:20px 0 0; display:flex; flex-direction:column; gap:12px; max-width:64ch}
-.closing ol li{counter-increment:c; display:grid; grid-template-columns:28px 1fr; gap:14px; font-size:14.6px; align-items:baseline}
-.closing ol li::before{
-  content:counter(c,decimal-leading-zero); font-family:"IBM Plex Mono",monospace; font-size:12px;
-  color:var(--signal); font-weight:600;
-}
+.closing ol li{counter-increment:c; display:grid; grid-template-columns:28px 1fr; gap:14px; font-size:14.6px; align-items:baseline; margin:0}
+.closing ol li::before{content:counter(c,decimal-leading-zero); font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--signal); font-weight:600}
 footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font-size:12.6px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:8px 20px}
 
 @media (max-width:900px){
@@ -249,23 +209,24 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
   .rail nav{flex-direction:row; flex-wrap:wrap; gap:4px}
   .rail a{background:var(--surface); border:1px solid var(--line)}
   main{padding:0 22px 70px}
-  .hero{padding:36px 0 28px}
+  .hero{padding:34px 0 28px}
+  .day{grid-template-columns:1fr; gap:10px}
 }
 </style>
 
 <div class="shell">
 <aside class="rail">
-  <div class="rail-mark">Escuela de<br>IA Aplicada</div>
-  <div class="rail-sub mono">PLAN MAESTRO · 2026</div>
+  <div class="rail-mark">Chaos<br><span>Ctrl</span></div>
+  <div class="rail-sub">Plan maestro · 2026</div>
   <nav id="nav">
     <a href="#oferta"><span class="n">01</span> La oferta</a>
     <a href="#posicion"><span class="n">02</span> Posicionamiento</a>
     <a href="#temarios"><span class="n">03</span> Temarios</a>
-    <a href="#asesoria"><span class="n">04</span> El mes de asesoría</a>
+    <a href="#asesoria"><span class="n">04</span> Mes de asesoría</a>
     <a href="#operacion"><span class="n">05</span> Operación</a>
-    <a href="#marketing"><span class="n">06</span> Lanzamiento</a>
-    <a href="#finanzas"><span class="n">07</span> Finanzas</a>
-    <a href="#plan"><span class="n">08</span> Plan de 90 días</a>
+    <a href="#lanzamiento"><span class="n">06</span> Lanzamiento en 7 días</a>
+    <a href="#marca"><span class="n">07</span> Identidad y flyers</a>
+    <a href="#finanzas"><span class="n">08</span> Finanzas</a>
     <a href="#pendientes"><span class="n">09</span> Qué falta decidir</a>
   </nav>
 </aside>
@@ -274,15 +235,15 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
 
 <header class="hero">
   <div class="kicker">Cursos de inteligencia artificial en vivo · México</div>
-  <h1>Enseñar lo que sí sabes, de cerca</h1>
-  <p class="thesis">Los cursos que ves anunciados enseñan menos de lo que tú ya usas todos los días. El hueco del mercado no está en el precio ni en la producción: está en <b>el acompañamiento después de la clase</b>. Ese es el negocio.</p>
+  <h1>Del caos al <em>control</em></h1>
+  <p class="thesis">Los cursos que ves anunciados enseñan menos de lo que tú ya usas todos los días — <b>y aun así se están vendiendo.</b> Eso significa que el mercado ya está educado y comprando. No hay que crear la demanda: hay que aparecer frente a ella con una oferta claramente superior.</p>
   <dl class="facts">
-    <div class="fact"><dt>Programas</dt><dd>4 en paralelo</dd></div>
+    <div class="fact"><dt>Programas</dt><dd>3 en paralelo</dd></div>
     <div class="fact"><dt>Modalidad</dt><dd>En vivo · híbrida</dd></div>
-    <div class="fact"><dt>Cupo</dt><dd>5 a 10 personas</dd></div>
+    <div class="fact"><dt>Cupo</dt><dd>8 a 12 personas</dd></div>
     <div class="fact"><dt>Incluye</dt><dd>1 mes de asesoría</dd></div>
     <div class="fact"><dt>Precio tope</dt><dd class="mono">$1,500 MXN</dd></div>
-    <div class="fact"><dt>Equilibrio</dt><dd>9 alumnos/mes</dd></div>
+    <div class="fact"><dt>Lanzamiento</dt><dd>7 días</dd></div>
   </dl>
 </header>
 
@@ -290,62 +251,61 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
 <section id="oferta">
   <div class="eyebrow"><span class="n">01</span><span class="rule"></span></div>
   <h2>La oferta</h2>
-  <p class="lede">Cuatro programas que comparten el 60% del material y se encadenan entre sí: quien entra por el más barato termina comprando el siguiente. Todos los grupales quedan en o por debajo de $1,500.</p>
+  <p class="lede">Tres programas que comparten material y se encadenan entre sí. Precio único publicado, sin preventa: la urgencia la dan la fecha fija de inicio y el contador real de lugares — las dos son verdad, y por eso funcionan.</p>
 
   <div class="courses">
     <article class="course">
-      <div class="tag">Puerta de entrada</div>
-      <h3>Vida Diaria</h3>
-      <p class="who">Para quien siente que “esto no es para mí”. Dinero, trámites, familia, salud y cómo no caer en fraudes hechos con IA.</p>
-      <div class="meta"><span>2 sesiones</span><span>4 h</span><span>máx. 12</span></div>
-      <div class="price"><span class="now">$590</span><span class="was">lista $790</span></div>
-    </article>
-    <article class="course">
       <div class="tag">El ancla del catálogo</div>
-      <h3>Principiantes</h3>
-      <p class="who">Para quien ya usa ChatGPT pero sospecha que lo usa mal. Las cinco herramientas, cómo pedir bien y cómo verificar.</p>
-      <div class="meta"><span>3 sesiones</span><span>6 h</span><span>máx. 10</span></div>
-      <div class="price"><span class="now">$890</span><span class="was">lista $1,190</span></div>
+      <h3>Ctrl <span>+</span> Inicio</h3>
+      <p class="who">Para quien ya usa ChatGPT pero sospecha que lo usa mal. Las herramientas por tipo de tarea, la aplicación completa por dentro, prompting y casos prácticos.</p>
+      <div class="meta"><span>5 sesiones</span><span>10 h</span><span>máx. 10</span></div>
+      <div class="price">$1,290</div>
     </article>
     <article class="course">
       <div class="tag">Se vende por recomendación</div>
-      <h3>Docentes</h3>
-      <p class="who">Para maestros que se ahogan en planeaciones y no saben qué hacer cuando sus alumnos entregan trabajos con IA.</p>
+      <h3>Ctrl <span>+</span> Aula</h3>
+      <p class="who">Para maestros que se ahogan en planeaciones y no saben qué hacer cuando sus alumnos entregan trabajos hechos con IA.</p>
       <div class="meta"><span>4 sesiones</span><span>8 h</span><span>máx. 12</span></div>
-      <div class="price"><span class="now">$1,190</span><span class="was">lista $1,490</span></div>
+      <div class="price">$1,490</div>
     </article>
     <article class="course">
       <div class="tag">Tu carta más fuerte</div>
-      <h3>Emprendedores</h3>
-      <p class="who">Para dueños de negocio que trabajan 12 horas. Salen con una automatización corriendo de verdad.</p>
+      <h3>Ctrl <span>+</span> Negocio</h3>
+      <p class="who">Para dueños de negocio que trabajan 12 horas al día. Salen de clase con una automatización corriendo de verdad.</p>
       <div class="meta"><span>4 sesiones</span><span>8 h</span><span>máx. 8</span></div>
-      <div class="price"><span class="now">$1,200</span><span class="was">lista $1,500</span></div>
+      <div class="price">$1,500</div>
     </article>
   </div>
 
-  <h3>La escalera completa</h3>
-  <p class="prose">Los cursos grupales son accesibles a propósito. El 1 a 1 y el in-company no son “el curso pero más caro”: son productos distintos, con otro alcance, y por eso pueden costar lo que cuestan sin romper la promesa.</p>
-  <div class="ladder">
-    <div class="rung"><div class="amt">$390</div><div class="bar" style="height:26px"></div><div class="lbl">Taller express<br>2 h</div></div>
-    <div class="rung"><div class="amt">$790</div><div class="bar" style="height:44px"></div><div class="lbl">Vida Diaria<br>4 h</div></div>
-    <div class="rung"><div class="amt">$1,190</div><div class="bar" style="height:62px"></div><div class="lbl">Principiantes<br>6 h</div></div>
-    <div class="rung"><div class="amt">$1,490</div><div class="bar" style="height:76px"></div><div class="lbl">Docentes<br>8 h</div></div>
-    <div class="rung"><div class="amt">$1,500</div><div class="bar" style="height:78px"></div><div class="lbl">Emprendedores<br>8 h</div></div>
-    <div class="rung hi"><div class="amt">$290<span style="font-size:10px">/mes</span></div><div class="bar" style="height:20px"></div><div class="lbl">Comunidad IA<br>recurrente</div></div>
-    <div class="rung hi"><div class="amt">$5,900</div><div class="bar" style="height:120px"></div><div class="lbl">Mentoría 1 a 1<br>4 sesiones</div></div>
-    <div class="rung hi"><div class="amt">$18k+</div><div class="bar" style="height:160px"></div><div class="lbl">In-company<br>escuela o empresa</div></div>
+  <div class="call good">
+    <span class="h">Por qué fusionar los dos cursos fue lo correcto</span>
+    Antes eran "Vida Diaria" y "Principiantes" por separado. <b>El público era el mismo</b> —quien quiere la IA para su casa también la quiere para su trabajo— y separarlos obligaba a la persona a elegir la mitad de lo que necesitaba. Más importante: <b>10 horas alcanzan para enseñar la aplicación completa</b> —modelos de razonamiento, archivos, proyectos, conectores, GPTs— que es exactamente donde los cursos de la competencia no llegan. Dos cursos de 4 y 6 horas se habrían quedado en la superficie los dos.
   </div>
+
+  <h3>Los productos que no son cursos</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Producto</th><th>Qué es</th><th class="n">Precio</th></tr></thead>
+      <tbody>
+        <tr><td><b>Comunidad Chaos Ctrl</b></td><td>Del mes 2 en adelante: consultorio semanal, biblioteca, comunidad de egresados, laboratorio presencial</td><td class="n">$290/mes</td></tr>
+        <tr><td><b>Mentoría 1 a 1</b></td><td>Sin temario fijo. Cuatro sesiones sobre el caso del cliente, más acceso directo</td><td class="n">$5,900</td></tr>
+        <tr><td><b>In-company</b></td><td>Escuela o empresa. 8 horas para hasta 20 personas, contenido adaptado a su operación</td><td class="n">desde $18,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose">Estos <b>no son "el curso pero más caro"</b>: son productos distintos con otro alcance. Por eso pueden costar más sin romper la promesa de precio accesible de los cursos abiertos.</p>
 
   <div class="call">
     <span class="h">El producto que cambia el año</span>
-    <b>La Comunidad IA de $290/mes es el más importante a mediano plazo.</b> Es el único ingreso que no depende de vender un curso ese mes. Con 200 egresados al año y 30% de retención son <span class="mono">$17,400 MXN</span> mensuales por una hora de trabajo semanal que ya estás haciendo de todos modos.
+    <b>La Comunidad Chaos Ctrl de $290/mes es lo más importante a mediano plazo.</b> Es el único ingreso que no depende de vender un curso ese mes. Con 200 egresados al año y 30% de retención son <span class="mono">$17,400 MXN</span> mensuales por una hora de trabajo semanal que ya estás haciendo de todos modos.
   </div>
 
-  <h3>Cuatro reglas de precio que no se rompen</h3>
+  <h3>Cinco reglas de precio que no se rompen</h3>
   <ul class="prose">
-    <li><b>La preventa cierra 7 días antes de que inicie el grupo</b>, y el precio sube de verdad. Si no lo subes una vez, nadie te vuelve a creer un plazo.</li>
+    <li><b>Precio único, publicado, sin preventa.</b> La urgencia la dan la fecha fija y el contador de lugares.</li>
+    <li><b>El precio va en el anuncio.</b> Esconderlo para "generar conversación" te llena el WhatsApp de gente que no puede pagarlo y te quema el tiempo.</li>
     <li><b>Nunca descuentes por regatear.</b> Si alguien no puede, ofrece pago en dos partes — no un precio menor.</li>
-    <li><b>El descuento solo existe por dos razones:</b> preventa (por tomar riesgo contigo) o grupo (por traerte alumnos). Ambas son merecidas y públicas.</li>
+    <li><b>El único incentivo de precio premia lo que te ayuda a crecer:</b> traer a alguien. Dos inscritos juntos, 15% cada uno. En Aula, 3x2 para colegas de la misma escuela — ese no es un descuento, es tu canal de distribución.</li>
     <li><b>Los egresados pagan 20% menos, siempre.</b> Reactivar a un alumno es más barato que conseguir uno nuevo.</li>
   </ul>
 </section>
@@ -354,198 +314,155 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
 <section id="posicion">
   <div class="eyebrow"><span class="n">02</span><span class="rule"></span></div>
   <h2>Posicionamiento</h2>
-  <p class="lede">La publicidad de cursos de IA en México está partida en dos: grabados y baratos que nadie termina, o gurús caros que prometen millones. En medio hay gente que ya entendió que esto importa y necesita que alguien le enseñe con su caso propio y le conteste la semana siguiente.</p>
+  <p class="lede">El nombre ya trae la promesa adentro. Chaos Ctrl es el antes y el después de tu cliente: el maestro ahogado en planeaciones, el dueño de negocio con jornadas de 12 horas, la persona a la que el tema se le escapó y siente que va tarde.</p>
 
   <div class="promise" style="max-width:none">
-    <b>El mensaje sombrilla —</b> “Llevo un año usando IA todos los días para operar mis empresas. Te enseño lo que de verdad funciona, en vivo, en grupos de máximo 10 — y me quedo un mes contigo hasta que lo apliques.”
+    <b>Posicionamiento —</b> “No te enseño qué es la IA. Te enseño a usarla de verdad, en vivo, con tu caso real — y me quedo un mes contigo hasta que funcione.”
   </div>
 
-  <p class="prose">Todo el contenido público defiende ese mensaje. La segmentación por público pasa en los anuncios y en la conversación de WhatsApp, no en tu comunicación orgánica. Eso resuelve el riesgo de lanzar cuatro programas al mismo tiempo: un solo mensaje, cuatro puertas.</p>
+  <p class="prose">No eres una academia ni una plataforma. Chaos Ctrl es <b>una persona que sabe hacerlo y enseña de cerca</b>: la comunicación sale de tu cara y tu nombre, con la marca como respaldo. Y la segmentación por público pasa en los anuncios y en la conversación de WhatsApp, no en tu comunicación orgánica — eso resuelve el riesgo de sostener tres programas al mismo tiempo.</p>
 
   <h3>Tus diferenciadores, en orden de fuerza</h3>
   <div class="diffs">
     <div class="diff">
       <div class="rank">01 · EL QUE CIERRA LA VENTA</div>
       <h4>Un mes de asesoría</h4>
-      <p>Nadie más lo ofrece. Y es donde ocurre el resultado real del alumno: en las semanas 2 a 5, no durante la clase. Es también el más difícil de copiar.</p>
+      <p>Nadie más lo ofrece. Y es donde ocurre el resultado real del alumno: en las semanas 2 a 5, no durante la clase. Es también lo más difícil de copiar.</p>
     </div>
     <div class="diff">
-      <div class="rank">02 · EL QUE JUSTIFICA EL PRECIO</div>
-      <h4>Cupos de 10 máximo</h4>
+      <div class="rank">02 · EL QUE TE SEPARA DE LA COMPETENCIA</div>
+      <h4>Profundidad real</h4>
+      <p>No el 10% de ChatGPT que usa todo el mundo: modelos de razonamiento, archivos, proyectos, conectores, GPTs. Demuéstralo en un video de 40 segundos y la diferencia se ve sola.</p>
+    </div>
+    <div class="diff">
+      <div class="rank">03 · EL QUE JUSTIFICA EL PRECIO</div>
+      <h4>Cupos reducidos</h4>
       <p>Todos practican con su caso real. El contador de lugares tiene que ser verdadero: si mientes una vez, se acabó el argumento para siempre.</p>
     </div>
     <div class="diff">
-      <div class="rank">03 · EL QUE NO SE ARGUMENTA</div>
+      <div class="rank">04 · EL QUE NO SE ARGUMENTA</div>
       <h4>Operas empresas reales</h4>
       <p>No enseñas teoría: enseñas lo que usas los lunes. Se demuestra compartiendo pantalla con tus propias automatizaciones corriendo.</p>
     </div>
-    <div class="diff">
-      <div class="rank">04 · EL SILENCIOSO</div>
-      <h4>Horarios de gente que trabaja</h4>
-      <p>7 a 9 pm y sábados. Tu mercado sale de trabajar a las 6 y eso es exactamente lo que lo frena. Publica el calendario y hazlo fácil de leer.</p>
-    </div>
   </div>
 
-  <div class="call good">
-    <span class="h">La garantía, publicada en grande</span>
-    <b>“Si terminas la primera sesión y sientes que no es para ti, me escribes ese mismo día y te devuelvo el 100%. Sin explicaciones, sin trámite.”</b> Casi nadie la usa cuando la clase es buena y en vivo, y elimina la objeción principal de quien nunca te ha comprado.
+  <div class="call">
+    <span class="h">La garantía carga más peso que nunca</span>
+    <b>“Si terminas la primera sesión y sientes que no es para ti, me escribes ese mismo día y te devuelvo el 100%. Sin explicaciones, sin trámite.”</b><br><br>
+    Casi nadie la usa cuando la clase es buena y en vivo. Y como el lanzamiento va directo a la venta sin testimonios todavía, esta garantía es la que sustituye a la prueba social que aún no tienes. Publícala en grande.
   </div>
-
-  <h3>La marca</h3>
-  <p class="prose">Marca personal, con tu nombre. Tu diferenciador no es transferible — eres tú y son tus empresas — y una marca corporativa te obligaría a construir confianza desde cero. No eres una academia ni una plataforma: eres una persona que sabe hacerlo y enseña de cerca.</p>
 </section>
 
 <!-- 03 -->
 <section id="temarios">
   <div class="eyebrow"><span class="n">03</span><span class="rule"></span></div>
   <h2>Temarios</h2>
-  <p class="lede">Sesión por sesión, con los tiempos de cada bloque. La regla de oro en los cuatro: nadie mira, todos ejecutan en vivo. Si alguien se atora, se detiene la clase — por eso el cupo es reducido.</p>
+  <p class="lede">Sesión por sesión, con los tiempos de cada bloque. La regla de oro en los tres: nadie mira, todos ejecutan en vivo. Si alguien se atora, se detiene la clase.</p>
 
-  <div class="tabs" role="tablist">
-    <button class="tab" role="tab" aria-selected="true" data-p="p1">Principiantes</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="p2">Emprendedores</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="p3">Docentes</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="p4">Vida Diaria</button>
+  <div class="call good">
+    <span class="h">Nota para ti antes de cada generación</span>
+    <b>Las interfaces cambian cada pocos meses.</b> Entra a las tres herramientas el fin de semana previo y revisa los menús. Enseña <b>capacidades, no ubicaciones de botones</b> — y dilo en clase: <em>“esto va a cambiar de lugar; lo que no cambia es que existe y para qué sirve.”</em> Eso también te distingue de un curso grabado que ya está viejo el día que lo publican.
   </div>
 
-  <!-- PRINCIPIANTES -->
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-p="p1">Ctrl + Inicio</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p2">Ctrl + Aula</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="p3">Ctrl + Negocio</button>
+  </div>
+
+  <!-- INICIO -->
   <div class="panel" id="p1" role="tabpanel">
     <div class="panel-head">
-      <h3>IA sin miedo: usa bien ChatGPT, Gemini, Claude, Copilot y Grok</h3>
-      <span class="chip">3 sesiones · 6 h</span><span class="chip">Mar–Jue 19:00</span><span class="chip money">$890 preventa</span>
+      <h3>IA de verdad: domina las herramientas, no te quedes en lo superficial</h3>
+      <span class="chip">5 sesiones · 10 h</span><span class="chip">Lun–Vie 19:00</span><span class="chip money">$1,290</span>
     </div>
-    <p class="promise">En tres noches pasas de “uso ChatGPT para preguntas sueltas” a saber <b>cuál de las cinco IA usar para cada cosa, cómo pedirle bien, cómo verificar que no te esté mintiendo, y cómo dejarla configurada para que trabaje como tú quieres.</b></p>
+    <p class="promise">En una semana pasas de usar ChatGPT como buscador a <b>operar la herramienta completa</b>: modelos de razonamiento, archivos, proyectos, conectores y GPTs. Sales sabiendo qué herramienta usar para cada tarea, cómo escribir una instrucción que dirige en vez de pedir, y con tu propio asistente funcionando.</p>
 
     <div class="sess">
       <div class="s">
         <div class="sh">Sesión 1</div>
-        <h4>El mapa: qué es cada IA y cuándo usar cada una</h4>
+        <h4>Cómo funcionan de verdad y cuál usar para qué</h4>
         <div class="blocks">
-          <div class="blk"><span class="t">0:00–0:10</span><span class="d"><b>Apertura.</b> Cada quien en 30 s: a qué se dedica y qué quiere lograr. Anota sus casos — son tus ejemplos del resto del curso</span></div>
-          <div class="blk"><span class="t">0:10–0:30</span><span class="d"><b>Cómo funciona realmente.</b> Predice la siguiente palabra con criterio. Por qué eso explica que alucine, se contradiga y no “sepa” nada</span></div>
-          <div class="blk"><span class="t">0:30–1:05</span><span class="d"><b>Tour comparativo en vivo.</b> El mismo encargo real resuelto en las cinco, lado a lado. Se construye juntos la tabla de para qué sirve cada una</span></div>
-          <div class="blk"><span class="t">1:15–1:40</span><span class="d"><b>Gratis vs. de paga.</b> Qué desbloquea pagar y la respuesta honesta: con cuál sola te alcanza según tu perfil. Costos reales en pesos</span></div>
-          <div class="blk"><span class="t">1:40–2:00</span><span class="d"><b>Cuentas, apps y ejercicio.</b> Cada alumno resuelve un pendiente real suyo. Tarea: el mismo problema en dos herramientas distintas</span></div>
+          <div class="blk"><span class="t">0:10–0:55</span><span class="d"><b>El mecanismo completo.</b> Qué es un modelo, tokens, la ventana de contexto (por qué “se le olvida”), por qué alucina, fecha de corte, multimodalidad</span></div>
+          <div class="blk"><span class="t">—</span><span class="d"><b>Modelos rápidos vs. de razonamiento.</b> Qué cambia, cómo se nota, cuándo usar cada uno y por qué uno tarda. Ejercicio: el mismo problema de lógica en los dos, lado a lado</span></div>
+          <div class="blk"><span class="t">1:05–1:45</span><span class="d"><b>El mapa: qué herramienta para qué tarea.</b> Catorce tipos de tarea —escribir, razonar, investigar, datos, imagen, video, voz, presentaciones, Office, automatizar— con su mejor opción, comparadas en vivo</span></div>
+          <div class="blk"><span class="t">1:45–2:00</span><span class="d"><b>Ejercicio.</b> Cada alumno identifica sus tres tareas más frecuentes y a qué herramienta van</span></div>
         </div>
-        <p class="note"><b>El ejercicio del tour:</b> todos escriben <em>“redacta un mensaje para cobrarle a un cliente que lleva dos meses sin pagarme, firme pero sin romper la relación”</em> y comparan las cinco respuestas en pantalla. Ahí entienden solos que las herramientas no son intercambiables.</p>
+        <p class="note"><b>La regla que se llevan:</b> si el problema tiene una respuesta correcta y varios pasos, usa el modelo de razonamiento. Si es cuestión de forma o de ideas, usa el rápido. Y la conversación honesta sobre suscripciones —<b>la mayoría no necesita pagar cinco</b>— te compra más credibilidad que cualquier otra cosa de la semana.</p>
       </div>
 
       <div class="s">
         <div class="sh">Sesión 2</div>
-        <h4>Hablarle bien a la IA</h4>
+        <h4>La aplicación por dentro, parte 1</h4>
         <div class="blocks">
-          <div class="blk"><span class="t">0:10–0:40</span><span class="d"><b>La anatomía de una instrucción.</b> Rol · Contexto · Tarea · Formato · Restricciones. Demostración antes/después con un caso de la clase</span></div>
-          <div class="blk"><span class="t">0:40–1:05</span><span class="d"><b>Iterar sin empezar de cero.</b> Las frases de corrección que hay que llevarse anotadas. Y pedirle que te entreviste antes de trabajar</span></div>
-          <div class="blk"><span class="t">1:15–1:35</span><span class="d"><b>Darle materia prima.</b> PDFs, fotos de documentos, capturas, hojas de cálculo, enlaces de YouTube</span></div>
-          <div class="blk"><span class="t">1:35–1:50</span><span class="d"><b>Voz, cámara y búsqueda.</b> Los modos que casi nadie usa y que cambian el uso diario</span></div>
-          <div class="blk"><span class="t">1:50–2:10</span><span class="d"><b>Configuración permanente.</b> Memoria e instrucciones personalizadas: enseñarle quién eres una vez, para siempre</span></div>
+          <div class="blk"><span class="t">0:10–0:35</span><span class="d"><b>El selector de modelos.</b> Se abre el menú en pantalla y se explica cada opción una por una: cuál razona, cuáles son los cupos, qué pasa cuando se agotan, cómo cambiar a media conversación</span></div>
+          <div class="blk"><span class="t">0:35–1:05</span><span class="d"><b>Archivos.</b> PDF, Excel, imágenes, fotos de documentos, varios a la vez. Qué hace con cada tipo y dónde está el límite real</span></div>
+          <div class="blk"><span class="t">1:15–1:35</span><span class="d"><b>Búsqueda e investigación profunda.</b> Cuándo se activa sola, cómo forzarla, cómo exigir fuentes. <b>Si no aparecen enlaces, no buscó: lo generó</b></span></div>
+          <div class="blk"><span class="t">1:35–1:55</span><span class="d"><b>Lienzo / Canvas.</b> Editar por partes en vez de regenerar todo. La diferencia entre pelearse con la IA y trabajar con ella</span></div>
+          <div class="blk"><span class="t">1:55–2:10</span><span class="d"><b>Voz e imagen en vivo.</b> Conversar caminando, apuntar la cámara a algo y preguntar, compartir pantalla</span></div>
         </div>
-        <p class="note"><b>Este es el corazón del programa.</b> Cuando el alumno ve el antes/después con su propio caso en pantalla, el curso ya se pagó solo. No apresures ese momento. Salen con sus tres herramientas “sintonizadas”, y a la semana siguiente dicen “ahora sí me entiende”.</p>
       </div>
 
       <div class="s">
         <div class="sh">Sesión 3</div>
-        <h4>De usuario a operador</h4>
+        <h4>La aplicación por dentro, parte 2</h4>
         <div class="blocks">
-          <div class="blk"><span class="t">0:10–0:35</span><span class="d"><b>Detectar mentiras.</b> Las tres pruebas: la repregunta, la fuente, la contraparte. Nunca uses un dato de IA sin verificar en algo que te cueste dinero o reputación</span></div>
-          <div class="blk"><span class="t">0:35–0:55</span><span class="d"><b>Privacidad.</b> Qué nunca subir, cómo apagar el entrenamiento (se hace en vivo, uno por uno), y estafas con voz clonada y video falso</span></div>
-          <div class="blk"><span class="t">1:05–1:35</span><span class="d"><b>Crear cosas.</b> Imágenes y edición de fotos propias, transcribir audios largos, convertir una junta en acuerdos con responsables</span></div>
-          <div class="blk"><span class="t">1:35–2:05</span><span class="d"><b>Tu primer asistente personalizado.</b> Construido en vivo con la información de cada alumno, y probado antes de terminar la clase</span></div>
-          <div class="blk"><span class="t">2:05–2:20</span><span class="d"><b>Cierre.</b> Plan de 30 días, cómo funciona la asesoría con fechas exactas, y el testimonio en video pedido en caliente</span></div>
+          <div class="blk"><span class="t">0:00–0:25</span><span class="d"><b>Instrucciones personalizadas y memoria.</b> Enseñarle quién eres una vez, para siempre. Qué conviene que recuerde, qué borrar y cuándo apagarla</span></div>
+          <div class="blk"><span class="t">0:25–0:55</span><span class="d"><b>Proyectos.</b> Carpetas con sus propios archivos, sus instrucciones permanentes y todas las conversaciones del tema juntas. <b>Aquí se resuelve de raíz tener que explicar todo otra vez cada vez que abres un chat</b></span></div>
+          <div class="blk"><span class="t">1:05–1:35</span><span class="d"><b>Conectores.</b> Conectar Drive, correo y calendario. Qué se puede pedir cuando la IA ve tus cosas — y qué permisos estás dando en realidad</span></div>
+          <div class="blk"><span class="t">1:35–1:55</span><span class="d"><b>GPTs.</b> Usar los que ya existen y entender qué son por dentro</span></div>
+          <div class="blk"><span class="t">1:55–2:20</span><span class="d"><b>Privacidad y fraudes con IA.</b> Qué nunca subir, cómo apagar el entrenamiento (en vivo, cuenta por cuenta), voz clonada y video falso</span></div>
         </div>
+        <p class="note"><b>Enseñar la función y su riesgo en el mismo bloque</b> es exactamente lo que un curso serio hace y uno superficial no. Y la clase cierra con una acción concreta: cada alumno define su palabra clave familiar contra la llamada del “secuestro virtual” con voz clonada, y la manda a su grupo de WhatsApp ahí mismo.</p>
+      </div>
+
+      <div class="s">
+        <div class="sh">Sesión 4</div>
+        <h4>El prompt: de pedir a dirigir</h4>
+        <div class="blocks">
+          <div class="blk"><span class="t">0:00–0:30</span><span class="d"><b>La anatomía R·C·T·F·R.</b> Rol, Contexto, Tarea, Formato, Restricciones. Demostración antes/después con un caso del grupo</span></div>
+          <div class="blk"><span class="t">0:30–0:55</span><span class="d"><b>Darle ejemplos.</b> Más potente que cualquier adjetivo: pegar dos o tres textos tuyos y pedir uno más en ese estilo. Es cómo se logra que no suene a IA</span></div>
+          <div class="blk"><span class="t">1:05–1:30</span><span class="d"><b>Iterar y dirigir.</b> Corregir sin empezar de cero. Y la técnica más subestimada: <em>“antes de responder, hazme las preguntas que necesites para hacerlo bien”</em></span></div>
+          <div class="blk"><span class="t">1:30–1:50</span><span class="d"><b>Los seis errores</b> que arruinan un prompt, con el arreglo de cada uno</span></div>
+          <div class="blk"><span class="t">1:50–2:10</span><span class="d"><b>Verificar.</b> Las tres pruebas: la repregunta, la fuente, la contraparte</span></div>
+        </div>
+        <p class="note"><b>Este es el corazón del curso.</b> Cuando el alumno ve el antes/después con su propio caso en pantalla, el curso ya se pagó solo. No apresures ese momento. Y la regla que se llevan escrita: <b>nunca uses un dato de IA en algo que te pueda costar dinero, empleo o reputación sin verificarlo en la fuente original.</b></p>
+      </div>
+
+      <div class="s">
+        <div class="sh">Sesión 5</div>
+        <h4>Casos prácticos: crear y resolver</h4>
+        <div class="blocks">
+          <div class="blk"><span class="t">0:00–0:30</span><span class="d"><b>Imágenes.</b> Generar desde cero y cómo describir para obtener lo que quieres. Editar las propias: quitar el fondo, borrar a alguien, restaurar una foto vieja, ampliar el encuadre</span></div>
+          <div class="blk"><span class="t">0:30–0:50</span><span class="d"><b>Video y audio.</b> Qué se puede hacer hoy de verdad y qué todavía no. Locución y doblaje con voz sintética</span></div>
+          <div class="blk"><span class="t">1:00–1:20</span><span class="d"><b>Presentaciones y documentos.</b> De una idea a diapositivas presentables, y cómo corregirlas para que no se vean genéricas</span></div>
+          <div class="blk"><span class="t">1:20–1:50</span><span class="d"><b>Casos de la vida real.</b> Dinero y comparar planes, trámites y documentos oficiales, salud con límites claros, estudiar, ayudar a los hijos sin hacerles la tarea</span></div>
+          <div class="blk"><span class="t">1:50–2:15</span><span class="d"><b>Monta tu asistente.</b> Un Proyecto o GPT completo con la información de cada alumno, probado antes de terminar la clase</span></div>
+        </div>
+        <p class="note"><b>La limitación que hay que decir en voz alta:</b> los generadores todavía escriben mal el texto dentro de la imagen, sobre todo con acentos y ñ. Para un flyer: genera el arte con IA y pon el texto encima en Canva. Es el mismo flujo que usas tú (sección 07).</p>
       </div>
     </div>
 
     <div class="deliver">
       <h4>Entregables</h4>
       <ul>
-        <li>Guía de bolsillo (PDF, 12 págs) con la comparativa y el marco de instrucción</li>
-        <li>50 instrucciones listas, organizadas por situación y en español de México</li>
+        <li>Mapa de herramientas por tarea, imprimible</li>
+        <li>Guía de la aplicación por dentro, con capturas</li>
+        <li>Manual R·C·T·F·R + 60 instrucciones por situación</li>
         <li>Plantilla de prompt maestro personal</li>
-        <li>Checklist de privacidad, una hoja imprimible</li>
-        <li>Grabaciones 60 días y constancia con horas</li>
+        <li>Checklist de privacidad y antifraude</li>
+        <li>Guía de imágenes: cómo describir para obtener lo que quieres</li>
+        <li>Grabaciones 60 días y constancia con 10 horas</li>
         <li>Acceso a la asesoría por 30 días</li>
       </ul>
     </div>
   </div>
 
-  <!-- EMPRENDEDORES -->
+  <!-- AULA -->
   <div class="panel" id="p2" role="tabpanel" hidden>
     <div class="panel-head">
-      <h3>IA que trabaja mientras tú duermes: automatiza tu negocio</h3>
-      <span class="chip">4 sesiones · 8 h</span><span class="chip">Lunes 19:00</span><span class="chip money">$1,200 preventa</span>
-    </div>
-    <p class="promise">Sales con <b>al menos una automatización corriendo de verdad en tu negocio</b> y con un plan de 90 días para las siguientes tres. No es teoría: la construimos en clase, con tus datos.</p>
-
-    <div class="sess">
-      <div class="s">
-        <div class="sh">Sesión 1</div>
-        <h4>Diagnóstico: dónde se te va el tiempo y el dinero</h4>
-        <div class="blocks">
-          <div class="blk"><span class="t">0:15–0:35</span><span class="d"><b>Qué sí y qué no conviene automatizar.</b> La fórmula: (frecuencia × tiempo × dolor) ÷ dificultad. Y los cuatro errores clásicos</span></div>
-          <div class="blk"><span class="t">0:35–1:05</span><span class="d"><b>Inventario de tareas.</b> Listar todo lo repetitivo de la semana y cronometrarlo de verdad, no estimarlo</span></div>
-          <div class="blk"><span class="t">1:15–1:45</span><span class="d"><b>El mapa del negocio.</b> Los cinco procesos —conseguir, vender, entregar, cobrar, decidir— y dónde entra la IA en cada uno</span></div>
-          <div class="blk"><span class="t">1:45–2:10</span><span class="d"><b>Priorización en vivo.</b> Cada alumno elige sus tres procesos y los defiende. Retroalimentación tuya, negocio por negocio</span></div>
-        </div>
-        <p class="note"><b>El error más caro:</b> automatizar un proceso que está mal definido. Automatizas el caos y ahora el caos es más rápido.</p>
-      </div>
-
-      <div class="s">
-        <div class="sh">Sesión 2</div>
-        <h4>Tu equipo de IA: ventas, marketing y atención</h4>
-        <div class="blocks">
-          <div class="blk"><span class="t">0:10–0:30</span><span class="d"><b>La base de conocimiento.</b> Catálogo, precios, las 20 preguntas frecuentes con su buena respuesta, políticas, y tres textos tuyos para el tono</span></div>
-          <div class="blk"><span class="t">0:30–1:05</span><span class="d"><b>El asistente de ventas, construido en clase.</b> Responde precios, redacta cotizaciones, hace el seguimiento y maneja objeciones. Se prueba en vivo: un compañero hace de cliente difícil</span></div>
-          <div class="blk"><span class="t">1:15–1:45</span><span class="d"><b>Contenido que no suena a IA.</b> El archivo de estilo, las prohibiciones explícitas, y la regla del dato propio</span></div>
-          <div class="blk"><span class="t">1:45–2:10</span><span class="d"><b>Atención a clientes.</b> Preguntas frecuentes, manejo de quejas, seguimiento post-venta</span></div>
-        </div>
-        <p class="note"><b>La base de conocimiento es el ejercicio de mayor retorno del curso completo.</b> Es lo que convierte una IA genérica en <em>su</em> asistente. Y la regla del dato propio: todo contenido lleva al menos una cifra o anécdota que solo él tenga — es lo que la IA no puede inventar.</p>
-      </div>
-
-      <div class="s">
-        <div class="sh">Sesión 3</div>
-        <h4>Automatización real: que las cosas pasen solas</h4>
-        <div class="blocks">
-          <div class="blk"><span class="t">0:15–0:35</span><span class="d"><b>Panorama de herramientas.</b> Make, n8n, Zapier: cuál conviene y cuánto cuesta de verdad al mes</span></div>
-          <div class="blk"><span class="t">0:35–1:05</span><span class="d"><b>Construcción guiada.</b> Mensaje entrante → la IA lo clasifica → se registra → responde acuse</span></div>
-          <div class="blk"><span class="t">1:15–1:50</span><span class="d"><b>Cada alumno construye la suya</b>, con tu apoyo uno por uno</span></div>
-          <div class="blk"><span class="t">1:50–2:10</span><span class="d"><b>Qué hacer cuando falla.</b> Pruebas, alertas, el plan B manual. Y cuándo NO automatizar</span></div>
-        </div>
-        <p class="note">Se enseñan seis automatizaciones listas para importar: clasificación de mensajes, resumen de correos, cotización automática en PDF, reporte semanal de ventas al WhatsApp, junta grabada convertida en acuerdos, y alerta de reseña negativa. <b>Un negocio pequeño puede operar tres de ellas por menos de $600 al mes</b> — decirlo con números te separa de quien vende espejismos.</p>
-      </div>
-
-      <div class="s">
-        <div class="sh">Sesión 4</div>
-        <h4>Números, decisiones y escalar</h4>
-        <div class="blocks">
-          <div class="blk"><span class="t">0:15–0:50</span><span class="d"><b>Analizar tu negocio con IA.</b> El 20% de clientes que da el 80%, en qué producto ganas de verdad, estacionalidad. La técnica clave: pedirle que actúe como consultor escéptico y critique el negocio con los números a la vista</span></div>
-          <div class="blk"><span class="t">1:05–1:30</span><span class="d"><b>Precios y escenarios.</b> Simular una subida, punto de equilibrio, por qué tres opciones venden más que una</span></div>
-          <div class="blk"><span class="t">1:30–1:50</span><span class="d"><b>Documentos y contratos</b>, con los límites legales bien marcados</span></div>
-          <div class="blk"><span class="t">1:50–2:10</span><span class="d"><b>Qué no delegar nunca.</b> Contratar y despedir, dinero grande, la llamada difícil, la disculpa después de un error grave</span></div>
-          <div class="blk"><span class="t">2:10–2:25</span><span class="d"><b>Plan de 90 días.</b> Cada alumno lo llena antes de salir. Se revisa cada semana en la asesoría</span></div>
-        </div>
-        <p class="note"><b>Sobre contratos:</b> “la IA te ahorra la primera versión y las preguntas que le vas a hacer al abogado; no te ahorra al abogado.” Ponerle límites a lo que vendes es lo que genera confianza.</p>
-      </div>
-    </div>
-
-    <div class="deliver">
-      <h4>Entregables</h4>
-      <ul>
-        <li>Inventario de tareas con la fórmula de priorización</li>
-        <li>Documento guiado de base de conocimiento del negocio</li>
-        <li>6 automatizaciones listas para importar, documentadas</li>
-        <li>60 instrucciones de negocio: ventas, atención, contenido, análisis</li>
-        <li>Calculadora de retorno: horas ahorradas × tu costo por hora</li>
-        <li>Plan de 90 días lleno, más el Laboratorio presencial</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- DOCENTES -->
-  <div class="panel" id="p3" role="tabpanel" hidden>
-    <div class="panel-head">
-      <h3>IA para docentes: menos burocracia, mejor clase</h3>
-      <span class="chip">4 sesiones · 8 h</span><span class="chip">Sábados 10:00</span><span class="chip money">$1,190 · 3x2 para colegas</span>
+      <h3>Menos burocracia, mejor clase</h3>
+      <span class="chip">4 sesiones · 8 h</span><span class="chip">Sábados 13:30</span><span class="chip money">$1,490 · 3x2 colegas</span>
     </div>
     <p class="promise">Recuperas <b>entre 4 y 8 horas a la semana</b> de planeación, evaluación y reportes — y sales sabiendo exactamente qué hacer cuando tus alumnos entreguen trabajos hechos con IA.</p>
 
@@ -557,23 +474,21 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
           <div class="blk"><span class="t">0:15–0:35</span><span class="d"><b>El marco docente.</b> Nivel, programa vigente, tiempo real (“50 minutos, y 10 se van en pase de lista”), recursos reales, perfil del grupo</span></div>
           <div class="blk"><span class="t">0:35–1:10</span><span class="d"><b>Planeación en vivo.</b> Cada quien genera la de su próxima clase real. Se revisa y se corrige</span></div>
           <div class="blk"><span class="t">1:20–1:45</span><span class="d"><b>Secuencias didácticas</b> completas, con inicio, desarrollo y cierre</span></div>
-          <div class="blk"><span class="t">1:45–2:10</span><span class="d"><b>Diferenciación.</b> Versión de apoyo, estándar y de reto de la misma actividad. Más adecuaciones curriculares</span></div>
+          <div class="blk"><span class="t">1:45–2:10</span><span class="d"><b>Diferenciación.</b> Versión de apoyo, estándar y de reto de la misma actividad. Adecuaciones curriculares</span></div>
         </div>
         <p class="note"><b>El truco que se enseña primero:</b> subir el programa oficial en PDF y trabajar sobre él, para que use la redacción oficial y no invente aprendizajes esperados.</p>
       </div>
-
       <div class="s">
         <div class="sh">Sesión 2</div>
         <h4>Evaluación sin ahogarte</h4>
         <div class="blocks">
-          <div class="blk"><span class="t">0:10–0:35</span><span class="d"><b>Rúbricas en minutos.</b> Cuatro niveles de desempeño, descriptores claros, ponderación. Y convertirla en lista de cotejo para el alumno</span></div>
+          <div class="blk"><span class="t">0:10–0:35</span><span class="d"><b>Rúbricas en minutos.</b> Cuatro niveles, descriptores claros, ponderación. Y convertirla en lista de cotejo para el alumno</span></div>
           <div class="blk"><span class="t">0:35–1:05</span><span class="d"><b>Reactivos.</b> Distractores que correspondan a errores conceptuales reales, no a opciones absurdas. Versiones A y B. Tabla de especificaciones</span></div>
           <div class="blk"><span class="t">1:15–1:50</span><span class="d"><b>Retroalimentación personalizada a escala.</b> Un logro, una mejora, un siguiente paso — por alumno. El docente revisa y firma siempre</span></div>
           <div class="blk"><span class="t">1:50–2:10</span><span class="d"><b>Análisis de grupo.</b> Qué reactivo falló, qué reenseñar, informes para dirección y para padres</span></div>
         </div>
-        <p class="note"><b>Aquí está el mayor ahorro del curso, y se cronometra en clase:</b> lo que tomaba 5 minutos por alumno baja a 1. Con 40 alumnos son tres horas recuperadas por cada entrega.</p>
+        <p class="note"><b>Aquí está el mayor ahorro, y se cronometra en clase:</b> lo que tomaba 5 minutos por alumno baja a 1. Con 40 alumnos son tres horas recuperadas por cada entrega.</p>
       </div>
-
       <div class="s">
         <div class="sh">Sesión 3</div>
         <h4>Recursos y clase viva</h4>
@@ -583,9 +498,8 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
           <div class="blk"><span class="t">1:15–1:40</span><span class="d"><b>Audio y video.</b> El tema de la semana como podcast de 8 minutos que escuchan en el camión</span></div>
           <div class="blk"><span class="t">1:40–2:10</span><span class="d"><b>Práctica interactiva.</b> Un personaje histórico al que entrevistan, un interlocutor para practicar inglés sin pena, un caso clínico o jurídico simulado</span></div>
         </div>
-        <p class="note">Adaptar textos resuelve un problema que los docentes tenían desde siempre y no podían atender por tiempo. Y la práctica interactiva es donde ven que la IA no solo les ahorra trabajo: <b>les permite hacer cosas que antes no podían.</b></p>
+        <p class="note">La práctica interactiva es donde el docente ve que la IA no solo le ahorra trabajo: <b>le permite hacer cosas que antes no podía.</b></p>
       </div>
-
       <div class="s">
         <div class="sh">Sesión 4</div>
         <h4>El elefante en el aula: tus alumnos ya usan IA</h4>
@@ -608,50 +522,76 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
         <li>Generador de rúbricas e instrucción maestra</li>
         <li>Método de retroalimentación a escala, paso a paso</li>
         <li>Clase de alfabetización en IA lista para dar a los alumnos</li>
-        <li>Modelo de política de aula editable · constancia con 8 horas</li>
+        <li>Modelo de política de aula · constancia con 8 horas</li>
       </ul>
     </div>
   </div>
 
-  <!-- VIDA DIARIA -->
-  <div class="panel" id="p4" role="tabpanel" hidden>
+  <!-- NEGOCIO -->
+  <div class="panel" id="p3" role="tabpanel" hidden>
     <div class="panel-head">
-      <h3>Tu asistente personal: IA para el día a día</h3>
-      <span class="chip">2 sesiones · 4 h</span><span class="chip">Sábados 12:30</span><span class="chip money">$590 preventa</span>
+      <h3>IA que trabaja mientras tú duermes</h3>
+      <span class="chip">4 sesiones · 8 h</span><span class="chip">Sábados 10:00</span><span class="chip money">$1,500</span>
     </div>
-    <p class="promise">En dos sesiones dejas de sentir que “esto no es para ti” y empiezas a usar la IA para lo que sí te importa: <b>tu dinero, tu tiempo, tu familia y tu seguridad.</b></p>
+    <p class="promise">Sales con <b>al menos una automatización corriendo de verdad en tu negocio</b> y con un plan de 90 días para las siguientes tres. No es teoría: la construimos en clase, con tus datos.</p>
 
     <div class="sess">
       <div class="s">
         <div class="sh">Sesión 1</div>
-        <h4>Dinero, tiempo y trámites</h4>
+        <h4>Diagnóstico: dónde se te va el tiempo y el dinero</h4>
         <div class="blocks">
-          <div class="blk"><span class="t">0:15–0:40</span><span class="d"><b>Lo básico bien hecho.</b> Los tres ingredientes: quién eres, qué necesitas, cómo lo quieres</span></div>
-          <div class="blk"><span class="t">0:40–1:05</span><span class="d"><b>Tu dinero.</b> Traer un recibo de luz y preguntar por qué subió. Comparar dos planes o dos seguros con las condiciones reales</span></div>
-          <div class="blk"><span class="t">1:15–1:40</span><span class="d"><b>Tu tiempo.</b> La semana, la despensa, el menú, un viaje completo con presupuesto real</span></div>
-          <div class="blk"><span class="t">1:40–2:05</span><span class="d"><b>Trámites y escritos.</b> Redactar la queja que llevas tres meses sin escribir. Entender un documento oficial</span></div>
+          <div class="blk"><span class="t">0:15–0:35</span><span class="d"><b>Qué sí y qué no conviene automatizar.</b> La fórmula: (frecuencia × tiempo × dolor) ÷ dificultad. Y los cuatro errores clásicos</span></div>
+          <div class="blk"><span class="t">0:35–1:05</span><span class="d"><b>Inventario de tareas.</b> Listar todo lo repetitivo de la semana y cronometrarlo de verdad, no estimarlo</span></div>
+          <div class="blk"><span class="t">1:15–1:45</span><span class="d"><b>El mapa del negocio.</b> Los cinco procesos —conseguir, vender, entregar, cobrar, decidir— y dónde entra la IA en cada uno</span></div>
+          <div class="blk"><span class="t">1:45–2:10</span><span class="d"><b>Priorización en vivo.</b> Cada alumno elige sus tres procesos y los defiende. Retroalimentación tuya, negocio por negocio</span></div>
         </div>
+        <p class="note"><b>El error más caro:</b> automatizar un proceso que está mal definido. Automatizas el caos y ahora el caos es más rápido.</p>
       </div>
       <div class="s">
         <div class="sh">Sesión 2</div>
-        <h4>Familia, salud, aprender y protegerte</h4>
+        <h4>Tu equipo de IA: ventas, marketing y atención</h4>
         <div class="blocks">
-          <div class="blk"><span class="t">0:10–0:35</span><span class="d"><b>Salud, con límites claros.</b> Entender un estudio, preparar la consulta, qué preguntarle al doctor. Y lo que nunca se le pide</span></div>
-          <div class="blk"><span class="t">0:35–1:00</span><span class="d"><b>Familia y tareas.</b> Ayudar a los hijos sin hacerles la tarea. Explicar un tema difícil a la altura de un niño</span></div>
-          <div class="blk"><span class="t">1:10–1:35</span><span class="d"><b>Aprender lo que quieras.</b> Practicar un idioma conversando, recetas con lo que hay en el refri</span></div>
-          <div class="blk"><span class="t">1:35–2:05</span><span class="d"><b>Protegerte de la IA.</b> Voz clonada, videos falsos, mensajes de fraude que ya no tienen faltas de ortografía</span></div>
+          <div class="blk"><span class="t">0:10–0:30</span><span class="d"><b>La base de conocimiento.</b> Catálogo, precios, las 20 preguntas frecuentes con su buena respuesta, políticas, y tres textos tuyos para el tono</span></div>
+          <div class="blk"><span class="t">0:30–1:05</span><span class="d"><b>El asistente de ventas, construido en clase.</b> Responde precios, cotiza, da seguimiento y maneja objeciones. Se prueba en vivo: un compañero hace de cliente difícil</span></div>
+          <div class="blk"><span class="t">1:15–1:45</span><span class="d"><b>Contenido que no suena a IA.</b> El archivo de estilo, las prohibiciones explícitas y la regla del dato propio</span></div>
+          <div class="blk"><span class="t">1:45–2:10</span><span class="d"><b>Atención a clientes.</b> Preguntas frecuentes, manejo de quejas, seguimiento post-venta</span></div>
         </div>
-        <p class="note"><b>La clase termina con una acción concreta:</b> cada alumno define su palabra clave familiar contra la llamada del “secuestro virtual” con voz clonada, y la manda a su grupo de WhatsApp ahí mismo. Es memorable, y es lo que hace que recomienden el curso. La frase de salud que se llevan: <em>“úsala para entender mejor a tu doctor, nunca para reemplazarlo.”</em></p>
+        <p class="note"><b>La base de conocimiento es el ejercicio de mayor retorno del curso.</b> Es lo que convierte una IA genérica en <em>su</em> asistente. Y la regla del dato propio: todo contenido lleva una cifra o anécdota que solo él tenga — es lo que la IA no puede inventar.</p>
+      </div>
+      <div class="s">
+        <div class="sh">Sesión 3</div>
+        <h4>Automatización real: que las cosas pasen solas</h4>
+        <div class="blocks">
+          <div class="blk"><span class="t">0:15–0:35</span><span class="d"><b>Panorama de herramientas.</b> Make, n8n, Zapier: cuál conviene y cuánto cuesta de verdad al mes</span></div>
+          <div class="blk"><span class="t">0:35–1:05</span><span class="d"><b>Construcción guiada.</b> Mensaje entrante → la IA lo clasifica → se registra → responde acuse</span></div>
+          <div class="blk"><span class="t">1:15–1:50</span><span class="d"><b>Cada alumno construye la suya</b>, con tu apoyo uno por uno</span></div>
+          <div class="blk"><span class="t">1:50–2:10</span><span class="d"><b>Qué hacer cuando falla.</b> Pruebas, alertas, el plan B manual. Y cuándo NO automatizar</span></div>
+        </div>
+        <p class="note">Seis automatizaciones listas para importar: clasificación de mensajes, resumen de correos, cotización automática en PDF, reporte semanal de ventas al WhatsApp, junta grabada convertida en acuerdos, y alerta de reseña negativa. <b>Un negocio pequeño puede operar tres por menos de $600 al mes</b> — decirlo con números te separa de quien vende espejismos.</p>
+      </div>
+      <div class="s">
+        <div class="sh">Sesión 4</div>
+        <h4>Números, decisiones y escalar</h4>
+        <div class="blocks">
+          <div class="blk"><span class="t">0:15–0:50</span><span class="d"><b>Analizar tu negocio con IA.</b> El 20% de clientes que da el 80%, en qué producto ganas de verdad, estacionalidad. La técnica clave: pedirle que actúe como consultor escéptico y critique el negocio con los números a la vista</span></div>
+          <div class="blk"><span class="t">1:05–1:30</span><span class="d"><b>Precios y escenarios.</b> Simular una subida, punto de equilibrio, por qué tres opciones venden más que una</span></div>
+          <div class="blk"><span class="t">1:30–1:50</span><span class="d"><b>Documentos y contratos</b>, con los límites legales bien marcados</span></div>
+          <div class="blk"><span class="t">1:50–2:10</span><span class="d"><b>Qué no delegar nunca.</b> Contratar y despedir, dinero grande, la llamada difícil, la disculpa después de un error grave</span></div>
+          <div class="blk"><span class="t">2:10–2:25</span><span class="d"><b>Plan de 90 días.</b> Cada alumno lo llena antes de salir. Se revisa cada semana en la asesoría</span></div>
+        </div>
+        <p class="note"><b>Sobre contratos:</b> “la IA te ahorra la primera versión y las preguntas que le vas a hacer al abogado; no te ahorra al abogado.” Ponerle límites a lo que vendes es lo que genera confianza.</p>
       </div>
     </div>
 
     <div class="deliver">
       <h4>Entregables</h4>
       <ul>
-        <li>Guía de bolsillo con 30 usos e instrucciones listas para copiar</li>
-        <li>Checklist antifraude de una hoja, para el refrigerador</li>
-        <li>Grabaciones 60 días y Consultorio IA grupal por 30 días</li>
-        <li>Cupón de 20% para cualquier otro curso</li>
+        <li>Inventario de tareas con la fórmula de priorización</li>
+        <li>Documento guiado de base de conocimiento del negocio</li>
+        <li>6 automatizaciones listas para importar</li>
+        <li>60 instrucciones de negocio</li>
+        <li>Calculadora de retorno: horas ahorradas × costo por hora</li>
+        <li>Plan de 90 días y Laboratorio presencial</li>
       </ul>
     </div>
   </div>
@@ -661,16 +601,14 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
 <section id="asesoria">
   <div class="eyebrow"><span class="n">04</span><span class="rule"></span></div>
   <h2>El mes de asesoría</h2>
-  <p class="lede">Tu mejor argumento de venta y tu mayor riesgo operativo. Si lo dejas indefinido, te come. Diseñado así, escala: la clave es que casi todo se resuelve en una sola hora grupal a la semana.</p>
+  <p class="lede">Tu mejor argumento de venta y tu mayor riesgo operativo. Si lo dejas indefinido, te come. La clave del diseño: casi todo se resuelve en una sola hora grupal a la semana.</p>
 
-  <h3>Qué incluye exactamente</h3>
-  <p class="prose">Esto va publicado, textual. Durante los 30 días siguientes a tu última sesión tienes:</p>
   <div class="scroll">
     <table>
       <thead><tr><th>Componente</th><th>Lo que cuesta darlo</th><th>Su función</th></tr></thead>
       <tbody>
         <tr><td><b>Grupo de WhatsApp</b> de tu generación, respuesta en menos de 24 h hábiles</td><td>~20 min/día para todos los grupos</td><td>Sensación de acompañamiento</td></tr>
-        <tr><td><b>Consultorio IA en vivo</b>, todos los martes de 8 a 9 pm</td><td><b>1 h/semana en total</b>, sin importar cuántos alumnos</td><td>El componente que escala</td></tr>
+        <tr><td><b>Consultorio Chaos Ctrl</b> en vivo, sábados 12:15–13:15</td><td><b>1 h/semana en total</b>, sin importar cuántos alumnos</td><td>El componente que escala</td></tr>
         <tr><td><b>Una sesión individual de 30 min</b>, agendada cuando la necesites</td><td>30 min por alumno, una vez</td><td>El que aparece en los testimonios</td></tr>
         <tr><td><b>Biblioteca de recursos</b> actualizada</td><td>Se hace una vez</td><td>Retención hacia la membresía</td></tr>
       </tbody>
@@ -679,169 +617,247 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
 
   <div class="call">
     <span class="h">La frase que protege tu tiempo</span>
-    Cuando alguien pregunte algo largo en WhatsApp: <b>“Excelente pregunta. La resuelvo en pantalla el martes en el Consultorio, apúntala.”</b> Eso protege tus horas y además llena el Consultorio, que es donde se crea la comunidad que sostiene la membresía.
+    Cuando alguien pregunte algo largo en WhatsApp: <b>“Excelente pregunta. La resuelvo en pantalla el sábado en el Consultorio, apúntala.”</b> Eso protege tus horas y además llena el Consultorio, que es donde se crea la comunidad que sostiene la membresía.
   </div>
 
   <h3>Las seis reglas, publicadas desde el inicio</h3>
   <ul class="prose">
     <li>El grupo es para dudas del curso. No es soporte técnico general.</li>
     <li>Se responde en horario hábil, de 9 am a 8 pm. Un mensaje de las 11 de la noche se contesta al día siguiente — dilo desde el inicio y nadie se ofende.</li>
-    <li>Las dudas largas van al Consultorio del martes. Sin excepción.</li>
+    <li>Las dudas largas van al Consultorio del sábado. Sin excepción.</li>
     <li>La sesión 1 a 1 es una, de 30 minutos, dentro del mes. No se acumula ni se transfiere.</li>
     <li><b>“Hazme mi trabajo” no es una duda.</b> Si alguien quiere que le construyas su automatización, eso es Mentoría 1 a 1 y tiene precio.</li>
     <li>El mes empieza el día siguiente a la última sesión. La fecha exacta se le dice a cada alumno por escrito.</li>
   </ul>
 
-  <h3>Presupuesto de tiempo con 4 grupos activos (≈40 alumnos)</h3>
+  <h3>Presupuesto de tiempo con 3 grupos activos (≈30 alumnos)</h3>
   <div class="scroll">
     <table>
       <thead><tr><th>Actividad</th><th class="n">Horas / semana</th></tr></thead>
       <tbody>
         <tr><td>WhatsApp de todos los grupos (dos bloques de 30 min)</td><td class="n">2.0</td></tr>
-        <tr><td>Consultorio IA de los martes, más preparación</td><td class="n">1.25</td></tr>
-        <tr><td>Sesiones 1 a 1 (≈10 × 30 min)</td><td class="n">5.0</td></tr>
+        <tr><td>Consultorio de los sábados, más preparación</td><td class="n">1.25</td></tr>
+        <tr><td>Sesiones 1 a 1 (≈8 × 30 min)</td><td class="n">4.0</td></tr>
         <tr><td>Actualizar biblioteca</td><td class="n">0.5</td></tr>
-        <tr><td>Clases en vivo</td><td class="n">10.0</td></tr>
+        <tr><td>Clases en vivo (semana intensiva de Inicio)</td><td class="n">14.0</td></tr>
         <tr><td>Marketing, ventas y administración</td><td class="n">4.0</td></tr>
-        <tr class="total"><td>Total</td><td class="n">22.75 h</td></tr>
+        <tr class="total"><td>Total en la semana más pesada</td><td class="n">25.75 h</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="prose">Consistente con tus 20+ horas disponibles. Si crece más, la primera palanca es <b>agrupar las sesiones 1 a 1 en dos días fijos</b> (miércoles y viernes de 5 a 8 pm) en vez de dispersarlas por la semana.</p>
+  <p class="prose">La semana intensiva de Ctrl + Inicio es la más cargada del mes; las otras tres bajan a unas 16 horas. Si crece más, la primera palanca es <b>agrupar las sesiones 1 a 1 en dos días fijos</b> (martes y jueves de 5 a 7 pm) en vez de dispersarlas.</p>
 
-  <h3>Cómo se ofrece la Comunidad IA sin incomodar</h3>
+  <h3>Cómo se ofrece la Comunidad sin incomodar</h3>
   <p class="prose">En la última semana del mes incluido, un mensaje individual — nunca en el grupo:</p>
-  <div class="promise" style="max-width:none">“Hola [nombre], tu mes de asesoría termina el [fecha]. Si quieres seguir en el Consultorio de los martes y en la comunidad, son $290 al mes y te puedes salir cuando quieras. Y si prefieres seguir por tu cuenta, también está perfecto — te quedas con todo el material y las grabaciones. <b>¿Cómo lo ves?</b>”</div>
-  <p class="prose">Sin presión, sin cargo automático, con salida fácil. Convierte mejor y no te quema la reputación.</p>
+  <div class="promise" style="max-width:none">“Hola [nombre], tu mes de asesoría termina el [fecha]. Si quieres seguir en el Consultorio de los sábados y en la comunidad, son $290 al mes y te puedes salir cuando quieras. Y si prefieres seguir por tu cuenta, también está perfecto — te quedas con todo el material y las grabaciones. <b>¿Cómo lo ves?</b>”</div>
 </section>
 
 <!-- 05 -->
 <section id="operacion">
   <div class="eyebrow"><span class="n">05</span><span class="rule"></span></div>
   <h2>Operación</h2>
-  <p class="lede">Herramientas mínimas, baratas y suficientes: menos de $800 al mes. No compres una plataforma de cursos — no la necesitas y te va a distraer.</p>
+  <p class="lede">Herramientas mínimas, baratas y suficientes: menos de $800 al mes en operación. No compres una plataforma de cursos — no la necesitas y te va a distraer.</p>
 
   <h3>El calendario tipo</h3>
-  <p class="prose">Los cuatro programas en el mismo mes sin encimarse, con un solo día del fin de semana ocupado.</p>
+  <p class="prose">Entre semana solo se ocupa la semana intensiva de Ctrl + Inicio; el resto vive en un solo sábado.</p>
   <div class="cal">
     <table>
       <thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th></tr></thead>
       <tbody>
-        <tr><td class="h">10:00–12:00</td><td></td><td></td><td></td><td></td><td></td><td><span class="ev teal">Docentes<small>4 sábados</small></span></td></tr>
-        <tr><td class="h">12:30–14:30</td><td></td><td></td><td></td><td></td><td></td><td><span class="ev teal">Vida Diaria<small>2 sábados</small></span></td></tr>
-        <tr><td class="h">17:00–20:00</td><td></td><td></td><td><span class="ev quiet">Sesiones 1 a 1</span></td><td></td><td><span class="ev quiet">Sesiones 1 a 1</span></td><td></td></tr>
-        <tr><td class="h">19:00–21:00</td><td><span class="ev teal">Emprendedores<small>4 lunes</small></span></td><td><span class="ev teal">Principiantes</span></td><td><span class="ev teal">Principiantes</span></td><td><span class="ev teal">Principiantes</span></td><td></td><td></td></tr>
-        <tr><td class="h">20:00–21:00</td><td></td><td><span class="ev amber">Consultorio IA<small>todas las semanas</small></span></td><td></td><td></td><td></td><td><span class="ev amber">Laboratorio<small>último sábado, 16–19 h</small></span></td></tr>
+        <tr><td class="h">10:00–12:00</td><td></td><td></td><td></td><td></td><td></td><td><span class="ev teal">Ctrl + Negocio<small>4 sábados</small></span></td></tr>
+        <tr><td class="h">12:15–13:15</td><td></td><td></td><td></td><td></td><td></td><td><span class="ev amber">Consultorio<small>todas las semanas</small></span></td></tr>
+        <tr><td class="h">13:30–15:30</td><td></td><td></td><td></td><td></td><td></td><td><span class="ev teal">Ctrl + Aula<small>4 sábados</small></span></td></tr>
+        <tr><td class="h">17:00–19:00</td><td></td><td><span class="ev quiet">1 a 1</span></td><td></td><td><span class="ev quiet">1 a 1</span></td><td></td><td></td></tr>
+        <tr><td class="h">19:00–21:00</td><td><span class="ev teal">Inicio</span></td><td><span class="ev teal">Inicio</span></td><td><span class="ev teal">Inicio</span></td><td><span class="ev teal">Inicio</span></td><td><span class="ev teal">Inicio</span></td><td></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="prose"><b>Principiantes es intensivo a propósito</b> —martes, miércoles y jueves de una sola semana— para que el alumno no pierda el hilo. Y el <b>Consultorio de los martes nunca se mueve</b>: la constancia es exactamente lo que lo hace funcionar.</p>
-
-  <h3>El sistema de inscripción</h3>
-  <div class="flow">
-    <div class="step"><span class="dot"><i></i><span></span></span><span class="txt"><b>Anuncio, contenido o recomendación</b><em>El mensaje llega por WhatsApp o por el formulario</em></span></div>
-    <div class="step"><span class="dot"><i></i><span></span></span><span class="txt"><b>Formulario de 6 preguntas</b><em>Se registra solo en tu hoja de cálculo</em></span></div>
-    <div class="step"><span class="dot"><i></i><span></span></span><span class="txt"><b>Mensaje automático</b><em>Fechas, precio, link de pago y la garantía</em></span></div>
-    <div class="step"><span class="dot"><i></i><span></span></span><span class="txt"><b>Pago o apartado del 50%</b><em>Si no paga en 48 h, un recordatorio</em></span></div>
-    <div class="step"><span class="dot"><i></i><span></span></span><span class="txt"><b>Bienvenida</b><em>Link de Zoom, qué traer, qué instalar antes</em></span></div>
-    <div class="step"><span class="dot"><i></i><span></span></span><span class="txt"><b>Alta en el grupo de WhatsApp</b><em>Tres días antes de empezar</em></span></div>
-    <div class="step"><span class="dot"><i></i><span></span></span><span class="txt"><b>Recordatorios y clase</b><em>24 horas antes, y una hora antes</em></span></div>
-  </div>
-
-  <div class="call good">
-    <span class="h">La demostración perfecta</span>
-    Este flujo completo se arma en Make, y es <b>literalmente lo que enseñas en la sesión 3 de Emprendedores.</b> Muéstralo en clase, corriendo, con tus propios datos. No hay mejor prueba de que sabes de lo que hablas.
-  </div>
-
-  <h3>Las 6 preguntas del formulario, ni una más</h3>
-  <ol class="prose" style="padding-left:20px">
-    <li>Nombre completo</li><li>WhatsApp</li><li>Correo</li><li>¿A qué te dedicas?</li>
-    <li><b>¿Qué quieres lograr con la IA?</b> — esta es oro: son tus ejemplos de clase y tu copy de anuncios, escritos por tus propios clientes</li>
-    <li>¿Qué horario te acomoda mejor?</li>
-  </ol>
+  <p class="prose"><b>Ctrl + Inicio es intensivo a propósito</b> —lunes a viernes de una sola semana— porque cinco noches seguidas es lo que hace que la gente termine el curso en vez de abandonarlo a la mitad. Se da en la semana 1 del mes, y en la 3 si hay segunda generación. <b>El Consultorio nunca se mueve:</b> la constancia es lo que lo hace funcionar. Laboratorio presencial: último domingo, 11:00–14:00.</p>
 
   <h3>Política de cupos, publicada</h3>
   <ul class="prose">
-    <li><b>Mínimo para abrir: 4 personas.</b> Si no se llega, el grupo se recorre y el inscrito elige — esperar o reembolso total. Se avisa 5 días antes, no el día de la clase.</li>
-    <li><b>Si el alumno falta:</b> tiene la grabación y puede reponer esa sesión en el siguiente grupo, sin costo. Esto elimina la objeción “¿y si me sale un imprevisto?”.</li>
-    <li><b>Reembolso:</b> garantía de la primera sesión, 100%, el mismo día. Después de la segunda no hay reembolso, pero sí cambio de grupo.</li>
+    <li><b>Mínimo para abrir: 4 personas.</b> Si no se llega, la generación se recorre y el inscrito elige — esperar o reembolso total. Se avisa 5 días antes, no el día de la clase.</li>
+    <li><b>Si el alumno falta:</b> tiene la grabación y puede reponer esa sesión en la generación siguiente, sin costo. Elimina la objeción “¿y si me sale un imprevisto?”.</li>
+    <li><b>Reembolso:</b> garantía de la primera sesión, 100%, el mismo día.</li>
   </ul>
 
   <h3>Lo que se olvida siempre</h3>
   <ul class="prose">
     <li><b>Iniciar la grabación.</b> Ponlo escrito en la lista de cada sesión.</li>
     <li><b>Revisar el formulario antes de la clase:</b> los casos de esos alumnos son tus ejemplos, con nombre y apellido.</li>
-    <li><b>Pedir el testimonio en la última sesión, en video, en caliente.</b> Al día siguiente ya no lo dan.</li>
+    <li><b>Pedir el testimonio en la última sesión, en video, en caliente.</b> Al día siguiente ya no lo dan — y sin testimonios el mes 2 te cuesta lo mismo que el mes 1.</li>
   </ul>
 </section>
 
 <!-- 06 -->
-<section id="marketing">
+<section id="lanzamiento">
   <div class="eyebrow"><span class="n">06</span><span class="rule"></span></div>
-  <h2>Lanzamiento</h2>
-  <p class="lede">Seis semanas desde cero hasta cuatro grupos llenos. El taller express gratuito de la semana 3 es la pieza que hace funcionar todo lo demás.</p>
+  <h2>Lanzamiento en 7 días</h2>
+  <p class="lede">Nada de taller gratuito, nada de preventa, nada de calentamiento de seis semanas. Los anuncios llevan directo a la venta, la conversación se cierra por WhatsApp y las clases empiezan la semana siguiente.</p>
 
-  <div class="weeks">
-    <div class="wk"><div class="w">Semanas −6 y −5</div><h4>Construir la base</h4><ul><li>Marca, dominio y usuarios</li><li>20 fotos y video de 60 s</li><li>Landing con fechas y precios</li><li>Empezar a publicar diario, sin vender</li></ul><div class="out">→ Perfiles vivos y un taller listo</div></div>
-    <div class="wk"><div class="w">Semana −4</div><h4>Sembrar</h4><ul><li>Anunciar el taller gratuito</li><li>Abrir lista de espera</li><li><b>50 mensajes personales</b>, uno por uno</li></ul><div class="out">→ Primeras conversaciones</div></div>
-    <div class="wk now"><div class="w">Semana −3</div><h4>Taller y preventa</h4><ul><li>Dar el taller gratuito (meta: 20 asistentes)</li><li>Presentar los cursos en los últimos 20 min</li><li>Preventa válida 72 horas</li><li>Encender anuncios con $150/día</li></ul><div class="out">→ Primeros pagos y 3 testimonios</div></div>
-    <div class="wk"><div class="w">Semana −2</div><h4>Empujar</h4><ul><li>Contenido con prueba del taller</li><li>Segundo taller, ya de paga</li><li>Audio personal a cada interesado</li></ul><div class="out">→ Grupos a medio llenar</div></div>
-    <div class="wk"><div class="w">Semana −1</div><h4>Cerrar</h4><ul><li><b>Cierra la preventa y sube el precio de verdad</b></li><li>Confirmar grupos con mínimo de 4</li><li>Bienvenidas y materiales</li></ul><div class="out">→ Cuatro grupos confirmados</div></div>
-    <div class="wk"><div class="w">Semana 0</div><h4>Impartir</h4><ul><li>Dar las clases</li><li>Documentar todo para redes</li><li>Testimonios en la última sesión</li><li><b>Abrir el siguiente ciclo antes de cerrar este</b></li></ul><div class="out">→ Primer ciclo y el segundo vendiéndose</div></div>
+  <div class="call good">
+    <span class="h">Por qué esto funciona en tu caso y no en cualquiera</span>
+    <b>Ya sabes hacer campañas</b> — hiciste las de una escuela, conoces el administrador y sabes leer las métricas. El calentamiento largo existe para quien está aprendiendo Facebook Ads al mismo tiempo que lanza. Y <b>la competencia está vendiendo con la mitad del contenido</b>: el mercado ya está educado y comprando.<br><br>
+    <b>El costo de ir directo:</b> sin taller previo no tienes prueba social propia el día uno. Se compensa con tres cosas — tus empresas como credencial, la garantía de la primera sesión, y responder tú mismo cada mensaje de WhatsApp.
   </div>
 
-  <h3>Los cinco pilares de contenido</h3>
-  <p class="prose">Publica algo todos los días rotando estos cinco. <b>Regla del 4 a 1:</b> por cada publicación que vende, cuatro que dan.</p>
-  <div class="pillars">
-    <div class="pil"><div class="p">PILAR 1</div><b>Muestra tu operación</b><span>“Así se contesta solo mi WhatsApp mientras duermo.” Video de pantalla, 40 segundos.</span></div>
-    <div class="pil"><div class="p">PILAR 2</div><b>Corrige un error común</b><span>“Le estás pidiendo mal a ChatGPT. Mira la diferencia.” Antes y después.</span></div>
-    <div class="pil"><div class="p">PILAR 3</div><b>Enseña algo completo</b><span>“Cómo entender tu recibo de luz con IA en 2 minutos.” Gratis, sin pedir nada.</span></div>
-    <div class="pil"><div class="p">PILAR 4</div><b>Opina con criterio</b><span>“Los detectores de IA para tareas no funcionan. Esto es lo que sí.”</span></div>
-    <div class="pil"><div class="p">PILAR 5</div><b>Muestra el resultado</b><span>Video de 20 segundos de un alumno diciendo qué logró.</span></div>
-  </div>
-  <p class="prose" style="margin-top:16px">El formato que mejor funciona es video vertical de 30 a 60 segundos, grabando tu pantalla mientras lo haces, con tu voz. <b>No necesita producción: la autenticidad convierte más que la edición.</b></p>
+  <h3>Lo que sustituye a la urgencia de la preventa</h3>
+  <p class="prose">Al quitar el precio de preventa pierdes el reloj que empuja a decidir. Se reemplaza con dos cosas <b>verdaderas</b>, que es lo que las hace funcionar: la <b>fecha fija de inicio</b> (“inicia el lunes 15; la siguiente generación es hasta el mes que entra”) y el <b>contador real de lugares</b>, actualizado todos los días en historias. Si más adelante quieres un incentivo de precio, que sea por traer a alguien — premia lo que te ayuda a crecer, no la prisa.</p>
 
-  <h3>Anuncios en Meta</h3>
+  <div class="days">
+    <div class="day"><div class="d">Lun<b>1</b></div><div><h4>Decidir y montar la casa</h4><ul><li>Fijar las fechas exactas de las tres generaciones y no moverlas</li><li>Crear la <b>página de Facebook de Chaos Ctrl</b> e Instagram vinculado</li><li>WhatsApp Business: bienvenida, ausencia, respuestas rápidas, catálogo de los tres cursos</li><li>Cuenta bancaria del proyecto y link de cobro</li></ul><div class="out">→ Existe la marca y hay dónde recibir y cobrar</div></div></div>
+    <div class="day"><div class="d">Mar<b>2</b></div><div><h4>Los creativos</h4><ul><li>Generar imágenes con los prompts de la sección 07</li><li>Armar en Canva <b>3 flyers por curso</b> (4:5 y 9:16)</li><li><b>Grabar tres videos verticales de 30–40 s</b>, tú a cámara, sin música ni edición</li><li>Escribir los textos de anuncio</li></ul><div class="out">→ 9 flyers y 3 videos listos. No te tardes: el que va a ganar es el video</div></div></div>
+    <div class="day"><div class="d">Mié<b>3</b></div><div><h4>Destino y medición</h4><ul><li>Landing de una página: tres cursos, fechas, precios, garantía, preguntas frecuentes, WhatsApp fijo</li><li>Píxel instalado y verificado</li><li>3 o 4 piezas orgánicas para que nadie llegue a un perfil vacío</li><li>Formulario de 6 preguntas y su automatización en Make</li></ul><div class="out">→ Atajo: si se complica, manda los anuncios directo a WhatsApp sin landing</div></div></div>
+    <div class="day fire"><div class="d">Jue<b>4</b></div><div><h4>Encender los anuncios</h4><ul><li>Subir campañas con objetivo <b>Mensajes a WhatsApp</b></li><li>Presupuesto inicial <b>$400/día</b> repartido en cuatro campañas</li><li>Revisar cada anuncio en celular antes de publicar</li><li><b>Los 50 mensajes personales de tu red</b>, uno por uno</li></ul><div class="out">→ Anuncios corriendo y primeras conversaciones abiertas</div></div></div>
+    <div class="day fire"><div class="d">Vie<b>5</b></div><div><h4>Vender</h4><ul><li><b>Contestar cada mensaje en menos de 15 minutos</b></li><li>Usar el guion de conversación de cuatro pasos</li><li>Mandar link de pago en cuanto haya intención — no dejar el cierre para después</li><li>Historia con el contador real de lugares</li></ul><div class="out">→ Los primeros inscritos pagados</div></div></div>
+    <div class="day"><div class="d">S–D<b>6·7</b></div><div><h4>Ajustar y cerrar</h4><ul><li><b>Apagar creativos con costo por mensaje arriba de $80</b> y subir el que mejor va</li><li>Seguimiento con audio personal a quien preguntó y no cerró</li><li><b>Confirmar que cada grupo llegó al mínimo de 4</b>; el que no, se recorre y se avisa hoy</li><li>Bienvenidas, links de Zoom y grupos de WhatsApp creados</li></ul><div class="out">→ Grupos confirmados y clases listas para el lunes</div></div></div>
+  </div>
+
+  <h3>Estructura de campañas</h3>
+  <p class="prose">Objetivo <b>Mensajes</b> en todas, destino WhatsApp. Es lo que mejor convierte en México para tickets de $1,000 a $1,500 con marca personal: sin formularios, sin fricción, y cierras tú por chat.</p>
   <div class="scroll">
     <table>
       <thead><tr><th>Campaña</th><th>Público</th><th class="n">Diario</th></tr></thead>
       <tbody>
-        <tr><td><b>Taller Express</b></td><td>Frío, intereses amplios, tu ciudad y zona metropolitana, 25–55</td><td class="n">$150</td></tr>
-        <tr><td><b>Docentes</b></td><td>Docencia, educación, magisterio · 28–55</td><td class="n">$80</td></tr>
-        <tr><td><b>Emprendedores</b></td><td>Emprendimiento, pequeños negocios, marketing · 28–50</td><td class="n">$80</td></tr>
-        <tr><td><b>Remarketing</b></td><td>Vieron tus videos +50%, visitaron la landing, o escribieron y no compraron</td><td class="n">$60</td></tr>
-        <tr class="total"><td>Total</td><td>≈ $11,000 al mes — empieza con la mitad</td><td class="n">$370</td></tr>
+        <tr><td><b>Ctrl + Inicio</b></td><td>Frío. Tu ciudad + 30 km, 25–55. Tecnología, productividad, superación personal, ChatGPT</td><td class="n">$150</td></tr>
+        <tr><td><b>Ctrl + Aula</b></td><td>Frío. 28–55. Docencia, educación, magisterio, planeación didáctica. Cargos de maestro</td><td class="n">$100</td></tr>
+        <tr><td><b>Ctrl + Negocio</b></td><td>Frío. 28–50. Emprendimiento, pequeños negocios. Administradores de página de negocio</td><td class="n">$100</td></tr>
+        <tr><td><b>Remarketing</b></td><td>Vieron +50% de tus videos, visitaron la landing, o escribieron y no compraron</td><td class="n">$50</td></tr>
+        <tr class="total"><td>Total</td><td>$2,800 en la semana — un solo inscrito de Inicio casi lo cubre</td><td class="n">$400</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="prose"><b>El remarketing es siempre el de mejor retorno; no lo omitas.</b> Metas: menos de $60 por conversación iniciada, más del 20% de conversación a inscrito, menos de $300 de costo por alumno.</p>
+  <p class="prose"><b>El remarketing se enciende desde el día uno aunque el público esté vacío.</b> Se llena solo con el tráfico de los otros anuncios y termina siendo el de mejor retorno de toda la cuenta.</p>
 
-  <div class="call">
-    <span class="h">El anuncio que funciona en este nicho</span>
-    Video vertical, tú a cámara, sin música: <em>“Llevo un año usando IA todos los días para operar mis negocios. Y me di cuenta de algo: casi todos los cursos que veo enseñan menos de lo que ya sabe cualquiera que la haya usado dos semanas. Por eso armé uno distinto. En vivo, máximo 10 personas, cada quien con su caso real. Y cuando termina, me quedo un mes contigo. Si te interesa, escríbeme — <b>te digo si es para ti o no, con honestidad, porque no me sirve un alumno que no va a aprovecharlo.</b>”</em>
-    <br><br>Funciona porque nombra al competidor sin atacarlo, es específico, y ofrecer decirle que no genera más confianza que cualquier promesa.
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Métrica</th><th class="n">Meta</th><th>Si está mal</th></tr></thead>
+      <tbody>
+        <tr><td>Costo por conversación</td><td class="n">&lt; $60</td><td>Arriba de $80 tres días seguidos: cambia el <b>creativo</b>, no el público</td></tr>
+        <tr><td>Conversación → inscrito</td><td class="n">&gt; 20%</td><td>Bajo con muchos mensajes: el problema es tu guion de venta o el precio no está en el anuncio</td></tr>
+        <tr><td>Costo por alumno</td><td class="n">&lt; $300</td><td>Revisa primero cuál creativo lo está inflando</td></tr>
+        <tr><td>Frecuencia</td><td class="n">&lt; 2.5</td><td>Arriba de 3: el público se quemó. Amplía o rota creativo</td></tr>
+      </tbody>
+    </table>
   </div>
+  <p class="prose"><b>El error que hay que evitar:</b> mover públicos todos los días. Deja correr mínimo 3 días antes de juzgar. Lo que sí se puede apagar rápido es un creativo que claramente no jala.</p>
 
-  <h3>Los primeros 50 mensajes</h3>
-  <p class="prose">No es glamoroso, pero <b>es tu canal más rentable del mes 1.</b> Cincuenta personas de tu red, escritas una por una, personalizadas — no difusión. De 50 mensajes bien hechos salen entre 5 y 10 inscritos: el 25% de tu meta del mes, sin gastar un peso.</p>
+  <h3>El guion de WhatsApp — aquí se gana o se pierde la venta</h3>
+  <ol class="prose">
+    <li><b>Contesta rápido y pregunta.</b> Nunca mandes el precio en el primer mensaje: <em>“¡Hola! Antes de pasarte la información, cuéntame rápido: ¿a qué te dedicas y qué te gustaría lograr con la IA?”</em></li>
+    <li><b>Conecta con su respuesta.</b> Una frase específica sobre lo que te dijo. Es lo que te diferencia de un bot.</li>
+    <li><b>Da la información completa, sin rodeos.</b> Fechas, horario, precio, qué incluye, garantía. Todo junto. Esconder el precio quema la conversación.</li>
+    <li><b>Cierra con una pregunta fácil:</b> <em>“¿Te late apartar tu lugar? Te mando el link y con eso queda.”</em></li>
+  </ol>
+  <p class="prose"><b>Si dice que lo va a pensar:</b> no insistas ese día. Al siguiente, un <b>audio de 30 segundos</b> —no un texto— recordándole la fecha y los lugares. El audio convierte mucho mejor porque suena a persona. <b>Si dice que está caro:</b> no bajes el precio, ofrece pago en dos partes.</p>
 </section>
 
 <!-- 07 -->
-<section id="finanzas">
+<section id="marca">
   <div class="eyebrow"><span class="n">07</span><span class="rule"></span></div>
+  <h2>Identidad y flyers</h2>
+  <p class="lede">El concepto está en el nombre: <b>desorden a la izquierda, orden a la derecha.</b> Líneas enredadas que se resuelven en una retícula limpia. Si una pieza no cuenta esa transición, no es Chaos Ctrl.</p>
+
+  <div class="swatches">
+    <div class="sw"><div class="chipc" style="background:#0E1214"></div><div class="meta"><b>Carbón</b><code>#0E1214</code><em>El 70% de cada pieza</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#F2F3F0"></div><div class="meta"><b>Blanco hueso</b><code>#F2F3F0</code><em>Titulares y cuerpo</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#14D6C4"></div><div class="meta"><b>Cian eléctrico</b><code>#14D6C4</code><em>El “Ctrl”: orden, retícula</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#FF6B2C"></div><div class="meta"><b>Naranja señal</b><code>#FF6B2C</code><em>El “Chaos”: precio, cupos, botón</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#6B7A78"></div><div class="meta"><b>Gris humo</b><code>#6B7A78</code><em>Texto secundario</em></div></div>
+  </div>
+  <p class="prose"><b>Regla del naranja:</b> solo para lo que quieres que se vea primero — el precio, “quedan 4 lugares”, el botón. Si lo usas en todo, deja de funcionar. <b>Tipografía:</b> Archivo Black para titulares (en mayúsculas, muy apretados), IBM Plex Sans para cuerpo, IBM Plex Mono para precios y horarios — el mono hace que los datos se lean como datos.</p>
+
+  <div class="call">
+    <span class="h">La regla que te va a ahorrar horas</span>
+    <b>Los generadores de imagen todavía escriben mal el texto en español.</b> Se equivocan con acentos, con la ñ, e inventan letras. No pierdas tiempo pidiendo flyers completos.<br><br>
+    <b>El flujo correcto: la IA genera el ARTE sin nada de texto, y el texto lo pones tú en Canva.</b> Tarda menos, se ve mejor, y puedes cambiar la fecha y el precio en diez segundos sin regenerar nada.
+  </div>
+
+  <h3>Prompt de marca — la transición caos→orden</h3>
+  <p class="prose">Cópialo tal cual. Lo que está en naranja es lo que tú cambias. Están en inglés porque los generadores lo entienden mucho mejor: más precisión en estilo, luz y encuadre.</p>
+  <pre>Abstract brand background for a technology education company. Left side:
+a chaotic tangle of thin luminous lines, scattered fragments, digital
+glitch artifacts, visual noise, disorder. Right side: the same lines
+resolved into a clean, precise, calm geometric grid. A smooth transition
+between the two halves across the center. Deep charcoal background
+#0E1214, electric teal #14D6C4 lines, small accents of signal orange
+#FF6B2C. Cinematic side lighting, subtle film grain, high contrast, deep
+blacks. Absolutely no text, no letters, no numbers, no logos, no
+watermarks. <span class="v">[Vertical composition, 4:5 aspect ratio]</span>. Generous empty
+negative space in the lower third for typography.</pre>
+
+  <h3>Prompt de venta — la fotografía editorial</h3>
+  <p class="prose">Estos convierten mejor que el arte abstracto, porque el cliente se ve a sí mismo en la imagen. Este es el de Ctrl + Aula:</p>
+  <pre>Editorial documentary photograph of a <span class="v">[Mexican woman teacher in her
+mid-40s]</span> at a dining table at night, surrounded by tall stacks of
+student notebooks and loose papers, a laptop open beside her. She is
+closing one notebook with a small look of relief, shoulders relaxed.
+Warm lamp light from the left, cool blue window light behind. Real
+Mexican home interior, lived-in, not styled. Shot on 50mm, shallow depth
+of field, natural skin texture, film grain. Documentary, honest, warm.
+Deep shadows. Vertical 4:5, subject on the right, dark empty space upper
+left for a headline. No text, no logos, no readable writing.</pre>
+  <p class="prose"><b>Genera cuatro versiones cambiando solo la edad y el género del modelo</b> y prueba cuál convierte mejor. Es la variable que más mueve el costo por mensaje. Los prompts completos de los tres cursos, el logo y las variantes están en <span class="mono">cursos-ia/12-identidad-y-flyers.md</span>.</p>
+
+  <h3>El flyer armado</h3>
+  <div class="flyer">
+    <div class="mock">
+      <div class="lg">Chaos Ctrl</div>
+      <div class="hd">No uses<br>ChatGPT<br>como<br>buscador</div>
+      <div class="sb">10 horas en vivo para dominar la herramienta completa</div>
+      <div class="sp"></div>
+      <div class="li">5 sesiones · 10 horas</div>
+      <div class="li">Grupos de 10 máximo</div>
+      <div class="li">1 mes de asesoría</div>
+      <div class="pr">$1,290</div>
+      <div class="cu">Inicia 15 sep · quedan 4 lugares</div>
+      <div class="bt">ESCRÍBEME POR WHATSAPP</div>
+    </div>
+    <div>
+      <h4 style="margin-top:0">Las cinco reglas del armado</h4>
+      <ol class="prose" style="margin-top:8px">
+        <li><b>El fondo va oscurecido.</b> Capa negra al 40–55% de opacidad encima de la foto. Sin eso el texto no se lee y el anuncio no funciona.</li>
+        <li><b>Máximo tres tamaños de letra</b> en toda la pieza.</li>
+        <li><b>Un solo elemento naranja dominante.</b> El precio o el botón, no los dos al mismo tamaño.</li>
+        <li><b>Poco texto.</b> Si no se entiende en dos segundos, sobra texto.</li>
+        <li><b>Guárdalo como plantilla.</b> Cambias titular, fecha y precio y ya tienes las tres piezas.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>Qué probar primero</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Versión</th><th>Qué cambia</th><th>Qué estás midiendo</th></tr></thead>
+      <tbody>
+        <tr><td><b>A</b></td><td>Foto editorial del cliente ideal</td><td>La conexión con el público</td></tr>
+        <tr><td><b>B</b></td><td>Fondo abstracto de marca + titular grande</td><td>Si el mensaje solo, sin rostro, funciona</td></tr>
+        <tr><td><b>C</b></td><td>Video vertical tuyo hablando a cámara, 30 s, sin música</td><td>Tu cara contra todo lo demás</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call good">
+    <span class="h">Apuesta segura</span>
+    <b>La C gana.</b> En marca personal, tu cara convierte más que cualquier diseño. Los flyers sirven para el resto del contenido y para el remarketing; el anuncio de adquisición que mejor convierte casi siempre eres tú hablando, sin producción.
+  </div>
+</section>
+
+<!-- 08 -->
+<section id="finanzas">
+  <div class="eyebrow"><span class="n">08</span><span class="rule"></span></div>
   <h2>Finanzas</h2>
-  <p class="lede">Estimaciones de trabajo, para decidir. Ajústalas con tus números reales en cuanto los tengas. Lo que hace viable tu precio accesible es que tus costos son mínimos: el producto eres tú y una sala de Zoom.</p>
+  <p class="lede">Estimaciones de trabajo, para decidir. Lo que hace viable tu precio accesible es que tus costos son mínimos: sin plataforma, sin sede fija, sin equipo. El producto eres tú y una sala de Zoom.</p>
 
   <div class="kpis">
     <div class="kpi"><div class="v">$3,500</div><div class="k">Costos fijos mensuales, sin publicidad</div></div>
-    <div class="kpi"><div class="v">9</div><div class="k">Alumnos para llegar al punto de equilibrio</div></div>
-    <div class="kpi"><div class="v">$32,800</div><div class="k">Utilidad estimada del mes 1</div></div>
-    <div class="kpi"><div class="v">$81,400</div><div class="k">Utilidad estimada del mes 3</div></div>
+    <div class="kpi"><div class="v">12</div><div class="k">Alumnos para equilibrio con anuncios al tope</div></div>
+    <div class="kpi"><div class="v">$22,900</div><div class="k">Utilidad estimada del mes 1</div></div>
+    <div class="kpi"><div class="v">$58,500</div><div class="k">Utilidad estimada del mes 3</div></div>
   </div>
 
   <div class="call good">
     <span class="h">La cifra que da tranquilidad</span>
-    <b>Un solo grupo lleno de Principiantes cubre el mes entero.</b> Todo lo demás es utilidad. Y en el escenario pesimista —llenas solo la mitad de todo— el mes 1 sigue dejando alrededor de $11,000 positivos.
+    <b>Un solo grupo lleno de Ctrl + Inicio cubre el mes completo con los anuncios encendidos al tope.</b> Y en el escenario pesimista —solo el mínimo de 4 por grupo, 12 alumnos— sales tablas: no pierdes dinero ni en el peor caso realista, y te quedas con 12 egresados que se convierten en testimonios, membresía y recompras.
   </div>
 
   <h3>Mes 1 · Lanzamiento, escenario conservador</h3>
@@ -849,39 +865,37 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
     <table>
       <thead><tr><th>Programa</th><th class="n">Inscritos</th><th class="n">Precio</th><th class="n">Ingreso</th></tr></thead>
       <tbody>
-        <tr><td>Vida Diaria</td><td class="n">12</td><td class="n">$590</td><td class="n">$7,080</td></tr>
-        <tr><td>Principiantes</td><td class="n">10</td><td class="n">$890</td><td class="n">$8,900</td></tr>
-        <tr><td>Docentes</td><td class="n">10</td><td class="n">$1,190</td><td class="n">$11,900</td></tr>
-        <tr><td>Emprendedores</td><td class="n">8</td><td class="n">$1,200</td><td class="n">$9,600</td></tr>
-        <tr><td>Taller Express de paga</td><td class="n">15</td><td class="n">$390</td><td class="n">$5,850</td></tr>
-        <tr><td>Costos de operación y publicidad</td><td class="n">—</td><td class="n">—</td><td class="n">−$9,000</td></tr>
-        <tr><td>Comisiones de pago (3.5%)</td><td class="n">—</td><td class="n">—</td><td class="n">−$1,516</td></tr>
-        <tr class="total"><td>Utilidad del mes 1</td><td class="n">55</td><td class="n"></td><td class="n">$32,814</td></tr>
+        <tr><td>Ctrl + Inicio</td><td class="n">10</td><td class="n">$1,290</td><td class="n">$12,900</td></tr>
+        <tr><td>Ctrl + Aula</td><td class="n">10</td><td class="n">$1,490</td><td class="n">$14,900</td></tr>
+        <tr><td>Ctrl + Negocio</td><td class="n">8</td><td class="n">$1,500</td><td class="n">$12,000</td></tr>
+        <tr><td>Costos fijos y publicidad ($400/día)</td><td class="n">—</td><td class="n">—</td><td class="n">−$15,500</td></tr>
+        <tr><td>Comisiones de pago (3.5%)</td><td class="n">—</td><td class="n">—</td><td class="n">−$1,393</td></tr>
+        <tr class="total"><td>Utilidad del mes 1</td><td class="n">28</td><td class="n"></td><td class="n">$22,907</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h3>Mes 3 · Operación estable, ya a precio de lista</h3>
+  <h3>Mes 3 · Operación estable</h3>
   <div class="scroll">
     <table>
       <thead><tr><th>Concepto</th><th class="n">Cant.</th><th class="n">Precio</th><th class="n">Ingreso</th></tr></thead>
       <tbody>
-        <tr><td>Vida Diaria — 2 grupos</td><td class="n">20</td><td class="n">$790</td><td class="n">$15,800</td></tr>
-        <tr><td>Principiantes — 2 grupos</td><td class="n">18</td><td class="n">$1,190</td><td class="n">$21,420</td></tr>
-        <tr><td>Docentes — 2 grupos</td><td class="n">18</td><td class="n">$1,490</td><td class="n">$26,820</td></tr>
-        <tr><td>Emprendedores — 1 grupo</td><td class="n">8</td><td class="n">$1,500</td><td class="n">$12,000</td></tr>
-        <tr><td>Taller Express</td><td class="n">20</td><td class="n">$390</td><td class="n">$7,800</td></tr>
-        <tr><td><b>Comunidad IA</b> — ingreso recurrente</td><td class="n">35</td><td class="n">$290</td><td class="n">$10,150</td></tr>
+        <tr><td>Ctrl + Inicio — 2 generaciones</td><td class="n">18</td><td class="n">$1,290</td><td class="n">$23,220</td></tr>
+        <tr><td>Ctrl + Aula — 2 generaciones</td><td class="n">18</td><td class="n">$1,490</td><td class="n">$26,820</td></tr>
+        <tr><td>Ctrl + Negocio — 1 generación</td><td class="n">8</td><td class="n">$1,500</td><td class="n">$12,000</td></tr>
+        <tr><td><b>Comunidad Chaos Ctrl</b> — recurrente</td><td class="n">30</td><td class="n">$290</td><td class="n">$8,700</td></tr>
         <tr><td>Mentoría 1 a 1</td><td class="n">1</td><td class="n">$5,900</td><td class="n">$5,900</td></tr>
-        <tr><td>Costos, publicidad y comisiones</td><td class="n">—</td><td class="n">—</td><td class="n">−$18,496</td></tr>
-        <tr class="total"><td>Utilidad del mes 3</td><td class="n"></td><td class="n"></td><td class="n">$81,394</td></tr>
+        <tr><td>Costos, publicidad y comisiones</td><td class="n">—</td><td class="n">—</td><td class="n">−$18,182</td></tr>
+        <tr class="total"><td>Utilidad del mes 3</td><td class="n"></td><td class="n"></td><td class="n">$58,458</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="call">
-    <span class="h">Advertencia honesta</span>
-    El mes 3 exige impartir unos <b>9 grupos: ~30 horas de clase más la asesoría. Es el techo de lo que puedes dar tú solo.</b> Para crecer más allá hay tres caminos, en orden de dificultad: subir precios con testimonios en mano (Principiantes a $1,490, Emprendedores a $1,900 — sigues por debajo del mercado con este formato); vender in-company, donde un contrato de $18,000 a $25,000 equivale a un grupo entero en 8 horas y con un solo cliente; o formar un instructor para Vida Diaria y Principiantes, que son los más estandarizables, y quedarte tú con Emprendedores, Docentes y la asesoría.
+    <span class="h">Las tres palancas para crecer, en orden de retorno</span>
+    <b>1. In-company.</b> Un contrato de $18,000 a $25,000 con una escuela o empresa equivale a una generación entera, en 8 horas y con un solo cliente que atender. Es la palanca de mayor retorno y la más ignorada — empieza a tocar puertas en la semana 10.<br><br>
+    <b>2. Subir precios.</b> Desde el mes 4, con testimonios en mano, Ctrl + Inicio soporta $1,490 y Ctrl + Negocio $1,900. Sigues muy por debajo del mercado con este formato.<br><br>
+    <b>3. Formar un instructor</b> para Ctrl + Inicio, el más estandarizable. Tú te quedas con Aula, Negocio y toda la asesoría — donde está el diferenciador que no se delega.
   </div>
 
   <h3>Las tres cifras que se revisan cada semana</h3>
@@ -895,64 +909,41 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
       </tbody>
     </table>
   </div>
-  <p class="prose">Si el valor por alumno supera $1,800 con un precio base de $1,190, la escalera está funcionando: la gente compra un segundo curso o se queda en la membresía. <b>Esa es la señal de que el negocio es sano — mucho más que el número de inscritos de un mes.</b></p>
-</section>
-
-<!-- 08 -->
-<section id="plan">
-  <div class="eyebrow"><span class="n">08</span><span class="rule"></span></div>
-  <h2>Plan de 90 días</h2>
-  <p class="lede">Empieza hoy por la semana 1. No te saltes las semanas 1 y 2: son las que hacen que todo lo demás funcione.</p>
-
-  <div class="scroll">
-    <table>
-      <thead><tr><th class="n">Sem.</th><th>Foco</th><th>Entregable de la semana</th></tr></thead>
-      <tbody>
-        <tr><td class="n">1</td><td><b>Decidir y montar.</b> Marca, dominio, cuenta bancaria separada, Zoom Pro, fechas exactas de los cuatro grupos, lista de 50 contactos</td><td>Un calendario con fechas reales, no tentativas</td></tr>
-        <tr><td class="n">2</td><td><b>Contenido y prueba.</b> Fotos y video, perfiles publicados, empezar a publicar diario, preparar el taller express</td><td>Siete publicaciones y un taller listo</td></tr>
-        <tr><td class="n">3</td><td><b>Landing y primeros mensajes.</b> Sitio en línea, WhatsApp Business, automatización de inscripción, los 50 mensajes</td><td>Landing viva y conversaciones abiertas</td></tr>
-        <tr><td class="n">4</td><td><b>Taller gratuito y preventa.</b> Dar el taller, presentar los cursos, abrir inscripciones, encender anuncios</td><td>Primeros pagos y tres testimonios</td></tr>
-        <tr><td class="n">5–6</td><td><b>Llenar y preparar.</b> Segundo taller de paga, seguimiento personal, cerrar preventa, producir materiales</td><td>Cuatro grupos confirmados</td></tr>
-        <tr><td class="n">7–10</td><td><b>Impartir el primer ciclo.</b> Clases, bitácora tras cada sesión, Consultorios, sesiones 1 a 1, testimonios</td><td>Ciclo completo y 8–12 testimonios</td></tr>
-        <tr><td class="n">11–12</td><td><b>Corregir y escalar.</b> Ajustar temarios, ofrecer la Comunidad, primer Laboratorio presencial, contactar 3 escuelas y 3 empresas</td><td>Segundo ciclo corriendo y una propuesta in-company entregada</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="closing">
-    <h3 style="margin-top:0">Las cinco cosas que no puedes dejar de hacer</h3>
-    <p class="prose">Si todo se complica y tienes que recortar, estas cinco sobreviven:</p>
-    <ol>
-      <li><b>Publicar todos los días.</b> Es gratis, y es lo que construye la confianza que te permite cobrar accesible y aun así llenar grupos.</li>
-      <li><b>Dar el Taller Express.</b> Es tu máquina de conversión: de 25 a 35% de los asistentes compran el curso completo.</li>
-      <li><b>Cumplir el mes de asesoría al pie de la letra.</b> Es tu única ventaja verdaderamente difícil de copiar.</li>
-      <li><b>Pedir testimonio en la última sesión, siempre, en video.</b> En caliente. Al día siguiente ya no lo dan.</li>
-      <li><b>Abrir el siguiente ciclo antes de cerrar el actual.</b> Es lo que evita el mes vacío que mata a la mayoría de estos proyectos.</li>
-    </ol>
-  </div>
+  <p class="prose">Si el valor por alumno supera $1,800 con un precio base de $1,290, la escalera está funcionando: la gente compra un segundo curso o se queda en la membresía. <b>Esa es la señal de que el negocio es sano — mucho más que el número de inscritos de un mes.</b></p>
 </section>
 
 <!-- 09 -->
 <section id="pendientes">
   <div class="eyebrow"><span class="n">09</span><span class="rule"></span></div>
   <h2>Qué falta decidir</h2>
-  <p class="lede">Quedaron abiertas a propósito: son tuyas y ninguna bloquea el arranque.</p>
+  <p class="lede">Ninguna de estas bloquea el arranque de la semana 1.</p>
   <ul class="prose">
-    <li><b>El nombre de la marca.</b> La recomendación es marca personal con tu nombre — tu diferenciador no es transferible.</li>
     <li><b>Ciudad y sede del Laboratorio presencial.</b> No firmes contratos largos hasta tener demanda estable; renta por horas.</li>
     <li><b>Si facturas desde el inicio</b> o arrancas y regularizas al confirmar demanda.</li>
-    <li><b>Los nombres comerciales de los cursos.</b> Los de este plan son descriptivos y funcionan; si prefieres más gancho, se cambian sin tocar el contenido.</li>
+    <li><b>Si los nombres Ctrl + Inicio / Aula / Negocio se quedan.</b> Son consistentes con la marca y fáciles de recordar, pero en los anuncios el que vende es el subtítulo descriptivo. Si prefieres otros, se cambian sin tocar el contenido.</li>
   </ul>
 
   <div class="call">
-    <span class="h">La tensión que hay que vigilar</span>
-    Precio tope de $1,500, cupos reducidos y un mes de asesoría es una combinación apretada. <b>Solo funciona porque la asesoría es mayormente grupal</b> —el Consultorio de una hora sirve igual para 10 que para 60— y porque el 1 a 1 real vive en otro producto con otro precio. Si en algún momento la asesoría empieza a comerte las semanas, el problema no es el precio: es que dejaste de respetar las seis reglas.
+    <span class="h">Lo único que de verdad puede fallar</span>
+    Lanzar en siete días sin prueba social es la apuesta de todo este plan. Se cubre con la garantía, con tus empresas como credencial y con tu tiempo de respuesta en WhatsApp — <b>mientras no tengas testimonios, tu tiempo de respuesta <em>es</em> tu prueba social.</b><br><br>
+    Y en la última sesión de la primera generación, pide el testimonio en video a todos. A partir del mes 2 los anuncios los protagonizan tus alumnos, no tú, y el costo por alumno baja solo.
+  </div>
+
+  <div class="closing">
+    <h3>Las cinco cosas que no puedes dejar de hacer</h3>
+    <ol>
+      <li><b>Cumplir el mes de asesoría al pie de la letra.</b> Es tu única ventaja verdaderamente difícil de copiar.</li>
+      <li><b>Pedir testimonio en la última sesión, siempre, en video.</b> En caliente. Al día siguiente ya no lo dan.</li>
+      <li><b>Publicar todos los días.</b> Alimenta el remarketing sin costo y construye la confianza que te permite cobrar accesible y aun así llenar grupos.</li>
+      <li><b>Abrir la siguiente generación antes de cerrar la actual.</b> Es lo que evita el mes vacío que mata a la mayoría de estos proyectos.</li>
+      <li><b>Contestar cada WhatsApp en menos de 15 minutos.</b> Sobre todo en la semana 1.</li>
+    </ol>
   </div>
 
   <footer>
-    <span>Plan maestro · Escuela de IA Aplicada</span>
+    <span>Chaos Ctrl · Plan maestro</span>
     <span>Documentación completa en <span class="mono">cursos-ia/</span></span>
-    <span>Agosto 2026</span>
+    <span>Septiembre 2026</span>
   </footer>
 </section>
 
@@ -970,9 +961,7 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
       });
     });
   });
-
-  var links=[].slice.call(document.querySelectorAll('#nav a'));
-  var map={};
+  var links=[].slice.call(document.querySelectorAll('#nav a')), map={};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)]=a; });
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){

@@ -17,29 +17,30 @@
 **Total operativo: menos de $800 MXN al mes.** No compres una plataforma de
 cursos. No la necesitas y te va a distraer.
 
-## 2. Calendario tipo (mes de lanzamiento)
+## 2. Calendario tipo
 
-Todos los grupos en el mismo mes, sin encimarse:
+Los tres programas en el mismo mes sin encimarse. Entre semana solo se ocupa la
+semana de Ctrl + Inicio; el resto vive en un solo sábado.
 
-| | Lun | Mar | Mié | Jue | Vie | Sáb |
+| Horario | Lun | Mar | Mié | Jue | Vie | Sáb |
 |---|---|---|---|---|---|---|
-| **10–12** | | | | | | **Docentes** |
-| **12:30–14:30** | | | | | | **Vida Diaria** |
-| **17–20** | | | 1 a 1 | | 1 a 1 | |
-| **19–21** | Emprend. | **Princip.** | **Princip.** | **Princip.** | | |
-| **20–21** | | **Consultorio IA** | | | | |
+| **10:00–12:00** | | | | | | **Ctrl + Negocio** |
+| **12:15–13:15** | | | | | | **Consultorio Chaos Ctrl** |
+| **13:30–15:30** | | | | | | **Ctrl + Aula** |
+| **17:00–19:00** | | 1 a 1 | | 1 a 1 | | |
+| **19:00–21:00** | **Inicio** | **Inicio** | **Inicio** | **Inicio** | **Inicio** | |
 
-- **Principiantes** ocupa martes, miércoles y jueves de una sola semana. Es
-  intensivo a propósito: el alumno no pierde el hilo.
-- **Emprendedores** es lunes, cuatro semanas seguidas.
-- **Docentes** y **Vida Diaria** son sábados por la mañana, uno tras otro, el
-  mismo día. Un solo día de tu fin de semana ocupado.
-- **Consultorio IA** los martes de 8 a 9 pm, siempre, sin cambio jamás. La
-  constancia es lo que lo hace funcionar.
-- **Laboratorio presencial**: el último sábado del mes, 16:00–19:00.
+- **Ctrl + Inicio** es intensivo: lunes a viernes de una sola semana. Se da en la
+  semana 1 del mes, y en la semana 3 si hay una segunda generación. Es lo que hace
+  que la gente termine el curso en vez de abandonarlo a la mitad.
+- **Ctrl + Negocio** y **Ctrl + Aula** corren cuatro sábados seguidos, uno tras
+  otro. Un solo día de tu fin de semana ocupado.
+- **El Consultorio queda entre los dos**, todas las semanas del mes, y nunca se
+  mueve. La constancia es lo que lo hace funcionar.
+- **Laboratorio presencial:** último domingo del mes, 11:00–14:00.
 
-Con esto ocupas ~14 horas de clase y consultoría a la semana, dejando espacio
-para las 1 a 1 y el marketing.
+Total: ~14 horas de clase y consultorio por semana en la semana intensiva, ~6 en
+las demás. Deja espacio de sobra para las sesiones 1 a 1 y el marketing.
 
 ## 3. El sistema de inscripción, paso a paso
 
@@ -75,14 +76,14 @@ CLASE
 **Automatiza con Make:** formulario enviado → mensaje de WhatsApp con la
 información y el link de pago → si no paga en 48 h, un recordatorio → si paga,
 bienvenida y alta en el grupo. Esto es literalmente lo que enseñas en la sesión
-3 de Emprendedores: **úsalo como demostración en clase.**
+3 de Ctrl + Negocio: **úsalo como demostración en clase.**
 
 ## 4. Política de cupos y cancelaciones (publicada)
 
 - **Cupo mínimo para abrir: 4 personas.** Si no se llega, el grupo se recorre y
   el inscrito elige: esperar o reembolso total. Se avisa 5 días antes, no el día
   de la clase.
-- **Cupo máximo:** 10 (Principiantes, Vida Diaria, Docentes), 8 (Emprendedores).
+- **Cupo máximo:** 10 (Ctrl + Inicio), 12 (Ctrl + Aula), 8 (Ctrl + Negocio).
 - **Si el alumno falta a una sesión:** tiene la grabación y puede reponerla en el
   siguiente grupo, sin costo. Este beneficio elimina la objeción "¿y si me sale
   un imprevisto?".
@@ -120,9 +121,9 @@ bienvenida y alta en el grupo. Esto es literalmente lo que enseñas en la sesió
 4. Si algo no funciona en tu pantalla, lo detenemos. Nadie se queda atrás.
 5. Lo que se comparta del negocio o del trabajo de alguien, no sale de aquí.
 
-## 7. El Laboratorio presencial
+## 7. El Laboratorio Chaos Ctrl (presencial)
 
-- **Cuándo:** último sábado del mes, 16:00 a 19:00
+- **Cuándo:** último domingo del mes, 11:00 a 14:00
 - **Dónde:** sala de coworking o espacio rentado por horas. No firmes contratos
   largos hasta tener demanda estable
 - **Formato:** no es clase. Cada quien llega con su computadora y su problema

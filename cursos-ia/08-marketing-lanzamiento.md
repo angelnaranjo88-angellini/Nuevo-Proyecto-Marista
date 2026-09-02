@@ -1,182 +1,210 @@
-# 08 · Marketing y lanzamiento
+# 08 · Lanzamiento en una semana
 
-## 1. El problema del lanzamiento simultáneo
+## 1. La estrategia, en corto
 
-Lanzar cuatro programas a la vez tiene una ventaja y un riesgo:
+Nada de taller gratuito, nada de preventa, nada de calentamiento de seis semanas.
+**Los anuncios llevan directo a la venta**, la conversación se cierra por WhatsApp
+y las clases empiezan la semana siguiente.
 
-- **Ventaja:** cubres cuatro públicos, aprendes rápido cuál responde mejor y
-  todos comparten el 60% del material.
-- **Riesgo:** cuatro mensajes distintos al mismo tiempo diluyen todo y te
-  quedas con cuatro grupos a medio llenar.
+Esto funciona por dos razones que son tuyas y no de cualquiera:
 
-**La solución: un solo mensaje sombrilla y cuatro puertas.**
+1. **Ya sabes hacer campañas.** No estás aprendiendo Facebook Ads al mismo tiempo
+   que lanzas — hiciste campañas para una escuela, conoces el administrador y
+   sabes leer las métricas. El calentamiento largo existe para quien no tiene esa
+   habilidad.
+2. **La competencia está vendiendo con mucho menos.** Si cursos con la mitad del
+   contenido y sin acompañamiento se están llenando, el mercado ya está educado y
+   comprando. No hay que crear la demanda; hay que aparecer frente a ella con
+   mejor oferta.
 
-> **Mensaje sombrilla:** *"Llevo un año usando IA todos los días para operar mis
-> empresas. Te enseño lo que de verdad funciona, en vivo, en grupos de máximo 10
-> — y me quedo un mes contigo hasta que lo apliques."*
+**El costo de ir directo:** sin taller previo no tienes prueba social propia el
+día uno. Se compensa con tres cosas — tus empresas como credencial, la garantía
+de la primera sesión, y responder tú mismo cada mensaje de WhatsApp.
 
-Todo el contenido público defiende ese mensaje. La segmentación pasa **en los
-anuncios y en la conversación de WhatsApp**, no en tu comunicación orgánica.
+## 2. Lo que sustituye a la urgencia de la preventa
 
-## 2. Cronograma de 6 semanas
+Al quitar el precio de preventa pierdes el reloj que empuja a decidir. Se
+reemplaza con dos cosas **verdaderas**, que es lo que las hace funcionar:
 
-### Semanas −6 y −5 · Construir la base
+- **Fecha fija de inicio.** "Inicia el lunes 15. La siguiente generación es hasta
+  el mes que entra." No es un truco: es la realidad de un curso en vivo.
+- **Contador real de lugares.** Máximo 10, y el número que publicas es el número
+  que queda. Actualízalo todos los días en tus historias. **Si mientes una vez,
+  se acabó el argumento para siempre.**
 
-- [ ] Definir la marca personal y asegurar los nombres de usuario
-- [ ] Fotos y video: 20 fotos tuyas trabajando + video de presentación de 60 s
-- [ ] Perfiles de Instagram, TikTok, Facebook y LinkedIn con la misma biografía
-- [ ] Landing de una página con los cuatro cursos, fechas, precios y formulario
-- [ ] WhatsApp Business con catálogo y respuestas rápidas
-- [ ] **Empezar a publicar diario.** Sin vender nada todavía. Solo valor
-- [ ] Preparar los cuatro talleres express de 2 h
+Si más adelante quieres un incentivo de precio, que sea por **traer a alguien**
+(dos inscritos, 15% cada uno), no por comprar rápido. Premia lo que te ayuda a
+crecer.
 
-### Semana −4 · Sembrar
+---
 
-- [ ] Publicación diaria (ver pilares de contenido abajo)
-- [ ] **Anuncia el primer Taller Express gratuito** — sí, el primero regálalo:
-      necesitas los primeros testimonios más que los $390
-- [ ] Lista de espera: "déjame tu WhatsApp y te aviso antes que a nadie"
-- [ ] Mensaje personal a **50 personas de tu red**. Uno por uno, no difusión.
-      Este canal te va a dar más inscritos que los anuncios en el mes 1
+## 3. La semana, día por día
 
-### Semana −3 · Taller express y preventa
+### Día 1 · Lunes — Decidir y montar la casa
+- [ ] Fijar **fechas exactas** de las tres primeras generaciones y no moverlas
+- [ ] Crear la **página de Facebook de Chaos Ctrl** — foto, portada, descripción,
+      botón de WhatsApp, información de contacto
+- [ ] Crear la cuenta de Instagram con el mismo nombre y vincularla a la página
+- [ ] Configurar **WhatsApp Business**: mensaje de bienvenida, mensaje de ausencia,
+      respuestas rápidas con la información de cada curso, catálogo con los tres
+- [ ] Confirmar que el administrador comercial y el método de pago están vivos
+- [ ] Cuenta bancaria del proyecto y link de cobro de Mercado Pago
 
-- [ ] **Da el Taller Express gratuito** (meta: 40 registrados, 20 asistentes)
-- [ ] Últimos 20 minutos: presenta los cuatro cursos con precio de preventa,
-      válido 72 horas
-- [ ] Abre inscripciones formalmente
-- [ ] Publica todos los días el contador real de lugares
-- [ ] **Enciende los anuncios en Meta** (ver estructura abajo)
+**Al final del día:** existe la marca y hay dónde recibir y cobrar.
 
-### Semana −2 · Empujar
+### Día 2 · Martes — Los creativos
+- [ ] Generar las imágenes con los prompts del [documento 12](12-identidad-y-flyers.md)
+- [ ] Armar en Canva **3 flyers por curso** (formato 4:5 y 9:16 de cada uno)
+- [ ] **Grabar tres videos verticales de 30 a 40 segundos**, tú a cámara, sin
+      música y sin edición: uno por curso
+- [ ] Escribir los textos de anuncio (ya están en el documento 12, adáptalos)
 
-- [ ] Contenido de prueba: capturas del taller, comentarios de asistentes
-- [ ] Segundo Taller Express, ahora de paga ($390)
-- [ ] Llamada o audio personal a cada interesado que no ha cerrado
-- [ ] Recordatorio del fin de la preventa, con fecha y hora exacta
+**Al final del día:** 9 flyers y 3 videos listos para subir.
 
-### Semana −1 · Cerrar
+**No te tardes aquí.** La tentación es pulir creativos tres días. El anuncio que
+va a ganar es el video tuyo hablando, y ese se graba en veinte minutos con el
+celular.
 
-- [ ] Cierre de preventa. **Sube el precio de verdad.** Si no lo subes, nadie te
-      vuelve a creer un plazo
-- [ ] Confirmar grupos que llegaron al mínimo de 4
-- [ ] Enviar bienvenidas, links, materiales previos
-- [ ] Preparar los ejemplos de clase con los casos reales del formulario
+### Día 3 · Miércoles — Destino y medición
+- [ ] Publicar la **landing de una página** con los tres cursos, fechas, precios,
+      la garantía, las preguntas frecuentes y botón de WhatsApp fijo
+- [ ] Instalar el **píxel** y verificar que registra visitas y clics a WhatsApp
+- [ ] Publicar las primeras 3 o 4 piezas orgánicas en la página, para que no
+      llegue nadie a un perfil vacío
+- [ ] Armar el formulario de 6 preguntas y su automatización en Make
 
-### Semana 0 · Impartir
+**Al final del día:** hay a dónde mandar el tráfico y con qué medirlo.
 
-- [ ] Dar las clases
-- [ ] **Documentar todo:** capturas de pantalla, momentos buenos, reacciones
-- [ ] Pedir testimonios en la última sesión, en video, en caliente
-- [ ] Abrir inscripciones del siguiente mes **antes** de terminar el actual
+> **Atajo si el miércoles se complica:** manda los anuncios directo a WhatsApp sin
+> landing. Se pierde el píxel para remarketing, pero **es preferible encender un
+> día antes que tener una landing perfecta un día después.**
 
-## 3. Los cinco pilares de contenido
+### Día 4 · Jueves — Encender los anuncios
+- [ ] Subir campañas con la estructura de la sección 4
+- [ ] Objetivo **Mensajes a WhatsApp** en todas
+- [ ] Presupuesto inicial **$400/día repartido**
+- [ ] Revisar que cada anuncio se vea bien en celular antes de publicar
+- [ ] **Los 50 mensajes personales de tu red**, uno por uno, personalizados
 
-Publica algo todos los días, rotando estos cinco tipos:
+**Al final del día:** anuncios corriendo y las primeras conversaciones abiertas.
 
-| Pilar | Qué es | Ejemplo concreto |
-|---|---|---|
-| **1. Muestra tu operación** | Algo real de tus empresas funcionando con IA | "Así se contesta solo mi WhatsApp mientras duermo" (video de pantalla, 40 s) |
-| **2. Corrige un error común** | Un error que casi todos cometen | "Le estás pidiendo mal a ChatGPT. Mira la diferencia" (antes/después) |
-| **3. Enseña algo completo** | Un truco útil, gratis, sin pedir nada | "Cómo entender tu recibo de luz con IA en 2 minutos" |
-| **4. Opina con criterio** | Una postura que te distinga | "Los detectores de IA para tareas no funcionan. Esto es lo que sí" |
-| **5. Muestra el resultado** | Alumnos, testimonios, el aula | Video de 20 s de un alumno diciendo qué logró |
+### Día 5 · Viernes — Vender
+- [ ] Contestar **cada mensaje en menos de 15 minutos** durante el día
+- [ ] Usar el guion de conversación de la sección 5
+- [ ] Mandar link de pago en cuanto haya intención — no dejar el cierre para después
+- [ ] Publicar una historia con el contador real de lugares
+- [ ] Primera lectura de métricas: costo por mensaje, cuáles creativos jalan
 
-**Regla del 4 a 1:** por cada publicación que vende, cuatro que dan. Si inviertes
-esa proporción, el algoritmo y la gente te castigan igual.
+**Al final del día:** los primeros inscritos pagados.
 
-**Formato que mejor funciona para esto:** video vertical de 30 a 60 segundos,
-grabando tu pantalla mientras lo haces, con tu voz. No necesita producción. La
-autenticidad convierte más que la edición.
+### Días 6 y 7 · Fin de semana — Ajustar y cerrar
+- [ ] **Apagar los creativos con costo por mensaje arriba de $80** y subir
+      presupuesto al que mejor va
+- [ ] Seguimiento a todo el que preguntó y no cerró — un audio personal, no un
+      texto genérico
+- [ ] Historias con el contador bajando
+- [ ] **Confirmar que cada grupo llegó al mínimo de 4.** El que no llegue, se
+      recorre a la generación siguiente y se avisa hoy, no el día de la clase
+- [ ] Mandar bienvenidas: link de Zoom, qué instalar antes, qué traer
+- [ ] Crear los grupos de WhatsApp de cada generación
 
-## 4. Anuncios en Meta (Facebook e Instagram)
+**Al final del fin de semana:** grupos confirmados y clases listas para el lunes.
 
-### Estructura recomendada
+### Semana 2 en adelante
+Las clases empiezan y **los anuncios no se apagan**: ahora venden la generación
+siguiente. Cada semana: documentar la clase para redes, pedir testimonios en la
+última sesión, y mantener el contador de la próxima generación actualizado.
 
-| Campaña | Objetivo | Público | Presupuesto/día |
+---
+
+## 4. Estructura de campañas
+
+Objetivo **Mensajes** en todas, destino WhatsApp. Es lo que mejor convierte en
+México para tickets de $1,000 a $1,500 con marca personal: sin formularios, sin
+fricción, y cierras tú por chat.
+
+| Campaña | Público | Creativos | Diario |
 |---|---|---|---|
-| **Taller Express** | Mensajes o registros | Frío, intereses amplios en tu ciudad y área metropolitana, 25–55 años | $150 |
-| **Docentes** | Mensajes | Intereses: docencia, educación, SEP, magisterio. 28–55 | $80 |
-| **Emprendedores** | Mensajes | Intereses: emprendimiento, pequeños negocios, marketing digital. 28–50 | $80 |
-| **Remarketing** | Conversión | Quien vio tus videos +50%, visitó la landing o escribió y no compró | $60 |
+| **Ctrl + Inicio** | Frío. Tu ciudad y zona metropolitana + 30 km. 25–55 años. Intereses amplios: tecnología, productividad, superación personal, ChatGPT | 3 (foto, fondo de marca, video tuyo) | **$150** |
+| **Ctrl + Aula** | Frío. 28–55 años. Intereses: docencia, educación, magisterio, SEP, planeación didáctica. Cargos de maestro | 3 | **$100** |
+| **Ctrl + Negocio** | Frío. 28–50 años. Intereses: emprendimiento, pequeños negocios, marketing digital. Comportamiento: administradores de página de negocio | 3 | **$100** |
+| **Remarketing** | Vieron +50% de tus videos, visitaron la landing, o escribieron y no compraron. Últimos 30 días | 2 (testimonio y recordatorio de cupo) | **$50** |
 
-**Total: ~$370/día ≈ $11,000/mes.** Empieza con la mitad y sube lo que funcione.
-El remarketing es siempre el de mejor retorno: no lo omitas.
+**Total $400/día.** En una semana son $2,800 — un solo inscrito de Inicio ya casi
+lo cubre.
 
-### El anuncio que mejor funciona en este nicho
+**El remarketing se enciende desde el día uno aunque el público esté vacío.** Se
+llena solo con el tráfico de los otros anuncios y termina siendo el de mejor
+retorno de toda la cuenta.
 
-Video vertical, tú hablando a cámara, sin música, sin texto de más:
+### Métricas y qué hacer con cada una
 
-> *"Llevo un año usando inteligencia artificial todos los días para operar mis
-> negocios. Y me di cuenta de algo: casi todos los cursos que veo enseñan menos
-> de lo que ya sabe cualquiera que la haya usado dos semanas.*
->
-> *Por eso armé un curso distinto. En vivo, máximo 10 personas, cada quien
-> trabaja con su caso real. Y cuando termina, me quedo un mes contigo
-> contestándote las dudas.*
->
-> *Si te interesa, escríbeme. Te digo si es para ti o no — con honestidad,
-> porque no me sirve un alumno que no va a aprovecharlo."*
+| Métrica | Meta | Si está mal |
+|---|---|---|
+| Costo por conversación iniciada | **< $60** | Arriba de $80 tres días seguidos: cambia el creativo, no el público |
+| Conversación → inscrito | **> 20%** | Si es bajo con muchos mensajes, el problema es tu guion de venta o el precio no está en el anuncio |
+| Costo por alumno | **< $300** | Si sube, revisa primero cuál creativo lo está inflando |
+| Frecuencia | **< 2.5** | Arriba de 3: el público se quemó, amplía o rota creativo |
 
-Funciona porque: nombra al competidor sin atacarlo, es específico, y la última
-línea (ofrecer decirle que no) genera más confianza que cualquier promesa.
+**El error que hay que evitar:** mover públicos todos los días. Deja correr
+mínimo 3 días antes de juzgar. Lo que sí se puede apagar rápido es un **creativo**
+que claramente no jala.
 
-### Métricas a vigilar
+---
 
-| Métrica | Meta razonable |
+## 5. Guion de la conversación de WhatsApp
+
+Aquí se gana o se pierde la venta. Cuatro pasos, sin vender de más:
+
+**1. Contesta rápido y pregunta.** Nunca mandes el precio en el primer mensaje.
+> "¡Hola [nombre]! Gracias por escribir. Antes de pasarte la información, cuéntame
+> rápido: ¿a qué te dedicas y qué te gustaría lograr con la IA?"
+
+**2. Conecta con su respuesta.** Una frase específica sobre lo que te dijo. Es lo
+que te diferencia de un bot y de un curso grabado.
+
+**3. Da la información completa, sin rodeos.** Fechas, horario, precio, qué
+incluye, la garantía. Todo junto, en un solo mensaje. Esconder el precio molesta
+y quema la conversación.
+
+**4. Cierra con una pregunta fácil.**
+> "¿Te late apartar tu lugar? Te mando el link y con eso queda."
+
+**Si dice que lo va a pensar:** no insistas ese día. Al siguiente, un audio de 30
+segundos — no un texto — recordándole la fecha y cuántos lugares quedan. El audio
+convierte mucho mejor porque suena a persona.
+
+**Si dice que está caro:** no bajes el precio. Ofrece pago en dos partes: 50% para
+apartar, 50% antes de la segunda sesión.
+
+---
+
+## 6. Contenido orgánico mientras corren los anuncios
+
+Publica todos los días rotando cinco tipos. **Regla del 4 a 1:** por cada
+publicación que vende, cuatro que dan.
+
+| Pilar | Ejemplo |
 |---|---|
-| Costo por conversación iniciada | < $60 MXN |
-| Conversación → inscrito | > 20% |
-| Costo de adquisición por alumno | < $300 MXN |
-| Retorno sobre gasto publicitario | > 3× |
+| **Muestra tu operación** | "Así se contesta solo mi WhatsApp mientras duermo" — video de pantalla, 40 s |
+| **Corrige un error común** | "Le estás pidiendo mal a ChatGPT. Mira la diferencia" — antes y después |
+| **Enseña algo completo** | "Cómo entender tu recibo de luz con IA en 2 minutos" |
+| **Opina con criterio** | "Los detectores de IA para tareas no funcionan. Esto es lo que sí" |
+| **Muestra el resultado** | Video de 20 s de un alumno diciendo qué logró |
 
-## 5. Copy de la landing (estructura)
+Formato: **vertical, 30 a 60 segundos, grabando tu pantalla, con tu voz.** Sin
+producción. La autenticidad convierte más que la edición — y además el contenido
+orgánico alimenta el público de remarketing sin costo.
 
-1. **Encabezado:** "Aprende a usar la IA de verdad. En vivo, en grupos de 10, con
-   un mes de asesoría incluida."
-2. **Subtítulo:** "Cuatro programas. Horarios de 7 pm y sábados, porque sé que
-   sales de trabajar a las 6."
-3. **Video tuyo de 60 s**
-4. **"¿Te pasa esto?"** — tres objeciones/dolores en primera persona
-5. **Los cuatro cursos** en tarjetas: para quién, cuántas horas, cuándo, cuánto
-6. **Qué te llevas** — el mes de asesoría explicado a detalle, con peso visual
-7. **Quién soy** — tus empresas, con nombres y resultados concretos
-8. **Testimonios** (al inicio, los del taller gratuito)
-9. **Garantía de la primera sesión**, en grande
-10. **Preguntas frecuentes** — las 8 de abajo
-11. **Formulario + botón de WhatsApp**, fijo en pantalla
+## 7. Los 50 mensajes personales
 
-## 6. Las 8 preguntas frecuentes que hay que responder
+No es glamoroso, pero **en la semana 1 te va a dar más inscritos que los
+anuncios.** Cincuenta personas de tu red, escritas una por una:
 
-1. **"No sé nada de tecnología, ¿le voy a entender?"** → Sí. Empezamos desde
-   crear la cuenta. Y el grupo es de 10 personas justamente para que nadie se
-   quede atrás.
-2. **"¿Necesito pagar las suscripciones?"** → No. Se puede hacer todo con las
-   versiones gratuitas. En la sesión 1 te digo con honestidad cuál conviene
-   pagar según tu caso, y cuál no.
-3. **"¿Y si falto a una clase?"** → Tienes la grabación 60 días y puedes reponer
-   esa sesión en el siguiente grupo, sin costo.
-4. **"¿Qué pasa si no me gusta?"** → Terminas la primera sesión, me escribes ese
-   día y te devuelvo todo. Sin explicaciones.
-5. **"¿Es en vivo o grabado?"** → Todo en vivo. Las grabaciones son para que
-   repases, no para sustituir la clase.
-6. **"¿Qué es eso del mes de asesoría?"** → Grupo de WhatsApp, consultorio en
-   vivo todos los martes, y una sesión individual de 30 minutos conmigo.
-7. **"¿Sirve para mi giro / mi materia / mi negocio?"** → Escríbeme y platicamos.
-   Si no es para ti, te lo digo.
-8. **"¿Dan constancia?"** → Sí, con las horas cursadas.
-
-## 7. Los primeros 50 mensajes (tu canal más rentable del mes 1)
-
-No es glamoroso pero es lo que funciona. Haz una lista de 50 personas de tu red
-y escríbeles **uno por uno**, personalizado. No difusión, no copia y pega
-evidente.
-
-> "Hola [nombre], ¿cómo estás? Te cuento algo: llevo un año metido de lleno en
+> "Hola [nombre], ¿cómo estás? Te cuento: llevo un año metido de lleno en
 > inteligencia artificial y ya la uso para todo en [tu empresa]. Voy a empezar a
 > dar cursos en vivo, grupos chicos. Me acordé de ti porque [razón real y
-> específica]. Te paso la información por si te late o por si conoces a alguien
-> a quien le sirva. Y si no, sin compromiso, de verdad."
+> específica]. Te paso la información por si te late, o por si conoces a alguien a
+> quien le sirva. Y si no, sin compromiso, de verdad."
 
-De 50 mensajes bien hechos salen entre 5 y 10 inscritos. Es el 25% de tu meta
-del mes 1, sin gastar un peso.
+De 50 mensajes bien hechos salen entre 5 y 10 inscritos, sin gastar un peso.
