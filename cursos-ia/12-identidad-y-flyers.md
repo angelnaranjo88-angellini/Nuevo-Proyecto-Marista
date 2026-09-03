@@ -137,6 +137,86 @@ Spanish, spelled exactly as written above.
 > ponerlos tú en Canva que arriesgar una palabra rota. Si tu generación sale
 > bien con acentos, mejor.
 
+### 3.1.b · Prompt de edición — el que conserva lo que ya salió bien
+
+**Úsalo siempre que la generación haya salido buena pero con detalles que
+corregir.** Regenerar de cero es un riesgo: los iconos de las apps salen bien
+una de cada varias veces, y si tienes una versión donde salieron correctos,
+vale más editarla que volver a tirar los dados.
+
+Sube la imagen a ChatGPT y pídele:
+
+```
+Edit this image, keeping the exact same layout, colors, fonts, icon row
+and overall composition. Change only these things:
+
+1. Replace the headline with three lines, same font, same size, same
+   cream color, same tight spacing:
+   "NO USAS
+   NI EL 10%
+   DE LA IA"
+
+2. Replace the line under the headline with:
+   "Aprende a usarlas completas, en vivo, en una semana"
+
+3. Fix the accents so these lines read exactly:
+   "Imágenes, video y presentaciones"
+   "Prompts que sí funcionan"
+   "+ 1 MES DE ASESORÍA INCLUIDO"
+   "Grupos de 10 personas máximo"
+
+4. Add a thin horizontal strip just above the cream WhatsApp button:
+   light blue #AFE9FD monospaced uppercase text on the navy background,
+   centered, with a thin line above and below it:
+   "INICIA EL [FECHA] · QUEDAN [N] LUGARES"
+
+5. Next to the keyboard-key logo at the top left, add small monospaced
+   light blue text: "CTRL + INICIO"
+
+6. Extend the faint hand-drawn scribble texture: keep it tangled and
+   chaotic in the top right, and let it flow down the right edge,
+   gradually straightening into clean parallel lines and a precise grid
+   by the bottom of the flyer. Very faint, 10-12% opacity.
+
+Do not change anything else. Keep the five app icons exactly as they are.
+```
+
+### 3.1.c · Titulares alternativos para Ctrl + Inicio
+
+El titular no debe nombrar una sola plataforma: el curso enseña cinco y el flyer
+muestra cinco iconos. Nombrar solo a ChatGPT crea una contradicción visual y
+achica la oferta.
+
+| Opción | Titular | Qué hace |
+|---|---|---|
+| **A** *(recomendada)* | NO USAS / NI EL 10% / DE LA IA | Provoca y crea curiosidad. Cubre las cinco plataformas. Pega en la inseguridad que hace que alguien compre un curso de IA |
+| **B** | DOMINA / LAS 5 IA / QUE IMPORTAN | Le da sentido a la fila de iconos. Más claro y menos provocador; trae leads más calificados |
+| **C** | DEJA DE / USAR LA IA / A MEDIAS | Punto medio entre las dos |
+
+**Prueba A contra B con dos anuncios.** La A suele ganar en clics, la B en
+conversaciones serias. En tres días de datos lo sabes.
+
+Si usas la A, el subtítulo cambia —ya no puede repetir el 10%— a
+*"Aprende a usarlas completas, en vivo, en una semana"*.
+
+### 3.1.d · Los dos elementos que no pueden faltar
+
+Revisado un flyer real, esto es lo que más se olvida:
+
+1. **La fecha de inicio y los lugares restantes.** Es el mecanismo de urgencia
+   que reemplazó a la preventa. Sin eso, alguien ve el flyer, le gusta, y no
+   tiene ninguna razón para escribirte hoy en vez de la semana que entra. Va en
+   una franja delgada justo encima del botón.
+2. **Que la textura de garabatos recorra la pieza.** Enredada arriba,
+   resolviéndose en retícula limpia abajo. Si queda como una mancha en una
+   esquina, es decoración; si recorre el flyer, **cuenta tu historia de marca
+   sin una sola palabra.**
+
+**Y lo que NO hay que agregarle:** quién eres, tu foto, o más puntos de temario.
+El flyer ya carga nueve elementos de texto y la regla es que se entienda en dos
+segundos. Tu credibilidad va en el texto del anuncio, donde tienes espacio de
+sobra y nadie te penaliza por escribir.
+
 ### 3.2 · Ctrl + Aula — docentes (4:5)
 
 ```
