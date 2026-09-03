@@ -17,8 +17,9 @@ profundidad técnica y de aplicación.)*
 > En una semana pasas de usar ChatGPT como buscador a **operar la herramienta
 > completa**: sus modelos de razonamiento, sus archivos, sus proyectos, sus
 > conectores y sus GPTs. Sales sabiendo qué herramienta usar para cada tarea,
-> cómo escribir una instrucción que dirige en vez de pedir, y con tu propio
-> asistente construido y funcionando.
+> cómo escribir una instrucción que dirige en vez de pedir — y **sales con una
+> herramienta de IA hecha a tu medida**, construida en clase con tu propia
+> información y probada antes de que termine la última sesión.
 
 ### Por qué el intensivo de una semana
 Cinco noches seguidas es lo que hace que la gente **termine**. Un curso repartido

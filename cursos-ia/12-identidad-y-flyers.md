@@ -73,69 +73,120 @@ Cópialos tal cual. Lo que está `[entre corchetes]` es lo que tú cambias antes
 
 ### 3.1 · Ctrl + Inicio — flyer principal (formato 4:5, feed)
 
-```
-Create a vertical 4:5 social media flyer for a live AI course. Dark,
-premium, editorial tech design. NOT a generic template.
+**Decisión de diseño sobre las dos promesas.** El flyer carga dos cosas que el
+alumno se lleva —la herramienta hecha a su medida y el mes de asesoría—, pero
+**no llevan dos badges separados**: dos bloques grandes compitiendo se anulan.
+Van en un solo bloque azul dividido por una línea, porque ambas responden a la
+misma pregunta (*qué me llevo*) y así siguen leyéndose como un único elemento
+dominante. Para compensar las dos líneas nuevas, el bloque de datos se comprime
+de tres líneas a dos.
 
-BACKGROUND: deep navy #050A34, almost black. Very subtle texture: thin
-hand-drawn scribble lines in light blue #AFE9FD at 12% opacity in the
-upper right corner, like tangled chaos resolving into a clean grid
-toward the bottom. Keep it faint — it is texture, not decoration.
+```
+Create a vertical 4:5 social media flyer for a live AI course in Spanish.
+Dark, premium, editorial tech design. High contrast and confident, like a
+design studio poster — NOT a busy sales flyer, NOT a generic template.
+
+COLOR PALETTE — use only these five colors:
+deep navy #050A34 (main background)
+deep blue #092676 (secondary blocks)
+electric blue #085CF0 (accent, price, main block)
+light blue #AFE9FD (data and details)
+cream #E8E6D8 (headlines and light surfaces)
+
+BACKGROUND: deep navy #050A34, almost black. A hand-drawn scribble
+texture in light blue #AFE9FD at 10-12% opacity runs through the whole
+piece: tangled, chaotic and dense in the top right corner, then flowing
+down the right edge and gradually straightening into clean parallel
+lines and a precise geometric grid by the bottom. It must read as
+disorder resolving into order. Keep it very faint — it is texture, not
+decoration, and must never compete with the text.
 
 LAYOUT, top to bottom:
 
-1. Top left, small: a cream #E8E6D8 rounded-square keyboard-key logo
-   containing the words "CHAOS" above a thin line and "Ctrl" below.
-   Small, about 10% of the width.
+1. Top left: a cream #E8E6D8 rounded-square keyboard-key logo containing
+   the word "CHAOS" above a thin horizontal line and "Ctrl" below it.
+   About 11% of the width. Immediately to its right, small monospaced
+   light blue #AFE9FD uppercase text: "CTRL + INICIO"
 
 2. Headline, huge, cream #E8E6D8, uppercase, heavy squarish techno
-   sans-serif, very tight letter spacing, three lines, left aligned:
-   "DOMINA
-   CHATGPT
-   DE VERDAD"
+   sans-serif, very tight letter spacing, three lines, left aligned,
+   filling most of the width:
+   "NO USAS
+   NI EL 10%
+   DE LA IA"
 
-3. Below it, one line in light blue #AFE9FD, small, monospaced:
-   "No el 10% que usa todo el mundo"
+3. Directly under the headline, one line in light blue #AFE9FD,
+   monospaced, small:
+   "Aprende a usarlas completas, en vivo, en una semana"
 
-4. A horizontal row of 5 evenly spaced rounded-square app icons on a
-   subtle #092676 strip: ChatGPT, Google Gemini, Claude, Microsoft
-   Copilot and Grok. Flat, simple, correctly proportioned, evenly sized.
+4. A horizontal row of 5 evenly spaced rounded-square app icons sitting
+   on a subtle #092676 strip: ChatGPT, Google Gemini, Claude, Microsoft
+   Copilot and Grok. Flat, simple, correctly proportioned, all exactly
+   the same size, evenly spaced.
 
-5. A short list of 4 items, cream text, monospaced, each preceded by a
+5. A list of 4 items, cream #E8E6D8 monospaced text, each preceded by a
    small electric blue #085CF0 arrow:
-   "Modelos de razonamiento
-   Proyectos, archivos y conectores
-   Imagenes, video y presentaciones
-   Prompts que si funcionan"
+   "Modelos de razonamiento"
+   "Proyectos, archivos y conectores"
+   "Imágenes, video y presentaciones"
+   "Prompts que sí funcionan"
 
-6. A BOLD BADGE that must be the second most visible element on the
-   whole flyer: a solid electric blue #085CF0 rectangle with slightly
-   rounded corners, spanning most of the width, containing in dark navy
-   #050A34 heavy uppercase text:
-   "+ 1 MES DE ASESORIA INCLUIDO"
-   and under it in smaller text:
-   "Cuando acaba el curso, sigo contigo"
+6. THE MAIN BLOCK — this must be the second most visible element on the
+   whole flyer, after the headline. A solid electric blue #085CF0
+   rectangle with slightly rounded corners, spanning the full width,
+   containing two stacked promises separated by a thin dark navy
+   dividing line. All text inside is dark navy #050A34:
 
-7. Bottom block: on the left, in monospaced cream, three short lines:
+   First promise, heavy uppercase, two lines:
+   "SALES CON UNA HERRAMIENTA
+   DE IA HECHA A TU MEDIDA"
+   under it, smaller monospaced: "Para tu trabajo o tu negocio"
+
+   thin dividing line
+
+   Second promise, heavy uppercase, one line:
+   "+ 1 MES DE ASESORÍA INCLUIDO"
+   under it, smaller monospaced: "Cuando acaba el curso, sigo contigo"
+
+7. Below it, a two-part row: on the left, two lines of monospaced cream
+   text:
    "5 sesiones · 10 horas en vivo"
-   "Grupos de 10 personas maximo"
-   "Lunes a viernes 7 a 9 pm"
-   On the right, very large in electric blue #085CF0: "$1,290"
+   "Lunes a viernes 7 a 9 pm · Grupos de 10"
+   On the right, very large and bold in electric blue #085CF0: "$1,290"
 
-8. Bottom edge: a full-width cream #E8E6D8 button with dark navy text:
-   "ESCRIBEME POR WHATSAPP"
+8. A thin full-width strip with a hairline rule above and below it,
+   centered monospaced uppercase light blue #AFE9FD text:
+   "INICIA EL [FECHA] · QUEDAN [N] LUGARES"
 
-STYLE: high contrast, generous margins, strong typographic hierarchy,
-only three text sizes, lots of breathing room. Premium and confident,
-like a design studio poster — not a busy sales flyer. Only these four
-colors: #050A34, #092676, #085CF0, #AFE9FD, #E8E6D8. All text in
-Spanish, spelled exactly as written above.
+9. Bottom edge: a full-width solid cream #E8E6D8 button with heavy
+   uppercase dark navy #050A34 text:
+   "ESCRÍBEME POR WHATSAPP"
+
+TYPOGRAPHY: only three text sizes in the whole piece. Headlines in a
+heavy squarish techno sans-serif with tight tracking. All data, lists
+and small text in a monospaced font. Generous margins on all four sides.
+
+SPANISH ACCENTS — render these exactly, with correct accent marks:
+"Imágenes", "sí", "ASESORÍA", "ESCRÍBEME". Do not drop or misplace any
+accent.
 ```
 
-> **Nota sobre acentos:** el prompt escribe "ASESORIA", "Imagenes", "si" sin
-> acento **a propósito** — los generadores fallan más con acentos y es mejor
-> ponerlos tú en Canva que arriesgar una palabra rota. Si tu generación sale
-> bien con acentos, mejor.
+**Antes de pegarlo:** cambia `[FECHA]` y `[N]` por los datos reales.
+
+### 3.1.a · Los otros dos cursos
+
+Mismo prompt, cambiando solo estos bloques:
+
+| Bloque | **Ctrl + Aula** | **Ctrl + Negocio** |
+|---|---|---|
+| Nombre (1) | CTRL + AULA | CTRL + NEGOCIO |
+| Titular (2) | RECUPERA / TUS / TARDES | QUE TU / NEGOCIO / TRABAJE SOLO |
+| Subtítulo (3) | Para maestros que se ahogan en planeaciones | Sales de clase con algo funcionando |
+| Iconos (4) | ChatGPT, Gemini, Claude, Canva | ChatGPT, Claude, WhatsApp, Make |
+| Temario (5) | Planeaciones alineadas a tu programa · Rúbricas y exámenes en minutos · Retroalimentación para 40 alumnos · Qué hacer cuando ellos usan IA | Un asistente entrenado con tu negocio · Mensajes que se contestan solos · Cotizaciones automáticas · Tus ventas analizadas cada lunes |
+| Promesa 1 (6) | SALES CON TUS PROPIAS / HERRAMIENTAS DE CLASE — *Hechas para tu materia y tu grupo* | SALES CON UNA AUTOMATIZACIÓN / CORRIENDO EN TU NEGOCIO — *Construida en clase, con tus datos* |
+| Datos y precio (7) | 4 sesiones · 8 horas en vivo / Sábados por la mañana · Constancia — **$1,490** | 4 sesiones · 8 horas en vivo / Sábados · Solo 8 lugares — **$1,500** |
+| Botón (9) | 3 COLEGAS PAGAN 2 · ESCRÍBEME | ESCRÍBEME POR WHATSAPP |
 
 ### 3.1.b · Prompt de edición — el que conserva lo que ya salió bien
 

@@ -99,6 +99,7 @@ a la semana que ya estás haciendo.
 |---|---|---|
 | **Un mes de asesoría** | "El curso no termina cuando termina la clase" | Publica capturas (con permiso) de dudas resueltas en la semana 3 |
 | **Profundidad real** | "No el 10% de ChatGPT que usa todo el mundo: la aplicación completa" | Enseña conectores y proyectos en un video de 40 s. Ahí se nota la diferencia con la competencia |
+| **Sales con algo hecho** | "No sales con apuntes: sales con una herramienta de IA hecha a tu medida" | Publica el asistente que construyó un alumno en clase, funcionando. Es la prueba de que no es un curso teórico |
 | **Cupos de 10 máximo** | Contador público: "Quedan 4 lugares" | El contador tiene que ser real. Si mientes una vez, se acabó |
 | **Operas empresas** | "Esto que te voy a enseñar lo uso en mi negocio los lunes" | Comparte pantalla con tus propias automatizaciones corriendo |
 | **Horarios de quien trabaja** | "7 a 9 pm o sábados, porque sé que sales a las 6" | Calendario publicado y fácil de leer |
