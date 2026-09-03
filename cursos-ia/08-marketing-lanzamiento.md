@@ -52,6 +52,53 @@ crecer.
 
 **Al final del día:** existe la marca y hay dónde recibir y cobrar.
 
+#### Instagram → Facebook: no se duplica, pero casi
+
+**No existe forma de convertir ni clonar tu cuenta de Instagram en una página de
+Facebook.** Son dos cuentas distintas en dos productos distintos: los seguidores
+no se transfieren y las publicaciones anteriores tampoco. La página de Facebook
+hay que crearla.
+
+**La buena noticia:** crearla toma cinco minutos, y puedes hacerlo *desde*
+Instagram para que se lleve el nombre, la foto y la categoría sin que las
+teclees otra vez.
+
+**El camino corto:**
+
+1. En Instagram, entra a tu perfil profesional → Configuración → busca la
+   sección de **cuentas vinculadas / Centro de cuentas de Meta**.
+2. Ahí aparece la opción de **conectar una página de Facebook o crear una
+   nueva**. Elige crear una nueva: hereda nombre, foto y categoría.
+3. Termina de llenar la página en Facebook: portada, descripción, **botón de
+   WhatsApp**, información de contacto, horarios y ciudad.
+4. Confirma en el **Centro de cuentas de Meta** que Instagram y la página
+   quedaron vinculadas bajo la misma cuenta.
+5. Entra al **Administrador Comercial (Business Manager)** y agrega ahí la
+   página, la cuenta de Instagram, la cuenta publicitaria y el píxel. Este paso
+   es el que la mayoría se salta y luego no puede anunciar bien.
+
+*(Los menús de Meta cambian de nombre y de lugar cada pocos meses. Si no
+encuentras una opción exactamente así, búscala como "Centro de cuentas" o
+"cuentas vinculadas" — el flujo es el mismo.)*
+
+**Por qué sí necesitas la página, aunque solo quieras anunciar en Instagram:**
+la página de Facebook es la identidad con la que el Administrador de anuncios
+publica. Sin ella te quedas con las promociones desde la app de Instagram, que
+son mucho más limitadas: no puedes segmentar bien, no puedes armar públicos de
+remarketing y no puedes hacer pruebas A/B de creativos. Todo el plan de la
+sección 4 depende de tener la página.
+
+**Lo que sí puedes reaprovechar de Instagram:**
+- Vincúlalas y publica en las dos a la vez desde una sola app
+- Comparte automáticamente historias y reels de Instagram a Facebook
+- Sube a la página tus mejores 6 u 8 publicaciones de Instagram para que no
+  llegue nadie a un perfil vacío el día que enciendas los anuncios
+
+**Lo que NO se transfiere y hay que asumir:** tus seguidores. La página va a
+empezar en cero y está bien — los anuncios no dependen del número de seguidores.
+Lo único que importa es que la página no se vea abandonada cuando alguien la
+revise antes de escribirte.
+
 ### Día 2 · Martes — Los creativos
 - [ ] Generar las imágenes con los prompts del [documento 12](12-identidad-y-flyers.md)
 - [ ] Armar en Canva **3 flyers por curso** (formato 4:5 y 9:16 de cada uno)

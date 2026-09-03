@@ -1,354 +1,324 @@
 # 12 · Identidad Chaos Ctrl y prompts para flyers
 
-## Parte 1 · La identidad visual
+## Parte 1 · Tu identidad, como está en el manual
 
-### El concepto
-**Chaos Ctrl** ya trae la historia adentro: *del caos al control*. Ese es el
-antes y después que vive tu cliente — el maestro ahogado en planeaciones, el
-dueño de negocio con 12 horas de trabajo, la persona que siente que el tema se le
-escapó. Toda la identidad visual debe contar esa transición.
+### Paleta oficial
 
-**La regla visual, en una frase:** *desorden a la izquierda, orden a la derecha.*
-Líneas enredadas que se resuelven en una retícula limpia. Fragmentos dispersos
-que se alinean. Ruido que se convierte en señal. Si una pieza no cuenta esa
-transición, no es Chaos Ctrl.
+| Rol sugerido | Hex | Uso |
+|---|---|---|
+| **Fondo dominante** | `#050A34` | Azul marino casi negro. El 60–70% de cada pieza |
+| **Fondo secundario / bloques** | `#092676` | Azul profundo. Tarjetas, sombra del logo, bloques |
+| **Acento y llamadas a la acción** | `#085CF0` | Azul eléctrico. Botones, badge de asesoría, precio |
+| **Destaque claro** | `#AFE9FD` | Celeste. Datos, subrayados, detalles sobre fondo oscuro |
+| **Texto y superficies claras** | `#E8E6D8` | Crema. Titulares sobre oscuro, fondos claros |
 
-### Paleta
-
-| Rol | Nombre | Hex | Uso |
-|---|---|---|---|
-| Fondo dominante | Carbón | `#0E1214` | El 70% de cada pieza |
-| Texto principal | Blanco hueso | `#F2F3F0` | Titulares y cuerpo |
-| Acento — el "Ctrl" | Cian eléctrico | `#14D6C4` | Orden, retícula, lo resuelto |
-| Acento — el "Chaos" | Naranja señal | `#FF6B2C` | Precio, cupos, urgencia, botones |
-| Apoyo | Gris humo | `#6B7A78` | Texto secundario, líneas |
-
-**Regla de uso del naranja:** solo para lo que quieres que se vea primero — el
-precio, "quedan 4 lugares", el botón. Si lo usas en todo, deja de funcionar.
+**Es una paleta 100% fría.** Eso te da elegancia y coherencia, pero te quita el color de urgencia que suele usarse para precios y cupos. La solución dentro de tu propia paleta: **el azul eléctrico `#085CF0` es tu color de acción** y el **celeste `#AFE9FD` tu color de dato**. Reserva el eléctrico para el botón, el precio y el badge de asesoría — nada más. Si lo usas en todo, deja de funcionar.
 
 ### Tipografía
 
-| Rol | Fuente | Alternativa en Canva |
+| Rol | Fuente | Dónde |
 |---|---|---|
-| Titular | Archivo Black | Anton, Bebas Neue |
-| Cuerpo | IBM Plex Sans | Inter, Work Sans |
-| Datos y precios | IBM Plex Mono | Space Mono, Roboto Mono |
+| Titulares | **Horizon** | Mayúsculas, apretadas. Es la del logo secundario |
+| Etiquetas, datos, temario | **Lekton** | Mono. Hace que los datos se lean como datos |
+| Cuerpo | **Coolvetica** | Párrafos y textos de apoyo |
 
-Titulares en **mayúsculas, muy apretados** (interletrado negativo). El mono para
-precios y horarios hace que los datos se lean como datos.
+Las tres van en Canva (súbelas si no están). En el plan visual usé **Lekton** —que sí está en Google Fonts— y sustitutos cercanos para las otras dos.
 
-### La regla que te va a ahorrar horas
+### Los activos que ya tienes
 
-> **Los generadores de imagen todavía escriben mal el texto en español.** Se
-> equivocan con acentos, con la ñ, e inventan letras. No pierdas tiempo pidiendo
-> flyers completos.
->
-> **El flujo correcto: la IA genera el ARTE sin nada de texto, y el texto lo
-> pones tú en Canva.** Tarda menos, se ve mejor, y puedes cambiar la fecha y el
-> precio en diez segundos sin regenerar nada.
+- **Logo principal:** la tecla de teclado crema con "CHAOS / Ctrl" sobre el cuadro negro redondeado. Es el que va en los flyers, arriba a la izquierda, pequeño.
+- **Logo secundario:** "CHAOS CTRL" en Horizon con la sombra azul desplazada. Para portadas y piezas donde la marca es el protagonista.
+- **Iconos dibujados a mano** (la tecla CTRL en perspectiva, la C entre garabatos, la espiral). **Estos son tu mejor activo y están desaprovechados:** la C rodeada de garabatos es literalmente "el caos", y la tecla Ctrl es "el control". Úsalos como elemento gráfico suelto en los flyers, en celeste `#AFE9FD` sobre el azul marino.
 
-Los prompts de abajo están escritos para eso. El único caso donde vale la pena
-pedir texto integrado es una palabra corta en inglés sin acentos.
+### Un detalle que hay que corregir hoy
 
-### Por qué los prompts están en inglés
-Los generadores de imagen entienden mucho mejor el inglés: más precisión en
-estilo, luz y encuadre. Cópialos tal cual. Lo que va entre `[corchetes]` es lo
-que tú cambias.
+Tu manual trae el tagline **"GOOD VIBES / GREAT BREWS"** — eso viene de la plantilla original, que era de una cafetería. Cámbialo antes de que se te cuele en una pieza publicada. Opciones que sí dicen lo que haces:
+
+- **DEL CAOS AL CONTROL**
+- **IA APLICADA, EN VIVO**
+- **CONTROL + IA**
+
+La primera es la más fuerte: está en el nombre, es memorable, y es literalmente el antes y después de tu cliente.
 
 ---
 
-## Parte 2 · Prompts de marca
+## Parte 2 · Cómo vas a producir los flyers
 
-### 2.1 Isotipo / logo
+Vas a generarlos en ChatGPT. Dos cosas que hay que saber antes:
 
-Para ChatGPT, Ideogram o Midjourney. Genera varias y llévala a un diseñador o a
-Canva para vectorizarla.
+**1. Los logos de las apps van a salir mal.** ChatGPT no reproduce fielmente los logos de ChatGPT, Gemini, Claude o Copilot: los deforma, les inventa formas o les pone letras raras. Los prompts de abajo los piden de todas formas porque a veces salen aceptables — pero **si salen deformes, la corrección son dos minutos en Canva**: descarga los iconos reales y pégalos encima de los cuadros que generó. Quedan perfectos y es más rápido que regenerar diez veces.
+
+**2. El texto en español a veces se rompe.** Los acentos y la ñ. Revisa siempre antes de publicar: "asesoría", "más", "días", "diseño". Si una palabra salió mal, regenera o corrígela en Canva.
+
+**El flujo más rápido y confiable:**
 
 ```
-Minimal logo mark for a brand called Chaos Ctrl. A single keyboard key
-viewed at a slight three-quarter angle. The lower half of the key is a
-precise, sharp geometric square; the upper half dissolves upward into
-scattered pixel fragments and thin broken lines. Flat vector illustration,
-two colors only: off-white #F2F3F0 on deep charcoal #0E1214. Bold,
-geometric, confident, no gradients, no shading, no text, no letters.
-Centered on a square canvas with generous margin.
+ChatGPT genera la composición completa
+        ↓
+¿Salieron bien logos y acentos?
+        ↓                    ↓
+       SÍ                   NO
+        ↓                    ↓
+   Publícalo         Canva: pega los iconos
+                     reales y corrige el texto
+                             ↓
+                        Publícalo
 ```
 
-**Variante con acento de color** — cambia la última parte por:
+---
+
+## Parte 3 · Los prompts
+
+Cópialos tal cual. Lo que está `[entre corchetes]` es lo que tú cambias antes de pegarlo.
+
+### 3.1 · Ctrl + Inicio — flyer principal (formato 4:5, feed)
+
 ```
-Three colors only: off-white #F2F3F0 and electric teal #14D6C4 on deep
-charcoal #0E1214. The ordered lower half in teal, the dissolving fragments
-in off-white.
+Create a vertical 4:5 social media flyer for a live AI course. Dark,
+premium, editorial tech design. NOT a generic template.
+
+BACKGROUND: deep navy #050A34, almost black. Very subtle texture: thin
+hand-drawn scribble lines in light blue #AFE9FD at 12% opacity in the
+upper right corner, like tangled chaos resolving into a clean grid
+toward the bottom. Keep it faint — it is texture, not decoration.
+
+LAYOUT, top to bottom:
+
+1. Top left, small: a cream #E8E6D8 rounded-square keyboard-key logo
+   containing the words "CHAOS" above a thin line and "Ctrl" below.
+   Small, about 10% of the width.
+
+2. Headline, huge, cream #E8E6D8, uppercase, heavy squarish techno
+   sans-serif, very tight letter spacing, three lines, left aligned:
+   "DOMINA
+   CHATGPT
+   DE VERDAD"
+
+3. Below it, one line in light blue #AFE9FD, small, monospaced:
+   "No el 10% que usa todo el mundo"
+
+4. A horizontal row of 5 evenly spaced rounded-square app icons on a
+   subtle #092676 strip: ChatGPT, Google Gemini, Claude, Microsoft
+   Copilot and Grok. Flat, simple, correctly proportioned, evenly sized.
+
+5. A short list of 4 items, cream text, monospaced, each preceded by a
+   small electric blue #085CF0 arrow:
+   "Modelos de razonamiento
+   Proyectos, archivos y conectores
+   Imagenes, video y presentaciones
+   Prompts que si funcionan"
+
+6. A BOLD BADGE that must be the second most visible element on the
+   whole flyer: a solid electric blue #085CF0 rectangle with slightly
+   rounded corners, spanning most of the width, containing in dark navy
+   #050A34 heavy uppercase text:
+   "+ 1 MES DE ASESORIA INCLUIDO"
+   and under it in smaller text:
+   "Cuando acaba el curso, sigo contigo"
+
+7. Bottom block: on the left, in monospaced cream, three short lines:
+   "5 sesiones · 10 horas en vivo"
+   "Grupos de 10 personas maximo"
+   "Lunes a viernes 7 a 9 pm"
+   On the right, very large in electric blue #085CF0: "$1,290"
+
+8. Bottom edge: a full-width cream #E8E6D8 button with dark navy text:
+   "ESCRIBEME POR WHATSAPP"
+
+STYLE: high contrast, generous margins, strong typographic hierarchy,
+only three text sizes, lots of breathing room. Premium and confident,
+like a design studio poster — not a busy sales flyer. Only these four
+colors: #050A34, #092676, #085CF0, #AFE9FD, #E8E6D8. All text in
+Spanish, spelled exactly as written above.
 ```
 
-### 2.2 Fondos de marca (el caballo de batalla)
+> **Nota sobre acentos:** el prompt escribe "ASESORIA", "Imagenes", "si" sin
+> acento **a propósito** — los generadores fallan más con acentos y es mejor
+> ponerlos tú en Canva que arriesgar una palabra rota. Si tu generación sale
+> bien con acentos, mejor.
 
-Estos son los que más vas a usar: arte abstracto de marca, sin texto, listo para
-que le pongas el titular encima en Canva.
+### 3.2 · Ctrl + Aula — docentes (4:5)
 
-**Fondo A — la transición caos→orden (el principal)**
 ```
-Abstract brand background for a technology education company. Left side:
-a chaotic tangle of thin luminous lines, scattered fragments, digital
-glitch artifacts, visual noise, disorder. Right side: the same lines
-resolved into a clean, precise, calm geometric grid. A smooth transition
-between the two halves across the center. Deep charcoal background
-#0E1214, electric teal #14D6C4 lines, small accents of signal orange
-#FF6B2C. Cinematic side lighting, subtle film grain, high contrast, deep
-blacks. Absolutely no text, no letters, no numbers, no logos, no
-watermarks. [FORMATO]. Generous empty negative space in the [lower
-third / left half] for typography.
+Create a vertical 4:5 social media flyer for a live AI course for
+teachers. Dark, premium, editorial tech design.
+
+BACKGROUND: deep navy #050A34. Faint texture in the upper area: thin
+hand-drawn line art in light blue #AFE9FD at 10% opacity suggesting
+stacked notebooks and scattered papers becoming an ordered grid.
+
+LAYOUT, top to bottom:
+
+1. Top left, small: cream #E8E6D8 rounded-square keyboard-key logo with
+   "CHAOS" above a thin line and "Ctrl" below.
+
+2. Huge headline, cream #E8E6D8, uppercase, heavy squarish techno
+   sans-serif, tight letter spacing, left aligned, three lines:
+   "RECUPERA
+   TUS
+   TARDES"
+
+3. One line in light blue #AFE9FD, monospaced, small:
+   "Para maestros que se ahogan en planeaciones"
+
+4. Horizontal row of 4 rounded-square app icons on a #092676 strip:
+   ChatGPT, Google Gemini, Claude and Canva. Flat, simple, even.
+
+5. Four list items in cream monospaced text with small electric blue
+   #085CF0 arrows:
+   "Planeaciones alineadas a tu programa
+   Rubricas y examenes en minutos
+   Retroalimentacion para 40 alumnos
+   Que hacer cuando ellos usan IA"
+
+6. BOLD BADGE, solid electric blue #085CF0 block, dark navy heavy
+   uppercase text, one of the two most visible elements:
+   "+ 1 MES DE ASESORIA INCLUIDO"
+   smaller line under it:
+   "Te acompaño hasta que lo apliques en tu grupo"
+
+7. Bottom block, left in monospaced cream:
+   "4 sesiones · 8 horas en vivo"
+   "Sabados por la manana"
+   "Constancia con horas"
+   Right, very large in electric blue: "$1,490"
+
+8. Full-width cream button, dark navy text:
+   "3 COLEGAS PAGAN 2 · ESCRIBEME"
+
+STYLE: high contrast, generous margins, only three text sizes, calm and
+premium, not a busy sales flyer. Only these colors: #050A34, #092676,
+#085CF0, #AFE9FD, #E8E6D8. All text in Spanish, exactly as written.
 ```
 
-**Fondo B — la retícula que respira**
+### 3.3 · Ctrl + Negocio — emprendedores (4:5)
+
 ```
-Abstract dark background: a precise geometric grid of thin electric teal
-#14D6C4 lines on deep charcoal #0E1214, with a few nodes glowing softly
-in signal orange #FF6B2C. Depth of field, the grid fading into darkness
-toward the edges. Minimal, technical, calm, premium. Subtle film grain.
-No text, no letters, no logos. [FORMATO]. Large empty dark area in the
-center-left for typography.
+Create a vertical 4:5 social media flyer for a live AI course for small
+business owners. Dark, premium, editorial tech design.
+
+BACKGROUND: deep navy #050A34. Faint texture: thin light blue #AFE9FD
+line art at 10% opacity showing a tangle of arrows on the left resolving
+into a clean automation flow diagram on the right.
+
+LAYOUT, top to bottom:
+
+1. Top left, small: cream #E8E6D8 rounded-square keyboard-key logo with
+   "CHAOS" above a thin line and "Ctrl" below.
+
+2. Huge headline, cream #E8E6D8, uppercase, heavy squarish techno
+   sans-serif, tight, left aligned, three lines:
+   "QUE TU
+   NEGOCIO
+   TRABAJE SOLO"
+
+3. One line in light blue #AFE9FD, monospaced, small:
+   "Sales de clase con una automatizacion corriendo"
+
+4. Horizontal row of 4 rounded-square app icons on a #092676 strip:
+   ChatGPT, Claude, WhatsApp and Make (automation). Flat, simple, even.
+
+5. Four list items in cream monospaced text with electric blue #085CF0
+   arrows:
+   "Un asistente entrenado con tu negocio
+   Mensajes que se clasifican y contestan solos
+   Cotizaciones automaticas
+   Tus ventas analizadas cada lunes"
+
+6. BOLD BADGE, solid electric blue #085CF0 block, dark navy heavy
+   uppercase text:
+   "+ 1 MES DE ASESORIA INCLUIDO"
+   smaller line under it:
+   "Hasta que este funcionando de verdad"
+
+7. Bottom block, left in monospaced cream:
+   "4 sesiones · 8 horas en vivo"
+   "Solo 8 lugares"
+   "Trabajamos negocio por negocio"
+   Right, very large in electric blue: "$1,500"
+
+8. Full-width cream button, dark navy text:
+   "ESCRIBEME POR WHATSAPP"
+
+STYLE: high contrast, generous margins, only three text sizes, premium
+and confident. Only these colors: #050A34, #092676, #085CF0, #AFE9FD,
+#E8E6D8. All text in Spanish, exactly as written.
 ```
 
-**Fondo C — el escritorio de noche**
+### 3.4 · Versión historia / Reel (9:16)
+
+Toma cualquiera de los tres de arriba y **cambia solo la primera línea** por:
+
 ```
-Overhead photograph of a dark wooden desk at night, lit only by the cool
-glow of a laptop screen and a small warm desk lamp at the edge of frame.
-On the desk: an open notebook with handwritten notes, a pen, a coffee
-cup, reading glasses. Deep shadows, teal screen glow, warm lamp
-highlights. Moody, intimate, real — not a staged stock photo. Shallow
-depth of field, 35mm, subtle grain. No text, no visible screen content,
-no logos. [FORMATO]. The upper third mostly dark and empty for
-typography.
+Create a vertical 9:16 story format flyer, same design system.
 ```
 
-**Sustituye `[FORMATO]` por lo que necesites:**
+Y añade al final:
 
-| Dónde va | Formato | Qué escribir |
+```
+IMPORTANT for 9:16: keep the top 15% and bottom 20% of the canvas free
+of text and logos, because the platform interface covers those areas.
+Center the headline and the badge in the middle 60% of the frame.
+```
+
+Ese último párrafo es el que evita que Instagram te tape el precio con la
+barra de "Enviar mensaje".
+
+### 3.5 · Fondo sin texto — la opción segura
+
+Cuando quieras armar el flyer tú en Canva con texto y logos perfectos:
+
+```
+Abstract brand background for a technology education company. Deep navy
+#050A34 base. Thin hand-drawn scribble lines in light blue #AFE9FD:
+tangled and chaotic in the upper left, gradually resolving into a clean,
+precise geometric grid toward the lower right. A few small solid shapes
+in electric blue #085CF0 as accents along the transition. Subtle grain,
+high contrast, deep blacks, calm and premium.
+
+Absolutely no text, no letters, no numbers, no logos, no watermarks,
+no icons.
+
+[Vertical composition, 4:5 aspect ratio]. Keep the entire lower two
+thirds visually calm and mostly empty, ready for typography.
+```
+
+Este es el que va a salir bien **siempre**, porque no le estás pidiendo texto ni logos. Genera tres o cuatro versiones y guárdalas: te sirven para todo el contenido del mes.
+
+### 3.6 · Solo la fila de iconos
+
+Si prefieres armar el flyer en Canva pero quieres la tira de apps generada:
+
+```
+A horizontal row of 5 evenly spaced rounded-square app icons on a solid
+deep blue #092676 background strip. The icons are: ChatGPT, Google
+Gemini, Claude, Microsoft Copilot and Grok. Flat, simple, clean, all
+exactly the same size, evenly spaced, generous padding around the row.
+No text, no labels, no shadows. Wide horizontal composition.
+```
+
+**Pero honestamente: para esto Canva es mejor.** Busca "ChatGPT logo", "Gemini logo", "Claude logo" en su buscador de elementos, o descarga los iconos oficiales. Quedan perfectos y tardas menos.
+
+---
+
+## Parte 4 · Por qué estos flyers funcionan
+
+Tres decisiones deliberadas, por si quieres cambiarlas con criterio:
+
+**La fila de apps va arriba, junto al titular.** Es tu mejor detenedor de scroll: la gente reconoce esos iconos en un cuarto de segundo y entiende de qué se trata antes de leer una sola palabra. Ponerla abajo desperdicia ese efecto.
+
+**El badge de asesoría es el segundo elemento más visible, no el tercero ni el cuarto.** Es tu único diferenciador que nadie más ofrece. Si compite en tamaño con el temario, se pierde. Por eso va en un bloque sólido de azul eléctrico, con el fondo invertido — es lo único en toda la pieza con ese tratamiento.
+
+**Solo cuatro puntos de temario, no diez.** La tentación es meter todo lo que enseñas para demostrar valor. No funciona: un flyer con diez bullets no se lee, se ignora. Cuatro puntos específicos —"proyectos, archivos y conectores"— comunican más profundidad que diez genéricos, porque el que sabe un poco reconoce inmediatamente que ahí hay algo que no le han enseñado.
+
+## Parte 5 · Qué probar primero
+
+Tres versiones por curso, y déjalas correr 3 días antes de juzgar:
+
+| Versión | Qué es | Qué mides |
 |---|---|---|
-| Feed de Facebook e Instagram | 4:5 | `Vertical composition, 4:5 aspect ratio` |
-| Publicación cuadrada | 1:1 | `Square composition, 1:1 aspect ratio` |
-| Historias y Reels | 9:16 | `Vertical composition, 9:16 aspect ratio` |
-| Portada de la página | 16:9 | `Wide horizontal composition, 16:9 aspect ratio` |
+| **A** | El flyer de la sección 3 | Si el mensaje y el temario funcionan solos |
+| **B** | Fondo 3.5 + tu foto real + el titular | Si tu cara sobre la marca convierte |
+| **C** | Video vertical tuyo hablando 30 s, sin música ni edición | Tu cara sola contra todo lo demás |
 
----
-
-## Parte 3 · Prompts por curso
-
-Estos son fotografías editoriales. **Funcionan mejor que el arte abstracto para
-vender**, porque el cliente se ve a sí mismo en la imagen. Úsalos como creativo
-principal del anuncio y deja los fondos abstractos para las piezas de marca.
-
-### 3.1 Ctrl + Inicio
-
-```
-Editorial documentary photograph of a [Mexican woman in her late 30s] at
-a small kitchen table at night, laptop open, taking handwritten notes in
-a notebook. Focused and calm, looking at the screen — not at the camera,
-not smiling. A warm desk lamp is the only strong light; cool blue night
-light comes through the window behind. Modest, real Mexican home
-interior. Shot on 50mm, shallow depth of field, natural skin texture,
-visible grain. Documentary style, absolutely no stock-photo gloss, no
-staged perfection. Deep charcoal shadows, warm highlights, a hint of teal
-in the screen glow. Vertical 4:5. Subject on the right third, leaving
-clean dark negative space on the left for text. No text, no logos, no
-readable screen content.
-```
-
-**Variantes para probar** — cambia solo la parte entre corchetes:
-- `Mexican man in his early 30s`
-- `Mexican woman in her 50s`
-- `young Mexican man in his mid 20s`
-
-Genera las cuatro y prueba cuál convierte mejor. **La edad del modelo en el
-anuncio es la variable que más mueve el costo por mensaje.**
-
-### 3.2 Ctrl + Aula (docentes)
-
-```
-Editorial documentary photograph of a [Mexican woman teacher in her
-mid-40s] at a dining table at night, surrounded by tall stacks of student
-notebooks and loose papers, a laptop open beside her. She is closing one
-notebook with a small look of relief, shoulders relaxed. Warm lamp light
-from the left, cool blue window light behind. Real Mexican home interior,
-lived-in, not styled. Shot on 50mm, shallow depth of field, natural skin
-texture, film grain. Documentary, honest, warm. Deep shadows. Vertical
-4:5, subject on the right, dark empty space upper left for a headline.
-No text, no logos, no readable writing.
-```
-
-**Variante "el antes"** — para la mitad izquierda de un antes/después:
-```
-Same setting and same woman, but overwhelmed: stacks of notebooks
-towering, papers scattered, hand on forehead, tired. Cold blue-grey
-light, no warmth. Same documentary style. Vertical 4:5.
-```
-
-### 3.3 Ctrl + Negocio (emprendedores)
-
-```
-Editorial documentary photograph of a [Mexican man in his mid-30s], owner
-of a small business, standing inside his own shop after closing hours.
-Lights partly off, shelves and merchandise softly out of focus behind
-him. He is looking at his phone with a calm, satisfied expression. Warm
-practical lighting from a single overhead lamp, teal shadows in the
-background. Real small Mexican business interior — a papelería, a
-refaccionaria, a small workshop. Shot on 35mm, shallow depth of field,
-natural texture, film grain. Documentary, grounded, no corporate
-stock-photo feel. Vertical 4:5, subject on the left, dark empty space on
-the right for text. No text, no logos, no readable screen.
-```
-
----
-
-## Parte 4 · Consistencia entre imágenes
-
-Para que todas tus piezas se vean de la misma marca, **pega este bloque al final
-de cualquier prompt**:
-
-```
-Style reference: dark editorial documentary photography, deep charcoal
-#0E1214 shadows, electric teal #14D6C4 in screen and cool light, signal
-orange #FF6B2C only as a small warm accent. High contrast, deep blacks,
-visible film grain, natural skin texture, single dominant light source,
-no HDR, no glossy stock-photo look, no lens flare, no artificial smiles.
-```
-
-**Truco adicional:** cuando una imagen te quede bien, guárdala y en las
-siguientes súbela como referencia diciendo *"same lighting, same color grading,
-same photographic style as this reference"*. Es la forma más rápida de mantener
-la línea sin repetir el prompt entero.
-
----
-
-## Parte 5 · El flyer armado en Canva
-
-Con la imagen generada, el armado toma cinco minutos. Estructura fija:
-
-```
-┌─────────────────────────────┐
-│  CHAOS CTRL          ← logo pequeño, arriba izquierda
-│                             │
-│  TITULAR EN            ← Archivo Black, mayúsculas,
-│  DOS O TRES              interletrado apretado,
-│  LÍNEAS                  blanco hueso, 3 líneas máx.
-│                             │
-│  Subtítulo de una línea  ← IBM Plex Sans, gris humo
-│  que dice para quién es     │
-│                             │
-│  ─────────────────          │
-│  ⬛ 5 sesiones · 10 horas ← mono, blanco
-│  ⬛ Grupos de 10 máximo     │
-│  ⬛ 1 mes de asesoría       │
-│  ─────────────────          │
-│                             │
-│  $1,290          ← naranja señal, mono, GRANDE
-│  Inicia [FECHA] · quedan [N] lugares  ← naranja
-│                             │
-│  [ ESCRÍBEME POR WHATSAPP ] ← botón naranja sólido
-└─────────────────────────────┘
-```
-
-**Las cinco reglas del armado:**
-1. **El fondo va oscurecido.** Ponle una capa negra al 40–55% de opacidad encima
-   de la foto. Sin eso el texto no se lee y el anuncio no funciona.
-2. **Máximo tres tamaños de letra** en toda la pieza.
-3. **Un solo elemento naranja dominante.** El precio o el botón, no los dos al
-   mismo tamaño.
-4. **Poco texto.** Facebook penaliza las imágenes saturadas de letras y la gente
-   no las lee. Si no se entiende en dos segundos, sobra texto.
-5. **Guárdalo como plantilla.** Cambias titular, fecha y precio para los otros
-   dos cursos y ya tienes las tres piezas.
-
-### Titulares que puedes usar
-
-**Ctrl + Inicio**
-- NO USES CHATGPT / COMO BUSCADOR
-- LO QUE NADIE / TE ENSEÑA / DE LA IA
-- 10 HORAS / Y DEJAS DE / IR ATRÁS
-
-**Ctrl + Aula**
-- RECUPERA / TUS TARDES
-- LA IA NO / TE VA A / QUITAR TU / TRABAJO
-- TUS ALUMNOS / YA LA USAN
-
-**Ctrl + Negocio**
-- QUE TU / NEGOCIO / TRABAJE SOLO
-- 12 HORAS / AL DÍA / NO SON / NORMALES
-- AUTOMATIZA / O TE / ALCANZAN
-
----
-
-## Parte 6 · Texto del anuncio
-
-El creativo detiene el scroll; el texto cierra. Estos van en el campo de texto
-principal, con el objetivo **Mensajes a WhatsApp**.
-
-### Ctrl + Inicio
-> Llevo un año usando inteligencia artificial todos los días para operar mis
-> negocios. Y me di cuenta de algo: casi todos los cursos que veo enseñan menos
-> de lo que ya sabe cualquiera que la haya usado dos semanas.
->
-> Por eso armé Chaos Ctrl.
->
-> 10 horas en vivo, de lunes a viernes de 7 a 9 de la noche — porque sé que sales
-> de trabajar a las 6. Máximo 10 personas, cada quien trabajando con su caso
-> real. No solo ChatGPT: te enseño qué herramienta sirve para cada tarea y cómo
-> usar la aplicación completa, no el 10% que usa todo el mundo.
->
-> Y cuando termina, me quedo un mes contigo resolviéndote dudas.
->
-> $1,290. Inicia el [FECHA]. Quedan [N] lugares.
->
-> Escríbeme y te digo si es para ti o no — con honestidad, porque no me sirve un
-> alumno que no lo va a aprovechar.
-
-### Ctrl + Aula
-> Si eres maestro, esto es para ti.
->
-> No te voy a enseñar "qué es la inteligencia artificial". Te voy a enseñar a
-> recuperar entre 4 y 8 horas a la semana de planeaciones, rúbricas,
-> retroalimentación e informes. Y qué hacer cuando tus alumnos entreguen trabajos
-> hechos con IA — porque ya lo están haciendo y los detectores no funcionan.
->
-> 8 horas en vivo, cuatro sábados por la mañana. Máximo 12 personas. Un mes de
-> asesoría conmigo después del curso. Constancia con horas.
->
-> $1,490 — y si vienen tres colegas de tu escuela, pagan dos.
->
-> Escríbeme y platicamos.
-
-### Ctrl + Negocio
-> Si tienes un negocio y trabajas 12 horas al día, no necesitas otro curso de
-> ChatGPT.
->
-> Necesitas salir con algo funcionando.
->
-> En Chaos Ctrl construimos en clase, con los datos de tu negocio, al menos una
-> automatización corriendo de verdad: mensajes que se clasifican y contestan
-> solos, cotizaciones que se generan y envían, tu reporte de ventas llegándote
-> cada lunes al WhatsApp.
->
-> Yo lo uso todos los días en mis empresas. Eso es lo que enseño.
->
-> 8 horas en vivo, cuatro sábados. Solo 8 lugares, porque trabajamos negocio por
-> negocio. $1,500.
->
-> Escríbeme y te digo si tu negocio es candidato.
-
----
-
-## Parte 7 · Qué probar primero
-
-No hagas 20 creativos. Haz **tres por curso** y déjalos correr:
-
-| Versión | Qué cambia | Qué estás midiendo |
-|---|---|---|
-| **A** | Foto editorial del cliente ideal | La conexión con el público |
-| **B** | Fondo abstracto de marca + titular grande | Si el mensaje solo, sin rostro, funciona |
-| **C** | Video vertical tuyo hablando a cámara, 30 s, sin música | Tu cara contra todo lo demás |
-
-**Apuesta segura: la C gana.** En marca personal, tu cara conviene más que
-cualquier diseño. Los flyers sirven para el resto del contenido y para el
-remarketing; el anuncio de adquisición que mejor convierte casi siempre eres tú
-hablando, sin producción.
+**Apuesta segura: la C gana.** En marca personal, tú en cámara conviertes más que cualquier diseño. Los flyers son para el contenido del feed, para el remarketing y para que la página no se vea vacía — el anuncio de adquisición que mejor funciona casi siempre eres tú hablando.

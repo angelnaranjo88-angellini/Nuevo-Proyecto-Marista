@@ -1,84 +1,84 @@
 <title>Chaos Ctrl</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Chakra+Petch:wght@600;700&family=Lekton:wght@400;700&display=swap">
 
 <style>
 :root{
-  --ground:#EDEFEE; --surface:#FBFCFB; --surface-2:#E2E7E5; --surface-3:#D6DDDA;
-  --ink:#0E1214; --ink-2:#465452; --ink-3:#6B7A78;
-  --line:#C9D2CF; --line-2:#B2BDBA;
-  --accent:#0A6E66; --accent-2:#085A54; --accent-soft:#D3E7E4;
-  --signal:#B04309; --signal-soft:#F7DECE;
+  --ground:#E8E6D8; --surface:#F4F3EA; --surface-2:#DEDCCD; --surface-3:#D2CFBE;
+  --ink:#050A34; --ink-2:#3A4470; --ink-3:#626B92;
+  --line:#C9C6B4; --line-2:#B5B2A0;
+  --accent:#092676; --accent-2:#050A34; --accent-soft:#D3DCF0;
+  --signal:#0A4AC4; --signal-soft:#D2E1FE;
   --good:#1F6B45; --good-soft:#D7E8DE;
-  --shadow:0 1px 2px rgba(14,18,20,.06), 0 8px 24px -12px rgba(14,18,20,.2);
+  --shadow:0 1px 2px rgba(5,10,52,.07), 0 8px 24px -12px rgba(5,10,52,.22);
   --r:10px;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#0E1214; --surface:#161D1F; --surface-2:#1E2729; --surface-3:#263133;
-    --ink:#F2F3F0; --ink-2:#A3B1AF; --ink-3:#7C8B89;
-    --line:#283335; --line-2:#374446;
-    --accent:#14D6C4; --accent-2:#4FE3D5; --accent-soft:#0D3330;
-    --signal:#FF7F45; --signal-soft:#38200F;
-    --good:#5DBF8C; --good-soft:#14291F;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.65);
+    --ground:#050A34; --surface:#0A1244; --surface-2:#101B55; --surface-3:#17245F;
+    --ink:#E8E6D8; --ink-2:#A8B4D8; --ink-3:#7E8BB5;
+    --line:#1B2A6B; --line-2:#27377F;
+    --accent:#AFE9FD; --accent-2:#D3F2FE; --accent-soft:#0E2A66;
+    --signal:#5B9BFF; --signal-soft:#0C2560;
+    --good:#5DBF8C; --good-soft:#0E2A22;
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 8px 24px -12px rgba(0,0,0,.7);
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0E1214; --surface:#161D1F; --surface-2:#1E2729; --surface-3:#263133;
-  --ink:#F2F3F0; --ink-2:#A3B1AF; --ink-3:#7C8B89;
-  --line:#283335; --line-2:#374446;
-  --accent:#14D6C4; --accent-2:#4FE3D5; --accent-soft:#0D3330;
-  --signal:#FF7F45; --signal-soft:#38200F;
-  --good:#5DBF8C; --good-soft:#14291F;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.65);
+    --ground:#050A34; --surface:#0A1244; --surface-2:#101B55; --surface-3:#17245F;
+  --ink:#E8E6D8; --ink-2:#A8B4D8; --ink-3:#7E8BB5;
+  --line:#1B2A6B; --line-2:#27377F;
+  --accent:#AFE9FD; --accent-2:#D3F2FE; --accent-soft:#0E2A66;
+  --signal:#5B9BFF; --signal-soft:#0C2560;
+  --good:#5DBF8C; --good-soft:#0E2A22;
+  --shadow:0 1px 2px rgba(0,0,0,.45), 0 8px 24px -12px rgba(0,0,0,.7);
 }
 
 *{box-sizing:border-box}
 body{
   background:var(--ground); color:var(--ink);
-  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:Archivo,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   font-size:15.5px; line-height:1.62; margin:0; -webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,h4{margin:0; line-height:1.14; text-wrap:balance}
-h1,h2{font-family:"Archivo Black","Archivo",Impact,sans-serif; letter-spacing:-.025em; text-transform:uppercase}
-h3,h4{font-family:"Archivo","IBM Plex Sans",sans-serif; font-weight:700; letter-spacing:-.01em}
+h1,h2{font-family:"Chakra Petch",Archivo,Impact,sans-serif; font-weight:700; letter-spacing:-.015em; text-transform:uppercase}
+h3,h4{font-family:"Chakra Petch",Archivo,sans-serif; font-weight:600; letter-spacing:-.005em}
 p{margin:0}
 a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:2px}
 :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important; scroll-behavior:auto!important}}
 html{scroll-behavior:smooth}
-.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.mono{font-family:Lekton,"IBM Plex Mono",ui-monospace,monospace}
 
 .shell{display:grid; grid-template-columns:228px minmax(0,1fr); max-width:1250px; margin:0 auto}
 .rail{position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; padding:36px 20px 40px 26px; border-right:1px solid var(--line)}
-.rail-mark{font-family:"Archivo Black",sans-serif; font-size:19px; text-transform:uppercase; letter-spacing:-.03em; line-height:1; margin-bottom:6px}
+.rail-mark{font-family:"Chakra Petch",sans-serif; font-weight:700; font-size:19px; text-transform:uppercase; letter-spacing:-.03em; line-height:1; margin-bottom:6px}
 .rail-mark span{color:var(--accent)}
-.rail-sub{font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--ink-3); letter-spacing:.13em; text-transform:uppercase; margin-bottom:26px}
+.rail-sub{font-family:Lekton,monospace; font-size:10px; color:var(--ink-3); letter-spacing:.13em; text-transform:uppercase; margin-bottom:26px}
 .rail nav{display:flex; flex-direction:column; gap:1px}
 .rail a{display:flex; gap:9px; align-items:baseline; text-decoration:none; color:var(--ink-2); font-size:13.2px; padding:5px 8px; border-radius:6px; transition:background .12s,color .12s}
-.rail a .n{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3); min-width:16px; font-variant-numeric:tabular-nums}
+.rail a .n{font-family:Lekton,monospace; font-size:10.5px; color:var(--ink-3); min-width:16px; font-variant-numeric:tabular-nums}
 .rail a:hover{background:var(--surface-2); color:var(--ink)}
 .rail a.on{background:var(--accent-soft); color:var(--accent); font-weight:600}
 .rail a.on .n{color:var(--accent)}
 main{padding:0 44px 100px; min-width:0}
 
 .hero{padding:54px 0 34px; border-bottom:1px solid var(--line)}
-.kicker{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--signal); margin-bottom:18px}
+.kicker{font-family:Lekton,monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--signal); margin-bottom:18px}
 .hero h1{font-size:clamp(38px,5.6vw,66px); max-width:14ch; margin-bottom:20px}
 .hero h1 em{font-style:normal; color:var(--accent)}
 .thesis{font-size:18px; line-height:1.55; color:var(--ink-2); max-width:60ch; border-left:2px solid var(--signal); padding-left:18px}
 .thesis b{color:var(--ink); font-weight:600}
 .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(138px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden; margin-top:34px}
 .fact{background:var(--surface); padding:15px 16px}
-.fact dt{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:5px}
+.fact dt{font-family:Lekton,monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:5px}
 .fact dd{margin:0; font-size:15px; font-weight:600; line-height:1.3}
 
 section{padding:52px 0; border-bottom:1px solid var(--line); scroll-margin-top:16px}
 section:last-of-type{border-bottom:0}
 .eyebrow{display:flex; align-items:center; gap:11px; margin-bottom:10px}
-.eyebrow .n{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--signal); font-weight:600; letter-spacing:.06em}
+.eyebrow .n{font-family:Lekton,monospace; font-size:11px; color:var(--signal); font-weight:600; letter-spacing:.06em}
 .eyebrow .rule{flex:1; height:1px; background:var(--line)}
 section > h2{font-size:clamp(24px,3vw,31px); margin-bottom:12px}
 .lede{color:var(--ink-2); max-width:66ch; font-size:16px; margin-bottom:26px}
@@ -92,27 +92,27 @@ li::marker{color:var(--ink-3)}
 
 .courses{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin:26px 0}
 .course{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:19px 18px 17px; display:flex; flex-direction:column; box-shadow:var(--shadow)}
-.course .tag{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:9px}
-.course h3{font-family:"Archivo Black",sans-serif; font-size:19px; margin:0 0 7px; text-transform:uppercase; letter-spacing:-.02em}
+.course .tag{font-family:Lekton,monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:9px}
+.course h3{font-family:"Chakra Petch",sans-serif; font-weight:700; font-size:19px; margin:0 0 7px; text-transform:uppercase; letter-spacing:-.02em}
 .course h3 span{color:var(--accent)}
 .course .who{font-size:13.4px; color:var(--ink-2); line-height:1.5; margin-bottom:15px; flex:1}
-.course .meta{display:flex; gap:14px; font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3); padding-top:13px; border-top:1px solid var(--line); font-variant-numeric:tabular-nums}
-.course .price{font-family:"IBM Plex Mono",monospace; font-size:24px; font-weight:600; color:var(--signal); font-variant-numeric:tabular-nums; margin-top:11px}
+.course .meta{display:flex; gap:14px; font-family:Lekton,monospace; font-size:11.5px; color:var(--ink-3); padding-top:13px; border-top:1px solid var(--line); font-variant-numeric:tabular-nums}
+.course .price{font-family:Lekton,monospace; font-size:24px; font-weight:600; color:var(--signal); font-variant-numeric:tabular-nums; margin-top:11px}
 
 .diffs{display:grid; grid-template-columns:repeat(auto-fit,minmax(228px,1fr)); gap:14px; margin-top:24px}
 .diff{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:18px}
-.diff .rank{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--signal); letter-spacing:.08em; margin-bottom:8px}
+.diff .rank{font-family:Lekton,monospace; font-size:10.5px; color:var(--signal); letter-spacing:.08em; margin-bottom:8px}
 .diff h4{margin:0 0 7px; font-size:15px}
 .diff p{font-size:13.4px; color:var(--ink-2); line-height:1.52}
 
 .tabs{display:flex; gap:5px; margin:22px 0 0; flex-wrap:wrap; border-bottom:1px solid var(--line)}
-.tab{font-family:"IBM Plex Sans",sans-serif; font-size:13.4px; font-weight:500; background:transparent; border:1px solid transparent; border-bottom:0; color:var(--ink-2); padding:9px 15px; border-radius:7px 7px 0 0; cursor:pointer; margin-bottom:-1px; transition:.12s}
+.tab{font-family:Archivo,sans-serif; font-size:13.4px; font-weight:500; background:transparent; border:1px solid transparent; border-bottom:0; color:var(--ink-2); padding:9px 15px; border-radius:7px 7px 0 0; cursor:pointer; margin-bottom:-1px; transition:.12s}
 .tab:hover{color:var(--ink); background:var(--surface-2)}
 .tab[aria-selected="true"]{background:var(--surface); border-color:var(--line); color:var(--accent); font-weight:600}
 .panel{background:var(--surface); border:1px solid var(--line); border-top:0; border-radius:0 0 var(--r) var(--r); padding:26px 24px}
 .panel-head{display:flex; flex-wrap:wrap; gap:10px 26px; align-items:baseline; padding-bottom:16px; margin-bottom:20px; border-bottom:1px solid var(--line)}
 .panel-head h3{margin:0; font-size:20px; flex:1; min-width:200px}
-.chip{font-family:"IBM Plex Mono",monospace; font-size:11px; background:var(--surface-2); border:1px solid var(--line); padding:3px 9px; border-radius:20px; color:var(--ink-2); white-space:nowrap}
+.chip{font-family:Lekton,monospace; font-size:11px; background:var(--surface-2); border:1px solid var(--line); padding:3px 9px; border-radius:20px; color:var(--ink-2); white-space:nowrap}
 .chip.money{background:var(--signal-soft); border-color:var(--signal); color:var(--signal); font-weight:600}
 .promise{background:var(--accent-soft); border-radius:8px; padding:14px 16px; font-size:14.4px; line-height:1.55; margin-bottom:22px}
 .promise b{color:var(--accent); font-weight:600}
@@ -120,13 +120,13 @@ li::marker{color:var(--ink-3)}
 .sess{border-left:2px solid var(--line); padding-left:20px; margin-left:5px; display:flex; flex-direction:column; gap:22px}
 .s{position:relative}
 .s::before{content:""; position:absolute; left:-26px; top:6px; width:9px; height:9px; border-radius:50%; background:var(--accent); border:2px solid var(--surface)}
-.s .sh{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:4px}
+.s .sh{font-family:Lekton,monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:4px}
 .s h4{font-size:17px; margin:0 0 9px}
 .blocks{display:flex; flex-direction:column; border:1px solid var(--line); border-radius:8px; overflow:hidden}
 .blk{display:grid; grid-template-columns:88px 1fr; gap:14px; padding:9px 13px; font-size:13.5px; border-bottom:1px solid var(--line); align-items:baseline}
 .blk:last-child{border-bottom:0}
 .blk:nth-child(odd){background:var(--surface-2)}
-.blk .t{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-3); font-variant-numeric:tabular-nums}
+.blk .t{font-family:Lekton,monospace; font-size:11.5px; color:var(--ink-3); font-variant-numeric:tabular-nums}
 .note{font-size:13.4px; color:var(--ink-2); margin-top:11px; line-height:1.55}
 .note b{color:var(--ink)}
 .deliver{margin-top:26px; padding-top:20px; border-top:1px solid var(--line)}
@@ -137,9 +137,9 @@ li::marker{color:var(--ink-3)}
 .scroll{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:var(--r); background:var(--surface)}
 table{border-collapse:collapse; width:100%; font-size:13.6px; min-width:480px}
 th,td{text-align:left; padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top}
-thead th{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); font-weight:500; background:var(--surface-2); white-space:nowrap}
+thead th{font-family:Lekton,monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); font-weight:500; background:var(--surface-2); white-space:nowrap}
 tbody tr:last-child td{border-bottom:0}
-td.n,th.n{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+td.n,th.n{text-align:right; font-family:Lekton,monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
 tr.total td{font-weight:700; background:var(--surface-2); border-top:2px solid var(--line-2)}
 tr.total td.n{color:var(--signal)}
 
@@ -148,18 +148,18 @@ tr.total td.n{color:var(--signal)}
 .cal th{text-align:center}
 .cal td{text-align:center; padding:0; height:46px; border-right:1px solid var(--line)}
 .cal td:last-child,.cal th:last-child{border-right:0}
-.cal td.h{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3); text-align:right; padding-right:11px; background:var(--surface-2); white-space:nowrap}
+.cal td.h{font-family:Lekton,monospace; font-size:11px; color:var(--ink-3); text-align:right; padding-right:11px; background:var(--surface-2); white-space:nowrap}
 .ev{display:block; margin:4px; padding:6px 5px; border-radius:5px; font-size:11.6px; font-weight:600; line-height:1.25}
 .ev.teal{background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent)}
 .ev.amber{background:var(--signal-soft); color:var(--signal); border:1px solid var(--signal)}
 .ev.quiet{background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line-2)}
-.ev small{display:block; font-weight:400; font-size:10px; opacity:.85; font-family:"IBM Plex Mono",monospace}
+.ev small{display:block; font-weight:400; font-size:10px; opacity:.85; font-family:Lekton,monospace}
 
 .days{display:flex; flex-direction:column; gap:10px; margin-top:24px}
 .day{display:grid; grid-template-columns:74px 1fr; gap:18px; background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px 18px}
 .day.fire{border-color:var(--signal); border-left-width:4px}
-.day .d{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); padding-top:2px}
-.day .d b{display:block; font-family:"Archivo Black",sans-serif; font-size:23px; color:var(--ink); letter-spacing:-.02em; line-height:1}
+.day .d{font-family:Lekton,monospace; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); padding-top:2px}
+.day .d b{display:block; font-family:"Chakra Petch",sans-serif; font-weight:700; font-size:23px; color:var(--ink); letter-spacing:-.02em; line-height:1}
 .day.fire .d b{color:var(--signal)}
 .day h4{margin:0 0 7px; font-size:15.5px}
 .day ul{margin:0; padding-left:17px; font-size:13.4px; color:var(--ink-2)}
@@ -170,37 +170,41 @@ tr.total td.n{color:var(--signal)}
 .sw .chipc{height:56px}
 .sw .meta{padding:9px 11px}
 .sw .meta b{display:block; font-size:12.8px}
-.sw .meta code{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3)}
+.sw .meta code{font-family:Lekton,monospace; font-size:11px; color:var(--ink-3)}
 .sw .meta em{display:block; font-style:normal; font-size:11.5px; color:var(--ink-2); margin-top:3px; line-height:1.35}
 
-pre{background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:14px 16px; overflow-x:auto; font-family:"IBM Plex Mono",monospace; font-size:12.3px; line-height:1.62; margin:12px 0; color:var(--ink)}
+pre{background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:14px 16px; overflow-x:auto; font-family:Lekton,monospace; font-size:12.3px; line-height:1.62; margin:12px 0; color:var(--ink)}
 pre .v{color:var(--signal); font-weight:600}
 
-.flyer{display:grid; grid-template-columns:minmax(0,220px) minmax(0,1fr); gap:24px; align-items:start; margin:22px 0}
+.flyer{display:grid; grid-template-columns:minmax(0,236px) minmax(0,1fr); gap:24px; align-items:start; margin:22px 0}
 @media (max-width:700px){.flyer{grid-template-columns:1fr}}
-.mock{background:var(--ink); border-radius:10px; padding:20px 18px; color:#F2F3F0; aspect-ratio:4/5; display:flex; flex-direction:column; border:1px solid var(--line-2)}
-.mock .lg{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.16em; opacity:.65; text-transform:uppercase}
-.mock .hd{font-family:"Archivo Black",sans-serif; font-size:23px; line-height:.98; letter-spacing:-.03em; margin-top:16px; text-transform:uppercase}
-.mock .sb{font-size:10.5px; opacity:.6; margin-top:9px; line-height:1.4}
-.mock .sp{flex:1}
-.mock .li{font-family:"IBM Plex Mono",monospace; font-size:9.5px; opacity:.8; border-top:1px solid rgba(242,243,240,.18); padding-top:7px; margin-top:7px}
-.mock .pr{font-family:"IBM Plex Mono",monospace; font-size:27px; font-weight:600; color:#FF7F45; margin-top:12px; line-height:1}
-.mock .cu{font-family:"IBM Plex Mono",monospace; font-size:9.5px; color:#FF7F45; margin-top:3px}
-.mock .bt{background:#FF7F45; color:#0E1214; font-weight:700; font-size:10.5px; text-align:center; padding:8px; border-radius:5px; margin-top:12px; letter-spacing:.02em}
+.mock{background:#050A34; border-radius:10px; padding:16px 15px; color:#E8E6D8; display:flex; flex-direction:column; gap:0; border:1px solid var(--line-2)}
+.mock .lg{font-family:Lekton,monospace; font-size:9px; letter-spacing:.1em; color:#E8E6D8; opacity:.85}
+.mock .hd{font-family:"Chakra Petch",sans-serif; font-weight:700; font-size:26px; line-height:.96; letter-spacing:-.02em; margin-top:13px; text-transform:uppercase; color:#E8E6D8}
+.mock .sb{font-family:Lekton,monospace; font-size:9.5px; color:#AFE9FD; margin-top:8px}
+.mock .apps{display:flex; gap:4px; background:#092676; padding:6px; border-radius:5px; margin-top:12px}
+.mock .apps i{flex:1; height:19px; border-radius:4px; background:#AFE9FD; opacity:.9; display:block}
+.mock .li{font-family:Lekton,monospace; font-size:9px; margin-top:6px; color:#E8E6D8; opacity:.92}
+.mock .badge{background:#085CF0; color:#050A34; font-family:"Chakra Petch",sans-serif; font-weight:700; font-size:11px; text-align:center; padding:9px 6px; border-radius:5px; margin-top:13px; letter-spacing:-.01em; line-height:1.15}
+.mock .badge small{display:block; font-family:Lekton,monospace; font-weight:400; font-size:8px; margin-top:3px; opacity:.85; letter-spacing:0}
+.mock .foot{display:flex; justify-content:space-between; align-items:flex-end; gap:8px; margin-top:13px}
+.mock .foot span{font-family:Lekton,monospace; font-size:8.5px; line-height:1.5; opacity:.85}
+.mock .foot b{font-family:Lekton,monospace; font-size:25px; color:#085CF0; line-height:1; font-weight:700}
+.mock .bt{background:#E8E6D8; color:#050A34; font-family:"Chakra Petch",sans-serif; font-weight:700; font-size:9.5px; text-align:center; padding:8px; border-radius:5px; margin-top:11px; letter-spacing:.02em}
 
 .call{border-left:3px solid var(--signal); background:var(--signal-soft); padding:15px 18px; border-radius:0 8px 8px 0; margin:22px 0; font-size:14px; line-height:1.58}
 .call.good{border-left-color:var(--good); background:var(--good-soft)}
-.call .h{display:block; font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; color:var(--signal)}
+.call .h{display:block; font-family:Lekton,monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; color:var(--signal)}
 .call.good .h{color:var(--good)}
 
 .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr)); gap:12px; margin:22px 0}
 .kpi{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px}
-.kpi .v{font-family:"IBM Plex Mono",monospace; font-size:25px; font-weight:600; color:var(--signal); font-variant-numeric:tabular-nums; line-height:1.1}
+.kpi .v{font-family:Lekton,monospace; font-size:25px; font-weight:600; color:var(--signal); font-variant-numeric:tabular-nums; line-height:1.1}
 .kpi .k{font-size:12.6px; color:var(--ink-2); margin-top:6px; line-height:1.4}
 
 .closing ol{counter-reset:c; list-style:none; padding:0; margin:20px 0 0; display:flex; flex-direction:column; gap:12px; max-width:64ch}
 .closing ol li{counter-increment:c; display:grid; grid-template-columns:28px 1fr; gap:14px; font-size:14.6px; align-items:baseline; margin:0}
-.closing ol li::before{content:counter(c,decimal-leading-zero); font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--signal); font-weight:600}
+.closing ol li::before{content:counter(c,decimal-leading-zero); font-family:Lekton,monospace; font-size:12px; color:var(--signal); font-weight:600}
 footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font-size:12.6px; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:8px 20px}
 
 @media (max-width:900px){
@@ -756,89 +760,141 @@ footer{margin-top:52px; padding-top:22px; border-top:1px solid var(--line); font
 <section id="marca">
   <div class="eyebrow"><span class="n">07</span><span class="rule"></span></div>
   <h2>Identidad y flyers</h2>
-  <p class="lede">El concepto está en el nombre: <b>desorden a la izquierda, orden a la derecha.</b> Líneas enredadas que se resuelven en una retícula limpia. Si una pieza no cuenta esa transición, no es Chaos Ctrl.</p>
+  <p class="lede">Tu manual de marca ya está hecho: tecla de teclado como logo, paleta 100% azul y tres tipografías. Lo que sigue es aplicarlo — y aprovechar los activos que hoy están desperdiciados.</p>
 
   <div class="swatches">
-    <div class="sw"><div class="chipc" style="background:#0E1214"></div><div class="meta"><b>Carbón</b><code>#0E1214</code><em>El 70% de cada pieza</em></div></div>
-    <div class="sw"><div class="chipc" style="background:#F2F3F0"></div><div class="meta"><b>Blanco hueso</b><code>#F2F3F0</code><em>Titulares y cuerpo</em></div></div>
-    <div class="sw"><div class="chipc" style="background:#14D6C4"></div><div class="meta"><b>Cian eléctrico</b><code>#14D6C4</code><em>El “Ctrl”: orden, retícula</em></div></div>
-    <div class="sw"><div class="chipc" style="background:#FF6B2C"></div><div class="meta"><b>Naranja señal</b><code>#FF6B2C</code><em>El “Chaos”: precio, cupos, botón</em></div></div>
-    <div class="sw"><div class="chipc" style="background:#6B7A78"></div><div class="meta"><b>Gris humo</b><code>#6B7A78</code><em>Texto secundario</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#050A34"></div><div class="meta"><b>Marino</b><code>#050A34</code><em>Fondo dominante, 60–70% de la pieza</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#092676"></div><div class="meta"><b>Azul profundo</b><code>#092676</code><em>Bloques, tarjetas, sombra del logo</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#085CF0"></div><div class="meta"><b>Azul eléctrico</b><code>#085CF0</code><em>Botón, precio, badge de asesoría</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#AFE9FD"></div><div class="meta"><b>Celeste</b><code>#AFE9FD</code><em>Datos y detalles sobre oscuro</em></div></div>
+    <div class="sw"><div class="chipc" style="background:#E8E6D8"></div><div class="meta"><b>Crema</b><code>#E8E6D8</code><em>Titulares y superficies claras</em></div></div>
   </div>
-  <p class="prose"><b>Regla del naranja:</b> solo para lo que quieres que se vea primero — el precio, “quedan 4 lugares”, el botón. Si lo usas en todo, deja de funcionar. <b>Tipografía:</b> Archivo Black para titulares (en mayúsculas, muy apretados), IBM Plex Sans para cuerpo, IBM Plex Mono para precios y horarios — el mono hace que los datos se lean como datos.</p>
+
+  <p class="prose">Es una paleta <b>completamente fría</b>. Te da elegancia y coherencia, pero te quita el color de urgencia que normalmente se usa para precios y cupos. La solución vive dentro de tu propia paleta: <b>el azul eléctrico es tu color de acción</b> y el celeste tu color de dato. Reserva el eléctrico para el botón, el precio y el badge de asesoría — nada más. Si lo usas en todo, deja de funcionar.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Rol</th><th>Fuente</th><th>Dónde va</th></tr></thead>
+      <tbody>
+        <tr><td>Titulares</td><td><b>Horizon</b></td><td>Mayúsculas, muy apretadas. Es la del logo secundario</td></tr>
+        <tr><td>Etiquetas, datos, temario</td><td><b>Lekton</b></td><td>Mono. Hace que los datos se lean como datos</td></tr>
+        <tr><td>Cuerpo</td><td><b>Coolvetica</b></td><td>Párrafos y textos de apoyo</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="call">
-    <span class="h">La regla que te va a ahorrar horas</span>
-    <b>Los generadores de imagen todavía escriben mal el texto en español.</b> Se equivocan con acentos, con la ñ, e inventan letras. No pierdas tiempo pidiendo flyers completos.<br><br>
-    <b>El flujo correcto: la IA genera el ARTE sin nada de texto, y el texto lo pones tú en Canva.</b> Tarda menos, se ve mejor, y puedes cambiar la fecha y el precio en diez segundos sin regenerar nada.
+    <span class="h">Dos cosas que hay que corregir hoy</span>
+    <b>1. El tagline.</b> Tu manual trae “GOOD VIBES / GREAT BREWS” — viene de la plantilla original, que era de una cafetería. Cámbialo antes de que se cuele en una pieza publicada. La opción más fuerte es <b>“DEL CAOS AL CONTROL”</b>: está en el nombre, es memorable y es literalmente el antes y después de tu cliente.<br><br>
+    <b>2. Los iconos dibujados a mano están desaprovechados.</b> La C rodeada de garabatos es literalmente “el caos”, y la tecla Ctrl es “el control”. Son tu mejor activo gráfico y ahora mismo solo viven en el manual. Úsalos sueltos en los flyers, en celeste sobre el azul marino.
   </div>
 
-  <h3>Prompt de marca — la transición caos→orden</h3>
-  <p class="prose">Cópialo tal cual. Lo que está en naranja es lo que tú cambias. Están en inglés porque los generadores lo entienden mucho mejor: más precisión en estilo, luz y encuadre.</p>
-  <pre>Abstract brand background for a technology education company. Left side:
-a chaotic tangle of thin luminous lines, scattered fragments, digital
-glitch artifacts, visual noise, disorder. Right side: the same lines
-resolved into a clean, precise, calm geometric grid. A smooth transition
-between the two halves across the center. Deep charcoal background
-#0E1214, electric teal #14D6C4 lines, small accents of signal orange
-#FF6B2C. Cinematic side lighting, subtle film grain, high contrast, deep
-blacks. Absolutely no text, no letters, no numbers, no logos, no
-watermarks. <span class="v">[Vertical composition, 4:5 aspect ratio]</span>. Generous empty
-negative space in the lower third for typography.</pre>
+  <h3>Antes de generar: dos realidades técnicas</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Lo que va a pasar</th><th>La corrección</th></tr></thead>
+      <tbody>
+        <tr><td><b>Los logos de las apps van a salir mal.</b> ChatGPT no reproduce fielmente los iconos de ChatGPT, Gemini, Claude o Copilot: los deforma o les inventa formas</td><td>Dos minutos en Canva: descarga los iconos reales y pégalos encima de los cuadros generados. Más rápido que regenerar diez veces</td></tr>
+        <tr><td><b>Los acentos y la ñ a veces se rompen.</b> “asesoría”, “más”, “días”, “diseño”</td><td>Los prompts escriben algunas palabras sin acento a propósito. Revisa siempre antes de publicar y corrige en Canva</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h3>Prompt de venta — la fotografía editorial</h3>
-  <p class="prose">Estos convierten mejor que el arte abstracto, porque el cliente se ve a sí mismo en la imagen. Este es el de Ctrl + Aula:</p>
-  <pre>Editorial documentary photograph of a <span class="v">[Mexican woman teacher in her
-mid-40s]</span> at a dining table at night, surrounded by tall stacks of
-student notebooks and loose papers, a laptop open beside her. She is
-closing one notebook with a small look of relief, shoulders relaxed.
-Warm lamp light from the left, cool blue window light behind. Real
-Mexican home interior, lived-in, not styled. Shot on 50mm, shallow depth
-of field, natural skin texture, film grain. Documentary, honest, warm.
-Deep shadows. Vertical 4:5, subject on the right, dark empty space upper
-left for a headline. No text, no logos, no readable writing.</pre>
-  <p class="prose"><b>Genera cuatro versiones cambiando solo la edad y el género del modelo</b> y prueba cuál convierte mejor. Es la variable que más mueve el costo por mensaje. Los prompts completos de los tres cursos, el logo y las variantes están en <span class="mono">cursos-ia/12-identidad-y-flyers.md</span>.</p>
-
-  <h3>El flyer armado</h3>
+  <h3>El flyer: qué lleva y por qué</h3>
   <div class="flyer">
     <div class="mock">
-      <div class="lg">Chaos Ctrl</div>
-      <div class="hd">No uses<br>ChatGPT<br>como<br>buscador</div>
-      <div class="sb">10 horas en vivo para dominar la herramienta completa</div>
-      <div class="sp"></div>
-      <div class="li">5 sesiones · 10 horas</div>
-      <div class="li">Grupos de 10 máximo</div>
-      <div class="li">1 mes de asesoría</div>
-      <div class="pr">$1,290</div>
-      <div class="cu">Inicia 15 sep · quedan 4 lugares</div>
+      <div class="lg">▣ CHAOS / Ctrl</div>
+      <div class="hd">Domina<br>ChatGPT<br>de verdad</div>
+      <div class="sb">No el 10% que usa todo el mundo</div>
+      <div class="apps"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="li">▸ Modelos de razonamiento</div>
+      <div class="li">▸ Proyectos, archivos y conectores</div>
+      <div class="li">▸ Imágenes, video y presentaciones</div>
+      <div class="li">▸ Prompts que sí funcionan</div>
+      <div class="badge">+ 1 MES DE ASESORÍA INCLUIDO<small>Cuando acaba el curso, sigo contigo</small></div>
+      <div class="foot"><span>5 sesiones · 10 horas<br>Grupos de 10 máximo<br>Lun a vie 7 a 9 pm</span><b>$1,290</b></div>
       <div class="bt">ESCRÍBEME POR WHATSAPP</div>
     </div>
     <div>
-      <h4 style="margin-top:0">Las cinco reglas del armado</h4>
-      <ol class="prose" style="margin-top:8px">
-        <li><b>El fondo va oscurecido.</b> Capa negra al 40–55% de opacidad encima de la foto. Sin eso el texto no se lee y el anuncio no funciona.</li>
-        <li><b>Máximo tres tamaños de letra</b> en toda la pieza.</li>
-        <li><b>Un solo elemento naranja dominante.</b> El precio o el botón, no los dos al mismo tamaño.</li>
-        <li><b>Poco texto.</b> Si no se entiende en dos segundos, sobra texto.</li>
-        <li><b>Guárdalo como plantilla.</b> Cambias titular, fecha y precio y ya tienes las tres piezas.</li>
-      </ol>
+      <h4 style="margin-top:0">Tres decisiones deliberadas</h4>
+      <p class="prose" style="font-size:14px"><b>La fila de apps va arriba, junto al titular.</b> Es tu mejor detenedor de scroll: la gente reconoce esos iconos en un cuarto de segundo y entiende de qué se trata antes de leer una palabra. Ponerla abajo desperdicia ese efecto.</p>
+      <p class="prose" style="font-size:14px; margin-top:12px"><b>El badge de asesoría es el segundo elemento más visible</b>, no el tercero ni el cuarto. Es tu único diferenciador que nadie más ofrece; si compite en tamaño con el temario, se pierde. Por eso va en bloque sólido de azul eléctrico con el fondo invertido — lo único en toda la pieza con ese tratamiento.</p>
+      <p class="prose" style="font-size:14px; margin-top:12px"><b>Solo cuatro puntos de temario, no diez.</b> Un flyer con diez bullets no se lee, se ignora. Cuatro puntos específicos —“proyectos, archivos y conectores”— comunican más profundidad que diez genéricos: el que sabe un poco reconoce de inmediato que ahí hay algo que no le han enseñado.</p>
     </div>
+  </div>
+
+  <h3>Prompt del flyer — Ctrl + Inicio</h3>
+  <p class="prose">Cópialo tal cual en ChatGPT. Los tres cursos completos, la versión 9:16 y el fondo sin texto están en <span class="mono">cursos-ia/12-identidad-y-flyers.md</span>.</p>
+  <pre>Create a vertical 4:5 social media flyer for a live AI course. Dark,
+premium, editorial tech design. NOT a generic template.
+
+BACKGROUND: deep navy #050A34, almost black. Very subtle texture: thin
+hand-drawn scribble lines in light blue #AFE9FD at 12% opacity in the
+upper right corner, like tangled chaos resolving into a clean grid
+toward the bottom. Keep it faint — it is texture, not decoration.
+
+LAYOUT, top to bottom:
+
+1. Top left, small: a cream #E8E6D8 rounded-square keyboard-key logo
+   containing the words "CHAOS" above a thin line and "Ctrl" below.
+
+2. Headline, huge, cream #E8E6D8, uppercase, heavy squarish techno
+   sans-serif, very tight letter spacing, three lines, left aligned:
+   <span class="v">"DOMINA / CHATGPT / DE VERDAD"</span>
+
+3. Below it, one line in light blue #AFE9FD, small, monospaced:
+   <span class="v">"No el 10% que usa todo el mundo"</span>
+
+4. A horizontal row of 5 evenly spaced rounded-square app icons on a
+   subtle #092676 strip: ChatGPT, Google Gemini, Claude, Microsoft
+   Copilot and Grok. Flat, simple, correctly proportioned, evenly sized.
+
+5. A list of 4 items, cream monospaced text, each preceded by a small
+   electric blue #085CF0 arrow:
+   <span class="v">"Modelos de razonamiento / Proyectos, archivos y conectores /
+   Imagenes, video y presentaciones / Prompts que si funcionan"</span>
+
+6. A BOLD BADGE that must be the second most visible element on the
+   whole flyer: a solid electric blue #085CF0 rectangle with slightly
+   rounded corners, spanning most of the width, containing in dark navy
+   #050A34 heavy uppercase text:
+   <span class="v">"+ 1 MES DE ASESORIA INCLUIDO"</span>
+   and under it in smaller text:
+   <span class="v">"Cuando acaba el curso, sigo contigo"</span>
+
+7. Bottom block: on the left, monospaced cream, three short lines:
+   <span class="v">"5 sesiones · 10 horas en vivo / Grupos de 10 personas maximo /
+   Lunes a viernes 7 a 9 pm"</span>
+   On the right, very large in electric blue #085CF0: <span class="v">"$1,290"</span>
+
+8. Bottom edge: a full-width cream #E8E6D8 button with dark navy text:
+   <span class="v">"ESCRIBEME POR WHATSAPP"</span>
+
+STYLE: high contrast, generous margins, strong typographic hierarchy,
+only three text sizes, lots of breathing room. Premium and confident,
+like a design studio poster — not a busy sales flyer. Only these
+colors: #050A34, #092676, #085CF0, #AFE9FD, #E8E6D8. All text in
+Spanish, spelled exactly as written above.</pre>
+
+  <div class="call good">
+    <span class="h">El prompt que sale bien siempre</span>
+    Cuando quieras armar el flyer tú en Canva con texto y logos perfectos, pide <b>solo el fondo, sin texto ni logos</b>: <em>“Abstract brand background… thin hand-drawn scribble lines in light blue #AFE9FD, tangled in the upper left, resolving into a clean geometric grid toward the lower right… absolutely no text, no letters, no logos.”</em> Ese nunca falla, porque no le estás pidiendo lo que no sabe hacer. Genera tres o cuatro y guárdalas: te sirven para todo el contenido del mes.
   </div>
 
   <h3>Qué probar primero</h3>
   <div class="scroll">
     <table>
-      <thead><tr><th>Versión</th><th>Qué cambia</th><th>Qué estás midiendo</th></tr></thead>
+      <thead><tr><th>Versión</th><th>Qué es</th><th>Qué mides</th></tr></thead>
       <tbody>
-        <tr><td><b>A</b></td><td>Foto editorial del cliente ideal</td><td>La conexión con el público</td></tr>
-        <tr><td><b>B</b></td><td>Fondo abstracto de marca + titular grande</td><td>Si el mensaje solo, sin rostro, funciona</td></tr>
-        <tr><td><b>C</b></td><td>Video vertical tuyo hablando a cámara, 30 s, sin música</td><td>Tu cara contra todo lo demás</td></tr>
+        <tr><td><b>A</b></td><td>El flyer completo con temario y badge</td><td>Si el mensaje y la profundidad funcionan solos</td></tr>
+        <tr><td><b>B</b></td><td>Fondo sin texto + tu foto real + el titular</td><td>Si tu cara sobre la marca convierte</td></tr>
+        <tr><td><b>C</b></td><td>Video vertical tuyo hablando 30 s, sin música ni edición</td><td>Tu cara sola contra todo lo demás</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="call good">
+  <div class="call">
     <span class="h">Apuesta segura</span>
-    <b>La C gana.</b> En marca personal, tu cara convierte más que cualquier diseño. Los flyers sirven para el resto del contenido y para el remarketing; el anuncio de adquisición que mejor convierte casi siempre eres tú hablando, sin producción.
+    <b>La C gana.</b> En marca personal, tú en cámara conviertes más que cualquier diseño. Los flyers son para el contenido del feed, para el remarketing y para que la página no se vea vacía — el anuncio de adquisición que mejor funciona casi siempre eres tú hablando, sin producción.
   </div>
 </section>
 
