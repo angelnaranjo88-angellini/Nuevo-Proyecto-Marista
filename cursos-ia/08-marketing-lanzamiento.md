@@ -243,7 +243,91 @@ Formato: **vertical, 30 a 60 segundos, grabando tu pantalla, con tu voz.** Sin
 producción. La autenticidad convierte más que la edición — y además el contenido
 orgánico alimenta el público de remarketing sin costo.
 
-## 7. Los 50 mensajes personales
+## 7. Publicaciones para grupos de Facebook
+
+Los grupos son otro canal que los anuncios y se rigen por otras reglas: ahí la
+gente castiga lo que huele a publicidad, y **un enlace externo te hunde el
+alcance** (varios grupos los borran automáticamente). Por eso todos los cierres
+piden un comentario en vez de mandar a un link — además los comentarios suben el
+alcance del post sin costo.
+
+### Ctrl + Inicio
+
+> Si usas ChatGPT solo para preguntarle cosas, estás usando como el 10% de lo que
+> puede hacer.
+>
+> Llevo un año usándola todos los días para operar mis negocios, y armé el curso
+> que a mí me hubiera gustado encontrar: nada de "qué es la inteligencia
+> artificial", directo a lo que sirve.
+>
+> 5 noches en vivo, lunes a viernes de 7 a 9 pm. Máximo 10 personas.
+>
+> ▸ Las 5 IA que valen la pena y para qué sirve cada una
+> ▸ La aplicación completa por dentro: modelos de razonamiento, proyectos,
+> archivos, conectores
+> ▸ Prompts que sí funcionan
+> ▸ Imágenes, video y presentaciones
+>
+> Y no sales con apuntes: sales con una herramienta de IA hecha a tu medida,
+> armada en clase con tu información. Más un mes de asesoría conmigo cuando
+> termina el curso.
+>
+> $1,290 · Inicia el [FECHA] · Quedan [N] lugares
+>
+> Comenta "INICIO" y te paso la información.
+
+### Ctrl + Negocio
+
+> Si tienes un negocio y trabajas 12 horas al día, no necesitas otro curso de
+> ChatGPT.
+>
+> Necesitas salir con algo funcionando.
+>
+> En este curso construimos en clase, con los datos de tu negocio, al menos una
+> automatización corriendo de verdad:
+>
+> ▸ Mensajes que se clasifican y se contestan solos
+> ▸ Cotizaciones que se generan y se envían
+> ▸ Tu reporte de ventas llegándote cada lunes al WhatsApp
+> ▸ Un asistente entrenado con tus precios y tu forma de responder
+>
+> Yo uso esto todos los días en mis empresas. Eso es lo que enseño — no teoría.
+>
+> 4 sábados, 8 horas en vivo. Solo 8 lugares, porque trabajamos negocio por
+> negocio. Un mes de asesoría incluido.
+>
+> $1,500 · Inicia el [FECHA]
+>
+> Comenta "NEGOCIO" y te digo si tu negocio es candidato.
+
+### Versiones cortas, para grupos estrictos con la promoción
+
+> **Inicio —** Doy un curso de IA en vivo: 5 noches, lunes a viernes de 7 a 9 pm,
+> máximo 10 personas. No lo básico. Las 5 IA que valen la pena, la aplicación
+> completa por dentro, y sales con una herramienta hecha a tu medida. Un mes de
+> asesoría incluido. $1,290 · Inicia el [FECHA] · Comenta "INICIO" para más info.
+
+> **Negocio —** Curso de IA para dueños de negocio. 4 sábados, solo 8 lugares.
+> Sales con una automatización corriendo en tu negocio de verdad, construida en
+> clase con tus datos. Un mes de asesoría incluido. $1,500 · Inicia el [FECHA] ·
+> Comenta "NEGOCIO" si te interesa.
+
+### Seis reglas para que no te borren ni te saquen
+
+1. **Lee las reglas del grupo antes de publicar.** Muchos solo permiten
+   promoción ciertos días o en un hilo fijo. Que te borren un post no duele; que
+   te saquen del grupo sí — y esos grupos son tu mejor canal gratuito.
+2. **Nada de enlaces.** Facebook baja el alcance de los posts con links externos
+   y varios grupos los borran solos.
+3. **Máximo 2 o 3 grupos al día**, y cambia la primera línea en cada uno. Pegar
+   el mismo texto en diez grupos el mismo día activa el filtro de spam.
+4. **Contesta cada comentario en público antes de irte al privado.** Cada
+   respuesta tuya revive el post en el feed del grupo, gratis.
+5. **Publica entre 8 y 10 de la noche**, o domingo por la tarde.
+6. **Prueba dos imágenes:** el flyer, y una foto tuya o una captura real de algo
+   funcionando. En grupos, lo casero muchas veces rinde más que lo diseñado.
+
+## 8. Los 50 mensajes personales
 
 No es glamoroso, pero **en la semana 1 te va a dar más inscritos que los
 anuncios.** Cincuenta personas de tu red, escritas una por una:
