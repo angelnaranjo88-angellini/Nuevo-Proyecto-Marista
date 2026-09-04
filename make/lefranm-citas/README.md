@@ -58,6 +58,20 @@ Otros hallazgos:
   cotizar, derivar al contacto humano" en vez de inventarle datos.
 - **Fibroblast** ya no lleva ID de calendario: nunca se agenda por WhatsApp.
 
+## Capacitaciones
+
+Lefranm **sí** imparte capacitaciones, pero sus datos (temario, formato,
+duracion, precio, fechas, cupo, requisitos) no estan en el prompt. La v1 decia
+lo contrario ("NO ofrece cursos, capacitaciones ni talleres de ningun tipo"),
+lo que hacia que el asistente negara un servicio real.
+
+En v2 el asistente confirma que si se imparten, no da ningun dato y deriva
+siempre al contacto humano con la marca `[AVISAR_HUMANO: ...]`. El cambio toco
+cinco puntos del prompt que se contradecian entre si: el bloque
+`CURSOS Y CAPACITACIONES`, la `REGLA DE CATALOGO CERRADO` (que afirmaba que el
+spa "no ofrece nada" fuera del catalogo), la linea de "tampoco inventes", el
+bloque `LIMITES` y la lista de casos que disparan `[AVISAR_HUMANO]`.
+
 ## Pendiente
 
 Subir el modelo del módulo. En v1 estaba en `defaultModel: "large"`, que la
