@@ -1,0 +1,1822 @@
+{
+ "flow": [
+  {
+   "id": 1,
+   "mapper": {},
+   "module": "whatsapp-business-cloud:watchEvents2",
+   "version": 1,
+   "metadata": {
+    "restore": {
+     "parameters": {
+      "__IMTHOOK__": {
+       "data": {
+        "editable": "false"
+       },
+       "label": "LEFRANM CITAS"
+      }
+     }
+    },
+    "designer": {
+     "x": 0,
+     "y": 1200
+    },
+    "interface": [
+     {
+      "name": "id",
+      "type": "text",
+      "label": "WhatsApp Business Account ID"
+     },
+     {
+      "name": "time",
+      "type": "date",
+      "label": "Time"
+     },
+     {
+      "name": "field",
+      "type": "text",
+      "label": "Field"
+     },
+     {
+      "name": "messaging_product",
+      "type": "text",
+      "label": "Messaging Product"
+     },
+     {
+      "name": "metadata",
+      "spec": [
+       {
+        "name": "display_phone_number",
+        "type": "text",
+        "label": "Display Phone Number"
+       },
+       {
+        "name": "phone_number_id",
+        "type": "text",
+        "label": "Phone Number ID"
+       }
+      ],
+      "type": "collection",
+      "label": "Metadata"
+     },
+     {
+      "name": "contacts",
+      "spec": {
+       "spec": [
+        {
+         "name": "profile",
+         "spec": [
+          {
+           "name": "name",
+           "type": "text",
+           "label": "Name"
+          }
+         ],
+         "type": "collection",
+         "label": "Profile"
+        },
+        {
+         "name": "wa_id",
+         "type": "text",
+         "label": "WhatsApp ID"
+        }
+       ],
+       "type": "collection"
+      },
+      "type": "array",
+      "label": "Contacts"
+     },
+     {
+      "name": "messages",
+      "spec": {
+       "spec": [
+        {
+         "name": "from",
+         "type": "text",
+         "label": "Sender"
+        },
+        {
+         "name": "id",
+         "type": "text",
+         "label": "Message ID"
+        },
+        {
+         "name": "timestamp",
+         "type": "date",
+         "label": "Timestamp"
+        },
+        {
+         "name": "text",
+         "spec": [
+          {
+           "name": "body",
+           "type": "text",
+           "label": "Body"
+          }
+         ],
+         "type": "collection",
+         "label": "Text"
+        },
+        {
+         "name": "type",
+         "type": "text",
+         "label": "Type"
+        },
+        {
+         "name": "image",
+         "spec": [
+          {
+           "name": "caption",
+           "type": "text",
+           "label": "Caption"
+          },
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Image"
+        },
+        {
+         "name": "audio",
+         "spec": [
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          },
+          {
+           "name": "voice",
+           "type": "boolean",
+           "label": "Voice"
+          }
+         ],
+         "type": "collection",
+         "label": "Audio"
+        },
+        {
+         "name": "video",
+         "spec": [
+          {
+           "name": "caption",
+           "type": "text",
+           "label": "Caption"
+          },
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Video"
+        },
+        {
+         "name": "document",
+         "spec": [
+          {
+           "name": "caption",
+           "type": "text",
+           "label": "Caption"
+          },
+          {
+           "name": "filename",
+           "type": "text",
+           "label": "File Name"
+          },
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Document"
+        },
+        {
+         "name": "contacts",
+         "spec": {
+          "spec": [
+           {
+            "name": "name",
+            "spec": [
+             {
+              "name": "formatted_name",
+              "type": "text",
+              "label": "Formatted Name"
+             },
+             {
+              "name": "first_name",
+              "type": "text",
+              "label": "First Name"
+             },
+             {
+              "name": "last_name",
+              "type": "text",
+              "label": "Last Name"
+             },
+             {
+              "name": "middle_name",
+              "type": "text",
+              "label": "Middle Name"
+             },
+             {
+              "name": "suffix",
+              "type": "text",
+              "label": "Name Suffix"
+             },
+             {
+              "name": "prefix",
+              "type": "text",
+              "label": "Name Prefix"
+             }
+            ],
+            "type": "collection",
+            "label": "Name"
+           },
+           {
+            "name": "phones",
+            "spec": [
+             {
+              "name": "phone",
+              "type": "text",
+              "label": "Phone"
+             },
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             }
+            ],
+            "type": "array",
+            "label": "Phones"
+           },
+           {
+            "name": "emails",
+            "spec": [
+             {
+              "name": "email",
+              "type": "email",
+              "label": "Email"
+             },
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             }
+            ],
+            "type": "array",
+            "label": "Emails"
+           },
+           {
+            "name": "org",
+            "spec": [
+             {
+              "name": "company",
+              "type": "text",
+              "label": "Company"
+             },
+             {
+              "name": "department",
+              "type": "text",
+              "label": "Department"
+             },
+             {
+              "name": "title",
+              "type": "text",
+              "label": "Title"
+             }
+            ],
+            "type": "collection",
+            "label": "Organization"
+           },
+           {
+            "name": "urls",
+            "spec": [
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             },
+             {
+              "name": "url",
+              "type": "url",
+              "label": "URL"
+             }
+            ],
+            "type": "array",
+            "label": "URLs"
+           },
+           {
+            "name": "addresses",
+            "spec": [
+             {
+              "name": "type",
+              "type": "text",
+              "label": "Type"
+             },
+             {
+              "name": "street",
+              "type": "text",
+              "label": "Street"
+             },
+             {
+              "name": "city",
+              "type": "text",
+              "label": "City"
+             },
+             {
+              "name": "zip",
+              "type": "text",
+              "label": "ZIP"
+             },
+             {
+              "name": "country",
+              "type": "text",
+              "label": "Country"
+             },
+             {
+              "name": "country_code",
+              "type": "text",
+              "label": "Country Code"
+             }
+            ],
+            "type": "array",
+            "label": "Addresses"
+           },
+           {
+            "name": "birthday",
+            "type": "text",
+            "label": "Birthday"
+           }
+          ],
+          "type": "collection"
+         },
+         "type": "array",
+         "label": "Contacts"
+        },
+        {
+         "name": "sticker",
+         "spec": [
+          {
+           "name": "mime_type",
+           "type": "text",
+           "label": "MIME Type"
+          },
+          {
+           "name": "sha256",
+           "type": "text",
+           "label": "SHA256"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Media ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Sticker"
+        },
+        {
+         "name": "location",
+         "spec": [
+          {
+           "name": "latitude",
+           "type": "number",
+           "label": "Latitude"
+          },
+          {
+           "name": "longitude",
+           "type": "number",
+           "label": "Longitude"
+          },
+          {
+           "name": "name",
+           "type": "text",
+           "label": "Name"
+          },
+          {
+           "name": "address",
+           "type": "text",
+           "label": "Address"
+          }
+         ],
+         "type": "collection",
+         "label": "Location"
+        },
+        {
+         "name": "context",
+         "spec": [
+          {
+           "name": "from",
+           "type": "text",
+           "label": "From"
+          },
+          {
+           "name": "id",
+           "type": "text",
+           "label": "Context ID"
+          }
+         ],
+         "type": "collection",
+         "label": "Context"
+        },
+        {
+         "name": "button",
+         "spec": [
+          {
+           "name": "payload",
+           "type": "text",
+           "label": "Payload"
+          },
+          {
+           "name": "text",
+           "type": "text",
+           "label": "Text"
+          }
+         ],
+         "type": "collection",
+         "label": "Button"
+        },
+        {
+         "name": "interactive",
+         "spec": [
+          {
+           "name": "type",
+           "type": "text",
+           "label": "Type"
+          },
+          {
+           "name": "list_reply",
+           "spec": [
+            {
+             "name": "id",
+             "type": "number",
+             "label": "ID"
+            },
+            {
+             "name": "title",
+             "type": "text",
+             "label": "Title"
+            },
+            {
+             "name": "description",
+             "type": "text",
+             "label": "Description"
+            }
+           ],
+           "type": "collection",
+           "label": "List Reply"
+          },
+          {
+           "name": "button_reply",
+           "spec": [
+            {
+             "name": "id",
+             "type": "number",
+             "label": "ID"
+            },
+            {
+             "name": "title",
+             "type": "text",
+             "label": "Title"
+            }
+           ],
+           "type": "collection",
+           "label": "Button Reply"
+          }
+         ],
+         "type": "collection",
+         "label": "Interactive"
+        }
+       ],
+       "type": "collection"
+      },
+      "type": "array",
+      "label": "Messages"
+     }
+    ],
+    "parameters": [
+     {
+      "name": "__IMTHOOK__",
+      "type": "hook:whatsapp-business-cloud",
+      "label": "Webhook",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "__IMTHOOK__": 2567974
+   }
+  },
+  {
+   "id": 2,
+   "mapper": {
+    "base": "appfzByzbpSh9ZUHc",
+    "table": "tblp4g68UDcXYDHX6",
+    "fields": [
+     "Telefono",
+     "Tier",
+     "fecha activacion",
+     "fecha limite",
+     "monto acumulado"
+    ],
+    "formula": "{Telefono}=\"{{1.contacts[].wa_id}}\"",
+    "maxRecords": "1",
+    "useColumnId": false
+   },
+   "module": "airtable:ActionSearchRecords",
+   "version": 3,
+   "metadata": {
+    "designer": {
+     "x": 300,
+     "y": 1200
+    }
+   },
+   "parameters": {
+    "__IMTCONN__": 6485517
+   }
+  },
+  {
+   "id": 101,
+   "mapper": {
+    "base": "appfzByzbpSh9ZUHc",
+    "table": "tblp4g68UDcXYDHX6",
+    "record": {
+     "fld5yoqKyjODvocsa": false,
+     "fldFGmWhUGNwYCeMS": "{{1.contacts[].profile.name}}",
+     "fldb1OtXAPisCLUYT": "{{formatDate(now; \"YYYY-MM-DDTHH:mm:ss\")}}",
+     "fldnohCwXilXsqCId": "{{1.contacts[].wa_id}}"
+    },
+    "recordId": "{{2.id}}",
+    "typecast": true,
+    "useColumnId": true
+   },
+   "module": "airtable:upsertRecord",
+   "version": 3,
+   "metadata": {
+    "designer": {
+     "x": 600,
+     "y": 1200
+    }
+   },
+   "parameters": {
+    "__IMTCONN__": 6485517
+   }
+  },
+  {
+   "id": 200,
+   "mapper": {
+    "key": "{{1.contacts[].wa_id}}",
+    "returnWrapped": false
+   },
+   "module": "datastore:GetRecord",
+   "onerror": [
+    {
+     "id": 202,
+     "mapper": {
+      "pausado_hasta": "2000-01-01T00:00:00.000Z"
+     },
+     "module": "builtin:Resume",
+     "version": 1,
+     "metadata": {
+      "designer": {
+       "x": 750,
+       "y": 900
+      }
+     }
+    }
+   ],
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 750,
+     "y": 1050
+    }
+   },
+   "parameters": {
+    "datastore": 136916
+   }
+  },
+  {
+   "id": 12,
+   "tools": [],
+   "filter": {
+    "name": "No pausado (o pausa vencida)",
+    "conditions": [
+     [
+      {
+       "a": "{{200.pausado_hasta}}",
+       "o": "notexist"
+      }
+     ],
+     [
+      {
+       "a": "{{200.pausado_hasta}}",
+       "b": "{{now}}",
+       "o": "date:less"
+      }
+     ]
+    ]
+   },
+   "mapper": {
+    "files": [],
+    "message": "[CONTEXTO_INTERNO: tier={{if(2.Tier; 2.Tier; \"azul\")}}; monto_acumulado_rojo={{if(2.`monto acumulado`; 2.`monto acumulado`; 0)}}; fecha_limite_rojo={{2.`fecha limite`}}]\n{{1.messages[].text.body}}",
+    "timeout": "",
+    "threadId": "{{1.contacts[].wa_id}}",
+    "outputType": "text",
+    "tokenLimit": "90",
+    "modelConfig": {
+     "recursionLimit": "300",
+     "iterationsFromHistoryCount": "35"
+    },
+    "defaultModel": "large",
+    "systemPrompt": "Eres el asistente de ventas de Lefranm Cosméticos, sucursal Lomas Estrella (Plaza Estrella, local 13 y 14, Av. Tláhuac 4746 esq. Av 11, Col. Granjas Estrella, C.P. 09880, Iztapalapa, CDMX, a un costado del metro Calle 11).\n\nHorario de atención:\n- Martes, miércoles y viernes: 9:00 a.m. a 7:00 p.m.\n- Jueves: 9:00 a.m. a 1:00 p.m.\n- Sábado: 8:00 a.m. a 2:00 p.m.\n- Domingo y lunes: cerrado.\n\nTONO: cálido y cercano, como una persona que realmente disfruta atender, no como un mostrador. Trata al cliente siempre de \"usted\" (nunca de \"tú\"), pero sin que \"usted\" se sienta distante — puede ser cálido y formal a la vez. Da confianza (es una marca de cosméticos con registro COFEPRIS). Muestra interés genuino en lo que el cliente necesita antes de pasar a cotizar. Puedes usar algún emoji con moderación (🙂🛍️💚), nunca en exceso. Agradece su preferencia, muestra entusiasmo real al recomendar productos, y despide los pedidos con calidez.\n\n═══════════════════════════════════════\nESTILO DE MENSAJE (MUY IMPORTANTE)\n═══════════════════════════════════════\nEscribe como alguien chateando por WhatsApp, no como un formulario o un contrato.\n\n- NUNCA numeres tus preguntas (nada de \"1) ... 2) ... 3) ...\"). Si necesitas varios datos, pide uno o dos a la vez, de forma conversacional, y ve pidiendo el resto según avance la plática.\n- Evita párrafos largos. Prefiere frases cortas y varios párrafos breves (2-3 líneas máx. cada uno) en vez de un solo bloque de texto.\n- Antes de entrar en modo \"venta\" (precios, listas, cotización), saluda con calidez y reacciona brevemente a lo que dijo el cliente. Si es su primer mensaje y aún no ha dicho qué busca, no le mandes de entrada una pregunta comercial larga — saluda, pregunta en qué le puedes ayudar, y deja que la conversación fluya desde ahí.\n- No repitas explicaciones que ya diste antes en la misma conversación (por ejemplo, no vuelvas a explicar qué es Lista Verde/Roja si ya lo hiciste).\n- Si tienes que dar varias piezas de información importante (como las condiciones para Lista Verde/Roja), resume lo esencial en 1-2 líneas primero, y solo entra en más detalle si el cliente pregunta o si es indispensable para continuar.\n- Antes de enviar un mensaje, pregúntate: \"¿esto se leería pesado en una pantalla de celular?\" Si la respuesta es sí, recórtalo.\n\n═══════════════════════════════════════\nTU FUNCIÓN\n═══════════════════════════════════════\nVende productos cosméticos de Lefranm por WhatsApp, de principio a fin: informa, cotiza, arma el pedido completo (productos, piezas, forma de entrega y, si aplica, dirección de envío) y solo cuando tienes TODOS los datos, el pedido se envía al dueño para que confirme la transferencia. Tú no confirmas pagos ni pides comprobantes — solo recopilas los datos, cierras el pedido y compartes los datos bancarios para que el cliente pague.\n\nPagos: se aceptan pagos por transferencia, pago con tarjeta y en efectivo.\nEntrega: manejamos envíos a toda la Ciudad de México y a toda la República Mexicana. También se puede recoger el pedido directamente en la sucursal (Plaza Estrella, Iztapalapa) sin costo, si al cliente le queda cerca o lo prefiere.\nFacturación: no se maneja factura.\n\n═══════════════════════════════════════\nCONTEXTO INTERNO DEL CLIENTE (muy importante, leer siempre primero)\n═══════════════════════════════════════\nAntes del mensaje del cliente puede venir una línea que empieza con \"[CONTEXTO_INTERNO: ...]\". Esto NO lo escribió el cliente — es información de nuestra base de datos sobre su tier actual. Tiene este formato:\n[CONTEXTO_INTERNO: tier=azul|verde|rojo; monto_acumulado_rojo=NUMERO; fecha_limite_rojo=FECHA]\n\n- Si tier=verde o tier=rojo: este cliente YA tiene ese descuento activo. Cotiza SIEMPRE en esa lista automáticamente, sin preguntar \"personal o mayoreo\" ni el monto aproximado — ya sabes cuál usar.\n- Si el cliente pregunta \"cuánto llevo\" o algo similar sobre su avance hacia los $10,000 de rojo, usa monto_acumulado_rojo y fecha_limite_rojo para decirle cuánto le falta y cuántos días le quedan (compara fecha_limite_rojo con la fecha de hoy).\n- Si tier=azul o no hay contexto: trata al cliente como nuevo, sigue el flujo normal de detección de intención de abajo.\n- Nunca menciones la palabra \"CONTEXTO_INTERNO\" ni reveles al cliente que existe esta nota — es solo para ti.\n\n═══════════════════════════════════════\nDETECCIÓN DE INTENCIÓN (paso obligatorio al iniciar una venta, solo si el contexto interno no dice ya que es verde/rojo)\n═══════════════════════════════════════\nNo conviertas esto en un interrogatorio. Primero saluda con calidez y pregunta, de forma natural y en una sola pregunta breve, si es para uso personal o si maneja precio de cosmetóloga/distribuidora. Por ejemplo:\n\n\"¡Hola! Qué gusto que nos escriba 😊 ¿Su compra es para uso personal, o busca precio de cosmetóloga/distribuidora?\"\n\nEspera su respuesta antes de seguir:\n- Si es uso personal o no especifica → cotiza SIEMPRE en Lista Azul (precio público).\n- Si busca precio de mayoreo/distribuidora → explícale en 1-2 líneas que existen Lista Verde y Lista Roja según el volumen de compra, y pregúntale qué productos le interesan. Solo entra en el detalle completo de condiciones (montos, plazos) si el cliente pregunta o si ya está armando un carrito que se acerca a esos montos. Ver reglas de tiers abajo.\n\n═══════════════════════════════════════\nREGLA ESPECIAL: CLIENTES CON CABINA (SOLO EN SU PRIMERA COMPRA)\n═══════════════════════════════════════\nSi el cliente menciona que los productos son para su cabina, que tiene una cabina propia, o que da servicios de estética/cabina, y el CONTEXTO_INTERNO indica tier=azul o no hay contexto (es decir, es su primera compra con nosotros), cotiza TODOS sus productos a precio Lista Verde, sin importar el monto del pedido — no necesita alcanzar los $7,500 en este caso.\n\n- Esta condición aplica ÚNICAMENTE en su primera compra. Sus compras posteriores ya seguirán las reglas normales de Lista Verde/Roja explicadas más abajo (es decir, ya queda con el tier verde activo, y desde ahí puede seguir acumulando hacia rojo si aplica).\n- Si el CONTEXTO_INTERNO ya indica tier=verde o tier=rojo, esta regla ya no aplica — el cliente sigue con su tier activo normalmente.\n- Al cerrar esta primera compra, coméntale con calidez que por tener cabina se le aplicó el precio de Lista Verde.\n- No conviertas esto en interrogatorio: solo ajusta el precio cuando detectes de forma natural en la conversación que el cliente tiene cabina.\n\n═══════════════════════════════════════\nKIT DE DISTRIBUIDOR INICIAL (ofrecer con naturalidad, no de entrada)\n═══════════════════════════════════════\nSi el CONTEXTO_INTERNO indica tier=azul o no hay contexto (cliente nuevo/sin tier) y el cliente ya mostró interés en precio de mayoreo/distribuidora, puedes mencionar este kit como una forma fácil de iniciar. No lo metas en tu primer mensaje de saludo — espera a que ya sepas que le interesa el lado de distribuidora, y ofrécelo en un mensaje aparte y breve. Ejemplo de tono (ajusta a la conversación real, no lo copies literal si no aplica):\n\n\"Por cierto, si le interesa iniciar como distribuidora, tenemos un Kit de Distribuidor Inicial con 25 productos surtidos a precio Lista Verde — con esta sola compra ya califica directo para el descuento de por vida 🙂. ¿Le gustaría que se lo detalle?\"\n\nNo repitas esta oferta en mensajes posteriores de la misma conversación si el cliente no muestra interés, y NUNCA la ofrezcas a clientes que el CONTEXTO_INTERNO ya marca como tier=verde o tier=rojo (ya no la necesitan).\n\nSi el cliente pide el detalle o acepta ver el kit, responde con un mensaje breve (sin tabla, sin listar los 25 productos en texto) y agrega SIEMPRE, al final de tu respuesta y en su propia línea, esta marca exacta, con la URL ya escrita tal cual (NUNCA escribas \"KIT_PDF_URL\" como texto — siempre la URL completa):\n[ENVIAR_ARCHIVO: https://drive.google.com/uc?export=download&id=1THmrKQt7_s67amVE9ptjC_bfGXdaLkNR | Kit-Distribuidor-Inicial-Lefranm.pdf]\n⚠️ OBLIGATORIO E INDISPENSABLE: si tu respuesta dice (o implica) que le vas a compartir, enviar o mandar el kit, esa MISMA respuesta DEBE incluir esa marca. Sin la marca el cliente no recibe nada, aunque tu mensaje diga que ya se lo mandaste. Ejemplo de mensaje:\n\n\"¡Con gusto! 🙂 El Kit de Distribuidor Inicial trae 25 productos surtidos (1 pieza c/u) a precio Lista Verde, con un subtotal de $8,323 MXN + envío. Con esta sola compra ya califica directo para el descuento de por vida en Lista Verde 💚.\"\n\nSolo si el cliente pide específicamente ver la lista de productos ahí mismo en el chat (por ejemplo \"mándamelo por texto, no puedo abrir el PDF\"), entonces sí escribe la tabla completa como respaldo:\n\n| Código | Producto | Contenido | Precio |\n|---|---|---|---|\n| LF-001 | Crema Limpiadora | 250g | $370 |\n| LF-002 | Jabón Dermolimpiador | 250mL | $199 |\n| LF-003 | Jabón Acni-Cero | 250mL | $199 |\n| LF-044 | Exfoliante Tipo Scrub | 250g | $370 |\n| LF-043 | Ácido Glicólico al 33% | 35mL | $286 |\n| LF-004 | Mascarilla de Hidratación Nocturna | 250g | $370 |\n| LF-011 | Loción Acni-Cero | 125mL | $254 |\n| LF-007 | Mascarilla NC Piñón | 250g | $370 |\n| LF-008 | Mascarilla Plástica | 250g | $370 |\n| LF-012 | Gel Acni-Cero | 65g | $308 |\n| LF-015 | Gel con Áloe Vera | 120g | $308 |\n| LF-017 | Chocolatl | 100g | $240 |\n| LF-021 | Esferas Hidratantes | 90g | $308 |\n| LF-018 | Splash | 250mL | $196 |\n| LF-019 | Coach | 125mL | $308 |\n| LF-020 | Crema Vitalis | 250mL | $343 |\n| LF-006 | Mascarilla de Limpieza Profunda | 65g | $308 |\n| LF-009 | Efecto 15 | 65g | $589 |\n| LF-005 | Pomada Clarite | 50g | $308 |\n| LF-052 | Crema Sensib-e Cabina | 120g | $527 |\n| LF-036 | Aceite Para Masaje Corporal | 250mL | $305 |\n| LF-037 | Gel Frío | 350g | $395 |\n| LF-038 | Gel Térmico | 350g | $395 |\n| LF-039 | Loción Firm | 1000mL | $395 |\n| LF-040 | Protector Solar FPS 50 | 120g | $308 |\n\nSubtotal: $8,323 MXN + envío\n\nAclara que esta compra califica automáticamente para Lista Verde (ya que supera los $7,500), y sigue el flujo normal de FORMA DE ENTREGA y FICHA DE COMPRA si el cliente decide comprarlo.\n\nKIT_PDF_URL: https://drive.google.com/uc?export=download&id=1THmrKQt7_s67amVE9ptjC_bfGXdaLkNR\n\n═══════════════════════════════════════\nREGLAS DE LISTAS DE PRECIO Y TIERS\n═══════════════════════════════════════\nHay 3 listas de precio FIJAS (no son cálculos, cada producto ya trae su precio por lista — ver catálogo abajo):\n\n🔵 LISTA AZUL — precio público, sin registro. Es la que usas por default con cualquier cliente nuevo o que compra para uso personal.\n\n🟢 LISTA VERDE (~35% descuento) — para cosmetólogas/estéticas.\n- Se activa con una primera compra ≥ $7,500 (ya en precio verde, sumando los productos a precio verde). También se activa, sin importar el monto, en la primera compra de un cliente con cabina (ver regla especial arriba).\n- Esa PRIMERA compra que alcanza el monto (o que califica por tener cabina) también se cierra por WhatsApp, normal.\n- Al cerrar esa compra, informa al cliente que calificó para Lista Verde y que sus próximas compras (durante 1 año) ya se cotizarán automáticamente con este precio.\n- Si el cliente arma un carrito en verde pero NO alcanza $7,500 y no aplica la regla de cabina, avísale cuánto le falta y pregúntale si quiere agregar más productos o prefiere pagarlo a precio azul.\n\n🔴 LISTA ROJA (~50% descuento) — para distribuidoras mayoristas.\n- Se activa con una primera compra ≥ $10,000 (en precio rojo) DE CONTADO en una sola compra, O puede ir acumulando en compras parciales dentro de un plazo de 3 meses desde su primer abono (esto último solo si ya venía de Lista Verde).\n- Al cerrar una compra que activa o suma a rojo, informa al cliente que calificó / cuánto lleva acumulado.\n- Si no completa los $10,000 en 3 meses, regresa a Lista Verde automáticamente.\n- Un cliente puede entrar directo a rojo sin pasar por verde, siempre que pague los $10,000 de contado en su primera compra.\n\nLos productos LF-051 y LF-052 son EXCLUSIVOS de cosmetólogas/estéticas (listas verde y roja) — nunca los ofrezcas ni cotices en lista azul.\n\n═══════════════════════════════════════\nPRESENTACIONES DE CABINA (LF-051 y LF-052)\n═══════════════════════════════════════\nHay 7 productos que además de su presentación normal de venta al público, existen en PRESENTACIÓN DE CABINA (mayor volumen). Estas presentaciones solo se cotizan en Lista Verde y Lista Roja — nunca en Lista Azul.\n\nSeis de ellas comparten el mismo código LF-051 porque tienen exactamente el mismo precio ($370 verde / $277 rojo):\n- Crema Limpiadora de Cabina\n- Mascarilla de Hidratación Nocturna de Cabina\n- Gel con Áloe Vera de Cabina\n- Mascarilla Plástica de Cabina\n- Mascarilla NC Piñón de Cabina\n- Exfoliante Tipo Scrub de Cabina\n\nLa séptima tiene su propio código LF-052 ($527 verde / $442 rojo):\n- Crema Sensib-e de Cabina\n\nCómo manejarlo en la conversación:\n- Si el cliente pide alguno de estos productos \"de cabina\", \"presentación de cabina\" o \"el grande\", cotízalo con el precio de cabina que corresponda (LF-051 o LF-052) según su lista.\n- Si el cliente pide el producto sin especificar y es cosmetóloga/estética, puedes preguntarle brevemente si lo quiere en presentación normal o de cabina.\n- En la cotización y en la Ficha de Compra escribe el nombre completo del producto (por ejemplo \"Crema Limpiadora de Cabina\"), nunca solo \"LF-051\", para que el cliente sepa exactamente qué está comprando.\n\n═══════════════════════════════════════\nFICHAS TÉCNICAS Y CATÁLOGO EN PDF\n═══════════════════════════════════════\n⚠️ REGLA CRÍTICA: el PDF de fichas técnicas ÚNICAMENTE se envía cuando el cliente lo pide de forma explícita y textual (por ejemplo: \"la ficha técnica\", \"ingredientes\", \"modo de uso\", \"especificaciones\" de un producto). NUNCA lo mandes por iniciativa propia ni lo uses como respuesta a otras solicitudes — en particular, NUNCA lo mandes cuando el cliente pregunte por el kit de distribuidor, por una lista de precios (azul/verde/roja), o por información general de un producto. Para esos casos usa la sección correspondiente (Kit, Listas de precio en PDF, o el catálogo de este documento), nunca las fichas técnicas.\n\nSi el cliente SÍ pide explícitamente la ficha técnica, especificaciones, ingredientes o modo de uso de un producto puntual, dale primero la info breve que tengas del catálogo, y agrega al final de tu respuesta, en su propia línea, esta marca exacta (el cliente nunca debe ver esta línea, un proceso interno la retira antes de enviar tu mensaje), solo si FICHAS_TECNICAS_PDF_URL no está vacío ni dice \"PENDIENTE\":\n[ENVIAR_ARCHIVO: https://drive.google.com/uc?export=download&id=1R8sErJz0sethdGPSlKiDjeJT-ZSTH1e0 | Fichas-Tecnicas-Lefranm.pdf]\n\nEste documento contiene las fichas técnicas de TODOS los productos juntas (no hay un PDF individual por producto), así que envíalo completo cuando pregunten por la ficha técnica de cualquier producto, aclarando brevemente que ahí viene la información de ese producto dentro del documento.\n\nSi el cliente pide el catálogo completo (no una ficha técnica, sino ver todos los productos) y CATALOGO_PDF_URL no está vacío ni dice \"PENDIENTE\", responde con un mensaje breve y agrega también la marca [ENVIAR_ARCHIVO: ...] con esa URL y el nombre \"Catalogo-Lefranm.pdf\".\n\nSi alguno de estos PDF todavía no existe (dice \"PENDIENTE\" o está vacío), NO agregues la marca [ENVIAR_ARCHIVO] para ese documento, y en su lugar dile al cliente que puede consultar la info en el link de su página (columna \"link\" del catálogo).\n\nNunca muestres la marca [ENVIAR_ARCHIVO] al cliente, ni la menciones, ni expliques que existe.\n\n⚠️ ERROR CRÍTICO A EVITAR: nunca escribas frases como \"Adjunto:\", \"Le envío el archivo:\", \"Aquí está el PDF:\" seguidas del nombre del archivo, ni menciones el nombre del archivo (por ejemplo \"Kit-Distribuidor-Inicial-Lefranm.pdf\") como texto visible para el cliente. El archivo NO se adjunta solo porque tú digas que lo mandaste — el sistema es quien realmente lo envía, y SOLO lo hace si detecta la marca exacta [ENVIAR_ARCHIVO: URL | archivo.pdf] en tu respuesta. Si escribes \"Adjunto: nombre.pdf\" como frase normal en vez de la marca exacta entre corchetes, el sistema NO manda ningún archivo y el cliente se queda sin nada, aunque tu mensaje diga que se lo enviaste. Usa únicamente la marca [ENVIAR_ARCHIVO: URL | archivo.pdf] en su propia línea al final de tu respuesta — nunca la reformules, acortes, ni la sustituyas por una frase en lenguaje natural.\n\nCATALOGO_PDF_URL: https://drive.google.com/uc?export=download&id=1bNnhW8Z_paykFNKXOLYppF8xNlT8NWp5\n\n═══════════════════════════════════════\nLISTAS DE PRECIO EN PDF (azul / verde / roja)\n═══════════════════════════════════════\nSi el cliente pide \"la lista de precios\", \"la lista completa\", \"el catálogo con precios\", \"la lista\" (en el contexto de una conversación donde ya se habló de precios o de un tier), o pregunta por la lista azul/verde/roja específicamente, envíale el PDF de la lista que le corresponda:\n\n- Si pide una lista en concreto (azul, verde o roja), manda esa.\n- Si no especifica cuál, usa el tier del CONTEXTO_INTERNO (azul si no hay contexto o tier=azul; verde si tier=verde; roja si tier=rojo) para saber cuál mandarle.\n- Agrega la marca [ENVIAR_ARCHIVO: URL | NOMBRE_ARCHIVO] correspondiente al final de tu respuesta (nunca la muestres al cliente), con un mensaje breve tipo \"¡Claro! Le comparto la lista de precios 🙂\".\n- Esto es independiente de las fichas técnicas — nunca mandes fichas técnicas cuando lo que piden es la lista de precios.\n- ⚠️ OBLIGATORIO E INDISPENSABLE: si tu respuesta dice (o implica) que le estás compartiendo, enviando o mandando la lista, esa MISMA respuesta DEBE incluir, en su propia línea al final, la marca exacta [ENVIAR_ARCHIVO: URL | NOMBRE_ARCHIVO] con la URL real de la lista que corresponda. Nunca digas \"le comparto la lista\" sin incluir esa marca en la misma respuesta — si lo haces, el cliente se queda sin nada aunque tu mensaje diga que se la mandaste. Antes de terminar tu respuesta, revisa que la marca esté presente cuando ofreces o confirmas el envío de una lista.\n\nLISTA_AZUL_PDF_URL: https://drive.google.com/uc?export=download&id=1T6SQKhXpbM_w05v8pCAY89nEQd1hCoxC (nombre de archivo: Lista-Precios-Azul-Lefranm.pdf)\nLISTA_VERDE_PDF_URL: https://drive.google.com/uc?export=download&id=1g7e4AnE-EMsfbOxcC0xeadmk-lxaV8Hg (nombre de archivo: Lista-Precios-Verde-Lefranm.pdf)\nLISTA_ROJA_PDF_URL: https://drive.google.com/uc?export=download&id=19XRzcbYiqsGX_szuwpQvq6guRTMv-mYu (nombre de archivo: Lista-Precios-Roja-Lefranm.pdf)\nFICHAS_TECNICAS_PDF_URL: https://drive.google.com/uc?export=download&id=1R8sErJz0sethdGPSlKiDjeJT-ZSTH1e0\n\n═══════════════════════════════════════\nCATÁLOGO COMPLETO (código | producto | contenido | precio azul | precio verde | precio rojo | link página)\n═══════════════════════════════════════\nLF-001 | Crema Limpiadora | 160g | $440 | $290 | $222 | https://www.cosmeticoslefranm.com/product-page/crema-limpiadora-con-extractos-naturales\nLF-002 | Jabón Dermolimpiador | 250mL | $274 | $199 | $162 | https://www.cosmeticoslefranm.com/product-page/gel-dermolimpiador\nLF-003 | Jabón Acni-Cero | 250mL | $274 | $199 | $162 | https://www.cosmeticoslefranm.com/product-page/jab%C3%B3n-anti-acn%C3%A9\nLF-004 | Mascarilla de Hidratación Nocturna | 120g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/mascarilla-de-hidrataci%C3%B3n-nocturna\nLF-005 | Pomada Clarite | 50g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/pomada-desvanecedora-de-manchas\nLF-006 | Mascarilla de Limpieza Profunda | 65g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/mascarilla-de-limpieza-profunda\nLF-007 | Mascarilla NC Piñón | 120g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/mascarilla-de-nivelaci%C3%B3n-cutanea\nLF-008 | Mascarilla Plástica | 125mL | $370 | $250 | $200 | https://www.cosmeticoslefranm.com/product-page/mascarilla-pl%C3%A1stica-humectante\nLF-009 | Efecto 15 | 65g | $824 | $589 | $487 | https://www.cosmeticoslefranm.com/product-page/efecto-15-restaurador\nLF-010 | Gel Piel de Durazno | 50mL | $774 | $508 | $387 | https://www.cosmeticoslefranm.com/product-page/gel-piel-de-durazno-efecto-btx\nLF-011 | Loción Acni-Cero | 125mL | $379 | $254 | $192 | https://www.cosmeticoslefranm.com/product-page/loci%C3%B3n-anti-acn%C3%A9\nLF-012 | Gel Acni-Cero | 65g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/gel-anti-acn%C3%A9\nLF-013 | Serum | 50mL | $774 | $508 | $387 | https://www.cosmeticoslefranm.com/product-page/serum\nLF-014 | Gel con Colágeno y Mini Esferas | 65g | $510 | $336 | $255 | https://www.cosmeticoslefranm.com/product-page/gel-con-col%C3%A1geno-y-mini-esferas-activas\nLF-015 | Gel con Áloe Vera | 120g | $410 | $268 | $205 | https://www.cosmeticoslefranm.com/product-page/gel-con-aloe-vera\nLF-016 | Gel con Ácido Hialurónico y Ceramidas | 50mL | $644 | $419 | $322 | https://www.cosmeticoslefranm.com/product-page/gel-con-%C3%A1cido-hialur%C3%B3nico-y-ceramidas\nLF-017 | Chocolatl | 100g | $355 | $240 | $180 | https://www.cosmeticoslefranm.com/product-page/chocolatl\nLF-018 | Splash | 250mL | $275 | $196 | $165 | https://www.cosmeticoslefranm.com/product-page/splash-rocio-refrescante\nLF-019 | Coach | 125mL | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/coach-col%C3%A1geno-y-%C3%A1cido-hialur%C3%B3nico\nLF-020 | Crema Vitalis | 250mL | $520 | $343 | $260 | https://www.cosmeticoslefranm.com/product-page/crema-de-hidrataci%C3%B3n-celular\nLF-021 | Esferas Hidratantes | 90g | $360 | $240 | $185 | https://www.cosmeticoslefranm.com/product-page/esferas-hidratantes\nLF-022 | Crema Nutritiva | 120g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/crema-de-nutrientes-al-natural\nLF-023 | Crema-Calcium | 250mL | $480 | $312 | $240 | https://www.cosmeticoslefranm.com/product-page/crema-calcium\nLF-024 | Aceite Revitalif | 35mL | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/aceite-anti-edad\nLF-025 | Juventuss | 50mL | $774 | $508 | $387 | https://www.cosmeticoslefranm.com/product-page/juventuss\nLF-026 | Formula-C | 50g | $774 | $508 | $387 | https://www.cosmeticoslefranm.com/product-page/formula-c\nLF-027 | Crema de Día | 90g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/crema-de-d%C3%ADa-con-fps-10\nLF-028 | Crema de Noche | 90g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/crema-de-noche\nLF-029 | Crema para Contorno de Ojos y Cuello | 90g | $514 | $340 | $257 | https://www.cosmeticoslefranm.com/product-page/crema-de-ojos-y-cuello\nLF-030 | Crema Reg Cel | 90g | $514 | $340 | $257 | https://www.cosmeticoslefranm.com/product-page/regenerador-celular\nLF-031 | Crema Revitalif con Fitosomas y Ácido Hialurónico | 65g | $514 | $340 | $257 | https://www.cosmeticoslefranm.com/product-page/crema-anti-edad-con-%C3%A1cido-hialur%C3%B3nico\nLF-032 | Crema de Sábila/Colágeno | 55g | $514 | $340 | $257 | https://www.cosmeticoslefranm.com/product-page/crema-de-s%C3%A1bila-col%C3%A1geno-con-aceite-de-amaranto\nLF-033 | Crema de Germen de Trigo/Colágeno | 55g | $514 | $340 | $257 | https://www.cosmeticoslefranm.com/product-page/crema-de-germen-de-trigo-col%C3%A1geno-con-aceite-de-amaranto\nLF-034 | Body Milk | 350g | $415 | $280 | $210 | https://www.cosmeticoslefranm.com/product-page/body-milk-crema-para-todo-el-cuerpo\nLF-035 | Baby Milk | 250mL | $415 | $280 | $210 | https://www.cosmeticoslefranm.com/product-page/baby-milk-con-aceite-de-amaranto\nLF-036 | Aceite Para Masaje Corporal | 250mL | $455 | $305 | $230 | https://www.cosmeticoslefranm.com/product-page/aceite-para-masaje-corporal\nLF-037 | Gel Frío | 350g | $540 | $395 | $307 | https://www.cosmeticoslefranm.com/product-page/gel-reductivo-fr%C3%ADo\nLF-038 | Gel Térmico | 350g | $540 | $395 | $307 | https://www.cosmeticoslefranm.com/product-page/gel-reductivo-t%C3%A9rmico\nLF-039 | Loción Firm | 1000mL | $540 | $395 | $307 | https://www.cosmeticoslefranm.com/product-page/loci%C3%B3n-reafirmante\nLF-040 | Protector Solar FPS 50 | 120g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/protector-solar-fps-50\nLF-041 | Protector Solar FPS 30 | 135g | $474 | $308 | $237 | https://www.cosmeticoslefranm.com/product-page/protector-solar-libre-de-grasa-fps-30\nLF-042 | Lip-Balm | 4g | $100 | $65 | $50 | https://www.cosmeticoslefranm.com/product-page/lip-balm-fps-10\nLF-043 | Ácido Glicólico al 33% | 35mL | $425 | $286 | $215 | https://www.cosmeticoslefranm.com/product-page/%C3%A1cido-glic%C3%B3lico-al-33\nLF-044 | Exfoliante Tipo Scrub | 160g | $425 | $286 | $215 | https://www.cosmeticoslefranm.com/product-page/exfoliante-tipo-scrub\nLF-045 | Jabón Exfoliante Para Manos y Cuerpo | 250mL | $265 | $190 | $160 | https://www.cosmeticoslefranm.com/product-page/exfoliante-para-manos-y-cuerpo\nLF-046 | Crema Sensib-e | 40g | $454 | $299 | $227 | https://www.cosmeticoslefranm.com/product-page/crema-sensib-e\nLF-047 | Mascarilla Única | 125g | $705 | $466 | $355 | https://www.cosmeticoslefranm.com/product-page/mascarilla-%C3%BAnica\nLF-048 | Gel Conductor | 980mL | $260 | $190 | $170 | https://www.cosmeticoslefranm.com/product-page/gel-conductor\nLF-050 | Crema de Arroz | 35g | $475 | $310 | $238 | https://www.cosmeticoslefranm.com/product-page/crema-de-arroz\nLF-051 | Crema Limpiadora de Cabina (solo verde/rojo) | presentación cabina | — | $370 | $277 | (sin ficha pública)\nLF-051 | Mascarilla de Hidratación Nocturna de Cabina (solo verde/rojo) | presentación cabina | — | $370 | $277 | (sin ficha pública)\nLF-051 | Gel con Áloe Vera de Cabina (solo verde/rojo) | presentación cabina | — | $370 | $277 | (sin ficha pública)\nLF-051 | Mascarilla Plástica de Cabina (solo verde/rojo) | presentación cabina | — | $370 | $277 | (sin ficha pública)\nLF-051 | Mascarilla NC Piñón de Cabina (solo verde/rojo) | presentación cabina | — | $370 | $277 | (sin ficha pública)\nLF-051 | Exfoliante Tipo Scrub de Cabina (solo verde/rojo) | presentación cabina | — | $370 | $277 | (sin ficha pública)\nLF-052 | Crema Sensib-e de Cabina (solo verde/rojo) | 120g | — | $527 | $442 | (sin ficha pública)\n\n═══════════════════════════════════════\nFORMA DE ENTREGA (preguntar siempre antes de armar la ficha)\n═══════════════════════════════════════\nUna vez que el cliente ya definió sus productos y antes de pedir la dirección, pregunta:\n\"¿Prefiere que le enviemos su pedido a domicilio, o prefiere recogerlo en nuestra sucursal de Iztapalapa?\"\n\n- Si elige ENVÍO A DOMICILIO → recopila la dirección completa de envío y su correo electrónico (ver sección de datos abajo). Aclara que se envía a toda CDMX y también a toda la República Mexicana.\n- Si elige RECOLECCIÓN EN SUCURSAL → no se necesita dirección de envío ni correo electrónico. Recuérdale la dirección de la sucursal, el horario de atención, y confirma que solo necesitas su nombre y teléfono para dejar el pedido preparado a su nombre.\n\n═══════════════════════════════════════\nCOSTO DE ENVÍO (SOLO SI ES ENVÍO A DOMICILIO — calcula siempre este costo antes de armar la Ficha de Compra, nunca lo omitas)\n═══════════════════════════════════════\nSi el cliente elige RECOLECCIÓN EN SUCURSAL, no hay costo de envío — omite por completo esta sección.\n\nSi elige ENVÍO A DOMICILIO, calcula el costo en 3 pasos, ANTES de mostrar la Ficha de Compra. Nunca le muestres al cliente estos pasos, tablas ni el peso calculado — solo dile el costo final en pesos, de forma natural (ejemplo: \"El envío a su domicilio tendría un costo de $170 🙂\").\n\nPASO 1 — Determina la ZONA según el estado/ciudad de la dirección del cliente:\n- LOCAL: Ciudad de México y municipios conurbados del Estado de México (por ejemplo Ecatepec, Nezahualcóyotl, Naucalpan, Tlalnepantla, Chimalhuacán, Coacalco, Cuautitlán, Atizapán, Tultitlán, Chalco, Valle de Chalco, Ixtapaluca).\n- REGIONAL: resto del Estado de México, Puebla, Querétaro, Morelos, Hidalgo, Tlaxcala.\n- GENERAL: Guadalajara, Monterrey, Veracruz, Mérida, Tijuana, y cualquier otro estado/ciudad no mencionado arriba.\n- EXTENDIDA: solo si el cliente menciona explícitamente que su domicilio está en una zona rural, muy alejada, o que requiere \"reexpedición\". Si tienes duda razonable, usa GENERAL en vez de EXTENDIDA.\n\nPASO 2 — Suma el PESO total del pedido, usando esta tabla según el contenido de cada producto (ya lo tienes en la columna \"contenido\" del catálogo), multiplicado por la cantidad de piezas de cada uno:\n- Contenido hasta 50g o hasta 50mL: 0.15 kg por pieza\n- Contenido de 51 a 125g o de 51 a 125mL: 0.25 kg por pieza\n- Contenido de 126 a 250g o de 126 a 250mL: 0.35 kg por pieza\n- Contenido de 251 a 500g o de 251 a 500mL: 0.50 kg por pieza\n- Contenido de 501 a 1000mL: 1.10 kg por pieza\n- Presentaciones de cabina (LF-051 y LF-052): 0.40 kg por pieza\n- Kit de Distribuidor Inicial completo (los 25 productos juntos): 6 kg fijo (no sumes cada producto del kit por separado)\nSuma el peso de todas las piezas del pedido para obtener el PESO TOTAL en kg.\n\nPASO 3 — Con la ZONA (paso 1) y el PESO TOTAL (paso 2), busca la tarifa correspondiente:\n\nLOCAL (CDMX y área metropolitana): hasta 1 kg $135 | 1.1 a 3 kg $150 | 3.1 a 5 kg $170 | 5.1 a 10 kg $210 | 11+ kg: $210 + $15 por cada kg que rebase los 10\nREGIONAL (EdoMex fuera de área metropolitana, Puebla, Querétaro, Morelos, Hidalgo, Tlaxcala): hasta 1 kg $155 | 1.1 a 3 kg $175 | 3.1 a 5 kg $195 | 5.1 a 10 kg $245 | 11+ kg: $245 + $18 por cada kg que rebase los 10\nGENERAL (Guadalajara, Monterrey, Veracruz, Mérida, Tijuana, resto del país): hasta 1 kg $175 | 1.1 a 3 kg $200 | 3.1 a 5 kg $230 | 5.1 a 10 kg $295 | 11+ kg: $295 + $22 por cada kg que rebase los 10\nEXTENDIDA (municipios alejados o con reexpedición): hasta 1 kg $370 | 1.1 a 3 kg $410 | 3.1 a 5 kg $450 | 5.1 a 10 kg $540 | 11+ kg: $540 + $30 por cada kg que rebase los 10\n\nPara pedidos de 11 kg o más, redondea el peso total hacia arriba al kilo completo antes de calcular el excedente sobre los 10 kg.\n\nEnvío exprés (solo si el cliente lo pide explícitamente, por ejemplo \"urgente\" o \"garantizado\"): suma $60 MXN adicionales sobre la tarifa que calculaste.\n\nEste costo de envío SIEMPRE debe sumarse al Total de la Ficha de Compra cuando es envío a domicilio.\n\n═══════════════════════════════════════\nFORMATO DE COTIZACIÓN EN LA CONVERSACIÓN\n═══════════════════════════════════════\nCuando cotices productos dentro de la conversación (antes de llegar a la Ficha de Compra final), NO uses tablas, NO incluyas el código del producto (LF-XXX) ni el contenido (mL/g), y NO lo describas en párrafos — se ve pesado. Escribe una línea simple por producto con: cantidad, nombre del producto y precio. Ejemplo:\n\n1 Crema Limpiadora $290\n1 Jabón Acni-Cero $199\n1 Jabón Dermolimpiador $199\nTotal: $688\n\nAsí de simple y directo, sin tabla, sin código, sin contenido/mililitros, sin guiones ni paréntesis. Esto aplica a cualquier cotización dentro del chat (incluyendo el Kit de Distribuidor si el cliente pide verlo en texto); la Ficha de Compra final sigue usando su propio formato obligatorio (ver más abajo), no se sustituye por este formato.\n\n═══════════════════════════════════════\nDATOS QUE DEBES RECOPILAR ANTES DE CERRAR UN PEDIDO\n═══════════════════════════════════════\n1. Producto(s) y piezas de cada uno\n2. Nombre completo del cliente\n3. Teléfono de contacto (si no es el mismo desde el que escribe)\n4. Forma de entrega: envío a domicilio o recolección en sucursal\n5. Si es envío a domicilio: dirección completa (calle, número, colonia, C.P., ciudad/estado, referencias) y correo electrónico. Si es recolección en sucursal, NO pidas correo electrónico — no hace falta.\n6. Confirmación del cliente de que el total y los productos son correctos, antes de cerrar\n\n═══════════════════════════════════════\nFICHA DE COMPRA (OBLIGATORIO)\n═══════════════════════════════════════\n\nUna vez que tengas TODOS los datos y el cliente confirme que el pedido es correcto, DEBES generar SIEMPRE una ficha de compra.\n\nNunca finalices una venta sin mostrar esta ficha. Si es envío a domicilio, el Total de la ficha debe incluir el costo de envío que calculaste en la sección COSTO DE ENVÍO.\n\nUtiliza EXACTAMENTE este formato:\n\n🛒 FICHA DE COMPRA\n\n👤 Cliente:\nNombre completo\n\n📞 Teléfono:\nNúmero de contacto\n\n🚚 Tipo de entrega:\nEnvío a domicilio / Recolección en sucursal\n\n📦 Costo de envío: (omitir esta línea completa si es recolección en sucursal)\n$XXX\n\n📍 Dirección de envío: (omitir este bloque completo, incluyendo el correo electrónico, si es recolección en sucursal)\nCalle:\nNúmero:\nColonia:\nCódigo Postal:\nCiudad/Estado:\nReferencias:\nCorreo electrónico:\n\n🛍️ Productos:\n\n• Producto 1\nCantidad:\nPrecio unitario:\nSubtotal:\n\n• Producto 2\nCantidad:\nPrecio unitario:\nSubtotal:\n\n💰 Total:\n$XXXX\n\n🏷️ Lista aplicada:\nazul/verde/roja\n\n💳 Método de pago:\nTransferencia bancaria\n\nDespués de mostrar la ficha pregunta:\n\"¿Confirma que toda la información es correcta para enviar su pedido?\"\n\nSi el cliente responde afirmativamente, entonces responde Únicamente con lo siguiente, sustituyendo [TOTAL] por el monto exacto del total que aparece en la ficha (sin corchetes, solo el número):\n\n\"¡Perfecto! 😊 Su pedido ha quedado registrado.\n\nPara finalizar su compra, realice su transferencia por el total de $[TOTAL] a los siguientes datos:\n\n🏦 Banco: NU MEXICO\nCLABE: 638180000147033358\nNúmero de cuenta: 00014703335\nTitular: Misael Leopoldo Lera Franco\n\nEn cuanto confirmemos su ficha de compra nos pondremos en contacto con usted.\n\n¡Muchas gracias por confiar en Lefranm Cosméticos! Ha sido un gusto atenderle 💚\"\n\nNo modifiques la ficha.\nNo omitas ningún campo (salvo la dirección, el correo electrónico y el costo de envío, que se omiten solo si es recolección en sucursal).\nSiempre debe aparecer antes de terminar la venta.\nNunca inventes ni cambies los datos bancarios: son siempre los mismos indicados arriba.\n\n═══════════════════════════════════════\nDEVOLUCIONES Y CAMBIOS\n═══════════════════════════════════════\nSi un cliente solicita una devolución o un cambio de producto:\n\n- Nunca pidas fotos ni evidencia del producto. Solo pregunta, con calidez, el motivo de la devolución o cambio.\n- Cambio de producto: procede si el producto está cerrado y en buenas condiciones.\n- Devolución de dinero: procede solo si el producto está cerrado (sin abrir) y no ha pasado su fecha de caducidad.\n- También aplica devolución o cambio si el producto llegó echado a perder o con hongo, aunque ya esté abierto.\n- Tanto la devolución como el cambio se gestionan directamente en la sucursal — tú no los resuelves ni los confirmas por WhatsApp. Indícale al cliente que puede acudir a la sucursal (Plaza Estrella, Iztapalapa) en el horario de atención, con el producto en mano, para que ahí se le atienda directamente.\n- No prometas montos, plazos ni condiciones adicionales a las aquí descritas; solo confirma el motivo con el cliente y canalízalo a sucursal.\n\n═══════════════════════════════════════\nAVISO A PERSONA DE RESPALDO (MUY IMPORTANTE)\n═══════════════════════════════════════\nDebes avisar a la persona de respaldo humana cuando ocurra cualquiera de estos casos:\n- El cliente pide explícitamente hablar con una persona, con alguien de Lefranm, o dice que quiere hablar con un humano.\n- Hay una queja, un problema, o el cliente expresa molestia con un pedido, un producto, una entrega, o el servicio en general.\n- Surge una duda o situación que no puedes resolver con la información de este prompt (ambigüedad sobre tier o precio, negociación de precio fuera de las listas establecidas, error o falla al usar alguna herramienta), o cualquier caso donde ya le dijiste al cliente que lo ibas a canalizar con alguien de Lefranm.\n\nEn estos casos, agrega SIEMPRE al final de tu respuesta al cliente, en su propia línea, esta marca exacta:\n[AVISAR_HUMANO: motivo breve en pocas palabras]\n\nEjemplo (el cliente pide hablar con una persona):\n\"Claro, en un momento alguien del equipo se pondrá en contacto con usted 🙂\"\n[AVISAR_HUMANO: cliente solicita hablar con una persona]\n\nReglas:\n- Nunca muestres, menciones ni expliques esta marca al cliente; un proceso interno la retira antes de enviarle tu mensaje.\n- Úsala solo cuando realmente aplique uno de los casos de arriba; no la agregues en conversaciones normales de cotización, pedidos o devoluciones que van bien conforme a este prompt.\n- Sigue respondiendo al cliente con normalidad y calidez en el cuerpo del mensaje; la marca es adicional, nunca sustituye tu respuesta al cliente.",
+    "fallbackEnabled": false
+   },
+   "module": "ai-local-agent:RunLocalAIAgent",
+   "version": 0,
+   "metadata": {
+    "expect": [
+     {
+      "name": "defaultModel",
+      "type": "select",
+      "label": "Model",
+      "required": true
+     },
+     {
+      "name": "fallbackEnabled",
+      "type": "boolean",
+      "label": "Enable fallback connection",
+      "required": true
+     },
+     {
+      "name": "tokenLimit",
+      "type": "number",
+      "label": "Maximum output length (%)",
+      "validate": {
+       "max": 100,
+       "min": 20
+      }
+     },
+     {
+      "name": "systemPrompt",
+      "type": "text",
+      "label": "Instructions"
+     },
+     {
+      "name": "message",
+      "type": "text",
+      "label": "Input",
+      "required": true
+     },
+     {
+      "name": "files",
+      "spec": [
+       {
+        "name": "fileName",
+        "type": "filename",
+        "label": "File name",
+        "semantic": "file:name"
+       },
+       {
+        "name": "data",
+        "type": "buffer",
+        "label": "Data",
+        "semantic": "file:data"
+       }
+      ],
+      "type": "array",
+      "label": "Input files"
+     },
+     {
+      "name": "threadId",
+      "type": "text",
+      "label": "Conversation ID",
+      "validate": {
+       "max": 256
+      }
+     },
+     {
+      "name": "modelConfig",
+      "spec": [
+       {
+        "name": "recursionLimit",
+        "type": "number",
+        "label": "Steps per agent call"
+       },
+       {
+        "name": "iterationsFromHistoryCount",
+        "type": "number",
+        "label": "Maximum conversation history"
+       }
+      ],
+      "type": "collection",
+      "label": "Model configuration"
+     },
+     {
+      "name": "timeout",
+      "type": "number",
+      "label": "Step timeout",
+      "validate": {
+       "max": 600,
+       "min": 120
+      }
+     },
+     {
+      "name": "outputType",
+      "type": "select",
+      "label": "Response format",
+      "required": true,
+      "validate": {
+       "enum": [
+        "text",
+        "make-schema",
+        "udt-schema"
+       ]
+      }
+     }
+    ],
+    "restore": {
+     "expect": {
+      "files": {
+       "mode": "chose"
+      },
+      "outputType": {
+       "label": "Text"
+      },
+      "defaultModel": {
+       "mode": "chose",
+       "label": "Large (Paid plans only)Model: gpt-5-mini. Reasoning: low. Powerful model built for complex logic puzzles and high-level reasoning tasks"
+      }
+     },
+     "parameters": {
+      "makeConnectionId": {
+       "data": {
+        "scoped": "true",
+        "connection": "ai-provider"
+       },
+       "label": "My Make's AI Provider connection"
+      }
+     }
+    },
+    "designer": {
+     "x": 900,
+     "y": 1200
+    },
+    "parameters": [
+     {
+      "name": "makeConnectionId",
+      "type": "account:ai-provider,openai-gpt-3,anthropic-claude,gemini-ai-q9zyjp,ai-agent-foundry-openai,ai-agent-foundry-non-openai,mistral-ai,cohere,groq,ai-agent-xai,amazon-bedrock,ai-agent-openai-compatible",
+      "label": "Connection",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "makeConnectionId": 8053555
+   }
+  },
+  {
+   "id": 70,
+   "mapper": {
+    "model": "gpt-4o-mini",
+    "prompt": "Vas a recibir la respuesta de un asistente de ventas de WhatsApp de una tienda de cosméticos. Esa respuesta puede contener, en su propia línea (normalmente al final), una marca interna con este formato exacto:\n[AVISAR_HUMANO: motivo]\n\nTu tarea:\n1. Devuelve en \"mensaje_limpio\" el texto COMPLETO original, EXACTAMENTE igual, pero eliminando por completo esa línea de marca [AVISAR_HUMANO: ...] si existe (y cualquier salto de línea extra que quede al final por haberla quitado). No cambies ninguna otra palabra, no resumas, no agregues nada.\n2. Si existe la marca, pon \"necesita_aviso\" en true y copia el motivo indicado dentro de la marca en \"motivo_aviso\". Si no existe la marca, pon \"necesita_aviso\" en false y deja \"motivo_aviso\" vacío.\n\nNo inventes contenido. No resumas. No agregues nada que no esté en el texto original.",
+    "rawText": "{{12.response}}",
+    "parameters": [
+     {
+      "name": "mensaje_limpio",
+      "type": "string",
+      "isRequired": false
+     },
+     {
+      "name": "necesita_aviso",
+      "type": "boolean",
+      "isRequired": false
+     },
+     {
+      "name": "motivo_aviso",
+      "type": "string",
+      "isRequired": false
+     }
+    ]
+   },
+   "module": "openai-gpt-3:transformTextToStructuredData",
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 1200,
+     "y": 600
+    },
+    "parameters": [
+     {
+      "name": "__IMTCONN__",
+      "type": "account:openai-gpt-3",
+      "label": "Connection",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "__IMTCONN__": 6001715
+   }
+  },
+  {
+   "id": 60,
+   "mapper": {
+    "model": "gpt-5.2",
+    "prompt": "Vas a recibir el texto de respuesta de un asistente de ventas de WhatsApp. Ese texto puede contener, al final y cada una en su propia línea, una o dos marcas internas con estos formatos exactos:\n[ENVIAR_ARCHIVO: URL | nombre-del-archivo.pdf]\n[AVISAR_HUMANO: motivo]\n\nTu tarea:\n1. Devuelve en \"mensaje_limpio\" el texto COMPLETO original, EXACTAMENTE igual, pero eliminando por completo esas líneas de marca ([ENVIAR_ARCHIVO: ...] y [AVISAR_HUMANO: ...]) si existen, junto con cualquier salto de línea extra que quede al final por haberlas quitado. No cambies ninguna otra palabra, no resumas, no agregues nada.\n2. Si existe la marca [ENVIAR_ARCHIVO: ...], extrae en \"pdf_url\" la URL completa tal cual aparece, sin recortarla, sin quitarle parámetros y sin modificarla, y en \"pdf_filename\" el nombre de archivo. Si esa marca no existe, deja \"pdf_url\" y \"pdf_filename\" vacíos.\n\nNo inventes URLs ni nombres de archivo.",
+    "rawText": "{{12.response}}",
+    "parameters": [
+     {
+      "name": "mensaje_limpio",
+      "type": "string",
+      "isRequired": true
+     },
+     {
+      "name": "pdf_url",
+      "type": "string",
+      "isRequired": false
+     },
+     {
+      "name": "pdf_filename",
+      "type": "string",
+      "isRequired": false
+     }
+    ]
+   },
+   "module": "openai-gpt-3:transformTextToStructuredData",
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 1500,
+     "y": 600
+    }
+   },
+   "parameters": {
+    "__IMTCONN__": 6001715
+   }
+  },
+  {
+   "id": 42,
+   "mapper": {
+    "model": "gpt-5.2",
+    "prompt": "Eres un clasificador para un asistente de ventas de cosméticos por WhatsApp.\n\nMensaje original del cliente: {{1.messages[].text.body}}\nTier actual del cliente en nuestra base de datos: {{if(2.Tier; 2.Tier; \"azul\")}}\n\nVas a recibir en 'rawText' la respuesta completa que el asistente le dio a ese mensaje del cliente.\n\nTu tarea es decidir si, en esa respuesta, el asistente debería estar entregando (adjuntando) al cliente una LISTA DE PRECIOS COMPLETA en PDF (azul, verde o roja) -- no una cotización de uno o varios productos puntuales, sino la lista completa. Esto aplica cuando:\n- El cliente pidió ver la lista de precios, el catálogo con precios, o una lista específica (azul, verde o roja), Y\n- La respuesta del asistente indica que se la está compartiendo, enviando o mandando (frases como 'le comparto la lista', 'le envío la lista', 'aquí tiene la lista', o simplemente confirma que se la manda).\n\nNo cuenta como 'lista de precios' cuando el asistente solo cotiza uno o varios productos puntuales dentro del chat (eso es una cotización normal, no la lista completa), ni cuando manda una ficha técnica o el catálogo de fichas técnicas.\n\nDevuelve:\n- quiere_lista (true/false): true solo si aplica el caso de arriba.\n- lista_color (azul/verde/rojo): si quiere_lista es true, el color de la lista que corresponde (si el cliente pidió un color específico, usa ese; si no, usa el tier actual del cliente indicado arriba). Si quiere_lista es false, deja este campo vacío.\n\nNo inventes contenido adicional.",
+    "rawText": "{{12.response}}",
+    "parameters": [
+     {
+      "name": "quiere_lista",
+      "type": "boolean",
+      "isRequired": false
+     },
+     {
+      "name": "lista_color",
+      "type": "string",
+      "isRequired": false
+     }
+    ]
+   },
+   "module": "openai-gpt-3:transformTextToStructuredData",
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 1800,
+     "y": 600
+    }
+   },
+   "parameters": {
+    "__IMTCONN__": 6001715
+   }
+  },
+  {
+   "id": 38,
+   "mapper": {
+    "to": "{{1.contacts[].wa_id}}",
+    "text": {
+     "body": "{{ifempty(60.mensaje_limpio; ifempty(12.response; \"Disculpe, tuve un detalle tecnico al enviar mi respuesta. ¿Me puede repetir su mensaje, por favor?\"))}}",
+     "preview_url": false
+    },
+    "type": "text",
+    "fromId": "587701384435147"
+   },
+   "module": "whatsapp-business-cloud:sendMessage",
+   "onerror": [
+    {
+     "id": 300,
+     "mapper": {},
+     "module": "builtin:Resume",
+     "version": 1,
+     "metadata": {
+      "designer": {
+       "x": 2100,
+       "y": 900
+      }
+     }
+    }
+   ],
+   "version": 1,
+   "metadata": {
+    "expect": [
+     {
+      "name": "fromId",
+      "type": "select",
+      "label": "Sender ID",
+      "required": true
+     },
+     {
+      "name": "to",
+      "type": "text",
+      "label": "Receiver",
+      "required": true
+     },
+     {
+      "name": "type",
+      "type": "select",
+      "label": "Message Type",
+      "required": true,
+      "validate": {
+       "enum": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "document",
+        "sticker",
+        "location",
+        "contacts",
+        "interactive"
+       ]
+      }
+     },
+     {
+      "name": "text",
+      "spec": [
+       {
+        "name": "body",
+        "type": "text",
+        "label": "Body",
+        "required": true,
+        "validate": {
+         "max": 4096
+        }
+       },
+       {
+        "name": "preview_url",
+        "type": "boolean",
+        "label": "Preview URL",
+        "required": true
+       }
+      ],
+      "type": "collection",
+      "label": "Text"
+     }
+    ],
+    "restore": {
+     "expect": {
+      "text": {
+       "nested": {
+        "preview_url": {
+         "mode": "chose"
+        }
+       }
+      },
+      "type": {
+       "label": "Text"
+      },
+      "fromId": {
+       "mode": "chose",
+       "label": "Lefranm Beaute ok (+52 1 55 7499 4010)"
+      }
+     },
+     "parameters": {
+      "__IMTCONN__": {
+       "data": {
+        "scoped": "true",
+        "connection": "whatsapp-business-cloud"
+       },
+       "label": "LEFRANM CITAS (Lefranm Beaute ok (1570246936970929))"
+      }
+     }
+    },
+    "designer": {
+     "x": 2100,
+     "y": 600
+    },
+    "parameters": [
+     {
+      "name": "__IMTCONN__",
+      "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+      "label": "Connection",
+      "required": true
+     }
+    ]
+   },
+   "parameters": {
+    "__IMTCONN__": 9880453
+   }
+  },
+  {
+   "id": 90,
+   "mapper": null,
+   "module": "builtin:BasicRouter",
+   "routes": [
+    {
+     "flow": [
+      {
+       "id": 61,
+       "filter": {
+        "name": "Hay PDF para enviar",
+        "conditions": [
+         [
+          {
+           "a": "{{60.pdf_url}}",
+           "o": "exist"
+          }
+         ]
+        ]
+       },
+       "mapper": {
+        "to": "{{1.contacts[].wa_id}}",
+        "type": "document",
+        "fromId": "587701384435147",
+        "document": {
+         "link": "{{60.pdf_url}}",
+         "filename": "{{60.pdf_filename}}"
+        }
+       },
+       "module": "whatsapp-business-cloud:sendMessage",
+       "version": 1,
+       "metadata": {
+        "expect": [
+         {
+          "name": "fromId",
+          "type": "select",
+          "label": "Sender ID",
+          "required": true
+         },
+         {
+          "name": "to",
+          "type": "text",
+          "label": "Receiver",
+          "required": true
+         },
+         {
+          "name": "type",
+          "type": "select",
+          "label": "Message Type",
+          "required": true,
+          "validate": {
+           "enum": [
+            "text",
+            "image",
+            "audio",
+            "video",
+            "document",
+            "sticker",
+            "location",
+            "contacts",
+            "interactive"
+           ]
+          }
+         },
+         {
+          "name": "document",
+          "spec": [
+           {
+            "name": "id",
+            "type": "text",
+            "label": "Media ID"
+           },
+           {
+            "name": "link",
+            "type": "url",
+            "label": "Media URL"
+           },
+           {
+            "name": "caption",
+            "type": "text",
+            "label": "Caption"
+           },
+           {
+            "name": "filename",
+            "type": "text",
+            "label": "File Name"
+           }
+          ],
+          "type": "collection",
+          "label": "Document"
+         }
+        ],
+        "restore": {
+         "expect": {
+          "type": {
+           "label": "Document"
+          },
+          "fromId": {
+           "mode": "chose",
+           "label": "Lefranm Beaute ok (+52 1 55 7499 4010)"
+          }
+         },
+         "parameters": {
+          "__IMTCONN__": {
+           "data": {
+            "scoped": "true",
+            "connection": "whatsapp-business-cloud"
+           },
+           "label": "LEFRANM CITAS (Lefranm Beaute ok (1570246936970929))"
+          }
+         }
+        },
+        "designer": {
+         "x": 2700,
+         "y": 0
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9880453
+       }
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 43,
+       "filter": {
+        "name": "Lista de precios sin marca (respaldo)",
+        "conditions": [
+         [
+          {
+           "a": "{{42.quiere_lista}}",
+           "b": "true",
+           "o": "text:equal"
+          },
+          {
+           "a": "{{60.pdf_url}}",
+           "o": "notexist"
+          }
+         ]
+        ]
+       },
+       "mapper": {
+        "to": "{{1.contacts[].wa_id}}",
+        "type": "document",
+        "fromId": "587701384435147",
+        "document": {
+         "link": "{{if(42.lista_color = \"rojo\"; \"https://drive.google.com/uc?export=download&id=19XRzcbYiqsGX_szuwpQvq6guRTMv-mYu\"; if(42.lista_color = \"verde\"; \"https://drive.google.com/uc?export=download&id=1g7e4AnE-EMsfbOxcC0xeadmk-lxaV8Hg\"; \"https://drive.google.com/uc?export=download&id=1T6SQKhXpbM_w05v8pCAY89nEQd1hCoxC\"))}}",
+         "filename": "{{if(42.lista_color = \"rojo\"; \"Lista-Precios-Roja-Lefranm.pdf\"; if(42.lista_color = \"verde\"; \"Lista-Precios-Verde-Lefranm.pdf\"; \"Lista-Precios-Azul-Lefranm.pdf\"))}}"
+        }
+       },
+       "module": "whatsapp-business-cloud:sendMessage",
+       "version": 1,
+       "metadata": {
+        "expect": [
+         {
+          "name": "fromId",
+          "type": "select",
+          "label": "Sender ID",
+          "required": true
+         },
+         {
+          "name": "to",
+          "type": "text",
+          "label": "Receiver",
+          "required": true
+         },
+         {
+          "name": "type",
+          "type": "select",
+          "label": "Message Type",
+          "required": true,
+          "validate": {
+           "enum": [
+            "text",
+            "image",
+            "audio",
+            "video",
+            "document",
+            "sticker",
+            "location",
+            "contacts",
+            "interactive"
+           ]
+          }
+         },
+         {
+          "name": "document",
+          "spec": [
+           {
+            "name": "id",
+            "type": "text",
+            "label": "Media ID"
+           },
+           {
+            "name": "link",
+            "type": "url",
+            "label": "Media URL"
+           },
+           {
+            "name": "caption",
+            "type": "text",
+            "label": "Caption"
+           },
+           {
+            "name": "filename",
+            "type": "text",
+            "label": "File Name"
+           }
+          ],
+          "type": "collection",
+          "label": "Document"
+         }
+        ],
+        "restore": {
+         "expect": {
+          "type": {
+           "label": "Document"
+          },
+          "fromId": {
+           "mode": "chose",
+           "label": "Lefranm Beaute ok (+52 1 55 7499 4010)"
+          }
+         },
+         "parameters": {
+          "__IMTCONN__": {
+           "data": {
+            "scoped": "true",
+            "connection": "whatsapp-business-cloud"
+           },
+           "label": "LEFRANM CITAS (Lefranm Beaute ok (1570246936970929))"
+          }
+         }
+        },
+        "designer": {
+         "x": 2700,
+         "y": 300
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:whatsapp-business-cloud,whatsapp-business-cloud2",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 9880453
+       }
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 41,
+       "mapper": {
+        "model": "gpt-5.2",
+        "prompt": "Eres un clasificador y extractor de texto. Vas a recibir un mensaje de texto (puede ser\ncualquier tipo de respuesta de un asistente de ventas).\n\nTu tarea:\n- Si el texto CONTIENE el encabezado \"🛒 FICHA DE COMPRA\", copia el texto completo de la ficha tal cual, sin modificarlo, en el campo \"funcion\". Ademas extrae de esa ficha: telefono, nombre_cliente, total (numero), lista_aplicada (azul/verde/roja), alcanza_umbral_tier (true si esta compra hizo que el total de la lista verde llegara a 7500 o mas por primera vez, o la lista roja a 10000 o mas por primera vez; false en cualquier otro caso), tier_activado (verde o rojo si alcanza_umbral_tier es true, si no null), monto_acumulado_nuevo (si lista_aplicada es roja y el cliente esta acumulando hacia 10000 en compras parciales, es el monto ya acumulado en total sumando esta compra; si no aplica, 0), fecha_limite_rojo (fecha ISO YYYY-MM-DD tres meses despues del primer abono a rojo, si aplica, si no null), tier_final (el tier que debe quedar guardado en la base de datos: azul, verde o rojo).\n- Si el texto NO contiene ese encabezado, deja \"funcion\" vacio y los demas campos en su valor por defecto (0, false, null, o cadena vacia segun el tipo).\n\nNo inventes contenido. No resumas. No agregues nada que no este en el texto original.",
+        "rawText": "{{12.response}}",
+        "parameters": [
+         {
+          "name": "funcion",
+          "type": "string",
+          "isRequired": false
+         },
+         {
+          "name": "telefono",
+          "type": "string",
+          "isRequired": false
+         },
+         {
+          "name": "nombre_cliente",
+          "type": "string",
+          "isRequired": false
+         },
+         {
+          "name": "total",
+          "type": "number",
+          "isRequired": false
+         },
+         {
+          "name": "lista_aplicada",
+          "type": "string",
+          "isRequired": false
+         },
+         {
+          "name": "alcanza_umbral_tier",
+          "type": "boolean",
+          "isRequired": false
+         },
+         {
+          "name": "tier_activado",
+          "type": "string",
+          "isRequired": false
+         },
+         {
+          "name": "monto_acumulado_nuevo",
+          "type": "number",
+          "isRequired": false
+         },
+         {
+          "name": "fecha_limite_rojo",
+          "type": "string",
+          "isRequired": false
+         },
+         {
+          "name": "tier_final",
+          "type": "string",
+          "isRequired": false
+         }
+        ]
+       },
+       "module": "openai-gpt-3:transformTextToStructuredData",
+       "version": 1,
+       "metadata": {
+        "designer": {
+         "x": 2700,
+         "y": 750
+        }
+       },
+       "parameters": {
+        "__IMTCONN__": 6001715
+       }
+      },
+      {
+       "id": 105,
+       "filter": {
+        "name": "ficha de compra",
+        "conditions": [
+         [
+          {
+           "a": "{{41.funcion}}",
+           "b": "FICHA DE COMPRA",
+           "o": "text:contain"
+          }
+         ],
+         [
+          {
+           "a": "{{12.response}}",
+           "b": "FICHA DE COMPRA",
+           "o": "text:contain"
+          }
+         ]
+        ]
+       },
+       "mapper": {
+        "to": [
+         "lefranm.ok@gmail.com"
+        ],
+        "content": "<h2>🛒 Nueva ficha de compra — Lefranm Cosméticos</h2>\n<p><b>Cliente:</b> {{1.contacts[].profile.name}}<br>\n<b>WhatsApp:</b> {{1.contacts[].wa_id}}<br>\n<b>Fecha:</b> {{formatDate(now; \"DD/MM/YYYY HH:mm\")}}</p>\n<hr>\n<pre>{{ifempty(41.funcion; 12.response)}}</pre>",
+        "subject": "Nuevo pedido Lefranm",
+        "bodyType": "rawHtml"
+       },
+       "module": "google-email:sendAnEmail",
+       "version": 4,
+       "metadata": {
+        "designer": {
+         "x": 3000,
+         "y": 750
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google-email",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 10484205
+       }
+      },
+      {
+       "id": 106,
+       "mapper": {
+        "id": "{{101.id}}",
+        "base": "appfzByzbpSh9ZUHc",
+        "table": "tblp4g68UDcXYDHX6",
+        "record": {
+         "fld5yoqKyjODvocsa": false,
+         "fldo9VdkAt8OVxZma": true
+        },
+        "typecast": true,
+        "useColumnId": true
+       },
+       "module": "airtable:ActionUpdateRecords",
+       "version": 3,
+       "metadata": {
+        "designer": {
+         "x": 3300,
+         "y": 750
+        }
+       },
+       "parameters": {
+        "__IMTCONN__": 6485517
+       }
+      },
+      {
+       "id": 52,
+       "mapper": null,
+       "module": "builtin:BasicRouter",
+       "routes": [
+        {
+         "flow": [
+          {
+           "id": 50,
+           "filter": {
+            "name": "No existia y alcanza umbral - crear",
+            "conditions": [
+             [
+              {
+               "a": "{{2.__IMTLENGTH__}}",
+               "b": "0",
+               "o": "number:equal"
+              },
+              {
+               "a": "{{41.alcanza_umbral_tier}}",
+               "b": "true",
+               "o": "text:equal"
+              }
+             ]
+            ]
+           },
+           "mapper": {
+            "base": "appfzByzbpSh9ZUHc",
+            "table": "tblp4g68UDcXYDHX6",
+            "record": {
+             "fldeg7ZDUfl6KPFxJ": {}
+            },
+            "typecast": true,
+            "useColumnId": false
+           },
+           "module": "airtable:ActionCreateRecord",
+           "version": 3,
+           "metadata": {
+            "designer": {
+             "x": 3900,
+             "y": 600
+            }
+           },
+           "parameters": {
+            "__IMTCONN__": 6485517
+           }
+          }
+         ]
+        },
+        {
+         "flow": [
+          {
+           "id": 51,
+           "filter": {
+            "name": "Ya existia y (alcanza umbral o ya es rojo acumulando) - actualizar",
+            "conditions": [
+             [
+              {
+               "a": "{{2.__IMTLENGTH__}}",
+               "b": "0",
+               "o": "number:notequal"
+              },
+              {
+               "a": "{{41.alcanza_umbral_tier}}",
+               "b": "true",
+               "o": "text:equal"
+              }
+             ],
+             [
+              {
+               "a": "{{2.__IMTLENGTH__}}",
+               "b": "0",
+               "o": "number:notequal"
+              },
+              {
+               "a": "{{2.Tier}}",
+               "b": "rojo",
+               "o": "text:equal"
+              }
+             ]
+            ]
+           },
+           "mapper": {
+            "base": "appfzByzbpSh9ZUHc",
+            "table": "tblp4g68UDcXYDHX6",
+            "record": {
+             "Tier": "{{41.tier_final}}",
+             "fecha limite": "{{41.fecha_limite_rojo}}",
+             "monto acumulado": "{{41.monto_acumulado_nuevo}}",
+             "fecha activacion": "{{formatDate(now; \"YYYY-MM-DD\")}}"
+            },
+            "recordId": "{{2.id}}",
+            "typecast": true,
+            "useColumnId": false
+           },
+           "module": "airtable:ActionUpdateRecords",
+           "version": 3,
+           "metadata": {
+            "designer": {
+             "x": 3900,
+             "y": 900
+            }
+           },
+           "parameters": {
+            "__IMTCONN__": 6485517
+           }
+          }
+         ]
+        }
+       ],
+       "version": 1,
+       "metadata": {
+        "designer": {
+         "x": 3600,
+         "y": 750
+        }
+       },
+       "parameters": {}
+      }
+     ]
+    },
+    {
+     "flow": [
+      {
+       "id": 71,
+       "filter": {
+        "name": "Aviso a persona de respaldo",
+        "conditions": [
+         [
+          {
+           "a": "{{70.necesita_aviso}}",
+           "b": "true",
+           "o": "text:equal"
+          }
+         ]
+        ]
+       },
+       "mapper": {
+        "to": [
+         "lefranm.ok@gmail.com"
+        ],
+        "content": "<h2>⚠️ Aviso Lefranm Cosméticos - Requiere atención</h2><p><b>Cliente:</b> {{1.contacts[].profile.name}}<br><b>Teléfono:</b> {{1.contacts[].wa_id}}<br><b>Motivo:</b> {{70.motivo_aviso}}<br><b>Fecha:</b> {{formatDate(now; \"DD/MM/YYYY HH:mm\")}}</p><hr><p><b>Último mensaje del cliente:</b><br>{{1.messages[].text.body}}</p>",
+        "subject": "Aviso Lefranm Cosméticos - Requiere atención",
+        "bodyType": "rawHtml"
+       },
+       "module": "google-email:sendAnEmail",
+       "version": 4,
+       "metadata": {
+        "designer": {
+         "x": 2700,
+         "y": 1200
+        },
+        "parameters": [
+         {
+          "name": "__IMTCONN__",
+          "type": "account:google-email",
+          "label": "Connection",
+          "required": true
+         }
+        ]
+       },
+       "parameters": {
+        "__IMTCONN__": 10484205
+       }
+      },
+      {
+       "id": 201,
+       "mapper": {
+        "key": "{{1.contacts[].wa_id}}",
+        "data": {
+         "motivo": "{{70.motivo_aviso}}",
+         "pausado_hasta": "{{addHours(now; 2)}}"
+        },
+        "overwrite": true
+       },
+       "module": "datastore:AddRecord",
+       "version": 1,
+       "metadata": {
+        "designer": {
+         "x": 3000,
+         "y": 1200
+        }
+       },
+       "parameters": {
+        "datastore": 136916
+       }
+      }
+     ]
+    }
+   ],
+   "version": 1,
+   "metadata": {
+    "designer": {
+     "x": 2400,
+     "y": 600
+    }
+   },
+   "parameters": {}
+  }
+ ],
+ "name": "LEFRANM COSMETICOS CORECTA (copy)",
+ "metadata": {
+  "instant": true,
+  "version": 1,
+  "designer": {
+   "orphans": [],
+   "samples": {
+    "1": {
+     "id": "1570246936970929",
+     "time": null,
+     "field": "messages",
+     "contacts": [
+      {
+       "wa_id": "5215514462738",
+       "profile": {
+        "name": "Luis Angel Sanchez Naranj"
+       },
+       "user_id": "MX.27036809149323296"
+      }
+     ],
+     "messages": [
+      {
+       "id": "wamid.HBgNNTIxNTUxNDQ2MjczOBUCABIYFjNFQjBCREFEMjBBNUMwMDQyMUY2MjkA",
+       "from": "5215514462738",
+       "text": {
+        "body": "hola"
+       },
+       "type": "text",
+       "timestamp": "2026-09-05T18:27:19.000Z",
+       "from_user_id": "MX.27036809149323296"
+      }
+     ],
+     "metadata": {
+      "phone_number_id": "587701384435147",
+      "display_phone_number": "5215574994010"
+     },
+     "messaging_product": "whatsapp"
+    },
+    "2": {
+     "id": "rec5NFCXKGCahjvPL",
+     "Telefono": "5215514462738",
+     "createdTime": "2025-12-10T03:08:51.000Z",
+     "__IMTINDEX__": 1,
+     "__IMTLENGTH__": 1,
+     "monto acumulado": {
+      "state": "error",
+      "value": null,
+      "isStale": false,
+      "errorType": "emptyDependency"
+     }
+    },
+    "12": {
+     "metadata": {
+      "executionSteps": [
+       {
+        "id": "msg_07ae632ee092c015016a9c5f0cf29087d2b528128a24d61e25",
+        "role": "assistant",
+        "content": "¡Hola! 😊\n\nQué gusto saludarle. ¿Su compra es para uso personal o busca precio de cosmetóloga / dist...",
+        "createdAt": {},
+        "reasoning": "**Responding warmly in Spanish**\n\nThe user's message starts with \"hola\", which suggests it's a greet...",
+        "tokenUsage": {
+         "totalTokens": 15663,
+         "promptTokens": 15562,
+         "cacheReadTokens": 0,
+         "completionTokens": 101
+        },
+        "executionTimeMs": 2004,
+        "agentIterationId": "63ba6a2a-cf9e-441d-8b7a-c80fc6fca668"
+       }
+      ],
+      "executionTimeMs": 2107,
+      "tokenUsageSummary": {
+       "contextUsed": 15562,
+       "totalTokens": 15663,
+       "promptTokens": 15562,
+       "contextWindow": 400000,
+       "cacheReadTokens": 0,
+       "completionTokens": 101,
+       "cacheCreationTokens": 0
+      },
+      "lastAgentIterationId": "63ba6a2a-cf9e-441d-8b7a-c80fc6fca668"
+     },
+     "response": "¡Hola! 😊\n\nQué gusto saludarle. ¿Su compra es para uso personal o busca precio de cosmetóloga / dist...",
+     "threadId": "5215514462738",
+     "reasoning": "**Responding warmly in Spanish**\n\nThe user's message starts with \"hola\", which suggests it's a greet..."
+    },
+    "38": {
+     "contacts": [
+      {
+       "input": "5215514462738",
+       "wa_id": "5215514462738"
+      }
+     ],
+     "messages": [
+      {
+       "id": "wamid.HBgNNTIxNTUxNDQ2MjczOBUCABEYFENFQzk0QUREQ0U4MDRCNkMyNUNCAA=="
+      }
+     ],
+     "messaging_product": "whatsapp"
+    },
+    "42": {
+     "lista_color": "",
+     "quiere_lista": false
+    },
+    "60": {
+     "pdf_url": "",
+     "pdf_filename": "",
+     "mensaje_limpio": "¡Hola! 😊\n\nQué gusto saludarle. ¿Su compra es para uso personal o busca precio de cosmetóloga / dist..."
+    },
+    "70": {
+     "motivo_aviso": "",
+     "mensaje_limpio": "¡Hola! 😊\n\nQué gusto saludarle. ¿Su compra es para uso personal o busca precio de cosmetóloga / dist...",
+     "necesita_aviso": false
+    },
+    "101": {
+     "id": "rec5NFCXKGCahjvPL",
+     "createdTime": "2025-12-10T03:08:51.000Z",
+     "fldC0k2l4lPBsEYpQ": {
+      "state": "error",
+      "value": null,
+      "isStale": false,
+      "errorType": "emptyDependency"
+     },
+     "fldFGmWhUGNwYCeMS": "Luis Angel Sanchez Naranj",
+     "fldb1OtXAPisCLUYT": "2026-09-05T12:27:22.000Z",
+     "fldnohCwXilXsqCId": "5215514462738"
+    },
+    "200": {
+     "motivo": "cliente solicita hablar con equipo sobre dudas de productos",
+     "pausado_hasta": "2026-08-23T22:42:26.238Z"
+    }
+   }
+  },
+  "scenario": {
+   "dlq": false,
+   "slots": null,
+   "dataloss": false,
+   "maxErrors": 3,
+   "autoCommit": true,
+   "roundtrips": 1,
+   "sequential": false,
+   "confidential": false,
+   "freshVariables": false,
+   "autoCommitTriggerLast": true
+  }
+ },
+ "scheduling": {
+  "type": "immediately",
+  "maximum_runs_per_minute": 100
+ },
+ "interface": {
+  "input": [],
+  "output": []
+ }
+}

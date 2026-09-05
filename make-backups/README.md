@@ -215,3 +215,72 @@ Make volvió a ignorar el `scheduling` del blueprint y dejó el escenario en
 
 Es la segunda vez que la importación hace esto — conviene revisarlo siempre
 después de importar.
+
+---
+
+# Blindaje de LEFRANM COSMETICOS (5587862) — meta: 0 errores
+
+## Auditoría de partida
+
+20 módulos, **solo 2 con manejador de error** (el 200 y el 38). Los otros 18
+podían tumbar la ejecución completa, dejando al cliente sin respuesta.
+
+Historial real de caídas de este escenario:
+
+| Fecha | Error | Módulo |
+|---|---|---|
+| 1 y 2 sept | `[400] missing 'body'` | 38 · WhatsApp |
+| 4 sept | `[429] no credits remaining` (OpenAI) | 60/70/42 · OpenAI |
+| 5 sept | `Failed to verify connection 'LEFRAN CATALOGO' [400]` | inicialización |
+
+## Criterio aplicado
+
+Antes de blindar, se mapeó qué módulo consume la salida de cuál. Solo se
+agregó manejador donde el fallo degrada sin cambiar el comportamiento:
+
+**Terminales — nadie usa su salida, un `Resume` es inocuo:**
+61, 43 (envíos WhatsApp), 105, 71 (Gmail), 106, 50, 51 (escrituras Airtable),
+201 (Data Store).
+
+**Salida consumida, pero por filtros que exigen `"true"` o `exist`:**
+70, 60, 42, 41. Con el `Resume` vacío esos filtros no disparan — que es
+exactamente el comportamiento correcto cuando el parser falló.
+
+**Agente (12):** `Resume` con una respuesta de respaldo, para que el cliente
+reciba algo en vez de silencio.
+
+**Upsert de Airtable (101):** su único consumidor es el 106, que queda
+protegido. El costo de un fallo pasa a ser "un mensaje no se registró", no
+"se perdió la conversación".
+
+## Deliberadamente SIN proteger
+
+**Módulo 2 (`airtable:ActionSearchRecords`).** Su salida decide crear vs.
+actualizar mediante `{{2.__IMTLENGTH__}}`, y `{{2.id}}` es el `recordId` del
+upsert del módulo 101. Un `Resume` ahí dejaría `__IMTLENGTH__` indefinido y el
+upsert podría **crear registros duplicados de clientes**. Eso sí cambiaría el
+funcionamiento, así que se dejó como está.
+
+Es el único módulo cuyo fallo todavía mata la conversación. La solución de
+fondo es la misma que se aplicó en citas —sacar esa tabla de Airtable— pero
+requiere migrar antes los saldos del programa de lealtad.
+
+Los módulos 1 (trigger), 90 y 52 (routers) no admiten manejador de error.
+
+## Resultado
+
+**Cobertura: 16 de 20 módulos** (17 de 17 protegibles, menos el 2 por decisión).
+
+Diff verificado: **71 claves cambian y todas están dentro de bloques
+`onerror`**. Cero cambios fuera de eso. `systemPrompt` del agente intacto,
+mapper del módulo 38 intacto, todas las conexiones intactas.
+
+## Riesgo pendiente: cuota de Airtable del workspace ASISTENTE
+
+Cosmeticos gasta ~2-3 llamadas de Airtable por conversación, y
+`LEFRANM COSMETICOS SEGUIMIENTO` sondea cada 30 min (~1,440 búsquedas al mes
+por sí solo). Es la misma aritmética que tumbó a citas el 27 de agosto contra
+un tope de 1,000 llamadas/mes del plan gratuito.
+
+Conviene revisar el contador de API del workspace **ASISTENTE** en Airtable
+antes de que reviente igual.
