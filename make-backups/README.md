@@ -679,3 +679,49 @@ la pena: el import por archivo desde la interfaz de Make es byte-exacto.
 >
 > Make además reinicia el `scheduling` al importar. Después del import hay
 > que confirmar que siga en *Immediately*.
+
+---
+
+# Verificación post-import — 12 sep 2026
+
+El usuario importó `5587862_v6.FINAL.json` dentro del escenario, guardó y
+volvió a poner el scheduling en *Immediately*. Estado leído por API
+(`5587862_post-import.json` es el blueprint vivo resultante):
+
+| Comprobación | Valor | Esperado |
+|---|---|---|
+| Nombre | `LEFRANM COSMETICOS CORECTA (copy)` | ✓ |
+| Webhook | `2547718` | ✓ |
+| Conexiones | `10484205, 6001715, 6485517, 9795431` | ✓ |
+| Scheduling | `immediately, 100/min` | ✓ |
+| Manejadores `onerror` | **16** | 16 ✓ |
+| `systemPrompt` | 36,433 chars, `sha256 4cc058e0…` | ✓ |
+| Módulos distintos vs. lo enviado | **ninguno** | ✓ |
+
+El import quedó exacto. No hubo deriva.
+
+## El MIME sigue sin arreglarse, y es intencional
+
+El blueprint vivo contiene **4 apariciones de `PEGA_AQUI_TU_API_KEY`**, así
+que la condición `substring(...; 0; 4) = "AIza"` es falsa y las dos fórmulas
+siguen entregando la URL original de Drive. El escenario se comporta igual
+que antes del import en lo que toca a los PDF — que es exactamente el diseño:
+importar no podía romper nada.
+
+Queda armado y apagado hasta que se sustituya el marcador por una clave real.
+
+## El contraste iPhone / Android confirma el diagnóstico
+
+Prueba del usuario: el catálogo **abre bien en iPhone** y **falla en Huawei y
+en Samsung**, donde sigue apareciendo como `BIN` y pide instalar una app.
+
+Eso no contradice el diagnóstico, lo confirma:
+
+- **iOS** resuelve el archivo por la **extensión** `.pdf` y lo entrega a Quick
+  Look, que abre cualquier PDF sin mirar el `Content-Type` declarado.
+- **Android** despacha por **MIME**. Con `application/octet-stream` no hay
+  ninguna aplicación registrada, así que ofrece el menú "Abrir con" de
+  Billetera / Google / vista previa, ninguna capaz de leer un PDF.
+
+Si el archivo estuviera corrupto o mal generado fallaría en ambas
+plataformas. Que falle solo donde el MIME decide es la firma de este defecto.
