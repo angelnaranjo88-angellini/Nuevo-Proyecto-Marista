@@ -559,3 +559,123 @@ El arreglo de MIME hace que el PDF **abra**. No hace que pese menos. El
 catálogo de 71.6 MB y las fichas de 40.9 MB siguen siendo descargas que
 mucha gente va a abandonar por datos móviles. Las dos cosas son
 independientes y las dos hacen falta.
+
+---
+
+# Revisión con acceso restaurado — 12 sep 2026
+
+El conector de Make volvió a apuntar a la cuenta correcta:
+`us2.make.com`, organización **5357289**, equipo **1436402**.
+
+## 1. El escenario está en 0 errores
+
+`executions_list` sobre 5587862: **todas las ejecuciones visibles tienen
+`status: 1` (éxito)**. Ni un solo `status 3` (error) ni `status 2`
+(advertencia). La más reciente, hoy 19:41 UTC, 11 operaciones, 18.3 s.
+
+El arreglo del cuerpo vacío (módulo 60 con `isRequired` + la cascada
+`ifempty` en el 38) funcionó. La meta de 0 errores ya está cumplida en la
+práctica; lo que queda es blindaje y el defecto de los PDF.
+
+## 2. Mi captura `v3` estaba equivocada en lo más delicado
+
+Al comparar el blueprint vivo contra `5587862_v3.actual.json`:
+
+| | v3 (mi captura) | **vivo** |
+|---|---|---|
+| Webhook (módulo 1) | 2567974 — *"LEFRANM CITAS"* | **2547718 — *"Lefran Cosmeticos"*** |
+| Conexión WhatsApp (38, 43, 61) | 9880453 — *"LEFRANM CITAS"* | **9795431 — *"Lefran Cosmeticos"*** |
+
+Mi captura apuntaba al webhook y a la conexión **de citas**. Importar
+`v4` o `v5` habría puesto el bot de cosméticos a escuchar el webhook de
+citas y a responder por la conexión de citas.
+
+**Por eso `5587862_v4.blindado.json` y `5587862_v5.pdf-mime-fix.json`
+quedan obsoletos y no se deben importar.** El archivo bueno es
+`5587862_v6.FINAL.json`, construido sobre el blueprint vivo.
+
+El resto del blueprint sí coincidía: `systemPrompt` con el mismo
+`sha256 4cc058e0…`, mismos 22 módulos, mismos mappers y filtros.
+
+## 3. `LEFRAN CATALOGO` no la usa nadie
+
+`connections_list` devuelve para la conexión `9795318` (`LEFRAN CATALOGO`):
+
+```
+"scenarioUsages": []
+```
+
+**Cero escenarios.** No puede estar causando errores. Dije varias veces que
+hacía falta reautorizarla con Facebook; era innecesario. Se puede borrar.
+
+Conexiones de WhatsApp sin usar, todas del mismo número
+`Lefranm Beaute ok (1570246936970929)`:
+
+| ID | Nombre | Uso |
+|---|---|---|
+| 9795318 | LEFRAN CATALOGO | ninguno |
+| 9795807 | LEFRAN CITAS | ninguno |
+| 9880453 | LEFRANM CITAS | ninguno |
+| 9880986 | LEFRANM CITASS | ninguno |
+| **9795431** | **Lefran Cosmeticos** | **5587862 y 5866647** |
+
+Y `9908117` (`LEFRANM CITAS OFICIAL`, número `salud y belleza`) es la que
+usan los dos escenarios de citas. También sobra `6108362`
+(`My Airtable Token NARANJO`), expirada desde el 31 de enero y sin uso.
+
+## 4. `5587862_v6.FINAL.json`
+
+Construido sobre el blueprint vivo, con dos cambios y nada más:
+
+| Cambio | Detalle |
+|---|---|
+| 14 manejadores `onerror` nuevos | ids 301–314, sobre los módulos 12, 41, 42, 43, 50, 51, 60, 61, 70, 71, 101, 105, 106, 201 |
+| 2 campos `document.link` | módulos 61 y 43 |
+
+Verificado contra el vivo:
+
+| Comprobación | Resultado |
+|---|---|
+| Módulos preexistentes cuyo cuerpo cambia | **solo 43 y 61**, y solo su `mapper` |
+| Conexiones | `10484205, 6001715, 6485517, 9795431` — iguales |
+| Webhook | `2547718` — igual |
+| `scheduling` | `immediately, 100/min` — igual |
+| Nombre | `LEFRANM COSMETICOS CORECTA (copy)` — igual |
+| `systemPrompt` y los 4 prompts | `sha256` idénticos |
+| Total de `onerror` | 2 → **16** |
+
+### La fórmula se desarma sola
+
+```
+{{if(substring("PEGA_AQUI_TU_API_KEY"; 0; 4) = "AIza";
+     replace(trim(60.pdf_url); "<url vieja>"; "<url nueva>") + "?alt=media&key=" + "PEGA_AQUI_TU_API_KEY";
+     trim(60.pdf_url))}}
+```
+
+Mientras el marcador siga ahí, `substring(...) = "AIza"` es falso y se usa
+la URL de siempre: **el escenario se comporta exactamente como hoy**. En
+cuanto se sustituye el marcador por una clave real de Google (todas empiezan
+con `AIza`), la condición se vuelve verdadera y cambia sola a la URL de la
+API de Drive, que entrega `application/pdf`.
+
+O sea que se puede importar hoy sin clave, sin riesgo, y activar el arreglo
+del MIME después.
+
+Simulado en los cuatro casos —con y sin clave, con y sin espacio al final de
+la URL— y da el resultado correcto en los cuatro.
+
+### Por qué no se subió por API
+
+El blueprint son 68,319 caracteres, de los cuales **36,433 son el
+`systemPrompt`** con el catálogo y los precios dentro. `scenarios_update`
+reemplaza el blueprint entero, así que subirlo por API obliga a transcribir
+ese prompt carácter por carácter. Sobre un bot de ventas en vivo eso no vale
+la pena: el import por archivo desde la interfaz de Make es byte-exacto.
+
+> Al importar, hacerlo **dentro del escenario** (abrir 5587862 → menú "…" →
+> *Import Blueprint*), nunca desde la lista de escenarios. Desde la lista,
+> Make crea un escenario nuevo con un webhook nuevo — es exactamente lo que
+> pasó el 30 de agosto y dejó el huérfano `LEFRANM CITASS V2`.
+>
+> Make además reinicia el `scheduling` al importar. Después del import hay
+> que confirmar que siga en *Immediately*.
