@@ -438,3 +438,124 @@ autorizado contra la otra cuenta/zona.
 aplicar `5587862_v4.blindado.json`, ni revisar el estado de la conexión
 `LEFRAN CATALOGO`. Para recuperarlo hay que volver a autorizar el conector de
 Make contra la cuenta donde está Lefranm.
+
+---
+
+# Verificación de `5587862_v4.blindado.json` (12 sep 2026)
+
+Contrastado módulo por módulo contra `5587862_v3.actual.json`:
+
+| Comprobación | Resultado |
+|---|---|
+| JSON válido | sí |
+| Módulos principales | 20 en ambos, mismos IDs |
+| Manejadores `onerror` | 2 → **16** (14 nuevos) |
+| `systemPrompt` módulo 12 | 36,433 chars, `sha256 4cc058e0…` **idéntico** |
+| Prompts módulos 70 / 60 / 42 / 41 | idénticos (826 / 914 / 1506 / 1289 chars) |
+| Conexiones | `10484205, 6001715, 6485517, 9880453` — iguales |
+| Webhook | `2567974` — igual |
+| Mappers modificados | **ninguno** |
+| Filtros modificados | **ninguno** |
+
+Se puede importar con confianza: solo agrega manejadores de error.
+
+## Hallazgo: `LEFRAN CATALOGO` ya no aparece en este escenario
+
+Las cuatro conexiones del blueprint son `10484205` (Gmail), `6001715`
+(OpenAI), `6485517` (Airtable) y `9880453` (WhatsApp). **La conexión rota
+`9795318` (`LEFRAN CATALOGO`) no está.** Los tres módulos de WhatsApp —38
+(texto), 61 (catálogo/fichas) y 43 (listas)— usan los tres `9880453`.
+
+Si el blueprint capturado refleja el estado vivo, esa conexión rota ya dejó
+de ser un problema para 5587862. No se pudo confirmar contra Make porque el
+token de API ya no alcanza esa cuenta.
+
+---
+
+# Arreglo del MIME sin mover los PDF de Drive
+
+`www.googleapis.com` **sí** responde desde este entorno (a diferencia de
+`drive.google.com`, que el proxy bloquea). El endpoint de la API de Drive
+
+```
+https://www.googleapis.com/drive/v3/files/FILE_ID?alt=media&key=API_KEY
+```
+
+entrega el archivo con su `Content-Type` real —`application/pdf`— en vez de
+`application/octet-stream`. Probado sin credenciales devuelve
+`403 Method doesn't allow unregistered callers`, o sea que el endpoint está
+vivo y lo único que falta es una API key.
+
+**Los seis PDF ya cumplen el requisito:** `get_file_permissions` devuelve
+`{"role":"reader","type":"anyone"}` en los seis. Son públicos por link.
+
+Ventajas sobre rehospedar: los archivos se quedan en Drive, no hay que
+subir nada, no caduca nada, y **no aplica el corte de 25 MB** de la página
+de análisis de virus, así que sirve igual para el catálogo de 71.6 MB.
+
+## Por qué basta con cambiar dos campos
+
+El agente nunca le enseña la URL al cliente. La emite como marca interna al
+final de su respuesta:
+
+```
+[ENVIAR_ARCHIVO: <url> | <archivo>.pdf]
+```
+
+y el prompt dice textualmente *"el cliente nunca debe ver esta línea, un
+proceso interno la retira antes de enviar tu mensaje"*. El módulo 60 la
+extrae a `pdf_url` / `pdf_filename`.
+
+Por eso no hace falta tocar el `systemPrompt` (36,433 chars, con 8 URLs
+dentro): basta con reescribir la URL en el momento del envío, en los dos
+módulos que mandan documentos.
+
+### Módulo 61 — campo `document.link`
+
+```
+{{replace(trim(60.pdf_url); "https://drive.google.com/uc?export=download&id="; "https://www.googleapis.com/drive/v3/files/")}}?alt=media&key=TU_API_KEY
+```
+
+### Módulo 43 — campo `document.link`
+
+Se envuelve el `if()` que ya existe, sin tocarlo por dentro:
+
+```
+{{replace(trim(<el if() actual, sin las llaves>); "https://drive.google.com/uc?export=download&id="; "https://www.googleapis.com/drive/v3/files/")}}?alt=media&key=TU_API_KEY
+```
+
+El `trim()` además corrige un riesgo latente: si el agente deja un espacio
+al final de la URL, hoy se manda con el espacio pegado.
+
+## Cómo sacar la API key
+
+1. `console.cloud.google.com` → crear un proyecto.
+2. *APIs y servicios → Biblioteca* → buscar **Google Drive API** → Habilitar.
+3. *Credenciales → Crear credenciales → Clave de API*.
+4. Restringirla a **Google Drive API** (botón *Restringir clave*).
+
+Es gratis. La cuota de la API de Drive (20,000 peticiones por 100 s) queda
+lejísimos del volumen de este bot.
+
+## `5587862_v5.pdf-mime-fix.PLANTILLA.json`
+
+Es `v4` con esos dos campos ya reescritos, pero con el literal
+`PEGA_AQUI_TU_API_KEY` en lugar de la clave.
+
+> ⚠️ **No importar tal cual.** Sin la clave real, los seis PDF responderían
+> 403 y el cliente no recibiría nada — peor que hoy, donde al menos llegan
+> aunque salgan como `BIN`. Hay que sustituir las dos apariciones de
+> `PEGA_AQUI_TU_API_KEY` antes de importar.
+
+Diff contra `v4`, verificado: **cambian exactamente dos claves**,
+`61.mapper.document.link` y `43.mapper.document.link`. El router 90 aparece
+distinto solo porque contiene a esos dos como hijos; en sí mismo es
+idéntico. `systemPrompt` intacto (`sha256 4cc058e0…`), conexiones intactas,
+webhook intacto, los 16 `onerror` intactos.
+
+## Esto no quita que haya que comprimir
+
+El arreglo de MIME hace que el PDF **abra**. No hace que pese menos. El
+catálogo de 71.6 MB y las fichas de 40.9 MB siguen siendo descargas que
+mucha gente va a abandonar por datos móviles. Las dos cosas son
+independientes y las dos hacen falta.
