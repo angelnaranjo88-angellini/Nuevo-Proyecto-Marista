@@ -725,3 +725,47 @@ Eso no contradice el diagnóstico, lo confirma:
 
 Si el archivo estuviera corrupto o mal generado fallaría en ambas
 plataformas. Que falle solo donde el MIME decide es la firma de este defecto.
+
+---
+
+# La API de Drive entrega `application/pdf` — comprobado
+
+Con la clave de Google ya creada se probaron los seis archivos contra
+`https://www.googleapis.com/drive/v3/files/<ID>?alt=media&key=<clave>`
+usando una petición de rango de 2 bytes (no baja el PDF entero):
+
+| Archivo | HTTP | Content-Type |
+|---|---|---|
+| Catálogo Lefranm Interactivo (71.6 MiB) | 206 | `application/pdf` |
+| Fichas Tecnicas (40.9 MiB) | 206 | `application/pdf` |
+| Lista Azul | 206 | `application/pdf` |
+| Lista Verde | 206 | `application/pdf` |
+| Lista Roja | 206 | `application/pdf` |
+| Kit distribuidor | 206 | `application/pdf` |
+
+Los primeros bytes de los dos archivos grandes son `%PDF-1.6`, así que no es
+una página intermedia de Google: son los PDF de verdad.
+
+**Esto despeja la duda que quedaba abierta**: el corte de 25 MB de la página
+de análisis de virus aplica al endpoint `uc?export=download`, no a la API.
+El catálogo de 71.6 MB pasa igual.
+
+## `5587862_v7.mime-activo.json`
+
+Generado sustituyendo las 4 apariciones del marcador por la clave real.
+Verificado contra el blueprint vivo post-import:
+
+| Comprobación | Resultado |
+|---|---|
+| Módulos que cambian | **solo 43 y 61** |
+| Marcador `PEGA_AQUI_...` restante | 0 |
+| Webhook | `2547718` |
+| Conexiones | `10484205, 6001715, 6485517, 9795431` |
+| Scheduling | `immediately, 100/min` |
+| Manejadores `onerror` | 16 |
+| `systemPrompt` | 36,433 chars, `sha256 4cc058e0…` |
+
+> **Este archivo no se versiona.** Lleva la API key dentro, así que está en
+> `.gitignore` (`make-backups/*.mime-activo.json`). Se entregó directamente
+> al usuario. Si hiciera falta regenerarlo, se reconstruye desde
+> `5587862_post-import.json` sustituyendo el marcador.
