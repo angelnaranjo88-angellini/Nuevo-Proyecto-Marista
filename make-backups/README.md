@@ -284,3 +284,157 @@ un tope de 1,000 llamadas/mes del plan gratuito.
 
 Conviene revisar el contador de API del workspace **ASISTENTE** en Airtable
 antes de que reviente igual.
+
+---
+
+# Los PDF llegan a WhatsApp como `BIN` en vez de PDF
+
+**Síntoma reportado por el cliente (12 sep 2026):** el catálogo principal no
+abre directo en el teléfono. WhatsApp lo muestra como
+
+```
+Catalogo-Lefranm.pdf
+75 MB  •  BIN
+```
+
+y al tocarlo Android ofrece "Abrir con → Billetera de Google / Google /
+vista previa de archivo", ninguna de las cuales lee PDF. De ahí el error de
+Google AR que mandó el cliente.
+
+## Causa
+
+`BIN` es la etiqueta que pone WhatsApp cuando recibe
+`Content-Type: application/octet-stream`.
+
+Los dos módulos que mandan documentos usan URLs de Drive con el endpoint de
+descarga:
+
+| Módulo | Qué manda | Origen del link |
+|---|---|---|
+| 61 | catálogo / fichas (lo elige el agente) | `{{60.pdf_url}}` |
+| 43 | listas de precios (roja / verde / azul) | URLs fijas en el mapper |
+
+Todas con la forma:
+
+```
+https://drive.google.com/uc?export=download&id=FILE_ID
+```
+
+`uc?export=download` es un endpoint de **descarga**, no de publicación.
+Responde a propósito con `Content-Type: application/octet-stream` y
+`Content-Disposition: attachment` para que el navegador guarde el archivo en
+vez de abrirlo. WhatsApp copia ese Content-Type tal cual al mensaje.
+
+La extensión `.pdf` del nombre no salva nada: Android decide con qué app
+abrir según el MIME, no según el nombre.
+
+**Los archivos están bien.** En Drive los seis son `application/pdf`
+correctos. Lo que está mal es la URL por la que se entregan.
+
+## Inventario real de los PDF (metadata de Drive, 12 sep 2026)
+
+| Archivo | ID | Bytes | Tamaño |
+|---|---|---:|---:|
+| Catálogo Lefranm Interactivo.pdf | `1bNnhW8Z_paykFNKXOLYppF8xNlT8NWp5` | 75,057,202 | **71.6 MiB** |
+| Fichas Tecnicas Lefranm.pdf | `1R8sErJz0sethdGPSlKiDjeJT-ZSTH1e0` | 42,886,202 | **40.9 MiB** |
+| Lista de Precios Mayor a 10,000.pdf | `19XRzcbYiqsGX_szuwpQvq6guRTMv-mYu` | 691,863 | 676 KiB |
+| Lista-de-Precios-Cosmetologas-y-Esteticas.pdf | `1g7e4AnE-EMsfbOxcC0xeadmk-lxaV8Hg` | 689,658 | 673 KiB |
+| Lista de Precios al Público.pdf | `1T6SQKhXpbM_w05v8pCAY89nEQd1hCoxC` | 686,156 | 670 KiB |
+| Kit de distribuidor inical 25 productos.pdf | `1THmrKQt7_s67amVE9ptjC_bfGXdaLkNR` | 200,218 | 195 KiB |
+
+Todos en la carpeta `1u7-YJ8P96xlmG5iSyeo07ABPrqiWqOfq`.
+
+## Segundo problema, independiente del MIME: el peso
+
+El catálogo pesa **110 veces** más que una lista de precios. Aunque se
+arregle el Content-Type, 71.6 MiB por datos móviles es una descarga que
+mucha gente va a abandonar o que se va a cortar. El tope de WhatsApp Cloud
+API para documentos es 100 MB, así que pasa raspando.
+
+Objetivo razonable para un catálogo: **4-8 MB**. El peso casi siempre viene
+de imágenes incrustadas a 300 dpi; reexportar a calidad web lo resuelve.
+
+Los dos archivos que hay que comprimir son el catálogo (71.6 MiB) y las
+fichas técnicas (40.9 MiB). Los otros cuatro ya están bien de tamaño.
+
+## Arreglos posibles
+
+### A. Hospedar los PDF fuera de Drive (recomendado)
+
+Cualquier servidor web normal sirve un `.pdf` como `application/pdf`. El
+sitio propio, `www.cosmeticoslefranm.com`, es Wix (se ve por las rutas
+`/product-page/...` que ya aparecen ~14 veces en el prompt del agente). El
+Administrador de medios de Wix hospeda documentos y entrega URLs
+`...filesusr.com/ugd/....pdf` que sí declaran `application/pdf`.
+
+Una vez subidos, se cambian las URLs en los módulos 61 y 43. Sin caducidad,
+sin mantenimiento.
+
+### B. Mandar por `media_id` en vez de `link`
+
+La app de WhatsApp Business Cloud en Make tiene el módulo
+`uploadMedia` ("Upload a Media"), que permite declarar el MIME explícito.
+Se sube el PDF una vez, WhatsApp devuelve un `media_id`, y el módulo de
+envío usa `document.id` en lugar de `document.link`.
+
+Ventaja: el MIME queda garantizado y ya no depende de ningún host externo.
+Desventaja: WhatsApp conserva los archivos subidos **30 días**, así que hay
+que volver a subirlos con un escenario mensual. Es mantenimiento recurrente.
+
+### C. Probar `export=view` (rápido, pero no sirve para los grandes)
+
+```
+https://drive.usercontent.google.com/uc?id=FILE_ID&export=view
+```
+
+`export=view` pide a Drive que sirva el archivo en línea con su Content-Type
+real en vez de forzar descarga. **Sin verificar:** este entorno tiene
+`drive.google.com` bloqueado por el proxy (403 en CONNECT), así que no se
+pudieron leer las cabeceras HTTP desde aquí. Cuesta dos minutos probarlo con
+una lista de precios.
+
+Aunque funcione, **no sirve para el catálogo ni para las fichas**: arriba de
+25 MB Drive mete una página intermedia de "no se pudo analizar en busca de
+virus" en vez del archivo.
+
+## Orden recomendado
+
+1. Comprimir catálogo y fichas técnicas a 4-8 MB. Esto hay que hacerlo
+   con cualquiera de los tres arreglos.
+2. Rehospedar (opción A) o probar `export=view` (opción C) en una lista de
+   precios chica para confirmar el diagnóstico.
+3. Cambiar las URLs en los módulos 61 y 43.
+
+---
+
+# Se perdió el acceso de API a la cuenta de Make de Lefranm
+
+**Detectado el 12 sep 2026.** El conector de Make ya no apunta a la cuenta
+donde viven los escenarios de Lefranm.
+
+`environment_get` devuelve ahora:
+
+```
+zona:         eu2.make.com
+organización: 5601227  "My Organization"
+equipo:       2904200  "My Team"
+```
+
+Ese equipo contiene los escenarios de **Tersil** (`Asistente Tersil`,
+`Asistente Tersil V2`, `Tersil - Seguimiento 10 h`, ...), no los de Lefranm.
+
+Lefranm vive en organización **5357289** / equipo **1436402**, que este token
+ya no alcanza. Cualquier llamada contra 1436402 responde:
+
+```
+MakeApiError: Insufficient rights, admin permission "organization view" is needed.
+```
+
+`users_me` sí funciona y devuelve la misma persona
+(`bombochoabril@gmail.com`), o sea que el token es válido — simplemente está
+autorizado contra la otra cuenta/zona.
+
+**Consecuencia:** desde aquí ya no se puede leer el blueprint de 5587862, ni
+aplicar `5587862_v4.blindado.json`, ni revisar el estado de la conexión
+`LEFRAN CATALOGO`. Para recuperarlo hay que volver a autorizar el conector de
+Make contra la cuenta donde está Lefranm.
