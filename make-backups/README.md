@@ -906,3 +906,65 @@ python3 -I buenfin/aplicar.py ID_PRODUCTOS ID_CONOTERAPIA ID_VENTOSAS ID_PIERNAS
 
 Los textos de los bloques están en `buenfin/bloque_citas.txt` y
 `buenfin/bloque_cosmeticos.txt`, con marcadores `PLACEHOLDER_*` para las URLs.
+
+## Verificación post-import — 7 nov 2026
+
+Ambos escenarios importados por el usuario y contrastados contra lo enviado.
+
+| | CITAS 5645150 | COSMÉTICOS 5587862 |
+|---|---|---|
+| Módulos | 24 = 24 | 36 = 36 |
+| Faltantes / extra | ninguno | ninguno |
+| Módulos distintos | solo el 3, en `metadata` | **ninguno** |
+| Webhook | `2574977` ✓ | `2547718` ✓ |
+| Conexiones | sin cambio ✓ | sin cambio ✓ |
+| `onerror` | 11 = 11 ✓ | 17 = 17 ✓ |
+| `systemPrompt` | `sha b782113f` idéntico ✓ | bloque presente ✓ |
+| Marcadores sin reemplazar | 0 | 0 |
+
+La diferencia del módulo 3 es solo `metadata` (2410 → 2297 chars), el
+descriptor de interfaz que Make regenera al importar. El `systemPrompt` tiene
+el mismo `sha256` en ambos lados, así que el comportamiento no cambia.
+
+### Make volvió a reiniciar el scheduling
+
+Los dos quedaron en `{"type":"indefinitely","interval":900}` tras el import —
+sondeo cada 15 minutos en vez de responder al instante. Es la tercera vez que
+pasa en este proyecto. Corregido por API en los dos:
+
+```
+scenarios_update(5645150, scheduling={"type":"immediately"})
+scenarios_update(5587862, scheduling={"type":"immediately"})
+```
+
+Confirmado `"scheduling": {"type": "immediately"}` y `"isActive": true` en los
+dos. **Revisar esto siempre después de cada import.**
+
+### Contenido vivo confirmado
+
+**Citas**: los dos bloques de promociones conviven; 10 URLs `lh3` en el prompt
+(6 de octubre + 4 del Buen Fin); módulo 17 con los campos `link_imagen` y
+`Text` y reconociendo `[ENVIAR_IMAGEN:]`; módulo 4 con el filtro *"Hay texto
+que enviar"*; módulo 19 intacto y ya con manejador de error. Once módulos con
+`onerror`: 3, 4, 17, 19, 30, 31, 32, 34, 40, 50, 51.
+
+**Cosméticos**: bloque del Buen Fin con el 15% y el 10%; módulo 60 con el
+cuarto parámetro `promo_img_url`; módulo 62 nuevo (`type: image`, conexión
+`9795431`, filtro sobre `promo_img_url`, con `onerror`); router 90 con 5 rutas.
+
+### Errores
+
+- **Cosméticos**: el más reciente es del **20 de octubre** (Airtable 429), y
+  Airtable ya no está en el escenario. Cero errores desde entonces.
+- **Citas**: el más reciente seguía siendo el `text.body is required` del
+  1 de noviembre, que es justo lo que corrige la cascada `ifempty` del
+  módulo 4.
+
+Ninguno nuevo después del import.
+
+### Lo que no se pudo verificar desde la sesión
+
+Que las URLs `lh3.googleusercontent.com` resuelvan: el proxy del entorno
+bloquea ese host. Lo que sí está comprobado es que los cinco archivos son
+públicos y devuelven `image/jpeg` por la API de Drive, que es la misma
+condición que cumplen las seis imágenes de octubre que ya funcionan.
