@@ -38,8 +38,9 @@ el total *antes* de armar la ficha, y la sección `FICHA DE COMPRA` volvía a
 preguntar *"¿Confirma que toda la información es correcta...?"* después. El
 cliente decía que sí dos veces para lo mismo.
 
-**3. El correo electrónico era obligatorio** para envío a domicilio. El escenario
-no lo usa para nada: el correo que sale (módulo 105) va al dueño, no al cliente.
+**3. El correo electrónico se pedía en un mensaje aparte.** El dato sí se
+necesita (el dueño manda por ahí el rastreo del paquete), pero preguntarlo solo
+costaba una ida y vuelta más. Ahora va dentro de la misma plantilla.
 
 **4. Se respondía una pregunta con otra pregunta.** `DETECCIÓN DE INTENCIÓN`
 era *"paso obligatorio al iniciar una venta"*. Si alguien escribía "¿cuánto
@@ -60,7 +61,7 @@ comprado tres veces dictaba su dirección completa las tres veces.
 | 1 | Excepción de checkout en ESTILO DE MENSAJE | los datos de envío se piden en **un solo mensaje** |
 | 2 | DETECCIÓN DE INTENCIÓN | si ya preguntaron un precio, **se contesta primero** |
 | 3 | FORMA DE ENTREGA | plantilla para copiar y llenar de un jalón |
-| 4 | DATOS QUE DEBES RECOPILAR | sin teléfono, sin correo, **sin doble confirmación** |
+| 4 | DATOS QUE DEBES RECOPILAR | sin teléfono, **sin doble confirmación** |
 | 5 | FICHA DE COMPRA | dirección en una línea en vez de siete campos |
 | 6 | Nota de omisión de la ficha | coherente con lo anterior |
 | 7 | Buen Fin regla 4 | los dos totales **una vez**, no en cada cotización |
@@ -77,6 +78,7 @@ Calle y número:
 Colonia:
 C.P.:
 Ciudad y estado:
+Correo electrónico:
 Referencias (opcional):
 ```
 
@@ -133,8 +135,14 @@ manejadores de error, sin cambio. `systemPrompt`: 41,211 → 43,282 chars.
 
 ## Decisiones que conviene revisar
 
-**El correo electrónico ya no se pide.** El escenario no lo usaba. Si la
-paquetería lo necesita para generar la guía, hay que devolverlo — es una línea.
+**El correo electrónico se conserva.** El dueño lo usa para mandarle al cliente
+los datos de rastreo del paquete. Se quitó de donde costaba un mensaje aparte y
+se metió DENTRO de la plantilla, así que no cuesta ninguna ida y vuelta extra:
+el cliente lo escribe junto con lo demás. En la Ficha de Compra tiene su propia
+línea (`📧 Correo electrónico:`) para que el equipo lo copie de un jalón.
+
+En recolección en sucursal sigue sin pedirse, porque no hay nada que rastrear.
+Si el dueño lo quiere también ahí, es una línea.
 
 **Las referencias pasaron a opcionales.** Siguen en la plantilla marcadas como
 tales y, si el cliente las escribe, aparecen en la ficha.
