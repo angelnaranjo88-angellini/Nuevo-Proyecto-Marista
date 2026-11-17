@@ -133,3 +133,58 @@ Módulos modificados respecto a `compra-simple`: **solo el 12**. Webhook
 — sin cambio. Catálogo (93 referencias), CLABE, Kit, Buen Fin, tarifas de
 envío, modo cotizador, regla de cabina, devoluciones y las marcas internas:
 intactos.
+
+---
+
+## Verificación post-import — 17 nov 2026
+
+| | enviado | vivo |
+|---|---:|---:|
+| Módulos | 42 | 42 |
+| Faltantes / extra | — | ninguno |
+| Módulos distintos | — | **ninguno** |
+| `onerror` | 20 | 20 |
+| `systemPrompt` | 46,534 | 46,534 |
+
+Flujo vivo: `1 → 2 → 101 → 200 → 500 → 501 → 502 → 12 → 70 → 60 → 42 → 38 → 90`
+
+Módulos nuevos confirmados en el escenario:
+
+| | App | Conexión | Config |
+|---|---|---|---|
+| 500 | `whatsapp-business-cloud:getMedia` | 9795431 | `mediaId = ifempty(image.id; audio.id)` |
+| 501 | `openai-gpt-3:analyzeImages` | 6001715 | `gpt-5.2`, imagen desde `{{500.mediaData}}` |
+| 502 | `openai-gpt-3:CreateTranscription` | 6001715 | `gpt-4o-mini-transcribe`, archivo desde el 500 |
+
+Los tres con su manejador `Resume`. El `message` del módulo 12 usa `502.text` y
+`501.result`. El módulo 101 arrastra `direccion_envio` y `correo`.
+
+Webhook `2547718` y conexiones sin cambio. **Esta vez Make NO reinició el
+scheduling**: quedó en `immediately, 100/min` sin tener que corregirlo.
+
+### El costo medido coincide con lo estimado
+
+Ejecuciones de hoy, todas `status 1`:
+
+| Hora (UTC) | Operaciones | |
+|---|---:|---|
+| 15:45 | 11 | antes del import |
+| 16:08 | 10 | antes del import |
+| 16:09 | 10 | antes del import |
+| 16:44 | 12 | antes del import |
+| **16:51** | **13** | **primera con los módulos nuevos** |
+
+De 10 a 13 operaciones: exactamente las +3 previstas. Esa ejecución fue de un
+mensaje de texto, donde los tres módulos nuevos corren y fallan sin
+consecuencia — justo el caso que cuesta operaciones sin dar nada a cambio.
+
+**Cero errores hoy** (`executions_list` con `status=3` desde el 17 de nov
+devuelve lista vacía).
+
+### Falta la prueba real
+
+Que el import esté exacto no prueba que la visión y la transcripción funcionen
+de punta a punta: eso solo se ve mandando una foto y un audio de verdad. Las
+configuraciones pasaron el validador de Make y los modelos salieron del
+catálogo real de la cuenta, pero `getMedia` descargando un archivo real de
+WhatsApp y pasándoselo a OpenAI no se puede simular desde aquí.
