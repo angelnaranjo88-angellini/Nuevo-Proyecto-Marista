@@ -1122,3 +1122,33 @@ tales y, si el cliente las escribe, aparecen en la ficha.
 
 **El bloque del Buen Fin sigue vigente.** Termina en noviembre; su propia
 cabecera dice que se borre completo al terminar.
+
+---
+
+## Refuerzo de la regla "contesta primero" — 17 nov 2026
+
+El usuario probó con *"cuanto cuesta la crema limpiadora?"* y el bot contestó
+*"¿Su compra es para uso personal o busca precio de cosmetóloga/distribuidora?"*,
+sin dar el precio.
+
+**El archivo no estaba importado.** El `systemPrompt` vivo seguía en 41,211
+chars (la versión nueva son 43,710) y ninguna de las nueve ediciones aparecía.
+El bot hizo exactamente lo que decía el prompt viejo.
+
+Aun así se reforzó la regla antes de reimportar, porque el encabezado de la
+sección seguía diciendo lo contrario de lo que el cuerpo pedía:
+
+| | antes | después |
+|---|---|---|
+| Encabezado | `DETECCIÓN DE INTENCIÓN (paso obligatorio al iniciar una venta, ...)` | `DETECCIÓN DE INTENCIÓN (NUNCA antes de contestar lo que el cliente preguntó)` |
+
+Un encabezado que dice "paso obligatorio al iniciar una venta" pesa más que un
+párrafo que lo matiza. Se agregaron además dos ejemplos trabajados —uno de lo
+que sí y otro de lo que no— con el caso real de la queja, porque un ejemplo
+concreto se obedece mejor que una regla abstracta.
+
+El precio del ejemplo ($448, Crema Limpiadora lista azul) se verificó contra el
+catálogo: `LF-001 | Crema Limpiadora | 160g | $448 | $291 | $224`.
+
+`systemPrompt`: 41,211 → 44,246 chars. Once ediciones en ocho bloques de
+cambio. Catálogo, CLABE, Buen Fin, tarifas y marcas internas: sin cambio.
